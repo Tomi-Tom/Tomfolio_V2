@@ -6,3 +6,4 @@ postgres_data/
 .vite/
 *.log
 .idea/
+tomfolio-frontend/
