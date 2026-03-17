@@ -19,9 +19,10 @@ model User {
   avatarUrl     String?
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
-  messages      Message[]
-  userData      UserData[]
-  refreshTokens RefreshToken[]
+  messages        Message[]
+  userData        UserData[]
+  refreshTokens   RefreshToken[]
+  clientProjects  ClientProject[]
 }
 
 enum Role {
@@ -126,6 +127,44 @@ model UserData {
   updatedAt DateTime @updatedAt
 
   @@unique([userId, key])
+}
+
+model ClientProject {
+  id          String              @id @default(uuid())
+  title       String
+  description String
+  status      ClientProjectStatus @default(QUOTE_PENDING)
+  price       Float?
+  currency    String              @default("EUR")
+  startDate   DateTime?
+  endDate     DateTime?
+  clientId    String
+  client      User                @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  updates     ProjectUpdate[]
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@index([clientId])
+}
+
+enum ClientProjectStatus {
+  QUOTE_PENDING
+  QUOTE_ACCEPTED
+  QUOTE_REJECTED
+  IN_PROGRESS
+  REVIEW
+  COMPLETED
+  CANCELLED
+}
+
+model ProjectUpdate {
+  id              String        @id @default(uuid())
+  clientProjectId String
+  clientProject   ClientProject @relation(fields: [clientProjectId], references: [id], onDelete: Cascade)
+  content         String
+  imageUrls       String[]
+  links           String[]
+  createdAt       DateTime      @default(now())
 }
 
 model PageView {

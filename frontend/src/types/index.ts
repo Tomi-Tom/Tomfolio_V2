@@ -90,6 +90,40 @@ export interface PaginatedResponse<T> {
   };
 }
 
+export type ClientProjectStatus =
+  | "QUOTE_PENDING"
+  | "QUOTE_ACCEPTED"
+  | "QUOTE_REJECTED"
+  | "IN_PROGRESS"
+  | "REVIEW"
+  | "COMPLETED"
+  | "CANCELLED";
+
+export interface ClientProject {
+  id: string;
+  title: string;
+  description: string;
+  status: ClientProjectStatus;
+  price: number | null;
+  currency: string;
+  startDate: string | null;
+  endDate: string | null;
+  clientId: string;
+  client?: User;
+  updates?: ProjectUpdate[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ProjectUpdate {
+  id: string;
+  clientProjectId: string;
+  content: string;
+  imageUrls: string[];
+  links: string[];
+  createdAt: string;
+}
+
 export interface ApiError {
   error: {
     code: string;
