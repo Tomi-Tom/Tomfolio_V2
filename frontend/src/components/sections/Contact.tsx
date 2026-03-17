@@ -286,9 +286,9 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="hud-caption text-text-dim mb-1">Location</p>
-                    <p className="text-text-secondary">Seoul, South Korea</p>
+                    <p className="text-text-secondary">Paris, France</p>
                     <p className="font-mono text-[0.65rem] text-[var(--gold-dim)] mt-1 tracking-wider">
-                      37.5665&deg; N, 126.9780&deg; E
+                      48.8566&deg; N, 2.3522&deg; E
                     </p>
                   </div>
                 </div>
@@ -321,16 +321,16 @@ export function Contact() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="font-mono text-xs text-[var(--gold-dim)]">LAT</p>
-                    <p className="font-mono text-lg text-text-primary tracking-wider">37.5665&deg;</p>
+                    <p className="font-mono text-lg text-text-primary tracking-wider">48.8566&deg;</p>
                   </div>
                   <div>
                     <p className="font-mono text-xs text-[var(--gold-dim)]">LNG</p>
-                    <p className="font-mono text-lg text-text-primary tracking-wider">126.9780&deg;</p>
+                    <p className="font-mono text-lg text-text-primary tracking-wider">2.3522&deg;</p>
                   </div>
                 </div>
                 <div className="mt-3 h-px bg-gradient-to-r from-[var(--gold-dim)] via-[var(--border)] to-transparent" />
                 <p className="mt-3 text-xs text-text-dim font-mono tracking-wider">
-                  SEOUL // KST (UTC+9)
+                  PARIS // CET (UTC+1)
                 </p>
               </div>
             </div>

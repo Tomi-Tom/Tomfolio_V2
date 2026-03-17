@@ -20,7 +20,7 @@ const fadeUp = {
 
 const stats = [
   {
-    value: "Epitech Seoul",
+    value: "Epitech Paris",
     label: "Education",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -50,7 +50,7 @@ const stats = [
     ),
   },
   {
-    value: "Seoul, KR",
+    value: "Paris, FR",
     label: "Location",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -144,7 +144,7 @@ export function About() {
               variants={fadeUp}
               className="text-text-secondary leading-[1.8] text-[0.95rem]"
             >
-              I&apos;m a UX/UI designer and web developer based in Seoul,
+              I&apos;m a UX/UI designer and web developer based in Paris,
               combining design precision with technical craft. I build digital
               experiences that feel alive — from interactive web apps to
               immersive 3D interfaces.
@@ -165,7 +165,7 @@ export function About() {
               variants={fadeUp}
               className="text-text-dim text-sm leading-relaxed border-l-2 border-[var(--gold-dim)] pl-4 italic"
             >
-              Currently based in Seoul, working at the intersection of design
+              Currently based in Paris, working at the intersection of design
               thinking and modern web technology.
             </motion.p>
           </div>

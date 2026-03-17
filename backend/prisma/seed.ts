@@ -75,11 +75,12 @@ async function main() {
     { name: "REST APIs", level: 4, category: "BACKEND" as const, status: "PROFICIENT" as const, sortOrder: 16 },
     { name: "CI/CD", level: 2, category: "BACKEND" as const, status: "PROFICIENT" as const, sortOrder: 17 },
     // Exploring
-    { name: "Next.js", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 18 },
-    { name: "Rust", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 19 },
-    { name: "WebGL", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 20 },
-    { name: "AI Integration", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 21 },
-    { name: "Docker", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 22 },
+    { name: "Next.js", level: 4, category: "FRONTEND" as const, status: "PROFICIENT" as const, sortOrder: 18 },
+    { name: "Docker", level: 3, category: "DEVOPS" as const, status: "PROFICIENT" as const, sortOrder: 19 },
+    // Exploring
+    { name: "Rust", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 20 },
+    { name: "WebGL", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 21 },
+    { name: "AI Integration", level: 1, category: "OTHER" as const, status: "EXPLORING" as const, sortOrder: 22 },
   ];
 
   await prisma.skill.createMany({ data: skills });
