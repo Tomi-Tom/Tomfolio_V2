@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
+import { useAuth } from "@/hooks/useAuth";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function StatusBar() {
   const { progress } = useScrollProgress();
+  const { user, isAuthenticated, isAdmin, isLoading } = useAuth();
 
   const bgOpacity = Math.min(progress * 5, 0.95);
   const blurAmount = Math.min(progress * 50, 10);
@@ -39,8 +41,25 @@ export function StatusBar() {
         </span>
       </div>
 
-      {/* Right: Theme toggle */}
+      {/* Right: Theme toggle + Auth */}
       <div className="flex items-center gap-2">
+        {!isLoading && (
+          isAuthenticated ? (
+            <Link
+              href={isAdmin ? "/admin" : "/dashboard"}
+              className="hud-caption text-[var(--gold-dim)] hover:text-[var(--text-primary)] transition-colors"
+            >
+              {user?.firstName}
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="hud-caption text-[var(--gold-dim)] hover:text-[var(--text-primary)] transition-colors"
+            >
+              Sign in
+            </Link>
+          )
+        )}
         <ThemeToggle />
       </div>
     </header>
