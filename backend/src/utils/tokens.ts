@@ -9,7 +9,11 @@ export function generateAccessToken(userId: string, role: string): string {
 }
 
 export function generateRefreshToken(userId: string): string {
-  return jwt.sign({ sub: userId }, JWT_REFRESH_SECRET, { expiresIn: '7d' });
+  return jwt.sign(
+    { sub: userId, jti: crypto.randomUUID() },
+    JWT_REFRESH_SECRET,
+    { expiresIn: '7d' }
+  );
 }
 
 export function verifyAccessToken(token: string): jwt.JwtPayload {
