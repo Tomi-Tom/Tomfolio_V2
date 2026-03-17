@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import type { Project } from "@/types";
@@ -54,13 +54,13 @@ export function Projects({ projects }: ProjectsProps) {
         </motion.div>
 
         {/* Tag filter bar */}
-        <motion.div custom={1} variants={fadeUp} className="mt-8 flex flex-wrap gap-2">
+        <motion.div custom={1} variants={fadeUp} className="mt-10 flex flex-wrap gap-2">
           <button
             onClick={() => setActiveTag(null)}
-            className={`text-xs px-3 py-1 rounded-full border transition ${
+            className={`text-xs px-4 py-1.5 rounded-full border font-medium tracking-wide transition-all duration-300 ${
               activeTag === null
-                ? "bg-gold text-black border-gold"
-                : "border-[var(--border)] text-text-dim hover:text-text-secondary"
+                ? "bg-gold text-black border-gold shadow-[0_0_12px_rgba(212,175,55,0.3)]"
+                : "border-[var(--border)] text-text-dim hover:text-gold hover:border-[var(--gold-dim)]"
             }`}
           >
             All
@@ -69,10 +69,10 @@ export function Projects({ projects }: ProjectsProps) {
             <button
               key={tag.id}
               onClick={() => setActiveTag(tag.id)}
-              className={`text-xs px-3 py-1 rounded-full border transition ${
+              className={`text-xs px-4 py-1.5 rounded-full border font-medium tracking-wide transition-all duration-300 ${
                 activeTag === tag.id
-                  ? "bg-gold text-black border-gold"
-                  : "border-[var(--border)] text-text-dim hover:text-text-secondary"
+                  ? "bg-gold text-black border-gold shadow-[0_0_12px_rgba(212,175,55,0.3)]"
+                  : "border-[var(--border)] text-text-dim hover:text-gold hover:border-[var(--gold-dim)]"
               }`}
             >
               {tag.name}
@@ -81,12 +81,23 @@ export function Projects({ projects }: ProjectsProps) {
         </motion.div>
 
         {/* Project grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project, i) => (
-            <motion.div key={project.id} custom={i + 2} variants={fadeUp}>
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, i) => (
+              <motion.div
+                key={project.id}
+                custom={i + 2}
+                variants={fadeUp}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+                layout
+              >
+                <ProjectCard project={project} index={i} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </motion.div>
     </section>
