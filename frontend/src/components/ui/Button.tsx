@@ -1,17 +1,22 @@
 "use client";
 
-import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type ButtonVariant = "gold" | "ghost-gold" | "outline";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   variant?: ButtonVariant;
+  className?: string;
+  children: React.ReactNode;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  onClick?: () => void;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = "gold", className, children, type, disabled, onClick, ...rest }, ref) => {
+  ({ variant = "gold", className, children, type, disabled, onClick }, ref) => {
     const baseClasses = variant === "gold"
       ? "btn-gold"
       : variant === "ghost-gold"
@@ -27,7 +32,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={onClick}
         whileHover={disabled ? undefined : { scale: 1.02 }}
         whileTap={disabled ? undefined : { scale: 0.98 }}
-        {...rest}
       >
         {children}
       </motion.button>
