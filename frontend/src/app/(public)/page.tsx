@@ -1,4 +1,10 @@
 import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Skills } from "@/components/sections/Skills";
+import { Services } from "@/components/sections/Services";
+import { Projects } from "@/components/sections/Projects";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Contact } from "@/components/sections/Contact";
 
 const API_URL = process.env.API_URL || "http://localhost:4000";
 
@@ -35,58 +41,28 @@ export default async function HomePage() {
         <Hero />
       </section>
 
-      <section
-        id="about"
-        className="min-h-screen flex items-center justify-center px-8 md:px-16"
-      >
-        <p className="text-text-secondary text-center text-h3 font-display">
-          About section coming next...
-        </p>
+      <section id="about" className="min-h-screen py-24 px-8 md:px-16">
+        <About />
       </section>
 
-      <section
-        id="skills"
-        className="min-h-screen flex items-center justify-center px-8 md:px-16"
-      >
-        <p className="text-text-secondary text-center">
-          Skills: {skills.length} loaded
-        </p>
+      <section id="skills" className="min-h-screen py-24 px-8 md:px-16">
+        <Skills skills={skills} />
       </section>
 
-      <section
-        id="services"
-        className="min-h-screen flex items-center justify-center px-8 md:px-16"
-      >
-        <p className="text-text-secondary text-center">
-          Services: {services.length} loaded
-        </p>
+      <section id="services" className="min-h-screen py-24 px-8 md:px-16">
+        <Services services={services} />
       </section>
 
-      <section
-        id="projects"
-        className="min-h-screen flex items-center justify-center px-8 md:px-16"
-      >
-        <p className="text-text-secondary text-center">
-          Projects: {projects.length} loaded
-        </p>
+      <section id="projects" className="min-h-screen py-24 px-8 md:px-16">
+        <Projects projects={projects} />
       </section>
 
-      <section
-        id="testimonials"
-        className="min-h-screen flex items-center justify-center px-8 md:px-16"
-      >
-        <p className="text-text-secondary text-center">
-          Testimonials: {testimonials.length} loaded
-        </p>
+      <section id="testimonials" className="min-h-screen py-24 px-8 md:px-16">
+        <Testimonials testimonials={testimonials} />
       </section>
 
-      <section
-        id="contact"
-        className="min-h-screen flex items-center justify-center px-8 md:px-16"
-      >
-        <p className="text-text-secondary text-center">
-          Contact section coming next...
-        </p>
+      <section id="contact" className="min-h-screen py-24 px-8 md:px-16">
+        <Contact />
       </section>
     </div>
   );
