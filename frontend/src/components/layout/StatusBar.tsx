@@ -47,14 +47,14 @@ export function StatusBar() {
           isAuthenticated ? (
             <Link
               href={isAdmin ? "/admin" : "/dashboard"}
-              className="hud-caption text-[var(--gold-dim)] hover:text-[var(--text-primary)] transition-colors"
+              className="font-display text-[0.65rem] font-semibold tracking-[0.12em] uppercase text-[var(--gold)] hover:text-[var(--text-primary)] transition-colors"
             >
               {user?.firstName}
             </Link>
           ) : (
             <Link
               href="/login"
-              className="hud-caption text-[var(--gold-dim)] hover:text-[var(--text-primary)] transition-colors"
+              className="font-display text-[0.65rem] font-semibold tracking-[0.12em] uppercase px-3 py-1 border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-black transition-all"
             >
               Sign in
             </Link>
