@@ -14,6 +14,8 @@ import testimonialRoutes from './routes/testimonials.js';
 import tagRoutes from './routes/tags.js';
 import userRoutes from './routes/users.js';
 import statsRoutes from './routes/stats.js';
+import clientProjectRoutes from './routes/client-projects.js';
+import adminUserRoutes from './routes/admin-users.js';
 import { authLimiter } from './middleware/rateLimiter.js';
 import prisma from './lib/prisma.js';
 
@@ -41,6 +43,8 @@ app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/tags', tagRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/client-projects', clientProjectRoutes);
+app.use('/api/admin/users', adminUserRoutes);
 
 // Cleanup old page views every 24 hours
 setInterval(async () => {
