@@ -6,6 +6,7 @@ import { Projects } from "@/components/sections/Projects";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
 import { SectionDivider } from "@/components/ui/SectionDivider";
+import { SectionCanvas } from "@/components/three/SectionCanvasLazy";
 
 const API_URL = process.env.API_URL || "http://localhost:4000";
 
@@ -44,13 +45,15 @@ export default async function HomePage() {
 
       <SectionDivider />
 
-      <section id="about" className="min-h-screen py-24 px-8 md:px-16">
+      <section id="about" className="relative min-h-screen py-24 px-8 md:px-16">
+        <SectionCanvas variant="rings" className="absolute inset-0" />
         <About />
       </section>
 
       <SectionDivider />
 
-      <section id="skills" className="min-h-screen py-24 px-8 md:px-16">
+      <section id="skills" className="relative min-h-screen py-24 px-8 md:px-16">
+        <SectionCanvas variant="grid" className="absolute inset-0" />
         <Skills skills={skills} />
       </section>
 
@@ -62,13 +65,15 @@ export default async function HomePage() {
 
       <SectionDivider />
 
-      <section id="projects" className="min-h-screen py-24 px-8 md:px-16">
+      <section id="projects" className="relative min-h-screen py-24 px-8 md:px-16">
+        <SectionCanvas variant="wave" className="absolute inset-0" />
         <Projects projects={projects} />
       </section>
 
       <SectionDivider />
 
-      <section id="testimonials" className="min-h-screen py-24 px-8 md:px-16">
+      <section id="testimonials" className="relative min-h-screen py-24 px-8 md:px-16">
+        <SectionCanvas variant="constellation" className="absolute inset-0" />
         <Testimonials testimonials={testimonials} />
       </section>
 
