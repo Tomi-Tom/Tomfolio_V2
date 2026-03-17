@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import { errorHandler } from './utils/errors.js';
 import authRoutes from './routes/auth.js';
+import contactRoutes from './routes/contact.js';
 import { authLimiter } from './middleware/rateLimiter.js';
 
 const app = express();
@@ -24,6 +25,7 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/auth', authLimiter, authRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Error handler must be the last middleware
 app.use(errorHandler);
