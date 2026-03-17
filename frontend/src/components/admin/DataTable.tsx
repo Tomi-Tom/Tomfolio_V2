@@ -9,7 +9,8 @@ interface Column<T> {
   render?: (row: T) => React.ReactNode;
 }
 
-interface DataTableProps<T> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface DataTableProps<T extends Record<string, any>> {
   columns: Column<T>[];
   data: T[];
   pagination?: { page: number; limit: number; total: number; totalPages: number };
@@ -18,7 +19,8 @@ interface DataTableProps<T> {
   actions?: (row: T) => React.ReactNode;
 }
 
-export function DataTable<T extends Record<string, unknown>>({
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function DataTable<T extends Record<string, any>>({
   columns,
   data,
   pagination,

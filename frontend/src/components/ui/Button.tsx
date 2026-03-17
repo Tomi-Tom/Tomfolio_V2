@@ -11,7 +11,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = "gold", className, children, ...props }, ref) => {
+  ({ variant = "gold", className, children, type, disabled, onClick, ...rest }, ref) => {
     const baseClasses = variant === "gold"
       ? "btn-gold"
       : variant === "ghost-gold"
@@ -22,9 +22,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <motion.button
         ref={ref}
         className={cn(baseClasses, className)}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        {...props}
+        type={type}
+        disabled={disabled}
+        onClick={onClick}
+        whileHover={disabled ? undefined : { scale: 1.02 }}
+        whileTap={disabled ? undefined : { scale: 0.98 }}
+        {...rest}
       >
         {children}
       </motion.button>

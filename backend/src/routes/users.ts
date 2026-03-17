@@ -75,7 +75,7 @@ router.put(
   authenticate,
   validate(userDataSchema),
   async (req: Request, res: Response) => {
-    const { key } = req.params;
+    const key = req.params.key as string;
     const { value } = req.body;
     const entry = await prisma.userData.upsert({
       where: { userId_key: { userId: req.user!.id, key } },
@@ -91,7 +91,7 @@ router.delete(
   '/me/data/:key',
   authenticate,
   async (req: Request, res: Response) => {
-    const { key } = req.params;
+    const key = req.params.key as string;
     const existing = await prisma.userData.findUnique({
       where: { userId_key: { userId: req.user!.id, key } },
     });
@@ -99,7 +99,7 @@ router.delete(
       throw new AppError(404, 'NOT_FOUND', 'User data entry not found');
     }
     await prisma.userData.delete({
-      where: { userId_key: { userId: req.user!.id, key } },
+      where: { userId_key: { userId: req.user!.id, key: key } },
     });
     res.status(204).end();
   }
