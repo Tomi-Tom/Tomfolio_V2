@@ -12,7 +12,10 @@ import skillRoutes from './routes/skills.js';
 import serviceRoutes from './routes/services.js';
 import testimonialRoutes from './routes/testimonials.js';
 import tagRoutes from './routes/tags.js';
+import userRoutes from './routes/users.js';
+import statsRoutes from './routes/stats.js';
 import { authLimiter } from './middleware/rateLimiter.js';
+import prisma from './lib/prisma.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -36,6 +39,19 @@ app.use('/api/skills', skillRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api/testimonials', testimonialRoutes);
 app.use('/api/tags', tagRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/stats', statsRoutes);
+
+// Cleanup old page views every 24 hours
+setInterval(async () => {
+  try {
+    const cutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
+    const { count } = await prisma.pageView.deleteMany({ where: { createdAt: { lt: cutoff } } });
+    if (count > 0) console.log(`Cleaned up ${count} old page views`);
+  } catch (err) {
+    console.error('PageView cleanup error:', err);
+  }
+}, 86_400_000);
 
 // Error handler must be the last middleware
 app.use(errorHandler);
