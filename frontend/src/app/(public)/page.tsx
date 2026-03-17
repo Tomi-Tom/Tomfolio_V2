@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/Services";
 import { Projects } from "@/components/sections/Projects";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 const API_URL = process.env.API_URL || "http://localhost:4000";
 
@@ -41,25 +42,37 @@ export default async function HomePage() {
         <Hero />
       </section>
 
+      <SectionDivider />
+
       <section id="about" className="min-h-screen py-24 px-8 md:px-16">
         <About />
       </section>
+
+      <SectionDivider />
 
       <section id="skills" className="min-h-screen py-24 px-8 md:px-16">
         <Skills skills={skills} />
       </section>
 
+      <SectionDivider />
+
       <section id="services" className="min-h-screen py-24 px-8 md:px-16">
         <Services services={services} />
       </section>
+
+      <SectionDivider />
 
       <section id="projects" className="min-h-screen py-24 px-8 md:px-16">
         <Projects projects={projects} />
       </section>
 
+      <SectionDivider />
+
       <section id="testimonials" className="min-h-screen py-24 px-8 md:px-16">
         <Testimonials testimonials={testimonials} />
       </section>
+
+      <SectionDivider />
 
       <section id="contact" className="min-h-screen py-24 px-8 md:px-16">
         <Contact />

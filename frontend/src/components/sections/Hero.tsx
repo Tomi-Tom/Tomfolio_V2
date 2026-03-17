@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,6 +20,10 @@ const fadeUp = {
 };
 
 export function Hero() {
+  const statsRef = useRef(null);
+  const statsInView = useInView(statsRef, { once: true });
+  const projectCount = useCountUp(50, 2000, statsInView);
+
   return (
     <div className="min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24">
       <motion.div initial="hidden" animate="visible" className="max-w-4xl">
@@ -82,22 +88,29 @@ export function Hero() {
         </motion.div>
 
         <motion.div
+          ref={statsRef}
           custom={5}
           variants={fadeUp}
           className="mt-12 flex gap-8"
         >
-          {[
-            { value: "50+", label: "Projects" },
-            { value: "5yr", label: "Experience" },
-            { value: "FR\u00B7EN", label: "Languages" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <p className="font-display font-bold text-lg text-text-primary">
-                {stat.value}
-              </p>
-              <p className="hud-caption text-text-dim">{stat.label}</p>
-            </div>
-          ))}
+          <div>
+            <p className="font-display font-bold text-lg text-text-primary">
+              {projectCount}+
+            </p>
+            <p className="hud-caption text-text-dim">Projects</p>
+          </div>
+          <div>
+            <p className="font-display font-bold text-lg text-text-primary">
+              5yr
+            </p>
+            <p className="hud-caption text-text-dim">Experience</p>
+          </div>
+          <div>
+            <p className="font-display font-bold text-lg text-text-primary">
+              FR&middot;EN
+            </p>
+            <p className="hud-caption text-text-dim">Languages</p>
+          </div>
         </motion.div>
       </motion.div>
     </div>
