@@ -19,16 +19,7 @@ const fadeUp = {
   }),
 };
 
-const chevronBounce = {
-  animate: {
-    y: [0, 10, 0],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
+// chevronBounce is applied directly via animate prop, not variants
 
 export function Hero() {
   const statsRef = useRef(null);
@@ -204,8 +195,8 @@ export function Hero() {
           viewBox="0 0 20 20"
           fill="none"
           className="text-gold"
-          variants={chevronBounce}
-          animate="animate"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
           <path
             d="M4 7L10 13L16 7"

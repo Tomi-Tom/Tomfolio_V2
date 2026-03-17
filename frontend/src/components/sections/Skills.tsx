@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import type { Skill } from "@/types";
-import { LevelDots } from "@/components/ui/LevelDots";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 
@@ -20,22 +19,22 @@ const fadeUp = {
   }),
 };
 
-const barFill = {
-  hidden: { scaleX: 0 },
-  visible: (delay: number) => ({
-    scaleX: 1,
-    transition: {
-      duration: 0.8,
-      delay,
-      ease: [0.65, 0, 0.35, 1] as const,
-    },
-  }),
-};
-
-const categoryMeta: Record<string, { label: string; number: string }> = {
-  FRONTEND: { label: "Frontend", number: "01" },
-  DESIGN: { label: "Design", number: "02" },
-  BACKEND: { label: "Backend & Tools", number: "03" },
+const categoryMeta: Record<string, { label: string; number: string; description: string }> = {
+  FRONTEND: {
+    label: "Frontend",
+    number: "01",
+    description: "Building responsive, performant, and interactive user interfaces.",
+  },
+  DESIGN: {
+    label: "Design",
+    number: "02",
+    description: "Crafting intuitive experiences and cohesive visual systems.",
+  },
+  BACKEND: {
+    label: "Backend & Tools",
+    number: "03",
+    description: "APIs, databases, infrastructure, and developer tooling.",
+  },
 };
 
 const categoryOrder = ["FRONTEND", "DESIGN", "BACKEND"];
@@ -44,7 +43,7 @@ interface SkillsProps {
   skills: Skill[];
 }
 
-function SkillBar({
+function SkillChip({
   skill,
   index,
   isInView,
@@ -53,36 +52,46 @@ function SkillBar({
   index: number;
   isInView: boolean;
 }) {
-  const percentage = (skill.level / 4) * 100;
-  const delay = 0.6 + index * 0.06;
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="group flex items-center gap-4">
-      <span className="text-text-secondary text-sm w-28 shrink-0 truncate">
+    <motion.div
+      className="relative group cursor-default"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={
+        isInView
+          ? { opacity: 1, scale: 1, transition: { delay: 0.4 + index * 0.04, duration: 0.4 } }
+          : { opacity: 0, scale: 0.8 }
+      }
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <motion.div
+        className="px-4 py-2.5 border border-[var(--border)] bg-[var(--void-surface)] font-display text-sm tracking-wide text-[var(--text-primary)] transition-colors duration-300"
+        animate={
+          isHovered
+            ? {
+                borderColor: "rgba(212,175,55,0.5)",
+                boxShadow: "0 0 20px rgba(212,175,55,0.1), inset 0 0 20px rgba(212,175,55,0.03)",
+              }
+            : {
+                borderColor: "rgba(212,175,55,0.12)",
+                boxShadow: "none",
+              }
+        }
+        transition={{ duration: 0.3 }}
+      >
         {skill.name}
-      </span>
+      </motion.div>
 
-      {/* Progress bar */}
-      <div className="flex-1 h-[3px] bg-[var(--border)] rounded-full overflow-hidden relative">
-        <motion.div
-          className="absolute inset-y-0 left-0 rounded-full origin-left"
-          style={{
-            width: `${percentage}%`,
-            background:
-              "linear-gradient(90deg, var(--gold-dim) 0%, var(--gold) 100%)",
-          }}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          custom={delay}
-          variants={barFill}
-        />
-      </div>
-
-      {/* Level dots (kept for detail) */}
-      <div className="shrink-0 opacity-50 group-hover:opacity-100 transition-opacity">
-        <LevelDots level={skill.level} />
-      </div>
-    </div>
+      {/* Gold dot indicator on hover */}
+      <motion.div
+        className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-gold"
+        initial={{ scale: 0 }}
+        animate={isHovered ? { scale: 1 } : { scale: 0 }}
+        transition={{ duration: 0.2 }}
+      />
+    </motion.div>
   );
 }
 
@@ -93,15 +102,15 @@ export function Skills({ skills }: SkillsProps) {
   const proficientSkills = skills.filter((s) => s.status !== "EXPLORING");
   const exploringSkills = skills.filter((s) => s.status === "EXPLORING");
 
-  const grouped = categoryOrder.reduce<Record<string, Skill[]>>(
-    (acc, cat) => {
-      acc[cat] = proficientSkills
-        .filter((s) => s.category === cat)
-        .sort((a, b) => a.sortOrder - b.sortOrder);
-      return acc;
-    },
-    {}
-  );
+  const grouped = categoryOrder.reduce<Record<string, Skill[]>>((acc, cat) => {
+    acc[cat] = proficientSkills
+      .filter((s) => s.category === cat)
+      .sort((a, b) => a.sortOrder - b.sortOrder);
+    return acc;
+  }, {});
+
+  // Count total skills per category for the counter
+  const totalSkills = proficientSkills.length + exploringSkills.length;
 
   return (
     <section ref={ref} className="relative px-8 md:px-16 lg:px-24 py-32 overflow-hidden">
@@ -121,7 +130,7 @@ export function Skills({ skills }: SkillsProps) {
         animate={isInView ? "visible" : "hidden"}
         className="relative max-w-5xl mx-auto"
       >
-        {/* Section Label with numbering */}
+        {/* Header */}
         <motion.div custom={0} variants={fadeUp} className="flex items-center gap-4">
           <span className="font-display text-[0.7rem] text-gold tracking-[0.3em] uppercase opacity-60">
             02
@@ -129,43 +138,57 @@ export function Skills({ skills }: SkillsProps) {
           <SectionLabel>Skills</SectionLabel>
         </motion.div>
 
+        <motion.p custom={0.5} variants={fadeUp} className="mt-4 text-[var(--text-dim)] text-sm max-w-md">
+          {totalSkills} technologies and tools I work with daily.
+        </motion.p>
+
         {/* Category Cards */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {categoryOrder.map((cat, catIdx) => {
             const meta = categoryMeta[cat];
+            const catSkills = grouped[cat] ?? [];
+
             return (
               <motion.div key={cat} custom={catIdx + 1} variants={fadeUp}>
                 <VoidPanel hoverable={false} className="p-6 h-full">
-                  {/* Category header with decorative number */}
-                  <div className="flex items-baseline gap-3 mb-6">
+                  {/* Category header */}
+                  <div className="flex items-baseline gap-3 mb-2">
                     <span className="font-display text-2xl font-bold text-gold opacity-30">
                       {meta.number}
                     </span>
-                    <h3 className="font-display font-bold text-base text-text-primary tracking-wide uppercase">
+                    <h3 className="font-display font-bold text-base text-[var(--text-primary)] tracking-wide uppercase">
                       {meta.label}
                     </h3>
                   </div>
 
-                  {/* Gold accent line under header */}
+                  <p className="text-[var(--text-dim)] text-xs mb-5">{meta.description}</p>
+
+                  {/* Gold accent line */}
                   <div
                     className="h-px w-full mb-5"
                     style={{
-                      background:
-                        "linear-gradient(90deg, var(--gold) 0%, transparent 60%)",
+                      background: "linear-gradient(90deg, var(--gold) 0%, transparent 60%)",
                       opacity: 0.25,
                     }}
                   />
 
-                  {/* Skills list with bars */}
-                  <div className="grid gap-4">
-                    {(grouped[cat] ?? []).map((skill, skillIdx) => (
-                      <SkillBar
+                  {/* Skill chips */}
+                  <div className="flex flex-wrap gap-2">
+                    {catSkills.map((skill, skillIdx) => (
+                      <SkillChip
                         key={skill.id}
                         skill={skill}
-                        index={catIdx * 5 + skillIdx}
+                        index={catIdx * 6 + skillIdx}
                         isInView={isInView}
                       />
                     ))}
+                  </div>
+
+                  {/* Skill count */}
+                  <div className="mt-5 pt-4 border-t border-[var(--border)]">
+                    <span className="hud-caption text-[var(--text-dim)]">
+                      {catSkills.length} {catSkills.length === 1 ? "skill" : "skills"}
+                    </span>
                   </div>
                 </VoidPanel>
               </motion.div>
@@ -173,14 +196,12 @@ export function Skills({ skills }: SkillsProps) {
           })}
         </div>
 
-        {/* Currently Exploring — glowing tags */}
+        {/* Currently Exploring */}
         {exploringSkills.length > 0 && (
           <motion.div custom={5} variants={fadeUp} className="mt-14">
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="font-display text-2xl font-bold text-gold opacity-30">
-                04
-              </span>
-              <h3 className="font-display font-bold text-base text-text-primary tracking-wide uppercase">
+              <span className="font-display text-2xl font-bold text-gold opacity-30">04</span>
+              <h3 className="font-display font-bold text-base text-[var(--text-primary)] tracking-wide uppercase">
                 Currently Exploring
               </h3>
             </div>
@@ -189,19 +210,17 @@ export function Skills({ skills }: SkillsProps) {
               {exploringSkills.map((skill) => (
                 <motion.span
                   key={skill.id}
-                  className="relative px-4 py-1.5 text-xs font-display tracking-wider text-gold border border-[var(--gold-dim)] rounded-full bg-[var(--gold)]/[0.04] uppercase"
+                  className="relative px-4 py-1.5 text-xs font-display tracking-wider text-gold border border-[var(--gold-dim)] rounded-full bg-[rgba(212,175,55,0.04)] uppercase"
                   whileHover={{
                     borderColor: "rgba(212,175,55,0.6)",
                     boxShadow: "0 0 20px rgba(212,175,55,0.15)",
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  {/* Subtle glow behind each tag */}
                   <span
                     className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity pointer-events-none"
                     style={{
-                      background:
-                        "radial-gradient(ellipse, rgba(212,175,55,0.08), transparent 70%)",
+                      background: "radial-gradient(ellipse, rgba(212,175,55,0.08), transparent 70%)",
                     }}
                   />
                   <span className="relative">{skill.name}</span>
