@@ -261,14 +261,33 @@ export default function GearScene({ progress = 0 }: GearSceneProps) {
     };
   }, []);
 
-  // Scroll-driven gear rotation
+  // Scroll-driven: tilt group + orbit secondary gears around the central one
   useEffect(() => {
-    if (gearsRef.current) {
-      gearsRef.current.rotation.x = progress * Math.PI;
-      gearsRef.current.rotation.y = progress * Math.PI * 0.3;
-      if (rendererRef.current && sceneRef.current && cameraRef.current) {
-        rendererRef.current.render(sceneRef.current, cameraRef.current);
+    if (!gearsRef.current) return;
+    const group = gearsRef.current;
+
+    // Tilt the whole group
+    group.rotation.x = progress * Math.PI;
+    group.rotation.y = progress * Math.PI * 0.3;
+
+    // Orbit secondary gears (index 1+) around the central gear (index 0)
+    const orbitAngle = progress * Math.PI * 2; // full orbit over full scroll
+    group.children.forEach((child, i) => {
+      if (i === 0) return; // central gear stays put
+      if (child.userData.initX === undefined) {
+        child.userData.initX = child.position.x;
+        child.userData.initY = child.position.y;
       }
+      const initX = child.userData.initX as number;
+      const initY = child.userData.initY as number;
+      const dist = Math.sqrt(initX * initX + initY * initY);
+      const baseAngle = Math.atan2(initY, initX);
+      child.position.x = Math.cos(baseAngle + orbitAngle * 0.3) * dist;
+      child.position.y = Math.sin(baseAngle + orbitAngle * 0.3) * dist;
+    });
+
+    if (rendererRef.current && sceneRef.current && cameraRef.current) {
+      rendererRef.current.render(sceneRef.current, cameraRef.current);
     }
   }, [progress]);
 
