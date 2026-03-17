@@ -24,7 +24,7 @@ const fadeUp = {
 export function Hero() {
   const statsRef = useRef(null);
   const statsInView = useInView(statsRef, { once: true });
-  const projectCount = useCountUp(50, 2000, statsInView);
+  const techCount = useCountUp(20, 2000, statsInView);
 
   return (
     <div className="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24">
@@ -141,13 +141,13 @@ export function Hero() {
           variants={fadeUp}
           className="mt-16 flex items-center gap-0"
         >
-          {/* Stat: Projects */}
+          {/* Stat: Technologies */}
           <div className="pr-8">
             <p className="font-display font-bold text-2xl text-gold tabular-nums">
-              {projectCount}+
+              {techCount}+
             </p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
-              Projects
+              Technologies
             </p>
           </div>
 
