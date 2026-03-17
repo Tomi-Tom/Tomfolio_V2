@@ -33,6 +33,30 @@ export default function RootLayout({
         <ThemeProvider>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Tom Bariteau-Peter",
+              jobTitle: "UX Designer & Web Developer",
+              url: "https://tombp.fr",
+              sameAs: [
+                "https://github.com/Tomi-Tom",
+                "https://linkedin.com/in/tom-bariteau-peter",
+              ],
+              knowsAbout: [
+                "UX Design",
+                "UI Design",
+                "Web Development",
+                "React",
+                "TypeScript",
+                "Three.js",
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );
