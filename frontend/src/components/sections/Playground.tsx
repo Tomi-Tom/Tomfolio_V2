@@ -24,66 +24,77 @@ const miniApps = [
     desc: "Conway's cellular automaton — watch patterns evolve",
     badge: "Game",
     href: "/playground/life-game",
+    image: "/assets/GameOfLife.png",
   },
   {
     title: "Memory Game",
     desc: "Card-matching challenge with 3 difficulty levels",
     badge: "Game",
     href: "/playground/memory",
+    image: "/assets/MemoryGame.png",
   },
   {
     title: "Weather App",
     desc: "Live weather conditions around the world",
     badge: "Utility",
     href: "/playground/weather",
+    image: "/assets/WeatherApp.png",
   },
   {
     title: "Pomodoro Timer",
     desc: "Focus time management with circular progress",
     badge: "Utility",
     href: "/playground/pomodoro",
+    image: "/assets/PomodoroTimer.png",
   },
   {
     title: "Task Breaker",
     desc: "Break overwhelming tasks into small steps",
     badge: "ADHD Tool",
     href: "/playground/task-breaker",
+    image: "/assets/TaskBreaker.png",
   },
   {
     title: "Mood Tracker",
     desc: "Track mood, energy & focus with insights",
     badge: "ADHD Tool",
     href: "/playground/mood-tracker",
+    image: "/assets/MoodTracker.png",
   },
   {
     title: "Typing Speed Test",
     desc: "Test your WPM with real-time accuracy tracking",
     badge: "Game",
     href: "/playground/typing-test",
+    image: "/assets/TypingTest.png",
   },
   {
     title: "Color Palette",
     desc: "Generate harmonious palettes with 5 modes",
     badge: "Design Tool",
     href: "/playground/color-palette",
+    image: "/assets/ColorPalette.png",
   },
   {
     title: "Snake",
     desc: "Classic arcade game with gold aesthetics",
     badge: "Game",
     href: "/playground/snake",
+    image: "/assets/Snake.png",
   },
   {
     title: "Ambient Sounds",
     desc: "8-channel white noise mixer for deep focus",
     badge: "Focus Tool",
     href: "/playground/white-noise",
+    image: "/assets/AmbientSounds.png",
   },
   {
     title: "Pixel Art Editor",
     desc: "Draw, fill, undo & export pixel artwork",
     badge: "Creative",
     href: "/playground/pixel-art",
+    image: "/assets/PixelArt.png",
   },
 ];
 
@@ -124,9 +135,15 @@ export function Playground() {
           >
             <Link href={app.href} className="group block">
               <div className="void-panel overflow-hidden transition-all duration-300 group-hover:border-[var(--border-active)]">
-                {/* Badge header */}
-                <div className="px-5 pt-4">
-                  <span className="inline-block font-display text-[0.55rem] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 bg-[var(--gold-ghost)] border border-[var(--border)] text-[var(--gold)]">
+                {/* Image preview */}
+                <div className="relative aspect-video overflow-hidden bg-[var(--void-deep)]">
+                  <img
+                    src={app.image}
+                    alt={app.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--void-surface)] via-transparent to-transparent opacity-60" />
+                  <span className="absolute top-3 left-3 inline-block font-display text-[0.55rem] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-[var(--border)] text-[var(--gold)]">
                     {app.badge}
                   </span>
                 </div>
