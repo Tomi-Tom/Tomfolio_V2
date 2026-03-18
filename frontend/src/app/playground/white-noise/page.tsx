@@ -94,6 +94,296 @@ function saveMixes(mixes: SavedMix[]) {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Audio Engine                                                       */
+/* ------------------------------------------------------------------ */
+
+function generateNoiseBuffer(
+  ctx: AudioContext,
+  duration: number,
+  type: "white" | "pink" | "brown",
+): AudioBuffer {
+  const length = Math.floor(ctx.sampleRate * duration);
+  const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
+
+  if (type === "white") {
+    for (let i = 0; i < length; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+  } else if (type === "pink") {
+    // Paul Kellet's pink noise algorithm
+    let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+    for (let i = 0; i < length; i++) {
+      const white = Math.random() * 2 - 1;
+      b0 = 0.99886 * b0 + white * 0.0555179;
+      b1 = 0.99332 * b1 + white * 0.0750759;
+      b2 = 0.96900 * b2 + white * 0.1538520;
+      b3 = 0.86650 * b3 + white * 0.3104856;
+      b4 = 0.55000 * b4 + white * 0.5329522;
+      b5 = -0.7616 * b5 - white * 0.0168980;
+      data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
+      b6 = white * 0.115926;
+    }
+  } else {
+    // Brown noise
+    let last = 0;
+    for (let i = 0; i < length; i++) {
+      const white = Math.random() * 2 - 1;
+      last = (last + white * 0.02) / 1.02;
+      data[i] = last * 3.5; // boost gain
+    }
+  }
+
+  return buffer;
+}
+
+interface ChannelNodes {
+  source: AudioBufferSourceNode;
+  gainNode: GainNode;
+  filters: BiquadFilterNode[];
+  lfo?: OscillatorNode;
+  lfoGain?: GainNode;
+}
+
+function buildChannelGraph(
+  ctx: AudioContext,
+  id: string,
+  masterGain: GainNode,
+): ChannelNodes {
+  const gain = ctx.createGain();
+  gain.gain.value = 0;
+  gain.connect(masterGain);
+
+  let buffer: AudioBuffer;
+  const filters: BiquadFilterNode[] = [];
+  let lfo: OscillatorNode | undefined;
+  let lfoGain: GainNode | undefined;
+
+  switch (id) {
+    case "rain": {
+      // Brown noise through lowpass 400Hz
+      buffer = generateNoiseBuffer(ctx, 4, "brown");
+      const lp = ctx.createBiquadFilter();
+      lp.type = "lowpass";
+      lp.frequency.value = 400;
+      filters.push(lp);
+      break;
+    }
+    case "thunder": {
+      // Very low brown noise, lowpass 100Hz, high gain
+      buffer = generateNoiseBuffer(ctx, 4, "brown");
+      const lp = ctx.createBiquadFilter();
+      lp.type = "lowpass";
+      lp.frequency.value = 100;
+      filters.push(lp);
+      break;
+    }
+    case "ocean": {
+      // Brown noise with slow LFO amplitude modulation
+      buffer = generateNoiseBuffer(ctx, 4, "brown");
+      const lp = ctx.createBiquadFilter();
+      lp.type = "lowpass";
+      lp.frequency.value = 500;
+      filters.push(lp);
+      // LFO for wave-like swooshing
+      lfo = ctx.createOscillator();
+      lfo.type = "sine";
+      lfo.frequency.value = 0.1;
+      lfoGain = ctx.createGain();
+      lfoGain.gain.value = 0.5;
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+      lfo.start();
+      break;
+    }
+    case "forest": {
+      // Pink noise, bandpass 800-2000Hz
+      buffer = generateNoiseBuffer(ctx, 4, "pink");
+      const bp = ctx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.frequency.value = 1400;
+      bp.Q.value = 0.5;
+      filters.push(bp);
+      break;
+    }
+    case "fire": {
+      // White noise, bandpass 1000-4000Hz with fast random amplitude modulation
+      buffer = generateNoiseBuffer(ctx, 4, "white");
+      const bp = ctx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.frequency.value = 2500;
+      bp.Q.value = 0.5;
+      filters.push(bp);
+      // Fast LFO for crackle effect
+      lfo = ctx.createOscillator();
+      lfo.type = "sawtooth";
+      lfo.frequency.value = 15;
+      lfoGain = ctx.createGain();
+      lfoGain.gain.value = 0.3;
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+      lfo.start();
+      break;
+    }
+    case "wind": {
+      // Brown noise with slow LFO on filter frequency 200-600Hz
+      buffer = generateNoiseBuffer(ctx, 4, "brown");
+      const lp = ctx.createBiquadFilter();
+      lp.type = "lowpass";
+      lp.frequency.value = 400;
+      filters.push(lp);
+      // LFO modulating filter frequency
+      lfo = ctx.createOscillator();
+      lfo.type = "sine";
+      lfo.frequency.value = 0.15;
+      lfoGain = ctx.createGain();
+      lfoGain.gain.value = 200;
+      lfo.connect(lfoGain);
+      lfoGain.connect(lp.frequency);
+      lfo.start();
+      break;
+    }
+    case "birds": {
+      // Filtered white noise, high bandpass 2000-6000Hz, random chirp amplitude
+      buffer = generateNoiseBuffer(ctx, 4, "white");
+      const bp = ctx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.frequency.value = 4000;
+      bp.Q.value = 1.0;
+      filters.push(bp);
+      // Chirpy amplitude modulation
+      lfo = ctx.createOscillator();
+      lfo.type = "square";
+      lfo.frequency.value = 6;
+      lfoGain = ctx.createGain();
+      lfoGain.gain.value = 0.4;
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+      lfo.start();
+      break;
+    }
+    case "coffee": {
+      // Pink noise, gentle lowpass 3000Hz
+      buffer = generateNoiseBuffer(ctx, 4, "pink");
+      const lp = ctx.createBiquadFilter();
+      lp.type = "lowpass";
+      lp.frequency.value = 3000;
+      filters.push(lp);
+      break;
+    }
+    default:
+      buffer = generateNoiseBuffer(ctx, 4, "white");
+  }
+
+  // Wire: source -> filters -> gain -> masterGain
+  const source = ctx.createBufferSource();
+  source.buffer = buffer;
+  source.loop = true;
+
+  let node: AudioNode = source;
+  for (const f of filters) {
+    node.connect(f);
+    node = f;
+  }
+  node.connect(gain);
+
+  source.start();
+
+  return { source, gainNode: gain, filters, lfo, lfoGain };
+}
+
+function useAudioEngine(
+  channels: Channel[],
+  masterVolume: number,
+  isPlaying: boolean,
+): void {
+  const ctxRef = useRef<AudioContext | null>(null);
+  const masterGainRef = useRef<GainNode | null>(null);
+  const channelNodesRef = useRef<Map<string, ChannelNodes>>(new Map());
+  const initializedRef = useRef(false);
+
+  // Initialize AudioContext and all channel graphs lazily on first play
+  const ensureInit = useCallback(() => {
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
+    const ctx = new AudioContext();
+    ctxRef.current = ctx;
+
+    const master = ctx.createGain();
+    master.gain.value = masterVolume / 100;
+    master.connect(ctx.destination);
+    masterGainRef.current = master;
+
+    for (const ch of INITIAL_CHANNELS) {
+      const nodes = buildChannelGraph(ctx, ch.id, master);
+      channelNodesRef.current.set(ch.id, nodes);
+    }
+  }, []); // masterVolume intentionally excluded — only used for initial value
+
+  // Handle play/stop
+  useEffect(() => {
+    if (isPlaying) {
+      ensureInit();
+      const ctx = ctxRef.current;
+      if (ctx && ctx.state === "suspended") {
+        ctx.resume();
+      }
+    } else {
+      const ctx = ctxRef.current;
+      if (ctx && ctx.state === "running") {
+        ctx.suspend();
+      }
+    }
+  }, [isPlaying, ensureInit]);
+
+  // Update individual channel gains
+  useEffect(() => {
+    const ctx = ctxRef.current;
+    if (!ctx) return;
+
+    const now = ctx.currentTime;
+    for (const ch of channels) {
+      const nodes = channelNodesRef.current.get(ch.id);
+      if (!nodes) continue;
+      const target = ch.volume / 100;
+      nodes.gainNode.gain.cancelScheduledValues(now);
+      nodes.gainNode.gain.setValueAtTime(nodes.gainNode.gain.value, now);
+      nodes.gainNode.gain.linearRampToValueAtTime(target, now + 0.1);
+    }
+  }, [channels]);
+
+  // Update master volume
+  useEffect(() => {
+    const ctx = ctxRef.current;
+    const master = masterGainRef.current;
+    if (!ctx || !master) return;
+
+    const now = ctx.currentTime;
+    const target = masterVolume / 100;
+    master.gain.cancelScheduledValues(now);
+    master.gain.setValueAtTime(master.gain.value, now);
+    master.gain.linearRampToValueAtTime(target, now + 0.1);
+  }, [masterVolume]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      Array.from(channelNodesRef.current.values()).forEach((nodes) => {
+        try { nodes.source.stop(); } catch { /* already stopped */ }
+        if (nodes.lfo) try { nodes.lfo.stop(); } catch { /* already stopped */ }
+      });
+      channelNodesRef.current.clear();
+      if (ctxRef.current) {
+        ctxRef.current.close();
+        ctxRef.current = null;
+      }
+      initializedRef.current = false;
+    };
+  }, []);
+}
+
+/* ------------------------------------------------------------------ */
 /*  Waveform Visualizer                                                */
 /* ------------------------------------------------------------------ */
 
@@ -363,6 +653,9 @@ export default function WhiteNoisePage() {
   const [timerSeconds, setTimerSeconds] = useState(0);
   const [savedMixes, setSavedMixes] = useState<SavedMix[]>([]);
   const [showSaveModal, setShowSaveModal] = useState(false);
+
+  // Audio engine
+  useAudioEngine(channels, masterVolume, isPlaying);
 
   // Load saved mixes from localStorage on mount
   useEffect(() => {
