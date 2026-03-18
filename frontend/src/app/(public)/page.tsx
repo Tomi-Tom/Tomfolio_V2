@@ -5,6 +5,7 @@ import { Services } from "@/components/sections/Services";
 import { Projects } from "@/components/sections/Projects";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
+import { Playground } from "@/components/sections/Playground";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { SectionCanvas } from "@/components/three/SectionCanvasLazy";
 
@@ -75,6 +76,13 @@ export default async function HomePage() {
       <section id="testimonials" className="relative min-h-screen py-24 px-8 md:px-16">
         <SectionCanvas variant="constellation" className="absolute inset-0" />
         <Testimonials testimonials={testimonials} />
+      </section>
+
+      <SectionDivider />
+
+      <section id="playground" className="relative min-h-screen py-24 px-8 md:px-16">
+        <SectionCanvas variant="constellation" className="absolute inset-0" />
+        <Playground />
       </section>
 
       <SectionDivider />

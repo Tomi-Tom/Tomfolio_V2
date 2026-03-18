@@ -10,6 +10,7 @@ const sections = [
   { label: "Services", id: "services" },
   { label: "Projects", id: "projects" },
   { label: "Testimonials", id: "testimonials" },
+  { label: "Playground", id: "playground" },
   { label: "Contact", id: "contact" },
 ];
 
