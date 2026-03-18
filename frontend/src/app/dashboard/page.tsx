@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import Link from "next/link";
 import { useAuth } from "@/hooks/useAuth";
 import api from "@/lib/api";
 import { Input } from "@/components/ui/Input";
@@ -462,6 +463,18 @@ export default function DashboardPage() {
                         </span>
                         Updated {new Date(project.updatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                       </span>
+                    </div>
+
+                    <div className="mt-4">
+                      <Link
+                        href={`/dashboard/projects/${project.id}`}
+                        className="inline-flex items-center gap-1.5 text-xs font-display text-gold hover:text-[var(--text-primary)] transition-colors tracking-[0.15em] uppercase"
+                      >
+                        View Full Project
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </Link>
                     </div>
 
                     {/* Expandable updates timeline */}

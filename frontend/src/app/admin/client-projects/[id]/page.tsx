@@ -410,18 +410,14 @@ export default function AdminClientProjectDetailPage() {
 
                     {/* Images */}
                     {update.imageUrls.length > 0 && (
-                      <div className="mb-2">
-                        <p className="section-label mb-1">Images</p>
-                        <div className="flex flex-wrap gap-2">
+                      <div className="mb-3">
+                        <p className="section-label mb-2">Images</p>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                           {update.imageUrls.map((url, idx) => (
-                            <a
-                              key={idx}
-                              href={url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-xs text-[var(--gold)] hover:underline break-all"
-                            >
-                              {url.length > 50 ? `${url.slice(0, 50)}...` : url}
+                            <a key={idx} href={url} target="_blank" rel="noopener noreferrer" className="group">
+                              <div className="aspect-video rounded-sm overflow-hidden border border-[var(--border)] group-hover:border-[var(--gold-dim)] transition-colors">
+                                <img src={url} alt={`Image ${idx + 1}`} className="w-full h-full object-cover" />
+                              </div>
                             </a>
                           ))}
                         </div>
@@ -431,7 +427,7 @@ export default function AdminClientProjectDetailPage() {
                     {/* Links */}
                     {update.links.length > 0 && (
                       <div>
-                        <p className="section-label mb-1">Links</p>
+                        <p className="section-label mb-2">Links</p>
                         <div className="flex flex-wrap gap-2">
                           {update.links.map((url, idx) => (
                             <a
@@ -439,9 +435,10 @@ export default function AdminClientProjectDetailPage() {
                               href={url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-xs text-[var(--gold)] hover:underline break-all"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--gold-ghost)] border border-[var(--gold-dim)] text-xs text-gold hover:bg-[var(--gold)]/15 transition-colors"
                             >
-                              {url.length > 60 ? `${url.slice(0, 60)}...` : url}
+                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+                              {url.length > 40 ? `${url.slice(0, 40)}...` : url}
                             </a>
                           ))}
                         </div>
