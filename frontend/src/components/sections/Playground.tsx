@@ -24,42 +24,36 @@ const miniApps = [
     desc: "Conway's cellular automaton — watch patterns evolve",
     badge: "Game",
     href: "/playground/life-game",
-    image: "/assets/GameOfLife.png",
   },
   {
     title: "Memory Game",
     desc: "Card-matching challenge with 3 difficulty levels",
     badge: "Game",
     href: "/playground/memory",
-    image: "/assets/MemoryGame.png",
   },
   {
     title: "Weather App",
     desc: "Live weather conditions around the world",
     badge: "Utility",
     href: "/playground/weather",
-    image: "/assets/WeatherApp.png",
   },
   {
     title: "Pomodoro Timer",
     desc: "Focus time management with circular progress",
     badge: "Utility",
     href: "/playground/pomodoro",
-    image: "/assets/PomodoroTimer.png",
   },
   {
     title: "Task Breaker",
     desc: "Break overwhelming tasks into small steps",
     badge: "ADHD Tool",
     href: "/playground/task-breaker",
-    image: "/assets/TaskBreaker.png",
   },
   {
     title: "Mood Tracker",
     desc: "Track mood, energy & focus with insights",
     badge: "ADHD Tool",
     href: "/playground/mood-tracker",
-    image: "/assets/MoodAndEnergyTracker.png",
   },
   {
     title: "Typing Speed Test",
@@ -130,24 +124,9 @@ export function Playground() {
           >
             <Link href={app.href} className="group block">
               <div className="void-panel overflow-hidden transition-all duration-300 group-hover:border-[var(--border-active)]">
-                {/* Image preview */}
-                <div className="relative aspect-video overflow-hidden bg-[var(--void-deep)]">
-                  {app.image ? (
-                    <img
-                      src={app.image}
-                      alt={app.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="font-display text-3xl text-[var(--gold)] opacity-20">{app.title[0]}</span>
-                    </div>
-                  )}
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--void-surface)] via-transparent to-transparent opacity-60" />
-
-                  {/* Badge */}
-                  <span className="absolute top-3 left-3 inline-block font-display text-[0.55rem] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-[var(--border)] text-[var(--gold)]">
+                {/* Badge header */}
+                <div className="px-5 pt-4">
+                  <span className="inline-block font-display text-[0.55rem] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 bg-[var(--gold-ghost)] border border-[var(--border)] text-[var(--gold)]">
                     {app.badge}
                   </span>
                 </div>
