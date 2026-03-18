@@ -61,6 +61,36 @@ const miniApps = [
     href: "/playground/mood-tracker",
     image: "/assets/MoodAndEnergyTracker.png",
   },
+  {
+    title: "Typing Speed Test",
+    desc: "Test your WPM with real-time accuracy tracking",
+    badge: "Game",
+    href: "/playground/typing-test",
+  },
+  {
+    title: "Color Palette",
+    desc: "Generate harmonious palettes with 5 modes",
+    badge: "Design Tool",
+    href: "/playground/color-palette",
+  },
+  {
+    title: "Snake",
+    desc: "Classic arcade game with gold aesthetics",
+    badge: "Game",
+    href: "/playground/snake",
+  },
+  {
+    title: "Ambient Sounds",
+    desc: "8-channel white noise mixer for deep focus",
+    badge: "Focus Tool",
+    href: "/playground/white-noise",
+  },
+  {
+    title: "Pixel Art Editor",
+    desc: "Draw, fill, undo & export pixel artwork",
+    badge: "Creative",
+    href: "/playground/pixel-art",
+  },
 ];
 
 export function Playground() {
@@ -102,11 +132,17 @@ export function Playground() {
               <div className="void-panel overflow-hidden transition-all duration-300 group-hover:border-[var(--border-active)]">
                 {/* Image preview */}
                 <div className="relative aspect-video overflow-hidden bg-[var(--void-deep)]">
-                  <img
-                    src={app.image}
-                    alt={app.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {app.image ? (
+                    <img
+                      src={app.image}
+                      alt={app.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="font-display text-3xl text-[var(--gold)] opacity-20">{app.title[0]}</span>
+                    </div>
+                  )}
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--void-surface)] via-transparent to-transparent opacity-60" />
 
