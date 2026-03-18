@@ -12,8 +12,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: 0.3 + i * 0.12,
+      duration: 0.35,
+      delay: 0.1 + i * 0.05,
       ease: [0.65, 0, 0.35, 1] as const,
     },
   }),
@@ -60,7 +60,7 @@ function SkillChip({
       initial={{ opacity: 0, scale: 0.8 }}
       animate={
         isInView
-          ? { opacity: 1, scale: 1, transition: { delay: 0.4 + index * 0.04, duration: 0.4 } }
+          ? { opacity: 1, scale: 1, transition: { delay: 0.15 + index * 0.03, duration: 0.3 } }
           : { opacity: 0, scale: 0.8 }
       }
       onMouseEnter={() => setIsHovered(true)}
@@ -97,7 +97,7 @@ function SkillChip({
 
 export function Skills({ skills }: SkillsProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-20px" });
 
   const proficientSkills = skills.filter((s) => s.status !== "EXPLORING");
   const exploringSkills = skills.filter((s) => s.status === "EXPLORING");

@@ -27,8 +27,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: 0.3 + i * 0.1,
+      duration: 0.35,
+      delay: 0.1 + i * 0.05,
       ease: [0.65, 0, 0.35, 1] as const,
     },
   }),
@@ -47,7 +47,7 @@ function HudCorner({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
 
 export function Contact() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-20px" });
   const { user, isAuthenticated } = useAuth();
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "loading" | "success" | "error"

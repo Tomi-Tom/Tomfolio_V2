@@ -16,8 +16,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: 0.3 + i * 0.1,
+      duration: 0.35,
+      delay: 0.1 + i * 0.05,
       ease: [0.65, 0, 0.35, 1] as const,
     },
   }),
@@ -25,7 +25,7 @@ const fadeUp = {
 
 export function Services({ services }: ServicesProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-20px" });
 
   return (
     <section ref={ref} className="px-8 md:px-16 lg:px-24 py-24">

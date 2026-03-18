@@ -12,8 +12,8 @@ const fadeUp = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.7,
-      delay: 0.3 + i * 0.12,
+      duration: 0.4,
+      delay: 0.1 + i * 0.06,
       ease: [0.65, 0, 0.35, 1] as const,
     },
   }),
@@ -184,7 +184,7 @@ export function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
+        transition={{ delay: 1, duration: 0.5 }}
       >
         <span className="text-[0.6rem] uppercase tracking-[0.25em] text-text-dim font-display">
           Scroll
