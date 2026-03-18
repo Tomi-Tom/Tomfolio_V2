@@ -44,7 +44,7 @@ function createDashedCircle(
 ): Float32Array[] {
   const dashes: Float32Array[] = [];
   const dashSegs = Math.floor(segments * dashRatio);
-  const gapSegs = segments - dashSegs;
+  // gap = segments - dashSegs (used implicitly by totalGroups loop)
   const totalGroups = 12;
   const segsPerGroup = Math.floor(segments / totalGroups);
   const dashPerGroup = Math.floor(segsPerGroup * dashRatio);

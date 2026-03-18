@@ -266,7 +266,7 @@ function setupConstellation(scene: THREE.Scene): {
   const lines = new THREE.LineSegments(lineGeo, lineMat);
   scene.add(lines);
 
-  let flashIndex = Math.floor(Math.random() * pointCount);
+  let _flashIndex = Math.floor(Math.random() * pointCount);
   let flashTimer = 0;
 
   return {
