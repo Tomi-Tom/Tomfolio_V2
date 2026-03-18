@@ -12,27 +12,32 @@ import { SectionCanvas } from "@/components/three/SectionCanvasLazy";
 const API_URL = process.env.API_URL || "http://localhost:4000";
 
 async function getHomeData() {
-  const [skillsRes, projectsRes, servicesRes, testimonialsRes] =
-    await Promise.all([
-      fetch(`${API_URL}/api/skills`, { next: { revalidate: 60 } }),
-      fetch(`${API_URL}/api/projects`, { next: { revalidate: 60 } }),
-      fetch(`${API_URL}/api/services`, { next: { revalidate: 60 } }),
-      fetch(`${API_URL}/api/testimonials`, { next: { revalidate: 60 } }),
+  try {
+    const [skillsRes, projectsRes, servicesRes, testimonialsRes] =
+      await Promise.all([
+        fetch(`${API_URL}/api/skills`, { next: { revalidate: 60 } }),
+        fetch(`${API_URL}/api/projects`, { next: { revalidate: 60 } }),
+        fetch(`${API_URL}/api/services`, { next: { revalidate: 60 } }),
+        fetch(`${API_URL}/api/testimonials`, { next: { revalidate: 60 } }),
+      ]);
+
+    const [skills, projects, services, testimonials] = await Promise.all([
+      skillsRes.json(),
+      projectsRes.json(),
+      servicesRes.json(),
+      testimonialsRes.json(),
     ]);
 
-  const [skills, projects, services, testimonials] = await Promise.all([
-    skillsRes.json(),
-    projectsRes.json(),
-    servicesRes.json(),
-    testimonialsRes.json(),
-  ]);
-
-  return {
-    skills: skills.data || [],
-    projects: projects.data || [],
-    services: services.data || [],
-    testimonials: testimonials.data || [],
-  };
+    return {
+      skills: skills.data || [],
+      projects: projects.data || [],
+      services: services.data || [],
+      testimonials: testimonials.data || [],
+    };
+  } catch {
+    // API not available at build time (e.g. Vercel) — return empty data
+    return { skills: [], projects: [], services: [], testimonials: [] };
+  }
 }
 
 export default async function HomePage() {
