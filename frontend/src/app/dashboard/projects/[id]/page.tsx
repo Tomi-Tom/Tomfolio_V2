@@ -3,11 +3,10 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import api from "@/lib/api";
 import { VoidPanel } from "@/components/ui/VoidPanel";
-import { cn } from "@/lib/utils";
-import type { ClientProject, ClientProjectStatus, ProjectUpdate } from "@/types";
+import type { ClientProject, ClientProjectStatus } from "@/types";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },

@@ -30,10 +30,6 @@ type Palette = PaletteColor[];
 // Color math helpers
 // ---------------------------------------------------------------------------
 
-function clamp(v: number, min: number, max: number) {
-  return Math.max(min, Math.min(max, v));
-}
-
 function randRange(min: number, max: number) {
   return min + Math.random() * (max - min);
 }

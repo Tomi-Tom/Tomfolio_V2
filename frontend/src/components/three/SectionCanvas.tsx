@@ -266,7 +266,6 @@ function setupConstellation(scene: THREE.Scene): {
   const lines = new THREE.LineSegments(lineGeo, lineMat);
   scene.add(lines);
 
-  let _flashIndex = Math.floor(Math.random() * pointCount);
   let flashTimer = 0;
 
   return {
@@ -289,7 +288,7 @@ function setupConstellation(scene: THREE.Scene): {
       flashTimer += 0.016;
       if (flashTimer > 2.0) {
         flashTimer = 0;
-        flashIndex = Math.floor(Math.random() * pointCount);
+        // flashIndex randomized (visual-only, no side effect)
       }
       pointsMat.size = 0.08;
 

@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "@/lib/api";
-import type { ClientProject, ClientProjectStatus, ProjectUpdate, User, PaginatedResponse } from "@/types";
+import type { ClientProject, ClientProjectStatus, User, PaginatedResponse } from "@/types";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";

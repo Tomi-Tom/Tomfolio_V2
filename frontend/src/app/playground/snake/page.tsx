@@ -38,7 +38,6 @@ function randomFood(snake: Pos[]): Pos {
 export default function SnakePage() {
   /* refs */
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const frameRef = useRef<number>(0);
   const lastTickRef = useRef<number>(0);
   const dirRef = useRef<Dir>("RIGHT");
   const nextDirRef = useRef<Dir>("RIGHT");
@@ -75,9 +74,6 @@ export default function SnakePage() {
     const stored = localStorage.getItem("snake-best-score");
     if (stored) setBest(Number(stored));
   }, []);
-
-  /* ── cell size ── */
-  const cell = canvasSize / GRID;
 
   /* ── speed from score ── */
   const levelFromScore = (s: number) => Math.floor(s / POINTS_PER_LEVEL) + 1;
