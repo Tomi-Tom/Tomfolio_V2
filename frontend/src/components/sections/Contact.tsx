@@ -268,10 +268,10 @@ export function Contact() {
                   <div>
                     <p className="hud-caption text-text-dim mb-1">Email</p>
                     <a
-                      href="mailto:contact@tomi-tom.dev"
+                      href="mailto:bariteaupeter.tom@gmail.com"
                       className="text-text-secondary hover:text-[var(--gold)] transition-colors duration-300"
                     >
-                      contact@tomi-tom.dev
+                      bariteaupeter.tom@gmail.com
                     </a>
                   </div>
                 </div>

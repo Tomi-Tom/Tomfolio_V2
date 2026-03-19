@@ -13,32 +13,29 @@ const API_URL = process.env.API_URL || "http://localhost:4000";
 
 async function getHomeData() {
   try {
-    const [skillsRes, servicesRes, testimonialsRes] =
+    const [servicesRes, testimonialsRes] =
       await Promise.all([
-        fetch(`${API_URL}/api/skills`, { next: { revalidate: 60 } }),
         fetch(`${API_URL}/api/services`, { next: { revalidate: 60 } }),
         fetch(`${API_URL}/api/testimonials`, { next: { revalidate: 60 } }),
       ]);
 
-    const [skills, services, testimonials] = await Promise.all([
-      skillsRes.json(),
+    const [services, testimonials] = await Promise.all([
       servicesRes.json(),
       testimonialsRes.json(),
     ]);
 
     return {
-      skills: skills.data || [],
       services: services.data || [],
       testimonials: testimonials.data || [],
     };
   } catch {
     // API not available at build time (e.g. Vercel) — return empty data
-    return { skills: [], services: [], testimonials: [] };
+    return { services: [], testimonials: [] };
   }
 }
 
 export default async function HomePage() {
-  const { skills, services, testimonials } = await getHomeData();
+  const { services, testimonials } = await getHomeData();
 
   return (
     <div className="scroll-smooth">
@@ -57,7 +54,7 @@ export default async function HomePage() {
 
       <section id="skills" className="relative min-h-screen py-24 px-4 sm:px-8 md:px-16">
         <SectionCanvas variant="grid" className="absolute inset-0" />
-        <Skills skills={skills} />
+        <Skills />
       </section>
 
       <SectionDivider />
