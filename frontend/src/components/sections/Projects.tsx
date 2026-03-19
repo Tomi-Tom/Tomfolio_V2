@@ -6,9 +6,72 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import type { Project } from "@/types";
 
-interface ProjectsProps {
-  projects: Project[];
-}
+const PROJECTS: Project[] = [
+  {
+    id: "1",
+    title: "Personal Portfolio — tombp.fr",
+    description:
+      "Modern portfolio with horizontal scroll, Three.js wireframe gears, and Void & Gold aesthetic.",
+    longDescription:
+      "Modern portfolio website showcasing design and development work. Built with React and Framer Motion, featuring smooth animations, interactive elements, and a clean, minimalist aesthetic.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    liveUrl: "https://www.tombp.fr/",
+    githubUrl: null,
+    tags: [
+      { id: "react", name: "React" },
+      { id: "typescript", name: "TypeScript" },
+      { id: "threejs", name: "Three.js" },
+      { id: "tailwind", name: "Tailwind CSS" },
+    ],
+    featured: true,
+    sortOrder: 0,
+    createdAt: "",
+    updatedAt: "",
+  },
+  {
+    id: "2",
+    title: "IsoMaker — 3D Pixel Art Creator",
+    description:
+      "Interactive isometric pixel art creator with real-time preview, color picker, and export.",
+    longDescription:
+      "Interactive web application for creating isometric pixel art. Features intuitive controls, real-time preview, color picker, and export functionality.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+    liveUrl: "https://www.isomaker.fr/",
+    githubUrl: null,
+    tags: [
+      { id: "javascript", name: "JavaScript" },
+      { id: "canvas", name: "Canvas" },
+      { id: "pixelart", name: "Pixel Art" },
+    ],
+    featured: true,
+    sortOrder: 1,
+    createdAt: "",
+    updatedAt: "",
+  },
+  {
+    id: "3",
+    title: "LibertAI — AI Platform",
+    description:
+      "Corporate website redesign for an AI company — modern brand presence, responsive, accessible.",
+    longDescription:
+      "Corporate website redesign for an AI technology company. Focused on creating a modern, trustworthy brand presence with clear communication of complex AI concepts.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    liveUrl: "https://libertai.io/",
+    githubUrl: null,
+    tags: [
+      { id: "react2", name: "React" },
+      { id: "uiux", name: "UI/UX" },
+      { id: "a11y", name: "Accessibility" },
+    ],
+    featured: true,
+    sortOrder: 2,
+    createdAt: "",
+    updatedAt: "",
+  },
+];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -23,7 +86,8 @@ const fadeUp = {
   }),
 };
 
-export function Projects({ projects }: ProjectsProps) {
+export function Projects() {
+  const projects = PROJECTS;
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
   const [activeTag, setActiveTag] = useState<string | null>(null);
