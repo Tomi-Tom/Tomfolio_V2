@@ -7,7 +7,7 @@ export function Footer() {
       <div className="max-w-4xl mx-auto text-center">
         <SectionLabel>End</SectionLabel>
 
-        <h2 className="mt-6 text-4xl md:text-5xl font-display tracking-tight">
+        <h2 className="mt-6 text-2xl sm:text-4xl md:text-5xl font-display tracking-tight">
           <span className="font-light text-[var(--text-primary)]">
             Let&apos;s{" "}
           </span>

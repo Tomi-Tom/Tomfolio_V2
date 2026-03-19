@@ -59,7 +59,7 @@ export function ChapterBar() {
           key={id}
           onClick={() => scrollToSection(id)}
           className={cn(
-            "hud-caption px-3 py-1 transition-colors cursor-pointer",
+            "hud-caption px-1.5 py-1 sm:px-3 transition-colors cursor-pointer",
             activeSection === id
               ? "text-[var(--gold)]"
               : "text-[var(--text-dim)] hover:text-[var(--text-secondary)]"

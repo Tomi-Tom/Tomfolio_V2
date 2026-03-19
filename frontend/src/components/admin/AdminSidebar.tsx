@@ -73,7 +73,7 @@ export function AdminSidebar() {
       {/* Mobile hamburger */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 md:hidden p-2 rounded bg-[var(--void-surface)] border border-[var(--border)]"
+        className="fixed top-12 left-4 z-50 md:hidden p-2 rounded bg-[var(--void-surface)] border border-[var(--border)]"
         aria-label="Toggle sidebar"
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" className="text-text-primary">

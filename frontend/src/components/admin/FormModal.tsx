@@ -80,7 +80,7 @@ export function FormModal({
       onClick={onClose}
     >
       <div
-        className="bg-[var(--void-elevated)] max-w-lg w-full p-6 max-h-[80vh] overflow-y-auto border border-[var(--border)]"
+        className="bg-[var(--void-elevated)] max-w-lg w-full p-4 sm:p-6 max-h-[80vh] overflow-y-auto border border-[var(--border)]"
         onClick={(e) => e.stopPropagation()}
       >
         <h3 className="font-display text-h3 text-[var(--text-primary)] mb-6">

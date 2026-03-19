@@ -285,7 +285,7 @@ export default function DashboardPage() {
           <div className="h-1 w-full bg-gradient-to-r from-[var(--gold-dim)] via-[var(--gold)] to-[var(--gold-dim)]" />
 
           <div className="p-8">
-            <div className="flex items-start gap-6">
+            <div className="flex flex-col items-center sm:flex-row sm:items-start gap-6">
               {/* Avatar */}
               <div className="relative shrink-0">
                 <div className="w-24 h-24 rounded-full bg-[var(--gold-ghost)] border-2 border-[var(--gold-dim)] flex items-center justify-center text-gold text-3xl font-display uppercase">
@@ -307,7 +307,7 @@ export default function DashboardPage() {
                   </Button>
                 </div>
 
-                <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4">
+                <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
                   {[
                     {
                       label: "Email",

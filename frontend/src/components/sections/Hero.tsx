@@ -46,7 +46,7 @@ export function Hero() {
           custom={1}
           variants={fadeUp}
           className="mt-8 font-display leading-[0.9] tracking-tight"
-          style={{ fontSize: "clamp(4rem, 12vw, 9rem)" }}
+          style={{ fontSize: "clamp(2.5rem, 10vw, 9rem)" }}
         >
           <span className="font-light text-[var(--text-primary)]">Tom</span>
           <br />

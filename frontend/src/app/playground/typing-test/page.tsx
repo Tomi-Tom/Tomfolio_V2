@@ -327,7 +327,7 @@ export default function TypingTestPage() {
         </div>
 
         {/* Live stats */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <VoidPanel hoverable={false} className="p-4 flex flex-col items-center gap-1">
             <span className="text-xs text-[var(--text-secondary)] font-display tracking-widest uppercase">
               WPM

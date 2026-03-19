@@ -319,7 +319,7 @@ export default function PomodoroPage() {
         <div className="flex justify-center">
           <motion.div
             className="relative"
-            style={{ width: 320, height: 320 }}
+            style={{ width: 'min(320px, 85vw)', height: 'min(320px, 85vw)' }}
             animate={isRunning ? { scale: [1, 1.01, 1] } : { scale: 1 }}
             transition={
               isRunning
@@ -375,7 +375,7 @@ export default function PomodoroPage() {
               }}
             >
               {/* Time */}
-              <span className="text-6xl font-bold font-display text-gold select-none">
+              <span className="text-4xl sm:text-6xl font-bold font-display text-gold select-none">
                 {formatTime(timeLeft)}
               </span>
               {/* Mode label */}

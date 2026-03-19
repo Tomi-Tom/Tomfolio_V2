@@ -943,7 +943,7 @@ export default function WhiteNoisePage() {
                   <button
                     key={min}
                     onClick={() => handleTimerSelect(min)}
-                    className={`px-3 py-1.5 rounded text-xs font-mono transition-all cursor-pointer ${
+                    className={`px-3 py-2 sm:py-1.5 rounded text-xs font-mono transition-all cursor-pointer ${
                       timerMinutes === min
                         ? "bg-gold/20 text-gold border border-gold/40"
                         : "bg-[var(--void-deep)] text-[var(--text-secondary)] border border-[var(--border)] hover:border-gold/30"
@@ -955,7 +955,7 @@ export default function WhiteNoisePage() {
               </div>
 
               {/* Master volume */}
-              <div className="flex items-center gap-3 flex-1 min-w-[180px]">
+              <div className="flex items-center gap-3 flex-1 min-w-[120px] sm:min-w-[180px]">
                 <span className="font-display text-[0.6rem] font-semibold tracking-[0.15em] uppercase text-[var(--text-muted)] whitespace-nowrap">
                   Master
                 </span>

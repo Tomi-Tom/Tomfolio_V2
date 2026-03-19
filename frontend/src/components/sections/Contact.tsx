@@ -186,7 +186,7 @@ export function Contact() {
                       onSubmit={handleSubmit(onSubmit)}
                       className="space-y-5"
                     >
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Input
                           label="First Name"
                           placeholder="John"
@@ -318,7 +318,7 @@ export function Contact() {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_70%)] pointer-events-none" />
               <div className="relative">
                 <p className="hud-caption text-text-dim mb-3 tracking-[0.25em]">Current Base</p>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <p className="font-mono text-xs text-[var(--gold-dim)]">LAT</p>
                     <p className="font-mono text-lg text-text-primary tracking-wider">48.8566&deg;</p>
