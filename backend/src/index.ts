@@ -22,9 +22,23 @@ import prisma from './lib/prisma.js';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+// Trust proxy for Railway/reverse proxy (needed for rate-limiter & cookies)
+app.set('trust proxy', 1);
+
 app.use(helmet());
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:3000')
+  .split(',')
+  .map((o) => o.trim());
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (mobile apps, curl, health checks)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());

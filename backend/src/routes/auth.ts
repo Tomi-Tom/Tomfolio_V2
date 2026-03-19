@@ -32,10 +32,12 @@ const loginSchema = z.object({
 
 // --------------- Cookie config ---------------
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const COOKIE_OPTIONS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax' as const,
+  secure: isProd,
+  sameSite: isProd ? ('none' as const) : ('lax' as const),
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   path: '/',
 };
@@ -167,7 +169,7 @@ if (process.env.GOOGLE_CLIENT_ID) {
       });
 
       res.cookie('refreshToken', refreshToken, COOKIE_OPTIONS);
-      const redirectUrl = process.env.CORS_ORIGIN || 'http://localhost:3000';
+      const redirectUrl = (process.env.CORS_ORIGIN || 'http://localhost:3000').split(',')[0].trim();
       res.redirect(`${redirectUrl}/?auth=success`);
     }
   );
