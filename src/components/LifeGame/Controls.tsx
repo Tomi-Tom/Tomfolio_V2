@@ -1,0 +1,83 @@
+import React from 'react'
+
+interface ControlsProps {
+  border: number
+  playing: boolean
+  handleNextStep: () => void
+  handlePlay: () => void
+  handleReset: () => void
+  handleIncrease: () => void
+  handleDecrease: () => void
+}
+
+const Controls: React.FC<ControlsProps> = ({
+  border,
+  speed,
+  playing,
+  handleNextStep,
+  handlePlay,
+  handleReset,
+  handleIncrease,
+  handleDecrease,
+  handleIncreaseSpeed,
+  handleDecreaseSpeed,
+  handleSoup,
+}) => {
+  return (
+    <div className="flex flex-col gap-4">
+      <div
+        className={'flex flex-row gap-4 max-lg:flex-col max-lg:items-center'}
+      >
+        <div className={'flex flex-row gap-4'}>
+          <button
+            className={'btn-ghost-gold px-4 py-2'}
+            onClick={handleNextStep}
+          >
+            Next Step
+          </button>
+          <button
+            className={'btn-ghost-gold px-4 py-2'}
+            onClick={handleDecrease}
+          >
+            -
+          </button>
+          <button className={'text-gold font-bold'}>{border}</button>
+          <button
+            className={'btn-ghost-gold px-4 py-2'}
+            onClick={handleIncrease}
+          >
+            +
+          </button>
+        </div>
+        <div className={'flex flex-row gap-4'}>
+          <button className={'btn-gold px-4 py-2'} onClick={handlePlay}>
+            {playing ? 'Pause' : 'Play'}
+          </button>
+          <button className={'btn-ghost-gold px-4 py-2'} onClick={handleReset}>
+            Reset
+          </button>
+          <button className={'btn-ghost-gold px-4 py-2'} onClick={handleSoup}>
+            Soup
+          </button>
+        </div>
+        <div className={'flex flex-row gap-4'}>
+          <button
+            className={'btn-ghost-gold px-4 py-2'}
+            onMouseDown={handleDecreaseSpeed}
+          >
+            Speed Down
+          </button>
+          <button className={'text-gold font-bold'}>{speed}</button>
+          <button
+            className={'btn-ghost-gold px-4 py-2'}
+            onMouseDown={handleIncreaseSpeed}
+          >
+            Speed Up
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Controls

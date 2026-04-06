@@ -1,0 +1,202 @@
+import { ReactElement, useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+
+interface Meteor {
+  x: number
+  y: number
+  size: number
+  speed: number
+  hue: number
+  angle: number
+}
+
+export default function NotFound(): ReactElement {
+  const [meteors, setMeteors] = useState<Meteor[]>([])
+  const [showEasterEgg, setShowEasterEgg] = useState(false)
+
+  const createMeteor = () => {
+    const size = 5 + Math.random() * 15
+    const speed = 2 + Math.random() * 8
+    const x = Math.random() * window.innerWidth - size
+    const y = Math.random() * window.innerHeight - size
+    const hue = 38 + Math.random() * 12 // gold hue range (38-50)
+    const angle = Math.random() * Math.PI * 2
+    setMeteors([...meteors, { x, y, size, speed, hue, angle }])
+  }
+
+  // Auto-create a few meteors at start
+  useEffect(() => {
+    for (let i = 0; i < 5; i++) {
+      createMeteor()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (meteors.length === 42) {
+      setShowEasterEgg(true)
+    }
+  }, [meteors.length])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMeteors((currentMeteors) =>
+        currentMeteors.map((meteor) => {
+          const dx = Math.cos(meteor.angle) * meteor.speed
+          const dy = Math.sin(meteor.angle) * meteor.speed
+          let newX = meteor.x + dx
+          let newY = meteor.y + dy
+          if (newX < 0) {
+            newX = window.innerWidth - meteor.size
+          } else if (newX > window.innerWidth - meteor.size) {
+            newX = 0
+          }
+          if (newY < 0) {
+            newY = window.innerHeight - meteor.size
+          } else if (newY > window.innerHeight - meteor.size) {
+            newY = 0
+          }
+          return { ...meteor, x: newX, y: newY }
+        })
+      )
+    }, 1000 / 60)
+    return () => clearInterval(interval)
+  }, [])
+
+  const meteorColor = (hue: number) => `hsl(${hue}, 80%, 55%)`
+  const meteorGlow = (hue: number, size: number) =>
+    `0 0 ${size * 2}px hsl(${hue}, 80%, 55%)`
+
+  return (
+    <div
+      className="relative flex min-h-screen w-full flex-col items-center justify-center select-none"
+      style={{
+        background: 'var(--color-void)',
+        color: 'var(--color-text-primary)',
+      }}
+    >
+      <AnimatePresence>
+        {meteors.map((meteor, index) => (
+          <motion.div
+            key={index}
+            className="absolute"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              left: meteor.x,
+              top: meteor.y,
+              width: meteor.size,
+              height: meteor.size,
+              backgroundColor: meteorColor(meteor.hue),
+              borderRadius: '50%',
+              boxShadow: meteorGlow(meteor.hue, meteor.size),
+            }}
+          />
+        ))}
+      </AnimatePresence>
+
+      <motion.div
+        className="mx-auto mb-12 flex max-w-screen-xl flex-row justify-between space-x-4"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      >
+        <motion.h1
+          className="text-gold text-9xl font-extrabold"
+          whileHover={{ scale: 1.1, rotateZ: -5 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          4
+        </motion.h1>
+        <motion.h1
+          className="text-gold text-9xl font-extrabold"
+          style={
+            showEasterEgg
+              ? {
+                  animation: 'gold-pulse 2s ease-in-out infinite',
+                  cursor: 'pointer',
+                }
+              : undefined
+          }
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={
+            showEasterEgg
+              ? () => {
+                  window.location.href =
+                    'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+                }
+              : createMeteor
+          }
+        >
+          0
+        </motion.h1>
+        <motion.h1
+          className="text-gold text-9xl font-extrabold"
+          whileHover={{ scale: 1.1, rotateZ: 5 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          4
+        </motion.h1>
+      </motion.div>
+
+      <motion.h2
+        className="text-4xl font-bold"
+        style={{ color: 'var(--color-text-primary)' }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        Page Not Found
+      </motion.h2>
+
+      <motion.div
+        className="mt-12 flex flex-row items-center justify-center space-x-4 rounded-md"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.8, type: 'spring' }}
+      >
+        <motion.button
+          className="btn-gold cursor-pointer px-6 py-3"
+          whileHover={{
+            y: -5,
+            boxShadow: '0 10px 25px -5px rgba(212, 175, 55, 0.4)',
+          }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => window.location.replace('/')}
+        >
+          Go Home
+        </motion.button>
+
+        <h1 className="text-secondary text-2xl" style={{ fontSize: '1.5rem' }}>
+          Or
+        </h1>
+
+        <motion.button
+          className="btn-ghost-gold cursor-pointer px-6 py-3"
+          style={{
+            border: '1px solid var(--color-border-active)',
+            padding: '10px 24px',
+          }}
+          whileHover={{
+            y: -5,
+            boxShadow: '0 10px 25px -5px rgba(212, 175, 55, 0.25)',
+          }}
+          whileTap={{ scale: 0.95 }}
+          onClick={
+            showEasterEgg
+              ? () => {
+                  window.location.href =
+                    'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+                }
+              : createMeteor
+          }
+        >
+          Launch {meteors.length > 0 ? `: ${meteors.length}` : ''}
+          {showEasterEgg && ' *'}
+        </motion.button>
+      </motion.div>
+    </div>
+  )
+}
