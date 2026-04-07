@@ -30,6 +30,7 @@ const SKILLS: Skill[] = [
   { id: "18", name: "REST APIs", level: 4, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 16 },
   { id: "19", name: "CI/CD", level: 2, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 17 },
   { id: "20", name: "Docker", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 19 },
+  { id: "24", name: "Claude Agent", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 20 },
   // Exploring
   { id: "21", name: "Rust", level: 1, icon: null, category: "OTHER", status: "EXPLORING", sortOrder: 20 },
   { id: "22", name: "WebGL", level: 1, icon: null, category: "OTHER", status: "EXPLORING", sortOrder: 21 },
