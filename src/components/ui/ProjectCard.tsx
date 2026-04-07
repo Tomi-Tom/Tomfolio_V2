@@ -12,8 +12,14 @@ interface ProjectCardProps {
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const projectNumber = String(index + 1).padStart(2, "0");
 
+  const Wrapper = project.liveUrl ? "a" : "div";
+  const wrapperProps = project.liveUrl
+    ? { href: project.liveUrl, target: "_blank" as const, rel: "noopener noreferrer" }
+    : {};
+
   return (
     <VoidPanel className="overflow-hidden group h-full">
+      <Wrapper {...wrapperProps} className="block cursor-pointer">
       {/* Image area with hover overlay */}
       <div className="relative aspect-video w-full overflow-hidden">
         {project.imageUrl ? (
@@ -162,6 +168,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         )}
       </div>
+      </Wrapper>
     </VoidPanel>
   );
 }
