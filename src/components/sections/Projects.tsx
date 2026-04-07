@@ -28,6 +28,24 @@ const PROJECTS: Project[] = [
     updatedAt: "",
   },
   {
+    id: "libertai",
+    title: "LibertAI — AI Platform",
+    description:
+      "Corporate website redesign for an AI company — modern brand presence, responsive, accessible.",
+    longDescription: null,
+    imageUrl: "/projects/libertai.png",
+    liveUrl: "https://libertai.io/",
+    githubUrl: null,
+    tags: [
+      { id: "react", name: "React" },
+      { id: "uiux", name: "UI/UX" },
+    ],
+    featured: true,
+    sortOrder: 1,
+    createdAt: "",
+    updatedAt: "",
+  },
+  {
     id: "defidecon",
     title: "Défi de Con",
     description:
@@ -72,15 +90,15 @@ const PROJECTS: Project[] = [
     description:
       "Competitive coding platform with challenges across multiple difficulty tiers, score tracking, streaks, and leaderboards.",
     longDescription: null,
-    imageUrl: null,
-    liveUrl: "https://codearena.tombp.fr",
+    imageUrl: "/projects/codearena.png",
+    liveUrl: "https://tom-code-arena.tombp.fr",
     githubUrl: null,
     tags: [
       { id: "nextjs", name: "Next.js" },
       { id: "typescript", name: "TypeScript" },
       { id: "tailwind", name: "Tailwind CSS" },
     ],
-    featured: false,
+    featured: true,
     sortOrder: 4,
     createdAt: "",
     updatedAt: "",
@@ -141,24 +159,6 @@ const PROJECTS: Project[] = [
     ],
     featured: true,
     sortOrder: 7,
-    createdAt: "",
-    updatedAt: "",
-  },
-  {
-    id: "libertai",
-    title: "LibertAI — AI Platform",
-    description:
-      "Corporate website redesign for an AI company — modern brand presence, responsive, accessible.",
-    longDescription: null,
-    imageUrl: "/projects/libertai.png",
-    liveUrl: "https://libertai.io/",
-    githubUrl: null,
-    tags: [
-      { id: "react", name: "React" },
-      { id: "uiux", name: "UI/UX" },
-    ],
-    featured: true,
-    sortOrder: 8,
     createdAt: "",
     updatedAt: "",
   },
