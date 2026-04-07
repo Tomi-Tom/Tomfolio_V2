@@ -12,11 +12,7 @@ export function SectionDivider() {
       <motion.div
         className="h-[1px] bg-[var(--gold-dim)]"
         initial={{ width: 0, opacity: 0 }}
-        animate={
-          isInView
-            ? { width: "60%", opacity: 1 }
-            : { width: 0, opacity: 0 }
-        }
+        animate={isInView ? { width: "60%", opacity: 1 } : { width: 0, opacity: 0 }}
         transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
       />
     </div>

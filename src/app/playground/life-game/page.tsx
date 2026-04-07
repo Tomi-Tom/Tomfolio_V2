@@ -197,31 +197,28 @@ export default function LifeGamePage() {
   }, [running, speed]);
 
   /* ── Canvas click → toggle cell ─── */
-  const handleCanvasClick = useCallback(
-    (e: React.MouseEvent<HTMLCanvasElement>) => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
-      const mx = (e.clientX - rect.left) * scaleX;
-      const my = (e.clientY - rect.top) * scaleY;
+  const handleCanvasClick = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const mx = (e.clientX - rect.left) * scaleX;
+    const my = (e.clientY - rect.top) * scaleY;
 
-      const size = gridSizeRef.current;
-      const cellSize = (canvas.width - CELL_GAP * (size - 1)) / size;
-      const col = Math.floor(mx / (cellSize + CELL_GAP));
-      const row = Math.floor(my / (cellSize + CELL_GAP));
+    const size = gridSizeRef.current;
+    const cellSize = (canvas.width - CELL_GAP * (size - 1)) / size;
+    const col = Math.floor(mx / (cellSize + CELL_GAP));
+    const row = Math.floor(my / (cellSize + CELL_GAP));
 
-      if (row >= 0 && row < size && col >= 0 && col < size) {
-        setGrid((prev) => {
-          const copy = prev.map((r) => [...r]);
-          copy[row][col] = !copy[row][col];
-          return copy;
-        });
-      }
-    },
-    []
-  );
+    if (row >= 0 && row < size && col >= 0 && col < size) {
+      setGrid((prev) => {
+        const copy = prev.map((r) => [...r]);
+        copy[row][col] = !copy[row][col];
+        return copy;
+      });
+    }
+  }, []);
 
   /* ── Controls ─── */
   const handlePlayPause = useCallback(() => setRunning((r) => !r), []);
@@ -277,12 +274,10 @@ export default function LifeGamePage() {
       {/* Header */}
       <header className="flex flex-col gap-3">
         <span className="section-label">Game</span>
-        <h2 className="font-display text-h2 text-[var(--text-primary)]">
-          Game of Life
-        </h2>
+        <h2 className="font-display text-h2 text-[var(--text-primary)]">Game of Life</h2>
         <p className="text-[var(--text-secondary)] max-w-xl leading-relaxed">
-          Conway&apos;s cellular automaton. Click cells to seed life, then press
-          play and watch complexity emerge from simple rules.
+          Conway&apos;s cellular automaton. Click cells to seed life, then press play and watch
+          complexity emerge from simple rules.
         </p>
       </header>
 

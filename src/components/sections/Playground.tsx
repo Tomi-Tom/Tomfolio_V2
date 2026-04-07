@@ -118,8 +118,8 @@ export function Playground() {
           <span className="font-bold">Experiments</span>
         </h2>
         <p className="text-sm text-[var(--text-secondary)] max-w-lg leading-relaxed">
-          Mini-applications exploring UI patterns, game logic, and productivity
-          tools — built with React, Canvas, and Framer Motion.
+          Mini-applications exploring UI patterns, game logic, and productivity tools — built with
+          React, Canvas, and Framer Motion.
         </p>
       </motion.div>
 

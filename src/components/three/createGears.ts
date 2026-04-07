@@ -37,11 +37,7 @@ function createCircle(radius: number, segments = 64): Float32Array {
   return new Float32Array(pts);
 }
 
-function createDashedCircle(
-  radius: number,
-  segments = 64,
-  dashRatio = 0.6,
-): Float32Array[] {
+function createDashedCircle(radius: number, segments = 64, dashRatio = 0.6): Float32Array[] {
   const dashes: Float32Array[] = [];
   const totalGroups = 12;
   const segsPerGroup = Math.floor(segments / totalGroups);
@@ -67,7 +63,7 @@ function createGear(
   hubRadius: number,
   teethCount: number,
   teethHeight: number,
-  opacity: number,
+  opacity: number
 ): THREE.Group {
   const group = new THREE.Group();
   const primary = goldMat(opacity);
@@ -85,7 +81,7 @@ function createGear(
   const glowGeo = new THREE.BufferGeometry();
   glowGeo.setAttribute(
     "position",
-    new THREE.BufferAttribute(createCircle(outerRadius + teethHeight * 0.15, 128), 3),
+    new THREE.BufferAttribute(createCircle(outerRadius + teethHeight * 0.15, 128), 3)
   );
   group.add(new THREE.Line(glowGeo, dim));
 
@@ -98,7 +94,7 @@ function createGear(
   const innerDetail = new THREE.BufferGeometry();
   innerDetail.setAttribute(
     "position",
-    new THREE.BufferAttribute(createCircle(innerRadius * 0.92, 96), 3),
+    new THREE.BufferAttribute(createCircle(innerRadius * 0.92, 96), 3)
   );
   group.add(new THREE.Line(innerDetail, dim));
 
@@ -120,7 +116,7 @@ function createGear(
   const hubInnerGeo = new THREE.BufferGeometry();
   hubInnerGeo.setAttribute(
     "position",
-    new THREE.BufferAttribute(createCircle(hubRadius * 0.4, 32), 3),
+    new THREE.BufferAttribute(createCircle(hubRadius * 0.4, 32), 3)
   );
   group.add(new THREE.Line(hubInnerGeo, highlight));
 
@@ -128,7 +124,7 @@ function createGear(
   const hubDotGeo = new THREE.BufferGeometry();
   hubDotGeo.setAttribute(
     "position",
-    new THREE.BufferAttribute(createCircle(hubRadius * 0.15, 16), 3),
+    new THREE.BufferAttribute(createCircle(hubRadius * 0.15, 16), 3)
   );
   group.add(new THREE.Line(hubDotGeo, primary));
 
@@ -281,15 +277,13 @@ const GEAR_CONFIGS: GearConfig[] = [
 export function createGears(): THREE.Group {
   const container = new THREE.Group();
 
-  GEAR_CONFIGS.forEach(
-    ([x, y, z, outerR, innerR, hubR, teeth, teethH, opacity, dir]) => {
-      const gear = createGear(outerR, innerR, hubR, teeth, teethH, opacity);
-      gear.position.set(x, y, z);
-      gear.userData.direction = dir;
-      gear.userData.rotSpeed = outerR > 1.5 ? 0.0015 : outerR > 1.0 ? 0.003 : 0.005;
-      container.add(gear);
-    },
-  );
+  GEAR_CONFIGS.forEach(([x, y, z, outerR, innerR, hubR, teeth, teethH, opacity, dir]) => {
+    const gear = createGear(outerR, innerR, hubR, teeth, teethH, opacity);
+    gear.position.set(x, y, z);
+    gear.userData.direction = dir;
+    gear.userData.rotSpeed = outerR > 1.5 ? 0.0015 : outerR > 1.0 ? 0.003 : 0.005;
+    container.add(gear);
+  });
 
   return container;
 }

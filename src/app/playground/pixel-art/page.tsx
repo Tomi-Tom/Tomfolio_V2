@@ -41,7 +41,16 @@ const PRESET_COLORS = [
 
 function PencilIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M17 3a2.85 2.85 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
       <path d="m15 5 4 4" />
     </svg>
@@ -50,7 +59,16 @@ function PencilIcon() {
 
 function EraserIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21" />
       <path d="M22 21H7" />
       <path d="m5 11 9 9" />
@@ -60,7 +78,16 @@ function EraserIcon() {
 
 function FillIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z" />
       <path d="m5 2 5 5" />
       <path d="M2 13h15" />
@@ -71,7 +98,16 @@ function FillIcon() {
 
 function EyedropperIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="m2 22 1-1h3l9-9" />
       <path d="M3 21v-3l9-9" />
       <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9" />
@@ -82,7 +118,16 @@ function EyedropperIcon() {
 
 function UndoIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M3 7v6h6" />
       <path d="M3 13a9 9 0 0 1 15-6.7L21 9" />
     </svg>
@@ -91,7 +136,16 @@ function UndoIcon() {
 
 function RedoIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M21 7v6h-6" />
       <path d="M21 13a9 9 0 0 0-15-6.7L3 9" />
     </svg>
@@ -100,7 +154,16 @@ function RedoIcon() {
 
 function GridIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <rect x="3" y="3" width="18" height="18" rx="2" />
       <path d="M3 9h18" />
       <path d="M3 15h18" />
@@ -112,7 +175,16 @@ function GridIcon() {
 
 function DownloadIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
       <polyline points="7 10 12 15 17 10" />
       <line x1="12" y1="15" x2="12" y2="3" />
@@ -137,7 +209,7 @@ function floodFill(
   grid: (string | null)[][],
   startX: number,
   startY: number,
-  fillColor: string,
+  fillColor: string
 ): (string | null)[][] {
   const size = grid.length;
   const target = grid[startY][startX];
@@ -154,7 +226,12 @@ function floodFill(
     const [x, y] = queue.shift()!;
     result[y][x] = fillColor;
 
-    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+    for (const [dx, dy] of [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ]) {
       const nx = x + dx;
       const ny = y + dy;
       if (nx < 0 || nx >= size || ny < 0 || ny >= size) continue;
@@ -189,17 +266,14 @@ export default function PixelArtEditor() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   /* ---- push history snapshot ---- */
-  const pushHistory = useCallback(
-    (prevGrid: (string | null)[][]) => {
-      setUndoStack((prev) => {
-        const next = [...prev, cloneGrid(prevGrid)];
-        if (next.length > MAX_HISTORY) next.shift();
-        return next;
-      });
-      setRedoStack([]);
-    },
-    [],
-  );
+  const pushHistory = useCallback((prevGrid: (string | null)[][]) => {
+    setUndoStack((prev) => {
+      const next = [...prev, cloneGrid(prevGrid)];
+      if (next.length > MAX_HISTORY) next.shift();
+      return next;
+    });
+    setRedoStack([]);
+  }, []);
 
   /* ---- undo / redo ---- */
   const undo = useCallback(() => {
@@ -236,7 +310,7 @@ export default function PixelArtEditor() {
       setGridSize(size);
       setGrid(createEmptyGrid(size));
     },
-    [gridSize, grid, pushHistory],
+    [gridSize, grid, pushHistory]
   );
 
   /* ---- clear canvas ---- */
@@ -266,7 +340,7 @@ export default function PixelArtEditor() {
       if (x < 0 || x >= gridSize || y < 0 || y >= gridSize) return null;
       return { x, y };
     },
-    [gridSize],
+    [gridSize]
   );
 
   /* ---- apply tool at pixel ---- */
@@ -300,7 +374,7 @@ export default function PixelArtEditor() {
         return prev;
       });
     },
-    [color, pushHistory],
+    [color, pushHistory]
   );
 
   /* ---- mouse / touch handlers ---- */
@@ -325,7 +399,7 @@ export default function PixelArtEditor() {
       applyTool(coords.x, coords.y, tool, true);
       setIsDrawing(true);
     },
-    [getPixelCoords, applyTool, tool],
+    [getPixelCoords, applyTool, tool]
   );
 
   const handlePointerMove = useCallback(
@@ -334,10 +408,11 @@ export default function PixelArtEditor() {
       const coords = getPixelCoords(e);
       if (!coords) return;
       // While dragging, use current tool (or erase if right-click started it)
-      const activeTool = e.buttons === 2 ? "erase" : tool === "draw" || tool === "erase" ? tool : "draw";
+      const activeTool =
+        e.buttons === 2 ? "erase" : tool === "draw" || tool === "erase" ? tool : "draw";
       applyTool(coords.x, coords.y, activeTool, false);
     },
-    [isDrawing, getPixelCoords, tool, applyTool],
+    [isDrawing, getPixelCoords, tool, applyTool]
   );
 
   const handlePointerUp = useCallback(() => {
@@ -356,7 +431,7 @@ export default function PixelArtEditor() {
       applyTool(coords.x, coords.y, tool, true);
       setIsDrawing(true);
     },
-    [getPixelCoords, applyTool, tool],
+    [getPixelCoords, applyTool, tool]
   );
 
   const handleTouchMove = useCallback(
@@ -366,7 +441,7 @@ export default function PixelArtEditor() {
       if (!coords) return;
       applyTool(coords.x, coords.y, tool === "draw" || tool === "erase" ? tool : "draw", false);
     },
-    [isDrawing, getPixelCoords, tool, applyTool],
+    [isDrawing, getPixelCoords, tool, applyTool]
   );
 
   /* ---- prevent context menu on canvas ---- */
@@ -484,9 +559,7 @@ export default function PixelArtEditor() {
         {/* ---- Header ---- */}
         <header className="mb-8 text-center">
           <SectionLabel>CREATIVE</SectionLabel>
-          <h2 className="mt-2 font-display text-display text-gold">
-            Pixel Art Editor
-          </h2>
+          <h2 className="mt-2 font-display text-display text-gold">Pixel Art Editor</h2>
         </header>
 
         {/* ---- Main layout ---- */}
@@ -546,7 +619,11 @@ export default function PixelArtEditor() {
             </div>
 
             <VoidPanel hoverable={false} className="p-2">
-              <div ref={containerRef} className="relative" style={{ width: "min(500px, 85vw)", height: "min(500px, 85vw)" }}>
+              <div
+                ref={containerRef}
+                className="relative"
+                style={{ width: "min(500px, 85vw)", height: "min(500px, 85vw)" }}
+              >
                 <canvas
                   ref={canvasRef}
                   width={1024}
@@ -660,14 +737,9 @@ export default function PixelArtEditor() {
                   }}
                   className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                 />
-                <span
-                  className="h-full w-full"
-                  style={{ backgroundColor: color }}
-                />
+                <span className="h-full w-full" style={{ backgroundColor: color }} />
               </label>
-              <span className="font-mono text-xs text-text-secondary">
-                {color.toUpperCase()}
-              </span>
+              <span className="font-mono text-xs text-text-secondary">{color.toUpperCase()}</span>
             </div>
 
             {/* Current color preview */}

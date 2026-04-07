@@ -353,8 +353,7 @@ function LoveTimerContent() {
                     <motion.div
                       className="mb-2 font-display text-7xl font-bold text-gold md:text-8xl"
                       style={{
-                        textShadow:
-                          "0 0 20px rgba(212,175,55,0.3), 0 0 40px rgba(212,175,55,0.15)",
+                        textShadow: "0 0 20px rgba(212,175,55,0.3), 0 0 40px rgba(212,175,55,0.15)",
                       }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -372,8 +371,7 @@ function LoveTimerContent() {
                     <motion.div
                       className="mb-2 font-display text-5xl font-bold text-gold md:text-6xl"
                       style={{
-                        textShadow:
-                          "0 0 15px rgba(212,175,55,0.25), 0 0 30px rgba(212,175,55,0.1)",
+                        textShadow: "0 0 15px rgba(212,175,55,0.25), 0 0 30px rgba(212,175,55,0.1)",
                       }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -475,9 +473,7 @@ export default function LoveTimerPage() {
     <Suspense
       fallback={
         <div className="flex min-h-screen items-center justify-center bg-void-deep">
-          <span className="hud-caption animate-pulse text-gold tracking-[0.3em]">
-            LOADING...
-          </span>
+          <span className="hud-caption animate-pulse text-gold tracking-[0.3em]">LOADING...</span>
         </div>
       }
     >

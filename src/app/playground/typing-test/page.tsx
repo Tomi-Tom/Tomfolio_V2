@@ -132,7 +132,7 @@ export default function TypingTestPage() {
   const correctChars = typed.split("").filter((c, i) => c === text[i]).length;
   const totalChars = typed.length;
   const elapsedSec = duration - timeLeft || 1;
-  const wpm = Math.round((correctChars / 5) / (elapsedSec / 60));
+  const wpm = Math.round(correctChars / 5 / (elapsedSec / 60));
   const accuracy = totalChars === 0 ? 100 : Math.round((correctChars / totalChars) * 100);
 
   /* save best when finished */
@@ -162,7 +162,7 @@ export default function TypingTestPage() {
       setGameState("idle");
       setTimeout(() => inputRef.current?.focus(), 50);
     },
-    [duration],
+    [duration]
   );
 
   const changeDuration = useCallback(
@@ -170,7 +170,7 @@ export default function TypingTestPage() {
       setDuration(d);
       startGame(d);
     },
-    [startGame],
+    [startGame]
   );
 
   const handleInput = useCallback(
@@ -196,7 +196,7 @@ export default function TypingTestPage() {
         setGameState("finished");
       }
     },
-    [gameState, text, soundFx],
+    [gameState, text, soundFx]
   );
 
   const focusInput = () => inputRef.current?.focus();
@@ -387,7 +387,10 @@ export default function TypingTestPage() {
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <VoidPanel hoverable={false} className="p-8 sm:p-12 flex flex-col items-center gap-6 max-w-md w-full">
+              <VoidPanel
+                hoverable={false}
+                className="p-8 sm:p-12 flex flex-col items-center gap-6 max-w-md w-full"
+              >
                 <SectionLabel>RESULTS</SectionLabel>
 
                 {/* Big WPM */}
@@ -449,11 +452,7 @@ export default function TypingTestPage() {
                 </div>
 
                 {/* New Game */}
-                <Button
-                  variant="gold"
-                  onClick={() => startGame()}
-                  className="mt-2 w-full"
-                >
+                <Button variant="gold" onClick={() => startGame()} className="mt-2 w-full">
                   New Game
                 </Button>
               </VoidPanel>

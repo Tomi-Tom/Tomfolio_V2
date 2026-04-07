@@ -20,16 +20,116 @@ interface CityWeather {
 }
 
 const MOCK_DATA: CityWeather[] = [
-  { city: "Paris", country: "France", temperature: 18, weather: "Partly Cloudy", icon: "\u26c5", humidity: 62, wind: 14, time: "14:30", isDay: true },
-  { city: "Tokyo", country: "Japan", temperature: 24, weather: "Sunny", icon: "\u2600\ufe0f", humidity: 55, wind: 8, time: "22:30", isDay: false },
-  { city: "New York", country: "USA", temperature: 21, weather: "Clear", icon: "\u2600\ufe0f", humidity: 48, wind: 18, time: "08:30", isDay: true },
-  { city: "Sydney", country: "Australia", temperature: 27, weather: "Sunny", icon: "\u2600\ufe0f", humidity: 60, wind: 12, time: "23:30", isDay: false },
-  { city: "London", country: "UK", temperature: 14, weather: "Rainy", icon: "\ud83c\udf27\ufe0f", humidity: 80, wind: 20, time: "13:30", isDay: true },
-  { city: "Dubai", country: "UAE", temperature: 38, weather: "Hot & Sunny", icon: "\ud83d\udd25", humidity: 25, wind: 6, time: "17:30", isDay: true },
-  { city: "Moscow", country: "Russia", temperature: 3, weather: "Snowy", icon: "\u2744\ufe0f", humidity: 78, wind: 22, time: "16:30", isDay: true },
-  { city: "Rio", country: "Brazil", temperature: 32, weather: "Tropical", icon: "\ud83c\udf34", humidity: 72, wind: 10, time: "10:30", isDay: true },
-  { city: "Seoul", country: "South Korea", temperature: 20, weather: "Clear", icon: "\ud83c\udf24\ufe0f", humidity: 50, wind: 9, time: "22:30", isDay: false },
-  { city: "Cape Town", country: "South Africa", temperature: 22, weather: "Windy", icon: "\ud83c\udf2c\ufe0f", humidity: 58, wind: 28, time: "15:30", isDay: true },
+  {
+    city: "Paris",
+    country: "France",
+    temperature: 18,
+    weather: "Partly Cloudy",
+    icon: "\u26c5",
+    humidity: 62,
+    wind: 14,
+    time: "14:30",
+    isDay: true,
+  },
+  {
+    city: "Tokyo",
+    country: "Japan",
+    temperature: 24,
+    weather: "Sunny",
+    icon: "\u2600\ufe0f",
+    humidity: 55,
+    wind: 8,
+    time: "22:30",
+    isDay: false,
+  },
+  {
+    city: "New York",
+    country: "USA",
+    temperature: 21,
+    weather: "Clear",
+    icon: "\u2600\ufe0f",
+    humidity: 48,
+    wind: 18,
+    time: "08:30",
+    isDay: true,
+  },
+  {
+    city: "Sydney",
+    country: "Australia",
+    temperature: 27,
+    weather: "Sunny",
+    icon: "\u2600\ufe0f",
+    humidity: 60,
+    wind: 12,
+    time: "23:30",
+    isDay: false,
+  },
+  {
+    city: "London",
+    country: "UK",
+    temperature: 14,
+    weather: "Rainy",
+    icon: "\ud83c\udf27\ufe0f",
+    humidity: 80,
+    wind: 20,
+    time: "13:30",
+    isDay: true,
+  },
+  {
+    city: "Dubai",
+    country: "UAE",
+    temperature: 38,
+    weather: "Hot & Sunny",
+    icon: "\ud83d\udd25",
+    humidity: 25,
+    wind: 6,
+    time: "17:30",
+    isDay: true,
+  },
+  {
+    city: "Moscow",
+    country: "Russia",
+    temperature: 3,
+    weather: "Snowy",
+    icon: "\u2744\ufe0f",
+    humidity: 78,
+    wind: 22,
+    time: "16:30",
+    isDay: true,
+  },
+  {
+    city: "Rio",
+    country: "Brazil",
+    temperature: 32,
+    weather: "Tropical",
+    icon: "\ud83c\udf34",
+    humidity: 72,
+    wind: 10,
+    time: "10:30",
+    isDay: true,
+  },
+  {
+    city: "Seoul",
+    country: "South Korea",
+    temperature: 20,
+    weather: "Clear",
+    icon: "\ud83c\udf24\ufe0f",
+    humidity: 50,
+    wind: 9,
+    time: "22:30",
+    isDay: false,
+  },
+  {
+    city: "Cape Town",
+    country: "South Africa",
+    temperature: 22,
+    weather: "Windy",
+    icon: "\ud83c\udf2c\ufe0f",
+    humidity: 58,
+    wind: 28,
+    time: "15:30",
+    isDay: true,
+  },
 ];
 
 const fadeUp = {
@@ -53,11 +153,7 @@ const staggerItem = {
 export default function WeatherPage() {
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<CityWeather>(MOCK_DATA[0]);
-  const [saved, setSaved] = useState<CityWeather[]>([
-    MOCK_DATA[1],
-    MOCK_DATA[2],
-    MOCK_DATA[3],
-  ]);
+  const [saved, setSaved] = useState<CityWeather[]>([MOCK_DATA[1], MOCK_DATA[2], MOCK_DATA[3]]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -67,9 +163,7 @@ export default function WeatherPage() {
 
   const suggestions =
     query.length > 0
-      ? MOCK_DATA.filter((c) =>
-          c.city.toLowerCase().includes(query.toLowerCase())
-        )
+      ? MOCK_DATA.filter((c) => c.city.toLowerCase().includes(query.toLowerCase()))
       : [];
 
   const isSaved = saved.some((c) => c.city === selected.city);
@@ -105,12 +199,10 @@ export default function WeatherPage() {
       {/* Header */}
       <div className="mb-10 text-center">
         <SectionLabel className="mb-3">UTILITY</SectionLabel>
-        <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-2">
-          Weather App
-        </h2>
+        <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-2">Weather App</h2>
         <p className="text-text-secondary text-sm max-w-md mx-auto">
-          Check current weather conditions across the globe. Save your favorite
-          locations for quick access.
+          Check current weather conditions across the globe. Save your favorite locations for quick
+          access.
         </p>
       </div>
 
@@ -166,9 +258,7 @@ export default function WeatherPage() {
                     <span>
                       {city.icon} {city.city}, {city.country}
                     </span>
-                    <span className="text-text-secondary text-xs">
-                      {city.temperature}&deg;C
-                    </span>
+                    <span className="text-text-secondary text-xs">{city.temperature}&deg;C</span>
                   </motion.button>
                 ))}
               </VoidPanel>
@@ -202,15 +292,11 @@ export default function WeatherPage() {
               {/* City header */}
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <h3 className="font-display text-2xl text-text-primary">
-                    {selected.city}
-                  </h3>
+                  <h3 className="font-display text-2xl text-text-primary">{selected.city}</h3>
                   <span className="inline-block mt-1 px-2 py-0.5 text-[0.65rem] uppercase tracking-widest font-display text-gold/80 border border-gold/20 rounded-sm bg-gold/5">
                     {selected.country}
                   </span>
-                  <p className="text-text-secondary text-xs mt-2">
-                    Local time: {selected.time}
-                  </p>
+                  <p className="text-text-secondary text-xs mt-2">Local time: {selected.time}</p>
                 </div>
                 <button
                   onClick={toggleSave}
@@ -222,9 +308,7 @@ export default function WeatherPage() {
                       &#9733;
                     </span>
                   ) : (
-                    <span className="text-text-secondary hover:text-gold">
-                      &#9734;
-                    </span>
+                    <span className="text-text-secondary hover:text-gold">&#9734;</span>
                   )}
                 </button>
               </div>
@@ -236,41 +320,28 @@ export default function WeatherPage() {
                   <p
                     className="text-6xl font-bold text-gold"
                     style={{
-                      textShadow:
-                        "0 0 20px rgba(212,175,55,0.3), 0 0 40px rgba(212,175,55,0.15)",
+                      textShadow: "0 0 20px rgba(212,175,55,0.3), 0 0 40px rgba(212,175,55,0.15)",
                     }}
                   >
                     {selected.temperature}&deg;C
                   </p>
-                  <p className="text-text-secondary text-sm mt-1">
-                    {selected.weather}
-                  </p>
+                  <p className="text-text-secondary text-sm mt-1">{selected.weather}</p>
                 </div>
               </div>
 
               {/* Info chips */}
               <div className="flex gap-4">
-                <VoidPanel
-                  hoverable={false}
-                  className="flex-1 p-3 bg-gold/5 border-gold/10"
-                >
+                <VoidPanel hoverable={false} className="flex-1 p-3 bg-gold/5 border-gold/10">
                   <p className="text-[0.6rem] uppercase tracking-widest text-text-secondary mb-1">
                     Humidity
                   </p>
-                  <p className="text-gold font-display text-lg">
-                    {selected.humidity}%
-                  </p>
+                  <p className="text-gold font-display text-lg">{selected.humidity}%</p>
                 </VoidPanel>
-                <VoidPanel
-                  hoverable={false}
-                  className="flex-1 p-3 bg-gold/5 border-gold/10"
-                >
+                <VoidPanel hoverable={false} className="flex-1 p-3 bg-gold/5 border-gold/10">
                   <p className="text-[0.6rem] uppercase tracking-widest text-text-secondary mb-1">
                     Wind
                   </p>
-                  <p className="text-gold font-display text-lg">
-                    {selected.wind} km/h
-                  </p>
+                  <p className="text-gold font-display text-lg">{selected.wind} km/h</p>
                 </VoidPanel>
               </div>
             </div>
@@ -316,9 +387,7 @@ export default function WeatherPage() {
                 >
                   <VoidPanel
                     className={`p-3 cursor-pointer ${
-                      selected.city === city.city
-                        ? "border-gold/40"
-                        : ""
+                      selected.city === city.city ? "border-gold/40" : ""
                     }`}
                     onClick={() => selectCity(city)}
                   >
@@ -326,12 +395,8 @@ export default function WeatherPage() {
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{city.icon}</span>
                         <div>
-                          <p className="text-text-primary text-sm font-display">
-                            {city.city}
-                          </p>
-                          <p className="text-text-secondary text-xs">
-                            {city.weather}
-                          </p>
+                          <p className="text-text-primary text-sm font-display">{city.city}</p>
+                          <p className="text-text-secondary text-xs">{city.weather}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">

@@ -79,10 +79,7 @@ function SettingsModal({
       exit={{ opacity: 0 }}
     >
       {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-void-deep/80 backdrop-blur-sm"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-void-deep/80 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
       <motion.div
@@ -207,7 +204,7 @@ export default function PomodoroPage() {
       setTimeLeft(getDurationSeconds(next, settings));
       setIsRunning(false);
     },
-    [settings],
+    [settings]
   );
 
   /* ---- Countdown effect ------------------------------------------ */
@@ -225,11 +222,12 @@ export default function PomodoroPage() {
             setCompletedPomodoros((c) => c + 1);
           }
 
-          const next = mode === "focus"
-            ? (completedPomodoros + 1) % LONG_BREAK_INTERVAL === 0
-              ? "longBreak"
-              : "shortBreak"
-            : "focus";
+          const next =
+            mode === "focus"
+              ? (completedPomodoros + 1) % LONG_BREAK_INTERVAL === 0
+                ? "longBreak"
+                : "shortBreak"
+              : "focus";
 
           // Auto-switch after a tiny delay so state settles
           setTimeout(() => switchMode(next), 300);
@@ -272,10 +270,7 @@ export default function PomodoroPage() {
 
   /* ---- Total estimated time -------------------------------------- */
 
-  const totalEstimateMin =
-    settings.focus * 4 +
-    settings.shortBreak * 3 +
-    settings.longBreak;
+  const totalEstimateMin = settings.focus * 4 + settings.shortBreak * 3 + settings.longBreak;
 
   /* ---- Animations ------------------------------------------------ */
 
@@ -297,8 +292,8 @@ export default function PomodoroPage() {
           <SectionLabel>UTILITY</SectionLabel>
           <h2 className="text-display mt-3">Pomodoro Timer</h2>
           <p className="text-text-secondary mt-2 max-w-xl">
-            Stay focused and productive with timed work sessions and scheduled
-            breaks. Complete four focus rounds for a long break.
+            Stay focused and productive with timed work sessions and scheduled breaks. Complete four
+            focus rounds for a long break.
           </p>
         </div>
 
@@ -319,12 +314,10 @@ export default function PomodoroPage() {
         <div className="flex justify-center">
           <motion.div
             className="relative"
-            style={{ width: 'min(320px, 85vw)', height: 'min(320px, 85vw)' }}
+            style={{ width: "min(320px, 85vw)", height: "min(320px, 85vw)" }}
             animate={isRunning ? { scale: [1, 1.01, 1] } : { scale: 1 }}
             transition={
-              isRunning
-                ? { repeat: Infinity, duration: 2, ease: "easeInOut" }
-                : { duration: 0.3 }
+              isRunning ? { repeat: Infinity, duration: 2, ease: "easeInOut" } : { duration: 0.3 }
             }
           >
             {/* SVG Rings */}
@@ -334,9 +327,7 @@ export default function PomodoroPage() {
               viewBox="0 0 320 320"
               className="absolute inset-0"
               style={
-                isRunning
-                  ? { filter: "drop-shadow(0 0 20px rgba(212,175,55,0.2))" }
-                  : undefined
+                isRunning ? { filter: "drop-shadow(0 0 20px rgba(212,175,55,0.2))" } : undefined
               }
             >
               {/* Background circle */}
@@ -416,17 +407,13 @@ export default function PomodoroPage() {
 
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">
-                  Current Mode
-                </p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">Current Mode</p>
                 <p className="text-text-primary font-display font-semibold mt-1">
                   {MODE_LABELS[mode]}
                 </p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">
-                  Full Cycle
-                </p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">Full Cycle</p>
                 <p className="text-text-primary font-display font-semibold mt-1">
                   ~{totalEstimateMin} min
                 </p>
@@ -449,25 +436,17 @@ export default function PomodoroPage() {
 
             <div className="grid grid-cols-3 gap-4 mt-3">
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">
-                  Focus
-                </p>
-                <p className="text-gold font-display font-bold text-lg mt-1">
-                  {settings.focus}m
-                </p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">Focus</p>
+                <p className="text-gold font-display font-bold text-lg mt-1">{settings.focus}m</p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">
-                  Short
-                </p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">Short</p>
                 <p className="text-gold font-display font-bold text-lg mt-1">
                   {settings.shortBreak}m
                 </p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">
-                  Long
-                </p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">Long</p>
                 <p className="text-gold font-display font-bold text-lg mt-1">
                   {settings.longBreak}m
                 </p>

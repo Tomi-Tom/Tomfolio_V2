@@ -10,12 +10,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 // Types
 // ---------------------------------------------------------------------------
 
-type HarmonyMode =
-  | "Random"
-  | "Analogous"
-  | "Complementary"
-  | "Triadic"
-  | "Monochromatic";
+type HarmonyMode = "Random" | "Analogous" | "Complementary" | "Triadic" | "Monochromatic";
 
 interface PaletteColor {
   h: number; // 0-360
@@ -161,10 +156,8 @@ function approximateName(h: number, s: number, l: number): string {
   }
 
   // Add lightness qualifier
-  if (l > 75 && best !== "White" && best !== "Ivory" && best !== "Beige")
-    return `Light ${best}`;
-  if (l < 25 && best !== "Black" && best !== "Midnight" && best !== "Maroon")
-    return `Dark ${best}`;
+  if (l > 75 && best !== "White" && best !== "Ivory" && best !== "Beige") return `Light ${best}`;
+  if (l < 25 && best !== "Black" && best !== "Midnight" && best !== "Maroon") return `Dark ${best}`;
   return best;
 }
 
@@ -186,9 +179,7 @@ function generatePalette(mode: HarmonyMode, current: Palette): Palette {
 
   const generators: Record<HarmonyMode, () => Palette> = {
     Random: () =>
-      Array.from({ length: 5 }, (_, i) =>
-        current[i]?.locked ? current[i] : randomColor()
-      ),
+      Array.from({ length: 5 }, (_, i) => (current[i]?.locked ? current[i] : randomColor())),
 
     Analogous: () => {
       const hues = [-30, -15, 0, 15, 30].map((d) => (base + d + 360) % 360);
@@ -248,9 +239,7 @@ function generatePalette(mode: HarmonyMode, current: Palette): Palette {
       const sats = [85, 70, 55, 40, 75];
       const lights = [30, 42, 55, 68, 80];
       return sats.map((s, i) =>
-        current[i]?.locked
-          ? current[i]
-          : { h: base, s, l: lights[i], locked: false }
+        current[i]?.locked ? current[i] : { h: base, s, l: lights[i], locked: false }
       );
     },
   };
@@ -342,13 +331,7 @@ function saveHistory(history: Palette[]) {
 // Main component
 // ---------------------------------------------------------------------------
 
-const MODES: HarmonyMode[] = [
-  "Random",
-  "Analogous",
-  "Complementary",
-  "Triadic",
-  "Monochromatic",
-];
+const MODES: HarmonyMode[] = ["Random", "Analogous", "Complementary", "Triadic", "Monochromatic"];
 
 const stripVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -410,9 +393,7 @@ export default function ColorPalettePage() {
   }, []);
 
   const toggleLock = useCallback((index: number) => {
-    setPalette((prev) =>
-      prev.map((c, i) => (i === index ? { ...c, locked: !c.locked } : c))
-    );
+    setPalette((prev) => prev.map((c, i) => (i === index ? { ...c, locked: !c.locked } : c)));
   }, []);
 
   const exportCSS = useCallback(() => {
@@ -429,9 +410,7 @@ export default function ColorPalettePage() {
     function handleKey(e: KeyboardEvent) {
       if (
         e.code === "Space" &&
-        !["INPUT", "TEXTAREA", "SELECT"].includes(
-          (e.target as HTMLElement).tagName
-        )
+        !["INPUT", "TEXTAREA", "SELECT"].includes((e.target as HTMLElement).tagName)
       ) {
         e.preventDefault();
         generate();
@@ -529,10 +508,7 @@ export default function ColorPalettePage() {
                     </button>
 
                     {/* Color info */}
-                    <div
-                      className="space-y-0.5 select-none"
-                      style={{ color: textColor }}
-                    >
+                    <div className="space-y-0.5 select-none" style={{ color: textColor }}>
                       <p className="text-[0.65rem] uppercase tracking-wider opacity-70 font-display">
                         {name}
                       </p>

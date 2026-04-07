@@ -38,7 +38,9 @@ const fadeUp = {
 function HudCorner({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
   const rotations = { tl: "", tr: "scale-x-[-1]", bl: "scale-y-[-1]", br: "scale-[-1]" };
   return (
-    <div className={`absolute ${position === "tl" || position === "bl" ? "left-0" : "right-0"} ${position === "tl" || position === "tr" ? "top-0" : "bottom-0"} w-6 h-6 pointer-events-none ${rotations[position]}`}>
+    <div
+      className={`absolute ${position === "tl" || position === "bl" ? "left-0" : "right-0"} ${position === "tl" || position === "tr" ? "top-0" : "bottom-0"} w-6 h-6 pointer-events-none ${rotations[position]}`}
+    >
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-[var(--gold)] to-transparent opacity-50" />
       <div className="absolute top-0 left-0 h-full w-px bg-gradient-to-b from-[var(--gold)] to-transparent opacity-50" />
     </div>
@@ -48,9 +50,9 @@ function HudCorner({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
 export function Contact() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle"
+  );
 
   const {
     register,
@@ -103,12 +105,9 @@ export function Contact() {
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Left column -- Form */}
           <motion.div custom={1} variants={fadeUp}>
-            <h2 className="text-h2 font-display">
-              Let&apos;s Build Something
-            </h2>
+            <h2 className="text-h2 font-display">Let&apos;s Build Something</h2>
             <p className="mt-3 text-text-secondary text-sm leading-relaxed">
-              Open to new projects, collaborations, and interesting
-              conversations.
+              Open to new projects, collaborations, and interesting conversations.
             </p>
 
             {/* Form with HUD corners */}
@@ -129,7 +128,16 @@ export function Contact() {
                       className="flex flex-col items-center justify-center py-16 text-center"
                     >
                       <div className="w-16 h-16 rounded-full border-2 border-[var(--gold)] flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="var(--gold)"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
                           <polyline points="20 6 9 17 4 12" />
                         </svg>
                       </div>
@@ -155,7 +163,16 @@ export function Contact() {
                       className="flex flex-col items-center justify-center py-16 text-center"
                     >
                       <div className="w-16 h-16 rounded-full border-2 border-red-500/50 flex items-center justify-center mb-6">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgb(239,68,68)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="rgb(239,68,68)"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
                           <line x1="18" y1="6" x2="6" y2="18" />
                           <line x1="6" y1="6" x2="18" y2="18" />
                         </svg>
@@ -225,17 +242,11 @@ export function Contact() {
                           {...register("content")}
                         />
                         {errors.content && (
-                          <p className="text-red-500 text-xs mt-1">
-                            {errors.content.message}
-                          </p>
+                          <p className="text-red-500 text-xs mt-1">{errors.content.message}</p>
                         )}
                       </div>
 
-                      <Button
-                        type="submit"
-                        variant="gold"
-                        disabled={submitStatus === "loading"}
-                      >
+                      <Button type="submit" variant="gold" disabled={submitStatus === "loading"}>
                         {submitStatus === "loading" ? "Sending..." : "Send Message"}
                       </Button>
                     </motion.form>
@@ -256,7 +267,16 @@ export function Contact() {
                 {/* Email */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg border border-[var(--gold-dim)] bg-[rgba(212,175,55,0.05)] flex items-center justify-center shrink-0">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--gold)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <rect x="2" y="4" width="20" height="16" rx="2" />
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
@@ -275,7 +295,16 @@ export function Contact() {
                 {/* Location */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg border border-[var(--gold-dim)] bg-[rgba(212,175,55,0.05)] flex items-center justify-center shrink-0">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--gold)"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                       <circle cx="12" cy="10" r="3" />
                     </svg>
@@ -317,11 +346,15 @@ export function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <p className="font-mono text-xs text-[var(--gold-dim)]">LAT</p>
-                    <p className="font-mono text-lg text-text-primary tracking-wider">48.8566&deg;</p>
+                    <p className="font-mono text-lg text-text-primary tracking-wider">
+                      48.8566&deg;
+                    </p>
                   </div>
                   <div>
                     <p className="font-mono text-xs text-[var(--gold-dim)]">LNG</p>
-                    <p className="font-mono text-lg text-text-primary tracking-wider">2.3522&deg;</p>
+                    <p className="font-mono text-lg text-text-primary tracking-wider">
+                      2.3522&deg;
+                    </p>
                   </div>
                 </div>
                 <div className="mt-3 h-px bg-gradient-to-r from-[var(--gold-dim)] via-[var(--border)] to-transparent" />

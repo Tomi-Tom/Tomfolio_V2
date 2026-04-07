@@ -32,14 +32,7 @@ type Filter = "all" | "active" | "completed";
 // Confetti particle
 // ---------------------------------------------------------------------------
 
-const CONFETTI_COLORS = [
-  "#d4af37",
-  "#c9a227",
-  "#b8960f",
-  "#e6c550",
-  "#f0d870",
-  "#dbb840",
-];
+const CONFETTI_COLORS = ["#d4af37", "#c9a227", "#b8960f", "#e6c550", "#f0d870", "#dbb840"];
 
 interface ConfettiParticle {
   id: number;
@@ -91,9 +84,7 @@ function isTaskCompleted(task: Task): boolean {
 
 function completionPercent(task: Task): number {
   if (task.steps.length === 0) return 0;
-  return Math.round(
-    (task.steps.filter((s) => s.isCompleted).length / task.steps.length) * 100
-  );
+  return Math.round((task.steps.filter((s) => s.isCompleted).length / task.steps.length) * 100);
 }
 
 // ---------------------------------------------------------------------------
@@ -142,8 +133,7 @@ export default function TaskBreakerPage() {
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(isTaskCompleted).length;
-  const completionRate =
-    totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+  const completionRate = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
   // ----- Task CRUD -----
 
@@ -174,9 +164,7 @@ export default function TaskBreakerPage() {
     if (!selectedTask) return;
     let newSteps: Step[] = [];
     if (stepMode === "single" && singleStepText.trim()) {
-      newSteps = [
-        { id: uid(), text: singleStepText.trim(), isCompleted: false },
-      ];
+      newSteps = [{ id: uid(), text: singleStepText.trim(), isCompleted: false }];
     } else if (stepMode === "bulk" && bulkStepText.trim()) {
       newSteps = bulkStepText
         .split("\n")
@@ -187,9 +175,7 @@ export default function TaskBreakerPage() {
     if (newSteps.length === 0) return;
     setTasks((prev) =>
       prev.map((t) =>
-        t.id === selectedTask.id
-          ? { ...t, steps: [...t.steps, ...newSteps], completedAt: null }
-          : t
+        t.id === selectedTask.id ? { ...t, steps: [...t.steps, ...newSteps], completedAt: null } : t
       )
     );
     setSingleStepText("");
@@ -204,8 +190,7 @@ export default function TaskBreakerPage() {
         const updatedSteps = t.steps.map((s) =>
           s.id === stepId ? { ...s, isCompleted: !s.isCompleted } : s
         );
-        const allDone =
-          updatedSteps.length > 0 && updatedSteps.every((s) => s.isCompleted);
+        const allDone = updatedSteps.length > 0 && updatedSteps.every((s) => s.isCompleted);
         const wasAlreadyComplete = isTaskCompleted(t);
         if (allDone && !wasAlreadyComplete) {
           // Trigger confetti
@@ -226,12 +211,11 @@ export default function TaskBreakerPage() {
       prev.map((t) => {
         if (t.id !== taskId) return t;
         const updatedSteps = t.steps.filter((s) => s.id !== stepId);
-        const allDone =
-          updatedSteps.length > 0 && updatedSteps.every((s) => s.isCompleted);
+        const allDone = updatedSteps.length > 0 && updatedSteps.every((s) => s.isCompleted);
         return {
           ...t,
           steps: updatedSteps,
-          completedAt: allDone ? t.completedAt ?? new Date().toISOString() : null,
+          completedAt: allDone ? (t.completedAt ?? new Date().toISOString()) : null,
         };
       })
     );
@@ -293,20 +277,19 @@ export default function TaskBreakerPage() {
           Task Breaker
         </h2>
         <p className="text-text-secondary max-w-lg mx-auto text-sm">
-          Break overwhelming tasks into small, manageable steps. Check them off
-          one by one and watch your progress grow.
+          Break overwhelming tasks into small, manageable steps. Check them off one by one and watch
+          your progress grow.
         </p>
       </div>
 
       {/* Stats bar */}
       <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm text-text-secondary">
         <span>
-          <span className="text-gold font-semibold">{completedTasks}</span> /{" "}
-          {totalTasks} tasks completed
+          <span className="text-gold font-semibold">{completedTasks}</span> / {totalTasks} tasks
+          completed
         </span>
         <span>
-          Completion rate:{" "}
-          <span className="text-gold font-semibold">{completionRate}%</span>
+          Completion rate: <span className="text-gold font-semibold">{completionRate}%</span>
         </span>
       </div>
 
@@ -382,9 +365,7 @@ export default function TaskBreakerPage() {
                         <VoidPanel
                           hoverable
                           className={`p-3 cursor-pointer transition-colors ${
-                            selected
-                              ? "border border-[var(--gold-dim,rgba(212,175,55,0.4))]"
-                              : ""
+                            selected ? "border border-[var(--gold-dim,rgba(212,175,55,0.4))]" : ""
                           }`}
                           onClick={() => setSelectedId(task.id)}
                         >
@@ -400,9 +381,7 @@ export default function TaskBreakerPage() {
                             <div className="flex-1 min-w-0">
                               <p
                                 className={`text-sm font-medium truncate ${
-                                  done
-                                    ? "line-through text-text-secondary"
-                                    : "text-text-primary"
+                                  done ? "line-through text-text-secondary" : "text-text-primary"
                                 }`}
                               >
                                 {task.title}
@@ -496,9 +475,7 @@ export default function TaskBreakerPage() {
               <div className="mb-6">
                 <div className="flex justify-between text-[0.65rem] text-text-secondary mb-1">
                   <span>Progress</span>
-                  <span className="text-gold">
-                    {completionPercent(selectedTask)}%
-                  </span>
+                  <span className="text-gold">{completionPercent(selectedTask)}%</span>
                 </div>
                 <div className="h-2 rounded-full bg-[var(--void-surface,rgba(255,255,255,0.06))] overflow-hidden">
                   <motion.div
@@ -523,9 +500,7 @@ export default function TaskBreakerPage() {
                       exit={{ opacity: 0 }}
                       className="text-center py-12 text-text-secondary text-xs"
                     >
-                      <p className="mb-3">
-                        No steps yet. Break this task into smaller pieces!
-                      </p>
+                      <p className="mb-3">No steps yet. Break this task into smaller pieces!</p>
                       <Button
                         variant="ghost-gold"
                         className="text-[0.6rem]"
@@ -547,21 +522,12 @@ export default function TaskBreakerPage() {
                         exit={{ opacity: 0, x: 12 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <VoidPanel
-                          hoverable={false}
-                          className="px-4 py-3 flex items-center gap-3"
-                        >
+                        <VoidPanel hoverable={false} className="px-4 py-3 flex items-center gap-3">
                           {/* Checkbox circle */}
                           <button
-                            onClick={() =>
-                              toggleStep(selectedTask.id, step.id)
-                            }
+                            onClick={() => toggleStep(selectedTask.id, step.id)}
                             className="shrink-0 group"
-                            aria-label={
-                              step.isCompleted
-                                ? "Mark incomplete"
-                                : "Mark complete"
-                            }
+                            aria-label={step.isCompleted ? "Mark incomplete" : "Mark complete"}
                           >
                             <span
                               className={`block w-5 h-5 rounded-full border-2 transition-colors ${
@@ -571,10 +537,7 @@ export default function TaskBreakerPage() {
                               }`}
                             >
                               {step.isCompleted && (
-                                <svg
-                                  viewBox="0 0 20 20"
-                                  className="w-full h-full text-void-deep"
-                                >
+                                <svg viewBox="0 0 20 20" className="w-full h-full text-void-deep">
                                   <path
                                     d="M6 10l3 3 5-6"
                                     stroke="currentColor"
@@ -602,9 +565,7 @@ export default function TaskBreakerPage() {
                           {/* Reorder + delete */}
                           <div className="flex items-center gap-1 shrink-0">
                             <button
-                              onClick={() =>
-                                moveStep(selectedTask.id, step.id, "up")
-                              }
+                              onClick={() => moveStep(selectedTask.id, step.id, "up")}
                               disabled={idx === 0}
                               className="p-1 text-text-secondary hover:text-gold disabled:opacity-25 transition-colors"
                               aria-label="Move up"
@@ -621,12 +582,8 @@ export default function TaskBreakerPage() {
                               </svg>
                             </button>
                             <button
-                              onClick={() =>
-                                moveStep(selectedTask.id, step.id, "down")
-                              }
-                              disabled={
-                                idx === selectedTask.steps.length - 1
-                              }
+                              onClick={() => moveStep(selectedTask.id, step.id, "down")}
+                              disabled={idx === selectedTask.steps.length - 1}
                               className="p-1 text-text-secondary hover:text-gold disabled:opacity-25 transition-colors"
                               aria-label="Move down"
                             >
@@ -642,9 +599,7 @@ export default function TaskBreakerPage() {
                               </svg>
                             </button>
                             <button
-                              onClick={() =>
-                                deleteStep(selectedTask.id, step.id)
-                              }
+                              onClick={() => deleteStep(selectedTask.id, step.id)}
                               className="p-1 text-text-secondary hover:text-red-400 transition-colors"
                               aria-label="Delete step"
                             >
@@ -674,24 +629,24 @@ export default function TaskBreakerPage() {
                 </h4>
                 <ul className="space-y-1.5 text-[0.7rem] text-text-secondary leading-relaxed">
                   <li>
-                    <span className="text-gold mr-1">&#9672;</span> Break tasks
-                    into steps you can finish in 5–15 minutes.
+                    <span className="text-gold mr-1">&#9672;</span> Break tasks into steps you can
+                    finish in 5–15 minutes.
                   </li>
                   <li>
-                    <span className="text-gold mr-1">&#9672;</span> Start with
-                    the easiest step to build momentum.
+                    <span className="text-gold mr-1">&#9672;</span> Start with the easiest step to
+                    build momentum.
                   </li>
                   <li>
-                    <span className="text-gold mr-1">&#9672;</span> If a step
-                    feels too big, break it down further.
+                    <span className="text-gold mr-1">&#9672;</span> If a step feels too big, break
+                    it down further.
                   </li>
                   <li>
-                    <span className="text-gold mr-1">&#9672;</span> Celebrate
-                    every checked box — progress is progress.
+                    <span className="text-gold mr-1">&#9672;</span> Celebrate every checked box —
+                    progress is progress.
                   </li>
                   <li>
-                    <span className="text-gold mr-1">&#9672;</span> Reorder
-                    steps so the next action is always on top.
+                    <span className="text-gold mr-1">&#9672;</span> Reorder steps so the next action
+                    is always on top.
                   </li>
                 </ul>
               </div>
@@ -700,8 +655,7 @@ export default function TaskBreakerPage() {
             <VoidPanel hoverable={false} className="p-6">
               <div className="flex flex-col items-center justify-center py-20 text-center">
                 <p className="text-text-secondary text-sm mb-4">
-                  Select a task from the list or create a new one to get
-                  started.
+                  Select a task from the list or create a new one to get started.
                 </p>
                 <Button
                   variant="gold"
@@ -740,10 +694,7 @@ export default function TaskBreakerPage() {
               transition={{ duration: 0.2 }}
               className="relative z-50 w-full max-w-md"
             >
-              <VoidPanel
-                hoverable={false}
-                className="p-6 shadow-[0_0_40px_rgba(212,175,55,0.12)]"
-              >
+              <VoidPanel hoverable={false} className="p-6 shadow-[0_0_40px_rgba(212,175,55,0.12)]">
                 <h3 className="font-display text-text-primary text-sm tracking-widest uppercase mb-5">
                   New Task
                 </h3>
@@ -771,11 +722,7 @@ export default function TaskBreakerPage() {
                     >
                       Cancel
                     </Button>
-                    <Button
-                      variant="gold"
-                      type="submit"
-                      disabled={!newTitle.trim()}
-                    >
+                    <Button variant="gold" type="submit" disabled={!newTitle.trim()}>
                       Create
                     </Button>
                   </div>
@@ -809,10 +756,7 @@ export default function TaskBreakerPage() {
               transition={{ duration: 0.2 }}
               className="relative z-50 w-full max-w-md"
             >
-              <VoidPanel
-                hoverable={false}
-                className="p-6 shadow-[0_0_40px_rgba(212,175,55,0.12)]"
-              >
+              <VoidPanel hoverable={false} className="p-6 shadow-[0_0_40px_rgba(212,175,55,0.12)]">
                 <h3 className="font-display text-text-primary text-sm tracking-widest uppercase mb-5">
                   Add Steps
                 </h3>
@@ -878,9 +822,7 @@ export default function TaskBreakerPage() {
                       variant="gold"
                       type="submit"
                       disabled={
-                        stepMode === "single"
-                          ? !singleStepText.trim()
-                          : !bulkStepText.trim()
+                        stepMode === "single" ? !singleStepText.trim() : !bulkStepText.trim()
                       }
                     >
                       Add

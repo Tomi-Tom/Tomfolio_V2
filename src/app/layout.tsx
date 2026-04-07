@@ -21,17 +21,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body>
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -41,10 +35,7 @@ export default function RootLayout({
               name: "Tom Bariteau-Peter",
               jobTitle: "UX Designer & Web Developer",
               url: "https://tombp.fr",
-              sameAs: [
-                "https://github.com/Tomi-Tom",
-                "https://linkedin.com/in/tom-bariteau-peter",
-              ],
+              sameAs: ["https://github.com/Tomi-Tom", "https://linkedin.com/in/tom-bariteau-peter"],
               knowsAbout: [
                 "UX Design",
                 "UI Design",

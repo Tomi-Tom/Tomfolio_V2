@@ -51,7 +51,16 @@ const PRESETS: Preset[] = [
   {
     name: "rainy-day",
     label: "Rainy Day",
-    volumes: { rain: 80, thunder: 45, ocean: 0, forest: 0, fire: 30, wind: 20, birds: 0, coffee: 0 },
+    volumes: {
+      rain: 80,
+      thunder: 45,
+      ocean: 0,
+      forest: 0,
+      fire: 30,
+      wind: 20,
+      birds: 0,
+      coffee: 0,
+    },
   },
   {
     name: "nature-walk",
@@ -100,7 +109,7 @@ function saveMixes(mixes: SavedMix[]) {
 function generateNoiseBuffer(
   ctx: AudioContext,
   duration: number,
-  type: "white" | "pink" | "brown",
+  type: "white" | "pink" | "brown"
 ): AudioBuffer {
   const length = Math.floor(ctx.sampleRate * duration);
   const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
@@ -112,15 +121,21 @@ function generateNoiseBuffer(
     }
   } else if (type === "pink") {
     // Paul Kellet's pink noise algorithm
-    let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+    let b0 = 0,
+      b1 = 0,
+      b2 = 0,
+      b3 = 0,
+      b4 = 0,
+      b5 = 0,
+      b6 = 0;
     for (let i = 0; i < length; i++) {
       const white = Math.random() * 2 - 1;
       b0 = 0.99886 * b0 + white * 0.0555179;
       b1 = 0.99332 * b1 + white * 0.0750759;
-      b2 = 0.96900 * b2 + white * 0.1538520;
-      b3 = 0.86650 * b3 + white * 0.3104856;
-      b4 = 0.55000 * b4 + white * 0.5329522;
-      b5 = -0.7616 * b5 - white * 0.0168980;
+      b2 = 0.969 * b2 + white * 0.153852;
+      b3 = 0.8665 * b3 + white * 0.3104856;
+      b4 = 0.55 * b4 + white * 0.5329522;
+      b5 = -0.7616 * b5 - white * 0.016898;
       data[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.11;
       b6 = white * 0.115926;
     }
@@ -145,11 +160,7 @@ interface ChannelNodes {
   lfoGain?: GainNode;
 }
 
-function buildChannelGraph(
-  ctx: AudioContext,
-  id: string,
-  masterGain: GainNode,
-): ChannelNodes {
+function buildChannelGraph(ctx: AudioContext, id: string, masterGain: GainNode): ChannelNodes {
   const gain = ctx.createGain();
   gain.gain.value = 0;
   gain.connect(masterGain);
@@ -292,11 +303,7 @@ function buildChannelGraph(
   return { source, gainNode: gain, filters, lfo, lfoGain };
 }
 
-function useAudioEngine(
-  channels: Channel[],
-  masterVolume: number,
-  isPlaying: boolean,
-): void {
+function useAudioEngine(channels: Channel[], masterVolume: number, isPlaying: boolean): void {
   const ctxRef = useRef<AudioContext | null>(null);
   const masterGainRef = useRef<GainNode | null>(null);
   const channelNodesRef = useRef<Map<string, ChannelNodes>>(new Map());
@@ -370,8 +377,17 @@ function useAudioEngine(
   useEffect(() => {
     return () => {
       Array.from(channelNodesRef.current.values()).forEach((nodes) => {
-        try { nodes.source.stop(); } catch { /* already stopped */ }
-        if (nodes.lfo) try { nodes.lfo.stop(); } catch { /* already stopped */ }
+        try {
+          nodes.source.stop();
+        } catch {
+          /* already stopped */
+        }
+        if (nodes.lfo)
+          try {
+            nodes.lfo.stop();
+          } catch {
+            /* already stopped */
+          }
       });
       channelNodesRef.current.clear();
       if (ctxRef.current) {
@@ -427,7 +443,7 @@ function WaveformVisualizer({
 
       return points.join(" ");
     },
-    [channels, masterVolume, isPlaying],
+    [channels, masterVolume, isPlaying]
   );
 
   useEffect(() => {
@@ -451,11 +467,7 @@ function WaveformVisualizer({
 
   return (
     <VoidPanel className="p-0 overflow-hidden" hoverable={false}>
-      <svg
-        viewBox="0 0 800 120"
-        preserveAspectRatio="none"
-        className="w-full h-[120px] block"
-      >
+      <svg viewBox="0 0 800 120" preserveAspectRatio="none" className="w-full h-[120px] block">
         {/* Subtle grid lines */}
         {[30, 60, 90].map((y) => (
           <line
@@ -583,13 +595,7 @@ function ChannelCard({
 /*  Save Mix Modal                                                     */
 /* ------------------------------------------------------------------ */
 
-function SaveModal({
-  onSave,
-  onClose,
-}: {
-  onSave: (name: string) => void;
-  onClose: () => void;
-}) {
+function SaveModal({ onSave, onClose }: { onSave: (name: string) => void; onClose: () => void }) {
   const [name, setName] = useState("");
 
   return (
@@ -686,9 +692,7 @@ export default function WhiteNoisePage() {
   }, []);
 
   const applyPreset = useCallback((preset: Preset) => {
-    setChannels((prev) =>
-      prev.map((ch) => ({ ...ch, volume: preset.volumes[ch.id] ?? 0 })),
-    );
+    setChannels((prev) => prev.map((ch) => ({ ...ch, volume: preset.volumes[ch.id] ?? 0 })));
     setActivePreset(preset.name);
     setIsPlaying(true);
   }, []);
@@ -708,7 +712,7 @@ export default function WhiteNoisePage() {
         setTimerSeconds(minutes * 60);
       }
     },
-    [timerMinutes],
+    [timerMinutes]
   );
 
   const handleSaveMix = useCallback(
@@ -723,13 +727,11 @@ export default function WhiteNoisePage() {
       saveMixes(updated);
       setShowSaveModal(false);
     },
-    [channels, masterVolume, savedMixes],
+    [channels, masterVolume, savedMixes]
   );
 
   const handleLoadMix = useCallback((mix: SavedMix) => {
-    setChannels((prev) =>
-      prev.map((ch) => ({ ...ch, volume: mix.volumes[ch.id] ?? 0 })),
-    );
+    setChannels((prev) => prev.map((ch) => ({ ...ch, volume: mix.volumes[ch.id] ?? 0 })));
     setMasterVolume(mix.masterVolume);
     setActivePreset(null);
     setIsPlaying(true);
@@ -741,7 +743,7 @@ export default function WhiteNoisePage() {
       setSavedMixes(updated);
       saveMixes(updated);
     },
-    [savedMixes],
+    [savedMixes]
   );
 
   const activeCount = channels.filter((ch) => ch.volume > 0).length;
@@ -791,11 +793,7 @@ export default function WhiteNoisePage() {
           -webkit-appearance: none;
           appearance: none;
           height: 6px;
-          background: linear-gradient(
-            to right,
-            rgba(212, 175, 55, 0.3),
-            rgba(212, 175, 55, 0.8)
-          );
+          background: linear-gradient(to right, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.8));
           border-radius: 3px;
           outline: none;
           cursor: pointer;
@@ -821,11 +819,7 @@ export default function WhiteNoisePage() {
         }
         .ambient-master-slider::-moz-range-track {
           height: 6px;
-          background: linear-gradient(
-            to right,
-            rgba(212, 175, 55, 0.3),
-            rgba(212, 175, 55, 0.8)
-          );
+          background: linear-gradient(to right, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.8));
           border-radius: 3px;
         }
       `}</style>
@@ -840,8 +834,8 @@ export default function WhiteNoisePage() {
           <SectionLabel>FOCUS TOOL</SectionLabel>
           <h2 className="text-display mt-2">Ambient Sounds</h2>
           <p className="text-[var(--text-secondary)] text-sm mt-2 max-w-lg">
-            Blend ambient soundscapes to create your perfect focus environment.
-            Adjust individual channels and find your flow state.
+            Blend ambient soundscapes to create your perfect focus environment. Adjust individual
+            channels and find your flow state.
           </p>
         </motion.div>
 
@@ -877,11 +871,7 @@ export default function WhiteNoisePage() {
                     ? { opacity: [1, 0.3, 1], scale: [1, 1.2, 1] }
                     : { opacity: 0.5, scale: 1 }
                 }
-                transition={
-                  isPlaying
-                    ? { repeat: Infinity, duration: 1.5, ease: "easeInOut" }
-                    : {}
-                }
+                transition={isPlaying ? { repeat: Infinity, duration: 1.5, ease: "easeInOut" } : {}}
               />
               <span className="font-display text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-secondary)]">
                 {isPlaying ? "Playing" : "Stopped"}
@@ -911,11 +901,7 @@ export default function WhiteNoisePage() {
           <VoidPanel className="p-5" hoverable={false}>
             <div className="flex flex-col sm:flex-row items-center gap-6">
               {/* Play / Stop */}
-              <Button
-                variant="gold"
-                className="min-w-[140px]"
-                onClick={handlePlayStop}
-              >
+              <Button variant="gold" className="min-w-[140px]" onClick={handlePlayStop}>
                 {isPlaying ? (
                   <span className="flex items-center gap-2">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -1061,7 +1047,14 @@ export default function WhiteNoisePage() {
                       className="text-[var(--text-muted)] hover:text-red-400 transition-colors cursor-pointer p-1"
                       aria-label={`Delete ${mix.name}`}
                     >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
                         <path d="M18 6L6 18M6 6l12 12" />
                       </svg>
                     </button>
@@ -1070,7 +1063,11 @@ export default function WhiteNoisePage() {
                     {channels
                       .filter((ch) => (mix.volumes[ch.id] ?? 0) > 0)
                       .map((ch) => (
-                        <span key={ch.id} className="text-xs" title={`${ch.name}: ${mix.volumes[ch.id]}%`}>
+                        <span
+                          key={ch.id}
+                          className="text-xs"
+                          title={`${ch.name}: ${mix.volumes[ch.id]}%`}
+                        >
                           {ch.emoji}
                         </span>
                       ))}
@@ -1083,10 +1080,7 @@ export default function WhiteNoisePage() {
 
         {/* Save Modal */}
         {showSaveModal && (
-          <SaveModal
-            onSave={handleSaveMix}
-            onClose={() => setShowSaveModal(false)}
-          />
+          <SaveModal onSave={handleSaveMix} onClose={() => setShowSaveModal(false)} />
         )}
       </div>
     </>

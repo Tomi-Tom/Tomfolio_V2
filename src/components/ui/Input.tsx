@@ -22,9 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           className={cn("input-void", error && "border-b-red-500", className)}
           {...props}
         />
-        {error && (
-          <p className="text-red-500 text-xs mt-1">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
       </div>
     );
   }

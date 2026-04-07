@@ -120,9 +120,18 @@ export default function SnakePage() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const map: Record<string, Dir> = {
-        ArrowUp: "UP", ArrowDown: "DOWN", ArrowLeft: "LEFT", ArrowRight: "RIGHT",
-        w: "UP", s: "DOWN", a: "LEFT", d: "RIGHT",
-        W: "UP", S: "DOWN", A: "LEFT", D: "RIGHT",
+        ArrowUp: "UP",
+        ArrowDown: "DOWN",
+        ArrowLeft: "LEFT",
+        ArrowRight: "RIGHT",
+        w: "UP",
+        s: "DOWN",
+        a: "LEFT",
+        d: "RIGHT",
+        W: "UP",
+        S: "DOWN",
+        A: "LEFT",
+        D: "RIGHT",
       };
       if (e.key === " " || e.code === "Space") {
         e.preventDefault();
@@ -266,7 +275,13 @@ export default function SnakePage() {
         trail.forEach((seg) => {
           const r = c * 0.38;
           ctx.beginPath();
-          ctx.roundRect(seg.x * c + (c - r * 2) / 2, seg.y * c + (c - r * 2) / 2, r * 2, r * 2, r * 0.4);
+          ctx.roundRect(
+            seg.x * c + (c - r * 2) / 2,
+            seg.y * c + (c - r * 2) / 2,
+            r * 2,
+            r * 2,
+            r * 0.4
+          );
           ctx.fill();
         });
       });
@@ -287,7 +302,9 @@ export default function SnakePage() {
         } else {
           const mix = 1 - t * 0.5;
           const hexLerp = (a: number, b: number) => Math.round(a + (b - a) * mix);
-          const rr = hexLerp(160, 212), gg = hexLerp(133, 175), bb = hexLerp(32, 55);
+          const rr = hexLerp(160, 212),
+            gg = hexLerp(133, 175),
+            bb = hexLerp(32, 55);
           grad.addColorStop(0, `rgb(${rr},${gg},${bb})`);
           grad.addColorStop(1, GOLD_DIM);
         }
@@ -303,7 +320,14 @@ export default function SnakePage() {
           const cy = seg.y * c + c / 2;
           const eyeOff = c * 0.14;
           const eyeR = c * 0.06;
-          const fwd = dir === "UP" ? { x: 0, y: -1 } : dir === "DOWN" ? { x: 0, y: 1 } : dir === "LEFT" ? { x: -1, y: 0 } : { x: 1, y: 0 };
+          const fwd =
+            dir === "UP"
+              ? { x: 0, y: -1 }
+              : dir === "DOWN"
+                ? { x: 0, y: 1 }
+                : dir === "LEFT"
+                  ? { x: -1, y: 0 }
+                  : { x: 1, y: 0 };
           const perp = { x: -fwd.y, y: fwd.x };
 
           ctx.fillStyle = VOID_DEEP;
@@ -312,7 +336,9 @@ export default function SnakePage() {
           ctx.arc(
             cx + fwd.x * eyeOff + perp.x * eyeOff,
             cy + fwd.y * eyeOff + perp.y * eyeOff,
-            eyeR, 0, Math.PI * 2
+            eyeR,
+            0,
+            Math.PI * 2
           );
           ctx.fill();
           // right eye
@@ -320,7 +346,9 @@ export default function SnakePage() {
           ctx.arc(
             cx + fwd.x * eyeOff - perp.x * eyeOff,
             cy + fwd.y * eyeOff - perp.y * eyeOff,
-            eyeR, 0, Math.PI * 2
+            eyeR,
+            0,
+            Math.PI * 2
           );
           ctx.fill();
         }
@@ -400,7 +428,9 @@ export default function SnakePage() {
           { label: "Speed", value: speed },
         ].map((s) => (
           <VoidPanel key={s.label} hoverable={false} className="px-4 py-2 text-center min-w-[80px]">
-            <p className="text-[0.6rem] uppercase tracking-[0.18em] text-text-secondary font-display">{s.label}</p>
+            <p className="text-[0.6rem] uppercase tracking-[0.18em] text-text-secondary font-display">
+              {s.label}
+            </p>
             <p className="text-gold text-lg font-display font-bold">{s.value}</p>
           </VoidPanel>
         ))}
@@ -453,15 +483,21 @@ export default function SnakePage() {
             <p className="text-gold font-display text-2xl">Game Over</p>
             <div className="flex gap-6 text-center">
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-widest font-display">Score</p>
+                <p className="text-text-secondary text-xs uppercase tracking-widest font-display">
+                  Score
+                </p>
                 <p className="text-gold text-3xl font-display font-bold">{score}</p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-widest font-display">Best</p>
+                <p className="text-text-secondary text-xs uppercase tracking-widest font-display">
+                  Best
+                </p>
                 <p className="text-gold text-3xl font-display font-bold">{best}</p>
               </div>
             </div>
-            <Button variant="gold" onClick={startGame}>Play Again</Button>
+            <Button variant="gold" onClick={startGame}>
+              Play Again
+            </Button>
           </motion.div>
         )}
       </div>
@@ -471,7 +507,11 @@ export default function SnakePage() {
         <DirButton dir="UP" label="\u25B2" />
         <div className="flex gap-1">
           <DirButton dir="LEFT" label="\u25C0" />
-          <Button variant="ghost-gold" className="w-14 h-14 text-[0.6rem] p-0 font-display" onClick={togglePause}>
+          <Button
+            variant="ghost-gold"
+            className="w-14 h-14 text-[0.6rem] p-0 font-display"
+            onClick={togglePause}
+          >
             {gameState === "paused" ? "PLAY" : "PAUSE"}
           </Button>
           <DirButton dir="RIGHT" label="\u25B6" />

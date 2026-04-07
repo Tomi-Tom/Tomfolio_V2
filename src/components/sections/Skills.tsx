@@ -8,33 +8,225 @@ import { VoidPanel } from "@/components/ui/VoidPanel";
 
 const SKILLS: Skill[] = [
   // Frontend
-  { id: "1", name: "React", level: 4, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 0 },
-  { id: "2", name: "TypeScript", level: 4, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 1 },
-  { id: "3", name: "Tailwind CSS", level: 4, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 2 },
-  { id: "4", name: "Three.js", level: 3, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 3 },
-  { id: "5", name: "Framer Motion", level: 4, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 4 },
-  { id: "6", name: "HTML/CSS", level: 4, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 5 },
-  { id: "7", name: "Next.js", level: 4, icon: null, category: "FRONTEND", status: "PROFICIENT", sortOrder: 18 },
+  {
+    id: "1",
+    name: "React",
+    level: 4,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 0,
+  },
+  {
+    id: "2",
+    name: "TypeScript",
+    level: 4,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 1,
+  },
+  {
+    id: "3",
+    name: "Tailwind CSS",
+    level: 4,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 2,
+  },
+  {
+    id: "4",
+    name: "Three.js",
+    level: 3,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 3,
+  },
+  {
+    id: "5",
+    name: "Framer Motion",
+    level: 4,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 4,
+  },
+  {
+    id: "6",
+    name: "HTML/CSS",
+    level: 4,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 5,
+  },
+  {
+    id: "7",
+    name: "Next.js",
+    level: 4,
+    icon: null,
+    category: "FRONTEND",
+    status: "PROFICIENT",
+    sortOrder: 18,
+  },
   // Design
-  { id: "8", name: "UI/UX", level: 4, icon: null, category: "DESIGN", status: "PROFICIENT", sortOrder: 6 },
-  { id: "9", name: "Figma", level: 4, icon: null, category: "DESIGN", status: "PROFICIENT", sortOrder: 7 },
-  { id: "10", name: "Design Systems", level: 4, icon: null, category: "DESIGN", status: "PROFICIENT", sortOrder: 8 },
-  { id: "11", name: "Adobe XD", level: 3, icon: null, category: "DESIGN", status: "PROFICIENT", sortOrder: 9 },
-  { id: "12", name: "Photoshop", level: 3, icon: null, category: "DESIGN", status: "PROFICIENT", sortOrder: 10 },
-  { id: "13", name: "Prototyping", level: 4, icon: null, category: "DESIGN", status: "PROFICIENT", sortOrder: 11 },
+  {
+    id: "8",
+    name: "UI/UX",
+    level: 4,
+    icon: null,
+    category: "DESIGN",
+    status: "PROFICIENT",
+    sortOrder: 6,
+  },
+  {
+    id: "9",
+    name: "Figma",
+    level: 4,
+    icon: null,
+    category: "DESIGN",
+    status: "PROFICIENT",
+    sortOrder: 7,
+  },
+  {
+    id: "10",
+    name: "Design Systems",
+    level: 4,
+    icon: null,
+    category: "DESIGN",
+    status: "PROFICIENT",
+    sortOrder: 8,
+  },
+  {
+    id: "11",
+    name: "Adobe XD",
+    level: 3,
+    icon: null,
+    category: "DESIGN",
+    status: "PROFICIENT",
+    sortOrder: 9,
+  },
+  {
+    id: "12",
+    name: "Photoshop",
+    level: 3,
+    icon: null,
+    category: "DESIGN",
+    status: "PROFICIENT",
+    sortOrder: 10,
+  },
+  {
+    id: "13",
+    name: "Prototyping",
+    level: 4,
+    icon: null,
+    category: "DESIGN",
+    status: "PROFICIENT",
+    sortOrder: 11,
+  },
   // Backend & Tools
-  { id: "14", name: "Node.js", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 12 },
-  { id: "15", name: "Express", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 13 },
-  { id: "16", name: "MongoDB", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 14 },
-  { id: "17", name: "Git", level: 4, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 15 },
-  { id: "18", name: "REST APIs", level: 4, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 16 },
-  { id: "19", name: "CI/CD", level: 2, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 17 },
-  { id: "20", name: "Docker", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 19 },
-  { id: "24", name: "Claude Agent", level: 3, icon: null, category: "BACKEND", status: "PROFICIENT", sortOrder: 20 },
+  {
+    id: "14",
+    name: "Node.js",
+    level: 3,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 12,
+  },
+  {
+    id: "15",
+    name: "Express",
+    level: 3,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 13,
+  },
+  {
+    id: "16",
+    name: "MongoDB",
+    level: 3,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 14,
+  },
+  {
+    id: "17",
+    name: "Git",
+    level: 4,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 15,
+  },
+  {
+    id: "18",
+    name: "REST APIs",
+    level: 4,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 16,
+  },
+  {
+    id: "19",
+    name: "CI/CD",
+    level: 2,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 17,
+  },
+  {
+    id: "20",
+    name: "Docker",
+    level: 3,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 19,
+  },
+  {
+    id: "24",
+    name: "Claude Agent",
+    level: 3,
+    icon: null,
+    category: "BACKEND",
+    status: "PROFICIENT",
+    sortOrder: 20,
+  },
   // Exploring
-  { id: "21", name: "Rust", level: 1, icon: null, category: "OTHER", status: "EXPLORING", sortOrder: 20 },
-  { id: "22", name: "WebGL", level: 1, icon: null, category: "OTHER", status: "EXPLORING", sortOrder: 21 },
-  { id: "23", name: "AI Integration", level: 1, icon: null, category: "OTHER", status: "EXPLORING", sortOrder: 22 },
+  {
+    id: "21",
+    name: "Rust",
+    level: 1,
+    icon: null,
+    category: "OTHER",
+    status: "EXPLORING",
+    sortOrder: 20,
+  },
+  {
+    id: "22",
+    name: "WebGL",
+    level: 1,
+    icon: null,
+    category: "OTHER",
+    status: "EXPLORING",
+    sortOrder: 21,
+  },
+  {
+    id: "23",
+    name: "AI Integration",
+    level: 1,
+    icon: null,
+    category: "OTHER",
+    status: "EXPLORING",
+    sortOrder: 22,
+  },
 ];
 
 const fadeUp = {
@@ -70,16 +262,7 @@ const categoryMeta: Record<string, { label: string; number: string; description:
 
 const categoryOrder = ["FRONTEND", "DESIGN", "BACKEND"];
 
-
-function SkillChip({
-  skill,
-  index,
-  isInView,
-}: {
-  skill: Skill;
-  index: number;
-  isInView: boolean;
-}) {
+function SkillChip({ skill, index, isInView }: { skill: Skill; index: number; isInView: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -167,7 +350,11 @@ export function Skills() {
           <SectionLabel>Skills</SectionLabel>
         </motion.div>
 
-        <motion.p custom={0.5} variants={fadeUp} className="mt-4 text-[var(--text-dim)] text-sm max-w-md">
+        <motion.p
+          custom={0.5}
+          variants={fadeUp}
+          className="mt-4 text-[var(--text-dim)] text-sm max-w-md"
+        >
           {totalSkills} technologies and tools I work with daily.
         </motion.p>
 
@@ -249,7 +436,8 @@ export function Skills() {
                   <span
                     className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity pointer-events-none"
                     style={{
-                      background: "radial-gradient(ellipse, rgba(212,175,55,0.08), transparent 70%)",
+                      background:
+                        "radial-gradient(ellipse, rgba(212,175,55,0.08), transparent 70%)",
                     }}
                   />
                   <span className="relative">{skill.name}</span>

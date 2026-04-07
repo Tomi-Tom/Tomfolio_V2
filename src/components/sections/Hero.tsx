@@ -29,10 +29,7 @@ export function Hero() {
   return (
     <div className="relative min-h-screen flex flex-col justify-center px-8 md:px-16 lg:px-24">
       {/* Subtle radial glow behind hero */}
-      <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
-        aria-hidden
-      >
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-[var(--gold)] opacity-[0.03] blur-[160px]" />
       </div>
 
@@ -53,8 +50,7 @@ export function Hero() {
           <span
             className="font-bold"
             style={{
-              background:
-                "linear-gradient(135deg, var(--text-primary) 60%, var(--gold) 100%)",
+              background: "linear-gradient(135deg, var(--text-primary) 60%, var(--gold) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -92,8 +88,7 @@ export function Hero() {
           variants={fadeUp}
           className="mt-5 h-px w-24"
           style={{
-            background:
-              "linear-gradient(90deg, var(--gold) 0%, transparent 100%)",
+            background: "linear-gradient(90deg, var(--gold) 0%, transparent 100%)",
           }}
         />
 
@@ -103,8 +98,8 @@ export function Hero() {
           variants={fadeUp}
           className="mt-6 text-text-secondary max-w-xl text-base leading-relaxed"
         >
-          Crafting immersive digital experiences at the intersection of design
-          precision and technical craft.
+          Crafting immersive digital experiences at the intersection of design precision and
+          technical craft.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -117,9 +112,7 @@ export function Hero() {
             variant="gold"
             className="px-10 py-3 text-sm tracking-widest"
             onClick={() =>
-              document
-                .getElementById("projects")
-                ?.scrollIntoView({ behavior: "smooth" })
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }
           >
             View Work
@@ -143,9 +136,7 @@ export function Hero() {
         >
           {/* Stat: Technologies */}
           <div className="pr-8">
-            <p className="font-display font-bold text-2xl text-gold tabular-nums">
-              {techCount}+
-            </p>
+            <p className="font-display font-bold text-2xl text-gold tabular-nums">{techCount}+</p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
               Technologies
             </p>
@@ -156,9 +147,7 @@ export function Hero() {
 
           {/* Stat: Experience */}
           <div className="px-8">
-            <p className="font-display font-bold text-2xl text-text-primary">
-              5yr
-            </p>
+            <p className="font-display font-bold text-2xl text-text-primary">5yr</p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
               Experience
             </p>
@@ -169,9 +158,7 @@ export function Hero() {
 
           {/* Stat: Languages */}
           <div className="pl-8">
-            <p className="font-display font-bold text-2xl text-text-primary">
-              FR&middot;EN
-            </p>
+            <p className="font-display font-bold text-2xl text-text-primary">FR&middot;EN</p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
               Languages
             </p>

@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Tomfolio is a static portfolio site for Tom Bariteau-Peter, a UX/UI designer and web developer. Built with Next.js 14 App Router and the "Void & Gold" design system. No backend — contact form uses Formspree.
 
 ### Key Features
+
 - Responsive single-page portfolio with scroll-based sections
 - "Void & Gold" design system: dark theme with gold (#D4AF37) accents
 - Three.js gear scene in the hero section
@@ -14,6 +15,7 @@ Tomfolio is a static portfolio site for Tom Bariteau-Peter, a UX/UI designer and
 - Contact form via Formspree
 
 ## Tech Stack
+
 - Next.js 14 (App Router) with TypeScript
 - Tailwind CSS with custom Void & Gold design tokens
 - Framer Motion for animations
@@ -21,6 +23,7 @@ Tomfolio is a static portfolio site for Tom Bariteau-Peter, a UX/UI designer and
 - Formspree for contact form
 
 ## Directory Structure
+
 ```
 Tomfolio/
 ├── src/
@@ -44,12 +47,14 @@ Tomfolio/
 ```
 
 ## Build Commands
+
 - `npm run dev` — Start dev server (port 3000)
 - `npm run build` — Production build
 - `npm run start` — Start production server
 - `npm run lint` — Run ESLint
 
 ## Code Style Guidelines
+
 - Use TypeScript for type safety
 - Component files use `.tsx` extension; utilities use `.ts`
 - Use the `cn()` utility for Tailwind class merging
@@ -61,6 +66,7 @@ Tomfolio/
   - Layout: `HUDFrame`, `StatusBar`
 
 ## Animation Guidelines
+
 - Use Framer Motion for scroll-triggered and layout animations
 - Keep animations subtle and purposeful
 - Use spring physics for natural movement
@@ -68,6 +74,7 @@ Tomfolio/
 - Three.js scenes should be isolated in dedicated components under `components/three/`
 
 ## Page Structure (App Router)
+
 - `(public)/page.tsx` — Main portfolio (Hero, About, Skills, Services, Projects, Playground, Contact)
 - `playground/*` — 11 interactive mini-apps
 - `love-timer/` — Standalone love timer

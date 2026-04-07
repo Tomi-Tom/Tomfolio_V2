@@ -20,8 +20,18 @@ interface Card {
 }
 
 const ALL_EMOJIS = [
-  "\u{1F680}", "\u{1F31F}", "\u{1F308}", "\u{1F3AE}", "\u{1F3A8}", "\u{1F3B5}",
-  "\u{1F355}", "\u{1F3C6}", "\u{1F984}", "\u{1F30D}", "\u{1F3D6}\u{FE0F}", "\u{1F48E}",
+  "\u{1F680}",
+  "\u{1F31F}",
+  "\u{1F308}",
+  "\u{1F3AE}",
+  "\u{1F3A8}",
+  "\u{1F3B5}",
+  "\u{1F355}",
+  "\u{1F3C6}",
+  "\u{1F984}",
+  "\u{1F30D}",
+  "\u{1F3D6}\u{FE0F}",
+  "\u{1F48E}",
 ];
 
 const PAIR_COUNTS: Record<Difficulty, number> = {
@@ -75,9 +85,7 @@ function MemoryCard({
       className="aspect-square [perspective:600px] cursor-pointer focus:outline-none disabled:cursor-default"
       onClick={onClick}
       disabled={disabled || isRevealed}
-      whileHover={
-        !isRevealed && !disabled ? { scale: 1.05 } : undefined
-      }
+      whileHover={!isRevealed && !disabled ? { scale: 1.05 } : undefined}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
     >
       <div
@@ -116,9 +124,7 @@ function MemoryCard({
                 }
           }
         >
-          <span className="text-2xl sm:text-3xl md:text-4xl select-none">
-            {card.emoji}
-          </span>
+          <span className="text-2xl sm:text-3xl md:text-4xl select-none">{card.emoji}</span>
         </div>
       </div>
     </motion.button>
@@ -158,9 +164,7 @@ export default function MemoryGamePage() {
     if (checking) return;
     if (flippedIds.length >= 2) return;
 
-    const next = cards.map((c) =>
-      c.id === id ? { ...c, flipped: true } : c
-    );
+    const next = cards.map((c) => (c.id === id ? { ...c, flipped: true } : c));
     setCards(next);
 
     const newFlipped = [...flippedIds, id];
@@ -179,9 +183,7 @@ export default function MemoryGamePage() {
         setTimeout(() => {
           setCards((prev) =>
             prev.map((c) =>
-              c.id === a || c.id === b
-                ? { ...c, matched: true, flipped: false }
-                : c
+              c.id === a || c.id === b ? { ...c, matched: true, flipped: false } : c
             )
           );
           const newMatches = matches + 1;
@@ -197,9 +199,7 @@ export default function MemoryGamePage() {
         /* No match — flip back */
         setTimeout(() => {
           setCards((prev) =>
-            prev.map((c) =>
-              c.id === a || c.id === b ? { ...c, flipped: false } : c
-            )
+            prev.map((c) => (c.id === a || c.id === b ? { ...c, flipped: false } : c))
           );
           setFlippedIds([]);
           setChecking(false);
@@ -269,11 +269,7 @@ export default function MemoryGamePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.03, duration: 0.35 }}
             >
-              <MemoryCard
-                card={card}
-                onClick={() => handleFlip(card.id)}
-                disabled={checking}
-              />
+              <MemoryCard card={card} onClick={() => handleFlip(card.id)} disabled={checking} />
             </motion.div>
           ))}
         </div>
@@ -308,15 +304,10 @@ export default function MemoryGamePage() {
                 {/* Gold gradient accent bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent" />
 
-                <h3 className="font-display text-2xl text-[var(--gold)]">
-                  Congratulations!
-                </h3>
+                <h3 className="font-display text-2xl text-[var(--gold)]">Congratulations!</h3>
                 <p className="text-[var(--text-secondary)] text-sm">
                   You found all {PAIR_COUNTS[difficulty]} pairs in{" "}
-                  <span className="text-[var(--gold)] font-semibold">
-                    {turns}
-                  </span>{" "}
-                  turns.
+                  <span className="text-[var(--gold)] font-semibold">{turns}</span> turns.
                 </p>
 
                 <div className="flex justify-center gap-3 pt-2">

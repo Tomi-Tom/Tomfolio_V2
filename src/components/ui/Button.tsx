@@ -17,11 +17,12 @@ interface ButtonProps {
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = "gold", className, children, type, disabled, onClick }, ref) => {
-    const baseClasses = variant === "gold"
-      ? "btn-gold"
-      : variant === "ghost-gold"
-      ? "btn-ghost-gold"
-      : "border border-[var(--border)] text-[var(--text-primary)] font-display text-[0.7rem] font-semibold tracking-[0.18em] uppercase px-6 py-[10px] bg-transparent hover:border-[var(--border-active)] transition-colors cursor-pointer";
+    const baseClasses =
+      variant === "gold"
+        ? "btn-gold"
+        : variant === "ghost-gold"
+          ? "btn-ghost-gold"
+          : "border border-[var(--border)] text-[var(--text-primary)] font-display text-[0.7rem] font-semibold tracking-[0.18em] uppercase px-6 py-[10px] bg-transparent hover:border-[var(--border-active)] transition-colors cursor-pointer";
 
     return (
       <motion.button

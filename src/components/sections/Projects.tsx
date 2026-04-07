@@ -218,10 +218,7 @@ export function Projects() {
 
   return (
     <section id="projects" ref={ref} className="px-8 md:px-16 lg:px-24 py-24">
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+      <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"}>
         <motion.div custom={0} variants={fadeUp}>
           <SectionLabel>Projects</SectionLabel>
         </motion.div>

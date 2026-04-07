@@ -2,11 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-export function useCountUp(
-  target: number,
-  duration: number = 2000,
-  trigger: boolean = true,
-) {
+export function useCountUp(target: number, duration: number = 2000, trigger: boolean = true) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {

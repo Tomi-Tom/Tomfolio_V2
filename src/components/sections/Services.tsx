@@ -62,10 +62,7 @@ export function Services() {
 
   return (
     <section ref={ref} className="px-8 md:px-16 lg:px-24 py-24">
-      <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+      <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"}>
         <motion.div custom={0} variants={fadeUp}>
           <SectionLabel>Services</SectionLabel>
         </motion.div>
@@ -98,7 +95,9 @@ export function Services() {
                     }}
                   >
                     Learn more
-                    <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">&rarr;</span>
+                    <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
+                      &rarr;
+                    </span>
                   </a>
                 </div>
               </VoidPanel>
@@ -111,7 +110,10 @@ export function Services() {
           <SectionLabel>Pricing</SectionLabel>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* First engagement — Recommended */}
-            <VoidPanel hoverable={false} className="p-0 relative overflow-hidden border-[var(--gold-dim)]">
+            <VoidPanel
+              hoverable={false}
+              className="p-0 relative overflow-hidden border-[var(--gold-dim)]"
+            >
               <div className="h-1 w-full bg-gradient-to-r from-[var(--gold-dim)] via-[var(--gold)] to-[var(--gold-dim)]" />
 
               <div className="absolute top-3 right-0">
@@ -124,7 +126,9 @@ export function Services() {
               </div>
 
               <div className="p-10 pt-8">
-                <p className="hud-caption text-[var(--text-dim)] mb-6 tracking-[0.2em]">Discovery Rate</p>
+                <p className="hud-caption text-[var(--text-dim)] mb-6 tracking-[0.2em]">
+                  Discovery Rate
+                </p>
                 <div className="flex items-baseline gap-3">
                   <span
                     className="font-display text-[3.5rem] font-bold leading-none text-gold"
@@ -140,15 +144,21 @@ export function Services() {
                   </div>
                 </div>
                 <p className="mt-6 text-sm text-[var(--text-secondary)] leading-relaxed">
-                  Preferential rate for our first collaboration. Ideal for an initial project, audit, or proof of concept.
+                  Preferential rate for our first collaboration. Ideal for an initial project,
+                  audit, or proof of concept.
                 </p>
                 <ul className="mt-6 space-y-3">
-                  {["First project together", "Full commitment & quality", "No hidden fees"].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 shadow-[0_0_6px_rgba(212,175,55,0.5)]" />
-                      {item}
-                    </li>
-                  ))}
+                  {["First project together", "Full commitment & quality", "No hidden fees"].map(
+                    (item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-3 text-sm text-[var(--text-secondary)]"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 shadow-[0_0_6px_rgba(212,175,55,0.5)]" />
+                        {item}
+                      </li>
+                    )
+                  )}
                 </ul>
                 <a
                   href="#contact"
@@ -174,7 +184,9 @@ export function Services() {
               </div>
 
               <div className="p-10 pt-8">
-                <p className="hud-caption text-[var(--text-dim)] mb-6 tracking-[0.2em]">Standard Rate</p>
+                <p className="hud-caption text-[var(--text-dim)] mb-6 tracking-[0.2em]">
+                  Standard Rate
+                </p>
                 <div className="flex items-baseline gap-3">
                   <span
                     className="font-display text-[3.5rem] font-bold leading-none text-gold"
@@ -190,15 +202,21 @@ export function Services() {
                   </div>
                 </div>
                 <p className="mt-6 text-sm text-[var(--text-secondary)] leading-relaxed">
-                  Standard daily rate for ongoing projects. Long-term partnerships and complex builds.
+                  Standard daily rate for ongoing projects. Long-term partnerships and complex
+                  builds.
                 </p>
                 <ul className="mt-6 space-y-3">
-                  {["Ongoing collaboration", "Priority support", "Flexible engagement"].map((item) => (
-                    <li key={item} className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-dim)] shrink-0" />
-                      {item}
-                    </li>
-                  ))}
+                  {["Ongoing collaboration", "Priority support", "Flexible engagement"].map(
+                    (item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-3 text-sm text-[var(--text-secondary)]"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-dim)] shrink-0" />
+                        {item}
+                      </li>
+                    )
+                  )}
                 </ul>
                 <a
                   href="#contact"

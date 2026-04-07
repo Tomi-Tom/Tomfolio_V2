@@ -15,8 +15,7 @@ export default function PlaygroundLayout({ children }: { children: React.ReactNo
         className="fixed inset-0 pointer-events-none opacity-[0.02] -z-10"
         aria-hidden
         style={{
-          backgroundImage:
-            "radial-gradient(circle, var(--gold) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--gold) 1px, transparent 1px)",
           backgroundSize: "50px 50px",
         }}
       />

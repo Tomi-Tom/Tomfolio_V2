@@ -34,9 +34,7 @@ export function StatusBar() {
       {/* Center: Availability */}
       <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
         <span className="w-[6px] h-[6px] rounded-full bg-[var(--gold)] gold-pulse" />
-        <span className="hud-caption text-[var(--gold-dim)]">
-          Available for work
-        </span>
+        <span className="hud-caption text-[var(--gold-dim)]">Available for work</span>
       </div>
 
       {/* Right: Theme toggle */}

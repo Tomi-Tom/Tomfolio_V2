@@ -7,8 +7,7 @@ export function useScrollProgress() {
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY;
-    const docHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     setScrollY(y);
     setProgress(docHeight > 0 ? Math.min(y / docHeight, 1) : 0);
   }, []);

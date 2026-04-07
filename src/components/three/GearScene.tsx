@@ -24,7 +24,7 @@ export default function GearScene({ progress = 0 }: GearSceneProps) {
       60,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000,
+      1000
     );
     camera.position.z = 5;
 
@@ -142,8 +142,8 @@ export default function GearScene({ progress = 0 }: GearSceneProps) {
         new THREE.Vector3(
           startX + Math.cos(angle) * length,
           startY + Math.sin(angle) * length,
-          startZ,
-        ),
+          startZ
+        )
       );
       const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
       const lineMat = new THREE.LineBasicMaterial({

@@ -141,13 +141,7 @@ function setupWave(scene: THREE.Scene): { update: (t: number) => void; dispose: 
   for (let z = 0; z < gridH; z++) {
     const points: THREE.Vector3[] = [];
     for (let x = 0; x < gridW; x++) {
-      points.push(
-        new THREE.Vector3(
-          (x - gridW / 2) * spacing,
-          0,
-          (z - gridH / 2) * spacing,
-        ),
-      );
+      points.push(new THREE.Vector3((x - gridW / 2) * spacing, 0, (z - gridH / 2) * spacing));
     }
     const geo = new THREE.BufferGeometry().setFromPoints(points);
     geometries.push(geo);
@@ -158,13 +152,7 @@ function setupWave(scene: THREE.Scene): { update: (t: number) => void; dispose: 
   for (let x = 0; x < gridW; x++) {
     const points: THREE.Vector3[] = [];
     for (let z = 0; z < gridH; z++) {
-      points.push(
-        new THREE.Vector3(
-          (x - gridW / 2) * spacing,
-          0,
-          (z - gridH / 2) * spacing,
-        ),
-      );
+      points.push(new THREE.Vector3((x - gridW / 2) * spacing, 0, (z - gridH / 2) * spacing));
     }
     const geo = new THREE.BufferGeometry().setFromPoints(points);
     geometries.push(geo);
@@ -345,7 +333,12 @@ export default function SectionCanvas({ variant, className }: SectionCanvasProps
 
     // ─── Three.js setup ───
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(
+      50,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      100
+    );
     camera.position.z = 7;
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: false });
@@ -362,7 +355,7 @@ export default function SectionCanvas({ variant, className }: SectionCanvasProps
       ([entry]) => {
         isVisible = entry.isIntersecting;
       },
-      { threshold: 0 },
+      { threshold: 0 }
     );
     observer.observe(container);
 

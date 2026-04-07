@@ -8,17 +8,14 @@ export function Footer() {
         <SectionLabel>End</SectionLabel>
 
         <h2 className="mt-6 text-2xl sm:text-4xl md:text-5xl font-display tracking-tight">
-          <span className="font-light text-[var(--text-primary)]">
-            Let&apos;s{" "}
-          </span>
+          <span className="font-light text-[var(--text-primary)]">Let&apos;s </span>
           <span className="font-bold text-[var(--text-primary)]">
             Create<span className="text-[var(--gold)]">.</span>
           </span>
         </h2>
 
         <p className="mt-4 text-[var(--text-secondary)] max-w-md mx-auto text-sm leading-relaxed">
-          Available for freelance projects, collaborations, and full-time
-          opportunities.
+          Available for freelance projects, collaborations, and full-time opportunities.
         </p>
 
         <div className="mt-8">
@@ -76,9 +73,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="mt-8 hud-caption text-[var(--text-dim)]">
-          &copy; 2024 Tom Bariteau-Peter
-        </p>
+        <p className="mt-8 hud-caption text-[var(--text-dim)]">&copy; 2024 Tom Bariteau-Peter</p>
       </div>
     </footer>
   );

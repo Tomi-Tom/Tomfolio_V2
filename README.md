@@ -28,17 +28,17 @@ npm run dev                     # Start frontend (3000) + backend (4000)
 
 ## Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start both frontend and backend |
-| `npm run dev:front` | Start frontend only (port 3000) |
-| `npm run dev:back` | Start backend only (port 4000) |
-| `npm run db:up` | Start Docker services (PostgreSQL + Mailpit) |
-| `npm run db:down` | Stop Docker services |
-| `npm run db:migrate` | Run Prisma migrations |
-| `npm run db:seed` | Seed database |
-| `npm run db:studio` | Open Prisma Studio |
-| `npm run db:reset` | Reset database + re-seed |
+| Script               | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `npm run dev`        | Start both frontend and backend              |
+| `npm run dev:front`  | Start frontend only (port 3000)              |
+| `npm run dev:back`   | Start backend only (port 4000)               |
+| `npm run db:up`      | Start Docker services (PostgreSQL + Mailpit) |
+| `npm run db:down`    | Stop Docker services                         |
+| `npm run db:migrate` | Run Prisma migrations                        |
+| `npm run db:seed`    | Seed database                                |
+| `npm run db:studio`  | Open Prisma Studio                           |
+| `npm run db:reset`   | Reset database + re-seed                     |
 
 ## Project Structure
 
