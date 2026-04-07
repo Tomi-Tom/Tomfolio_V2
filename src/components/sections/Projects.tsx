@@ -46,6 +46,25 @@ const PROJECTS: Project[] = [
     updatedAt: "",
   },
   {
+    id: "chuckforever",
+    title: "Chuck Forever — Calendrier ACN",
+    description:
+      "Tribute site for Chuck Norris with a custom calendar system, countdown timer, quotes, videos, and lore pages.",
+    longDescription: null,
+    imageUrl: "/projects/chuckforever.png",
+    liveUrl: "https://chuck-forever.tombp.fr",
+    githubUrl: null,
+    tags: [
+      { id: "typescript", name: "TypeScript" },
+      { id: "vite", name: "Vite" },
+      { id: "tailwind", name: "Tailwind CSS" },
+    ],
+    featured: true,
+    sortOrder: 2,
+    createdAt: "",
+    updatedAt: "",
+  },
+  {
     id: "defidecon",
     title: "Défi de Con",
     description:
