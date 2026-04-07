@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Tom Bariteau-Peter — UX Designer & Developer",
   description:
     "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Seoul. Crafting immersive digital experiences.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Tom Bariteau-Peter — UX Designer & Developer",
     description:
