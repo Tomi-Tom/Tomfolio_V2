@@ -46,6 +46,25 @@ const PROJECTS: Project[] = [
     updatedAt: "",
   },
   {
+    id: "pokerandom",
+    title: "Pokérandom — Starter Generator",
+    description:
+      "Pokémon starter draft tool with solo vs AI mode, local 2-player draft, team builder, and retro pixel UI inspired by the DS Pokédex.",
+    longDescription: null,
+    imageUrl: "/projects/pokerandom.png",
+    liveUrl: "https://pokerandom.tombp.fr",
+    githubUrl: null,
+    tags: [
+      { id: "react", name: "React" },
+      { id: "typescript", name: "TypeScript" },
+      { id: "vite", name: "Vite" },
+    ],
+    featured: true,
+    sortOrder: 2,
+    createdAt: "",
+    updatedAt: "",
+  },
+  {
     id: "chuckforever",
     title: "Chuck Forever — Calendrier ACN",
     description:
