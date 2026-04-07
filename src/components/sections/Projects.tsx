@@ -65,26 +65,6 @@ const PROJECTS: Project[] = [
     updatedAt: "",
   },
   {
-    id: "neverstopdating",
-    title: "Never Stop Dating Your Partner",
-    description:
-      "Relationship app helping couples maintain their connection with date ideas, feature lists, and a playful pink-themed UI.",
-    longDescription: null,
-    imageUrl: "/projects/neverstopdating.png",
-    liveUrl: "https://neverstopdatingyourpartner.tombp.fr",
-    githubUrl: null,
-    tags: [
-      { id: "nextjs", name: "Next.js" },
-      { id: "supabase", name: "Supabase" },
-      { id: "framer", name: "Framer Motion" },
-      { id: "tailwind", name: "Tailwind CSS" },
-    ],
-    featured: true,
-    sortOrder: 3,
-    createdAt: "",
-    updatedAt: "",
-  },
-  {
     id: "codearena",
     title: "Code Arena",
     description:
