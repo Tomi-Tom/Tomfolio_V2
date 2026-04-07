@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../styles/design-tokens.css";
+
+body {
+  background-color: var(--void-deep);
+  color: var(--text-primary);
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+::selection {
+  background-color: var(--gold);
+  color: #000;
+}
