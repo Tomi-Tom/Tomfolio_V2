@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Noto_Sans_SC, Noto_Sans_KR } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
 import "../globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { routing, type Locale } from "@/i18n/routing";
@@ -89,6 +89,8 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
 
+  const messages = await getMessages();
+
   const cjkFontClass =
     locale === "zh" ? notoSansSC.variable : locale === "ko" ? notoSansKR.variable : "";
 
@@ -100,7 +102,7 @@ export default async function LocaleLayout({
       className={cjkFontClass}
     >
       <body>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>{children}</ThemeProvider>
         </NextIntlClientProvider>
         <script
