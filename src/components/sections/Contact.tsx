@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,16 +11,6 @@ import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
 const FORMSPREE_URL = "https://formspree.io/f/xeepnovp";
-
-const contactSchema = z.object({
-  firstName: z.string().min(1, "First name is required"),
-  lastName: z.string().min(1, "Last name is required"),
-  email: z.string().email("Please enter a valid email"),
-  phone: z.string().optional(),
-  content: z.string().min(10, "Message must be at least 10 characters"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -48,11 +39,26 @@ function HudCorner({ position }: { position: "tl" | "tr" | "bl" | "br" }) {
 }
 
 export function Contact() {
+  const t = useTranslations("contact");
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">(
     "idle"
   );
+
+  const contactSchema = useMemo(
+    () =>
+      z.object({
+        firstName: z.string().min(1, t("errors.firstNameRequired")),
+        lastName: z.string().min(1, t("errors.lastNameRequired")),
+        email: z.string().email(t("errors.emailInvalid")),
+        phone: z.string().optional(),
+        content: z.string().min(10, t("errors.messageMinLength")),
+      }),
+    [t]
+  );
+
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const {
     register,
@@ -99,16 +105,14 @@ export function Contact() {
         className="max-w-5xl mx-auto"
       >
         <motion.div custom={0} variants={fadeUp}>
-          <SectionLabel>Contact</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
         </motion.div>
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
           {/* Left column -- Form */}
           <motion.div custom={1} variants={fadeUp}>
-            <h2 className="text-h2 font-display">Let&apos;s Build Something</h2>
-            <p className="mt-3 text-text-secondary text-sm leading-relaxed">
-              Open to new projects, collaborations, and interesting conversations.
-            </p>
+            <h2 className="text-h2 font-display">{t("heading")}</h2>
+            <p className="mt-3 text-text-secondary text-sm leading-relaxed">{t("tagline")}</p>
 
             {/* Form with HUD corners */}
             <div className="relative mt-8">
@@ -142,16 +146,16 @@ export function Contact() {
                         </svg>
                       </div>
                       <h3 className="font-display font-semibold text-xl text-text-primary">
-                        Message Sent
+                        {t("success.title")}
                       </h3>
                       <p className="mt-2 text-text-secondary text-sm">
-                        I&apos;ll get back to you soon.
+                        {t("success.description")}
                       </p>
                       <button
                         onClick={() => setSubmitStatus("idle")}
                         className="mt-6 text-gold text-sm hover:text-text-primary transition-colors"
                       >
-                        Send another message
+                        {t("success.sendAnother")}
                       </button>
                     </motion.div>
                   ) : submitStatus === "error" ? (
@@ -178,16 +182,14 @@ export function Contact() {
                         </svg>
                       </div>
                       <h3 className="font-display font-semibold text-xl text-text-primary">
-                        Something Went Wrong
+                        {t("error.title")}
                       </h3>
-                      <p className="mt-2 text-text-secondary text-sm">
-                        Please try again or reach out via email directly.
-                      </p>
+                      <p className="mt-2 text-text-secondary text-sm">{t("error.description")}</p>
                       <button
                         onClick={() => setSubmitStatus("idle")}
                         className="mt-6 text-gold text-sm hover:text-text-primary transition-colors"
                       >
-                        Try again
+                        {t("error.tryAgain")}
                       </button>
                     </motion.div>
                   ) : (
@@ -201,43 +203,43 @@ export function Contact() {
                     >
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <Input
-                          label="First Name"
-                          placeholder="John"
+                          label={t("form.firstName")}
+                          placeholder={t("form.firstNamePlaceholder")}
                           error={errors.firstName?.message}
                           {...register("firstName")}
                         />
                         <Input
-                          label="Last Name"
-                          placeholder="Doe"
+                          label={t("form.lastName")}
+                          placeholder={t("form.lastNamePlaceholder")}
                           error={errors.lastName?.message}
                           {...register("lastName")}
                         />
                       </div>
 
                       <Input
-                        label="Email"
+                        label={t("form.email")}
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder={t("form.emailPlaceholder")}
                         error={errors.email?.message}
                         {...register("email")}
                       />
 
                       <Input
-                        label="Phone"
+                        label={t("form.phone")}
                         type="tel"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder={t("form.phonePlaceholder")}
                         error={errors.phone?.message}
                         {...register("phone")}
                       />
 
                       <div className="space-y-1">
                         <label htmlFor="message" className="section-label">
-                          Message
+                          {t("form.message")}
                         </label>
                         <textarea
                           id="message"
                           rows={5}
-                          placeholder="Tell me about your project..."
+                          placeholder={t("form.messagePlaceholder")}
                           className={`input-void resize-none w-full ${errors.content ? "border-b-red-500" : ""}`}
                           {...register("content")}
                         />
@@ -247,7 +249,7 @@ export function Contact() {
                       </div>
 
                       <Button type="submit" variant="gold" disabled={submitStatus === "loading"}>
-                        {submitStatus === "loading" ? "Sending..." : "Send Message"}
+                        {submitStatus === "loading" ? t("form.submitting") : t("form.submit")}
                       </Button>
                     </motion.form>
                   )}
@@ -260,7 +262,7 @@ export function Contact() {
           <motion.div custom={2} variants={fadeUp} className="space-y-10">
             <div>
               <h3 className="font-display font-semibold text-text-primary text-lg tracking-wide">
-                Contact Info
+                {t("info.heading")}
               </h3>
 
               <div className="mt-8 space-y-6">
@@ -282,7 +284,7 @@ export function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="hud-caption text-text-dim mb-1">Email</p>
+                    <p className="hud-caption text-text-dim mb-1">{t("info.emailLabel")}</p>
                     <a
                       href="mailto:bariteaupeter.tom@gmail.com"
                       className="text-text-secondary hover:text-[var(--gold)] transition-colors duration-300"
@@ -310,10 +312,10 @@ export function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="hud-caption text-text-dim mb-1">Location</p>
-                    <p className="text-text-secondary">Paris, France</p>
+                    <p className="hud-caption text-text-dim mb-1">{t("info.locationLabel")}</p>
+                    <p className="text-text-secondary">{t("info.locationValue")}</p>
                     <p className="font-mono text-[0.65rem] text-[var(--gold-dim)] mt-1 tracking-wider">
-                      48.8566&deg; N, 2.3522&deg; E
+                      {t("info.coordinates")}
                     </p>
                   </div>
                 </div>
@@ -327,8 +329,8 @@ export function Contact() {
                     </span>
                   </div>
                   <div>
-                    <p className="hud-caption text-text-dim mb-1">Status</p>
-                    <p className="text-text-secondary">Open to new projects</p>
+                    <p className="hud-caption text-text-dim mb-1">{t("info.statusLabel")}</p>
+                    <p className="text-text-secondary">{t("info.statusValue")}</p>
                   </div>
                 </div>
               </div>
@@ -342,31 +344,37 @@ export function Contact() {
               <HudCorner position="br" />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03)_0%,transparent_70%)] pointer-events-none" />
               <div className="relative">
-                <p className="hud-caption text-text-dim mb-3 tracking-[0.25em]">Current Base</p>
+                <p className="hud-caption text-text-dim mb-3 tracking-[0.25em]">
+                  {t("coordinates.caption")}
+                </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <p className="font-mono text-xs text-[var(--gold-dim)]">LAT</p>
+                    <p className="font-mono text-xs text-[var(--gold-dim)]">
+                      {t("coordinates.lat")}
+                    </p>
                     <p className="font-mono text-lg text-text-primary tracking-wider">
-                      48.8566&deg;
+                      {t("coordinates.latValue")}
                     </p>
                   </div>
                   <div>
-                    <p className="font-mono text-xs text-[var(--gold-dim)]">LNG</p>
+                    <p className="font-mono text-xs text-[var(--gold-dim)]">
+                      {t("coordinates.lng")}
+                    </p>
                     <p className="font-mono text-lg text-text-primary tracking-wider">
-                      2.3522&deg;
+                      {t("coordinates.lngValue")}
                     </p>
                   </div>
                 </div>
                 <div className="mt-3 h-px bg-gradient-to-r from-[var(--gold-dim)] via-[var(--border)] to-transparent" />
                 <p className="mt-3 text-xs text-text-dim font-mono tracking-wider">
-                  PARIS // CET (UTC+1)
+                  {t("coordinates.timezone")}
                 </p>
               </div>
             </div>
 
             <div>
               <h3 className="font-display font-semibold text-text-primary text-lg tracking-wide">
-                Socials
+                {t("socials.heading")}
               </h3>
 
               <div className="mt-4 flex items-center gap-4">
@@ -375,7 +383,7 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg border border-[var(--border)] flex items-center justify-center text-[var(--text-dim)] hover:text-[var(--gold)] hover:border-[var(--gold-dim)] transition-all duration-300"
-                  aria-label="GitHub"
+                  aria-label={t("socials.githubAria")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -392,7 +400,7 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg border border-[var(--border)] flex items-center justify-center text-[var(--text-dim)] hover:text-[var(--gold)] hover:border-[var(--gold-dim)] transition-all duration-300"
-                  aria-label="LinkedIn"
+                  aria-label={t("socials.linkedinAria")}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
