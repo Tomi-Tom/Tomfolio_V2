@@ -1,10 +1,25 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Noto_Sans_SC, Noto_Sans_KR } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import "../globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { routing, type Locale } from "@/i18n/routing";
+
+const notoSansSC = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cjk",
+  display: "swap",
+});
+
+const notoSansKR = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cjk",
+  display: "swap",
+});
 
 const OG_LOCALE: Record<string, string> = {
   en: "en_US",
@@ -74,8 +89,16 @@ export default async function LocaleLayout({
   }
   setRequestLocale(locale);
 
+  const cjkFontClass =
+    locale === "zh" ? notoSansSC.variable : locale === "ko" ? notoSansKR.variable : "";
+
   return (
-    <html lang={locale} data-theme="dark" suppressHydrationWarning>
+    <html
+      lang={locale}
+      data-theme="dark"
+      suppressHydrationWarning
+      className={cjkFontClass}
+    >
       <body>
         <NextIntlClientProvider>
           <ThemeProvider>{children}</ThemeProvider>

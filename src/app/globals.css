@@ -9,7 +9,7 @@
 body {
   background-color: var(--void-deep);
   color: var(--text-primary);
-  font-family: "DM Sans", sans-serif;
+  font-family: "DM Sans", var(--font-cjk, "Helvetica Neue"), sans-serif;
   font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.7;
@@ -22,7 +22,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Space Grotesk", var(--font-cjk, "Helvetica Neue"), sans-serif;
 }
 
 ::selection {
