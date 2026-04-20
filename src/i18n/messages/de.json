@@ -24,7 +24,7 @@
   },
   "footer": {
     "label": "Ende",
-    "headingLight": "Lass uns",
+    "headingLight": "Gemeinsam",
     "headingBold": "Erschaffen",
     "tagline": "Verfügbar für freiberufliche Projekte, Kooperationen und Festanstellungen.",
     "cta": "Kontakt aufnehmen",
@@ -35,7 +35,7 @@
   "hero": {
     "label": "Portfolio",
     "tagline": "UX-Designer & Entwickler",
-    "description": "Immersive digitale Erlebnisse an der Schnittstelle von Designpräzision und technischem Handwerk.",
+    "description": "Immersive digitale Erlebnisse an der Schnittstelle von Designpräzision und sauberem Handwerk.",
     "viewWork": "Arbeiten ansehen",
     "downloadCV": "Lebenslauf",
     "scroll": "Scrollen",
@@ -48,10 +48,10 @@
   "about": {
     "numbering": "01",
     "label": "Über mich",
-    "quote": "Die Brücke zwischen schön und funktional.",
+    "quote": "Wo gutes Design auf saubere Funktion trifft.",
     "bio1": "Ich bin UX/UI-Designer und Webentwickler in Paris und verbinde Designpräzision mit technischem Handwerk. Ich entwickle digitale Erlebnisse, die lebendig wirken — von interaktiven Web-Apps bis zu immersiven 3D-Oberflächen.",
-    "bio2": "Mit einer Ausbildung an der Epitech und über 5 Jahren Erfahrung in Designsystemen, Frontend-Entwicklung und Nutzerforschung schlage ich die Brücke zwischen schön und funktional.",
-    "currentLocation": "Derzeit in Paris ansässig, an der Schnittstelle von Designdenken und moderner Webtechnologie.",
+    "bio2": "Mit einem Studium an der Epitech und über 5 Jahren Erfahrung in Designsystemen, Frontend-Entwicklung und Nutzerforschung verbinde ich gutes Design mit sauberer Funktion.",
+    "currentLocation": "Derzeit in Paris, an der Schnittstelle von Design Thinking und moderner Webtechnologie.",
     "role": "UX / Dev",
     "stats": {
       "education": {
@@ -75,7 +75,7 @@
   "skills": {
     "numbering": "02",
     "label": "Fähigkeiten",
-    "summary": "{count} Technologien und Werkzeuge im täglichen Einsatz.",
+    "summary": "{count} Technologien und Tools im täglichen Einsatz.",
     "categories": {
       "frontend": {
         "number": "01",
@@ -90,7 +90,7 @@
       "backend": {
         "number": "03",
         "label": "Backend & Tools",
-        "description": "APIs, Datenbanken, Infrastruktur und Entwicklerwerkzeuge."
+        "description": "APIs, Datenbanken, Infrastruktur und Developer-Tools."
       }
     },
     "exploring": {
@@ -116,7 +116,7 @@
       },
       "consulting": {
         "title": "Beratung & Audit",
-        "description": "Technische Audits, UX-Reviews und strategische Beratung zur Verbesserung von Performance, Barrierefreiheit und Nutzererlebnis Ihres Produkts."
+        "description": "Technische Audits, UX-Reviews und strategische Beratung, um Performance, Barrierefreiheit und Nutzererlebnis Ihres Produkts zu verbessern."
       }
     },
     "learnMore": "Mehr erfahren",
@@ -134,7 +134,7 @@
           "commitment": "Volles Engagement & Qualität",
           "noFees": "Keine versteckten Kosten"
         },
-        "cta": "Loslegen"
+        "cta": "Jetzt starten"
       },
       "standard": {
         "badge": "Standard",
@@ -148,7 +148,7 @@
           "support": "Priorisierter Support",
           "flexible": "Flexibler Einsatz"
         },
-        "cta": "Kontakt"
+        "cta": "Kontakt aufnehmen"
       }
     }
   },
@@ -199,7 +199,7 @@
   },
   "contact": {
     "label": "Kontakt",
-    "heading": "Lassen Sie uns etwas bauen",
+    "heading": "Gemeinsam etwas erschaffen",
     "tagline": "Offen für neue Projekte, Kooperationen und spannende Gespräche.",
     "form": {
       "firstName": "Vorname",
@@ -249,7 +249,7 @@
       "timezone": "PARIS // MEZ (UTC+1)"
     },
     "socials": {
-      "heading": "Soziale Netzwerke",
+      "heading": "Social Media",
       "githubAria": "GitHub",
       "linkedinAria": "LinkedIn"
     }
@@ -260,7 +260,7 @@
       "label": "Playground",
       "headingLight": "Interaktive",
       "headingBold": "Experimente",
-      "description": "Mini-Apps zur Erkundung von UI-Mustern, Spiellogik und Produktivitätswerkzeugen — entwickelt mit React, Canvas und Framer Motion.",
+      "description": "Mini-Apps rund um UI-Muster, Spiellogik und Produktivitäts-Tools — entwickelt mit React, Canvas und Framer Motion.",
       "backToPlayground": "Zurück zum Playground",
       "miniApps": {
         "lifeGame": {
@@ -284,14 +284,14 @@
           "badge": "Utility"
         },
         "taskBreaker": {
-          "title": "Aufgabenzerleger",
-          "description": "Überfordernde Aufgaben in kleine Schritte zerlegen",
-          "badge": "ADHS-Werkzeug"
+          "title": "Task Breaker",
+          "description": "Große Aufgaben in kleine Schritte zerlegen",
+          "badge": "ADHS-Tool"
         },
         "moodTracker": {
           "title": "Stimmungstracker",
-          "description": "Stimmung, Energie & Fokus mit Erkenntnissen verfolgen",
-          "badge": "ADHS-Werkzeug"
+          "description": "Stimmung, Energie & Fokus mit Auswertungen verfolgen",
+          "badge": "ADHS-Tool"
         },
         "typingTest": {
           "title": "Tipptest",
@@ -301,7 +301,7 @@
         "colorPalette": {
           "title": "Farbpalette",
           "description": "Harmonische Paletten in 5 Modi generieren",
-          "badge": "Design-Werkzeug"
+          "badge": "Design-Tool"
         },
         "snake": {
           "title": "Snake",
@@ -311,7 +311,7 @@
         "whiteNoise": {
           "title": "Ambient-Sounds",
           "description": "8-Kanal-Mixer für weißes Rauschen zur tiefen Konzentration",
-          "badge": "Fokus-Werkzeug"
+          "badge": "Fokus-Tool"
         },
         "pixelArt": {
           "title": "Pixel-Art-Editor",
@@ -321,7 +321,7 @@
       }
     },
     "colorPalette": {
-      "category": "DESIGN-WERKZEUG",
+      "category": "DESIGN-TOOL",
       "title": "Farbpaletten-Generator",
       "modes": {
         "random": "Zufällig",
@@ -344,7 +344,7 @@
     "lifeGame": {
       "category": "Spiel",
       "title": "Spiel des Lebens",
-      "description": "Conways zellulärer Automat. Zellen anklicken, um Leben zu säen, dann Play drücken und beobachten, wie aus einfachen Regeln Komplexität entsteht.",
+      "description": "Conways zellulärer Automat. Klicke Zellen an, um Leben zu säen, dann starte und beobachte, wie aus einfachen Regeln Komplexität entsteht.",
       "play": "Start",
       "pause": "Pause",
       "step": "Schritt",
@@ -373,27 +373,27 @@
       "close": "Schließen",
       "win": {
         "title": "Glückwunsch!",
-        "description": "Sie haben alle {pairs} Paare in {turns} Zügen gefunden."
+        "description": "Du hast alle {pairs} Paare in {turns} Zügen gefunden."
       }
     },
     "moodTracker": {
-      "category": "ADHS-WERKZEUG",
+      "category": "ADHS-TOOL",
       "title": "Stimmungs- & Energietracker",
       "description": "Verfolgen Sie täglich Stimmung, Energie und Fokus, um Muster zu erkennen und Erkenntnisse zu gewinnen, die beim Umgang mit ADHS-Symptomen helfen.",
       "calendarView": "Kalender",
-      "insightsView": "Erkenntnisse",
-      "addEntry": "+ Eintrag",
+      "insightsView": "Auswertungen",
+      "addEntry": "+ Neuer Eintrag",
       "addEntryShort": "Eintrag",
       "noEntriesForDate": "Keine Einträge für dieses Datum.",
       "weeklyAverages": "Wochendurchschnitt",
       "noEntriesThisWeek": "Diese Woche noch keine Einträge.",
       "activityFrequency": "Aktivitätshäufigkeit",
       "yourAverages": "Ihre Durchschnitte",
-      "noEntriesYet": "Noch keine Einträge. Fügen Sie Tageseinträge hinzu, um Erkenntnisse zu sehen.",
-      "patternsInsights": "Muster & Erkenntnisse",
-      "needMoreEntries": "Mindestens 3 Einträge für Muster und Erkenntnisse hinzufügen.",
-      "activityImpact": "Auswirkung von Aktivitäten",
-      "noActivityImpact": "Noch keine Einträge. Fügen Sie Tageseinträge mit Aktivitäten hinzu, um deren Wirkung zu sehen.",
+      "noEntriesYet": "Noch keine Einträge. Fügen Sie tägliche Einträge hinzu, um Auswertungen zu sehen.",
+      "patternsInsights": "Muster & Auswertungen",
+      "needMoreEntries": "Mindestens 3 Einträge hinzufügen, um Muster und Auswertungen zu sehen.",
+      "activityImpact": "Wirkung der Aktivitäten",
+      "noActivityImpact": "Noch keine Einträge. Fügen Sie Einträge mit Aktivitäten hinzu, um deren Wirkung zu sehen.",
       "noActivitiesRecorded": "Noch keine Aktivitäten erfasst.",
       "metrics": {
         "mood": "Stimmung",
@@ -486,12 +486,12 @@
         "excited": "Begeistert"
       },
       "insights": {
-        "needMore": "Mehr Einträge hinzufügen, um Muster und Erkenntnisse zu sehen",
-        "topStates": "Ihre häufigsten Zustände sind: {tags}",
+        "needMore": "Mehr Einträge hinzufügen, um Muster und Auswertungen zu sehen",
+        "topStates": "Ihre häufigsten Zustände: {tags}",
         "positiveActivities": "Aktivitäten, die Ihr Wohlbefinden steigern: {activities}",
-        "lowEnergy": "Sie haben offenbar mehr energiearme Tage. Erwägen Sie Strategien zum Energiemanagement.",
-        "lowFocus": "Ihre Fokuswerte tendieren eher niedrig. Erkunden Sie Strategien zur Aufmerksamkeit.",
-        "consistentTracking": "Konsequentes Tracking offenbart mit der Zeit weitere Muster und Erkenntnisse"
+        "lowEnergy": "Sie haben offenbar viele energiearme Tage. Strategien zum Energiemanagement könnten helfen.",
+        "lowFocus": "Ihre Fokuswerte sind eher niedrig. Strategien zur Aufmerksamkeit könnten helfen.",
+        "consistentTracking": "Regelmäßiges Tracking deckt mit der Zeit weitere Muster und Auswertungen auf"
       }
     },
     "pixelArt": {
@@ -506,7 +506,7 @@
       "showGrid": "Raster zeigen",
       "hideGrid": "Raster ausblenden",
       "undo": "Rückgängig",
-      "redo": "Wiederherstellen",
+      "redo": "Wiederholen",
       "clear": "Leeren",
       "confirm": "Bestätigen",
       "cancel": "Abbrechen",
@@ -518,7 +518,7 @@
     "pomodoro": {
       "category": "UTILITY",
       "title": "Pomodoro-Timer",
-      "description": "Bleiben Sie fokussiert und produktiv mit getakteten Arbeitsphasen und geplanten Pausen. Vier Fokus-Runden für eine lange Pause.",
+      "description": "Bleiben Sie fokussiert und produktiv mit getakteten Arbeitsphasen und geplanten Pausen. Nach vier Fokusrunden folgt eine lange Pause.",
       "modes": {
         "focus": "Fokus",
         "shortBreak": "Kurze Pause",
@@ -548,7 +548,7 @@
         "focusShort": "Fokus",
         "shortShort": "Kurz",
         "longShort": "Lang",
-        "longBreakInterval": "Lange Pause alle {interval} Fokus-Sitzungen"
+        "longBreakInterval": "Lange Pause nach je {interval} Fokus-Sitzungen"
       }
     },
     "snake": {
@@ -569,9 +569,9 @@
       "footerHint": "LEERTASTE pausiert · Pfeiltasten oder WASD steuern"
     },
     "taskBreaker": {
-      "category": "ADHS-WERKZEUG",
-      "title": "Aufgabenzerleger",
-      "description": "Überfordernde Aufgaben in kleine, machbare Schritte zerlegen. Schritt für Schritt abhaken und Fortschritt sehen.",
+      "category": "ADHS-TOOL",
+      "title": "Task Breaker",
+      "description": "Große Aufgaben in kleine, machbare Schritte zerlegen. Schritt für Schritt abhaken und den Fortschritt wachsen sehen.",
       "tasksCompleted": "{completed} / {total} Aufgaben erledigt",
       "completionRate": "Abschlussrate: {rate}%",
       "myTasks": "Meine Aufgaben",
@@ -587,9 +587,9 @@
       "addSteps": "+ Schritte",
       "delete": "Löschen",
       "progress": "Fortschritt",
-      "noStepsYet": "Noch keine Schritte. Zerlegen Sie diese Aufgabe in kleinere Teile!",
+      "noStepsYet": "Noch keine Schritte. Zerlege diese Aufgabe in kleinere Teile!",
       "addStepsCta": "Schritte hinzufügen",
-      "selectTaskHint": "Wählen Sie eine Aufgabe aus der Liste oder erstellen Sie eine neue.",
+      "selectTaskHint": "Wähle eine Aufgabe aus der Liste oder erstelle eine neue.",
       "createTask": "Aufgabe erstellen",
       "tipsHeading": "Tipps",
       "tips": {
@@ -609,7 +609,7 @@
       "addStepsModal": {
         "title": "Schritte hinzufügen",
         "single": "Einzeln",
-        "bulk": "Sammel (einer pro Zeile)",
+        "bulk": "Mehrere (einer pro Zeile)",
         "stepLabel": "Schritt",
         "stepPlaceholder": "z. B. Wireframes skizzieren",
         "stepsLabel": "Schritte",
@@ -656,13 +656,13 @@
       "wind": "Wind",
       "savedLocations": "Gespeicherte Orte",
       "noSavedLocationsLine1": "Noch keine gespeicherten Orte.",
-      "noSavedLocationsLine2": "Markieren Sie eine Stadt mit einem Stern.",
+      "noSavedLocationsLine2": "Stadt mit einem Stern zur Liste hinzufügen.",
       "remove": "Entfernen"
     },
     "whiteNoise": {
-      "category": "FOKUS-WERKZEUG",
+      "category": "FOKUS-TOOL",
       "title": "Ambient-Sounds",
-      "description": "Klanglandschaften mischen für die perfekte Fokus-Umgebung. Einzelne Kanäle anpassen und in den Flow finden.",
+      "description": "Klanglandschaften mischen für deine perfekte Fokus-Umgebung. Einzelne Kanäle anpassen und in den Flow finden.",
       "play": "Start",
       "stop": "Stopp",
       "playing": "Läuft",
@@ -693,7 +693,7 @@
       "channelVolumeAria": "Lautstärke {name}",
       "savedMixes": "Gespeicherte Mixe",
       "saveCurrentMix": "Aktuellen Mix speichern",
-      "noSavedMixes": "Noch keine gespeicherten Mixe. Erstellen Sie Ihre perfekte Mischung und speichern Sie sie.",
+      "noSavedMixes": "Noch keine gespeicherten Mixe. Mischung erstellen und für später speichern.",
       "saveMixModalTitle": "Mix speichern",
       "mixNamePlaceholder": "Mix-Name...",
       "cancel": "Abbrechen",
@@ -708,8 +708,8 @@
     "defaultMessage": "Jede Sekunde zählt",
     "days": "TAGE",
     "timeUnits": "STUNDEN : MINUTEN : SEKUNDEN",
-    "easterEgg": "Du liebst wirklich zu klicken! {count} Klicks!",
-    "hint": "Drücke und halte die Karte gedrückt, um deine Liebe zu zeigen!",
+    "easterEgg": "Du klickst wirklich gerne! {count} Klicks!",
+    "hint": "Karte gedrückt halten, um deine Liebe zu zeigen!",
     "quotes": {
       "cuddles": "Countdown zu unseren Umarmungen!",
       "together": "Bald sind wir wieder zusammen!",
@@ -726,7 +726,7 @@
   "metadata": {
     "home": {
       "title": "Tom Bariteau-Peter — UX-Designer & Entwickler",
-      "description": "Portfolio von Tom Bariteau-Peter, UX/UI-Designer und Webentwickler mit Sitz in Paris. Entwicklung immersiver digitaler Erlebnisse."
+      "description": "Portfolio von Tom Bariteau-Peter, UX/UI-Designer und Webentwickler in Paris. Immersive digitale Erlebnisse mit Designpräzision."
     },
     "playground": {
       "title": "Playground — Tom Bariteau-Peter",
