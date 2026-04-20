@@ -1,1 +1,744 @@
-{}
+{
+  "common": {
+    "languageMenu": {
+      "label": "Language",
+      "current": "Current language"
+    }
+  },
+  "statusBar": {
+    "brandShort": "TBP.DEV",
+    "availability": "Available for work"
+  },
+  "chapterBar": {
+    "intro": "Intro",
+    "about": "About",
+    "skills": "Skills",
+    "services": "Services",
+    "projects": "Projects",
+    "testimonials": "Testimonials",
+    "playground": "Playground",
+    "contact": "Contact"
+  },
+  "hudFrame": {
+    "label": "HUD frame"
+  },
+  "footer": {
+    "label": "End",
+    "headingLight": "Let's ",
+    "headingBold": "Create",
+    "tagline": "Available for freelance projects, collaborations, and full-time opportunities.",
+    "cta": "Get in Touch",
+    "githubAria": "GitHub",
+    "linkedinAria": "LinkedIn",
+    "copyright": "© 2024 Tom Bariteau-Peter"
+  },
+  "hero": {
+    "label": "Portfolio",
+    "tagline": "UX Designer & Developer",
+    "description": "Crafting immersive digital experiences at the intersection of design precision and technical craft.",
+    "viewWork": "View Work",
+    "downloadCV": "Download CV",
+    "scroll": "Scroll",
+    "stats": {
+      "technologies": "Technologies",
+      "experience": "Experience",
+      "languages": "Languages",
+      "experienceValue": "5yr",
+      "languagesValue": "FR·EN"
+    }
+  },
+  "about": {
+    "numbering": "01",
+    "label": "About",
+    "quote": "Bridging the gap between what looks right and what works right.",
+    "bio1": "I'm a UX/UI designer and web developer based in Paris, combining design precision with technical craft. I build digital experiences that feel alive — from interactive web apps to immersive 3D interfaces.",
+    "bio2": "With a background at Epitech and 5+ years of experience across design systems, front-end development, and user research, I bridge the gap between what looks right and what works right.",
+    "currentLocation": "Currently based in Paris, working at the intersection of design thinking and modern web technology.",
+    "role": "UX / Dev",
+    "stats": {
+      "education": {
+        "label": "Education",
+        "value": "Epitech Paris"
+      },
+      "experience": {
+        "label": "Experience",
+        "value": "5+ Years"
+      },
+      "languages": {
+        "label": "Languages",
+        "value": "FR / EN"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Paris, FR"
+      }
+    }
+  },
+  "skills": {
+    "numbering": "02",
+    "label": "Skills",
+    "summary": "{count} technologies and tools I work with daily.",
+    "categories": {
+      "frontend": {
+        "number": "01",
+        "label": "Frontend",
+        "description": "Building responsive, performant, and interactive user interfaces."
+      },
+      "design": {
+        "number": "02",
+        "label": "Design",
+        "description": "Crafting intuitive experiences and cohesive visual systems."
+      },
+      "backend": {
+        "number": "03",
+        "label": "Backend & Tools",
+        "description": "APIs, databases, infrastructure, and developer tooling."
+      }
+    },
+    "exploring": {
+      "number": "04",
+      "label": "Currently Exploring"
+    },
+    "skillCount": "{count} skill",
+    "skillCountPlural": "{count} skills"
+  },
+  "services": {
+    "label": "Services",
+    "items": {
+      "uxDesign": {
+        "title": "UX / UI Design",
+        "description": "User-centred interfaces crafted through research, wireframing, and iterative prototyping. From design systems to polished, production-ready mockups."
+      },
+      "webDev": {
+        "title": "Web Development",
+        "description": "Performant, accessible web applications built with modern frameworks — React, Next.js, TypeScript — and best-practice architecture."
+      },
+      "threeDInteractive": {
+        "title": "3D & Interactive",
+        "description": "Immersive experiences with Three.js and WebGL. From subtle ambient scenes to full interactive 3D visualisations."
+      },
+      "consulting": {
+        "title": "Consulting & Audit",
+        "description": "Technical audits, UX reviews, and strategic advice to improve your existing product's performance, accessibility, and user experience."
+      }
+    },
+    "learnMore": "Learn more",
+    "pricing": {
+      "label": "Pricing",
+      "discovery": {
+        "badge": "Recommended",
+        "caption": "Discovery Rate",
+        "amount": "300",
+        "currency": "€",
+        "period": "/ day",
+        "description": "Preferential rate for our first collaboration. Ideal for an initial project, audit, or proof of concept.",
+        "features": {
+          "first": "First project together",
+          "commitment": "Full commitment & quality",
+          "noFees": "No hidden fees"
+        },
+        "cta": "Get started"
+      },
+      "standard": {
+        "badge": "Standard",
+        "caption": "Standard Rate",
+        "amount": "450",
+        "currency": "€",
+        "period": "/ day",
+        "description": "Standard daily rate for ongoing projects. Long-term partnerships and complex builds.",
+        "features": {
+          "ongoing": "Ongoing collaboration",
+          "support": "Priority support",
+          "flexible": "Flexible engagement"
+        },
+        "cta": "Contact me"
+      }
+    }
+  },
+  "projects": {
+    "label": "Projects",
+    "filterAll": "All",
+    "viewProject": "View project",
+    "github": "GitHub",
+    "live": "Live",
+    "items": {
+      "portfolio": {
+        "title": "Personal Portfolio — tombp.fr",
+        "description": "Modern portfolio with Three.js wireframe gears, scroll animations, and Void & Gold aesthetic."
+      },
+      "libertai": {
+        "title": "LibertAI — AI Platform",
+        "description": "Corporate website redesign for an AI company — modern brand presence, responsive, accessible."
+      },
+      "chuckforever": {
+        "title": "Chuck Forever — Calendrier ACN",
+        "description": "Tribute site for Chuck Norris with a custom calendar system, countdown timer, quotes, videos, and lore pages."
+      },
+      "defidecon": {
+        "title": "Défi de Con",
+        "description": "Daily challenge platform with streak tracking, leaderboards, and admin dashboard. Built with Next.js and Supabase."
+      },
+      "codearena": {
+        "title": "Code Arena",
+        "description": "Competitive coding platform with challenges across multiple difficulty tiers, score tracking, streaks, and leaderboards."
+      },
+      "tomuiplayground": {
+        "title": "Tom UI Playground",
+        "description": "Browser-based UI dev environment with Monaco code editor, live preview, file explorer, and console."
+      },
+      "pokerandom": {
+        "title": "Pokérandom — Starter Generator",
+        "description": "Pokémon starter draft tool with solo vs AI mode, local 2-player draft, team builder, and retro pixel UI inspired by the DS Pokédex."
+      },
+      "tomcraft": {
+        "title": "TomCraft",
+        "description": "Minecraft-inspired voxel sandbox built from scratch. Infinite procedural worlds, 9 biomes, 20+ mobs with AI, crafting, and survival gameplay."
+      },
+      "wolfenstom": {
+        "title": "Wolfenstom 3D",
+        "description": "Steampunk FPS inspired by Wolfenstein 3D. Ray-casting engine in the browser with procedural maps and steampunk weapons."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's Build Something",
+    "tagline": "Open to new projects, collaborations, and interesting conversations.",
+    "form": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project...",
+      "submit": "Send Message",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Message Sent",
+      "description": "I'll get back to you soon.",
+      "sendAnother": "Send another message"
+    },
+    "error": {
+      "title": "Something Went Wrong",
+      "description": "Please try again or reach out via email directly.",
+      "tryAgain": "Try again"
+    },
+    "errors": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailInvalid": "Please enter a valid email",
+      "messageMinLength": "Message must be at least 10 characters"
+    },
+    "info": {
+      "heading": "Contact Info",
+      "emailLabel": "Email",
+      "locationLabel": "Location",
+      "locationValue": "Paris, France",
+      "coordinates": "48.8566° N, 2.3522° E",
+      "statusLabel": "Status",
+      "statusValue": "Open to new projects"
+    },
+    "coordinates": {
+      "caption": "Current Base",
+      "lat": "LAT",
+      "lng": "LNG",
+      "latValue": "48.8566°",
+      "lngValue": "2.3522°",
+      "timezone": "PARIS // CET (UTC+1)"
+    },
+    "socials": {
+      "heading": "Socials",
+      "githubAria": "GitHub",
+      "linkedinAria": "LinkedIn"
+    }
+  },
+  "playground": {
+    "intro": {
+      "label": "06 — Playground",
+      "headingLight": "Interactive",
+      "headingBold": "Experiments",
+      "description": "Mini-applications exploring UI patterns, game logic, and productivity tools — built with React, Canvas, and Framer Motion.",
+      "backToPlayground": "Back to Playground",
+      "miniApps": {
+        "lifeGame": {
+          "title": "Game of Life",
+          "description": "Conway's cellular automaton — watch patterns evolve",
+          "badge": "Game"
+        },
+        "memory": {
+          "title": "Memory Game",
+          "description": "Card-matching challenge with 3 difficulty levels",
+          "badge": "Game"
+        },
+        "weather": {
+          "title": "Weather App",
+          "description": "Live weather conditions around the world",
+          "badge": "Utility"
+        },
+        "pomodoro": {
+          "title": "Pomodoro Timer",
+          "description": "Focus time management with circular progress",
+          "badge": "Utility"
+        },
+        "taskBreaker": {
+          "title": "Task Breaker",
+          "description": "Break overwhelming tasks into small steps",
+          "badge": "ADHD Tool"
+        },
+        "moodTracker": {
+          "title": "Mood Tracker",
+          "description": "Track mood, energy & focus with insights",
+          "badge": "ADHD Tool"
+        },
+        "typingTest": {
+          "title": "Typing Speed Test",
+          "description": "Test your WPM with real-time accuracy tracking",
+          "badge": "Game"
+        },
+        "colorPalette": {
+          "title": "Color Palette",
+          "description": "Generate harmonious palettes with 5 modes",
+          "badge": "Design Tool"
+        },
+        "snake": {
+          "title": "Snake",
+          "description": "Classic arcade game with gold aesthetics",
+          "badge": "Game"
+        },
+        "whiteNoise": {
+          "title": "Ambient Sounds",
+          "description": "8-channel white noise mixer for deep focus",
+          "badge": "Focus Tool"
+        },
+        "pixelArt": {
+          "title": "Pixel Art Editor",
+          "description": "Draw, fill, undo & export pixel artwork",
+          "badge": "Creative"
+        }
+      }
+    },
+    "colorPalette": {
+      "category": "DESIGN TOOL",
+      "title": "Color Palette Generator",
+      "modes": {
+        "random": "Random",
+        "analogous": "Analogous",
+        "complementary": "Complementary",
+        "triadic": "Triadic",
+        "monochromatic": "Monochromatic"
+      },
+      "generate": "Generate",
+      "savePalette": "Save Palette",
+      "exportCSS": "Export CSS",
+      "spaceHint": "Press SPACE to generate",
+      "savedPalettes": "Saved Palettes",
+      "lock": "Lock",
+      "unlock": "Unlock",
+      "toastCopied": "Copied!",
+      "toastSaved": "Palette saved!",
+      "toastCssCopied": "CSS copied!"
+    },
+    "lifeGame": {
+      "category": "Game",
+      "title": "Game of Life",
+      "description": "Conway's cellular automaton. Click cells to seed life, then press play and watch complexity emerge from simple rules.",
+      "play": "Play",
+      "pause": "Pause",
+      "step": "Step",
+      "reset": "Reset",
+      "soup": "Soup",
+      "generation": "Generation",
+      "population": "Population",
+      "density": "Density",
+      "grid": "Grid",
+      "speed": "Speed",
+      "cells": "cells"
+    },
+    "memory": {
+      "category": "GAME",
+      "title": "Memory Game",
+      "description": "Find all matching pairs in as few turns as possible.",
+      "difficulty": {
+        "easy": "easy",
+        "medium": "medium",
+        "hard": "hard"
+      },
+      "turns": "TURNS",
+      "matches": "MATCHES",
+      "newGame": "New Game",
+      "playAgain": "Play Again",
+      "close": "Close",
+      "win": {
+        "title": "Congratulations!",
+        "description": "You found all {pairs} pairs in {turns} turns."
+      }
+    },
+    "moodTracker": {
+      "category": "ADHD TOOL",
+      "title": "Mood & Energy Tracker",
+      "description": "Track your daily mood, energy, and focus levels to identify patterns and gain insights that can help manage ADHD symptoms.",
+      "calendarView": "Calendar",
+      "insightsView": "Insights",
+      "addEntry": "+ Add Entry",
+      "addEntryShort": "Add Entry",
+      "noEntriesForDate": "No entries for this date.",
+      "weeklyAverages": "Weekly Averages",
+      "noEntriesThisWeek": "No entries this week yet.",
+      "activityFrequency": "Activity Frequency",
+      "yourAverages": "Your Averages",
+      "noEntriesYet": "No entries yet. Add some daily records to see insights.",
+      "patternsInsights": "Patterns & Insights",
+      "needMoreEntries": "Add at least 3 entries to see patterns and insights.",
+      "activityImpact": "Activity Impact",
+      "noActivityImpact": "No entries yet. Add some daily records with activities to see their impact.",
+      "noActivitiesRecorded": "No activities recorded yet.",
+      "metrics": {
+        "mood": "Mood",
+        "energy": "Energy",
+        "focus": "Focus",
+        "averageMood": "Average mood",
+        "averageEnergy": "Average energy",
+        "averageFocus": "Average focus"
+      },
+      "rangeLabels": {
+        "low": "Low",
+        "neutral": "Neutral",
+        "high": "High",
+        "moderate": "Moderate",
+        "distracted": "Distracted",
+        "focused": "Focused"
+      },
+      "metricLevel": "Level {value}/5",
+      "notes": "Notes",
+      "notesOptional": "Notes (optional)",
+      "notesPlaceholder": "Any additional thoughts about your day...",
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save",
+      "newEntry": "New Entry",
+      "editEntry": "Edit Entry",
+      "saveEntry": "Save Entry",
+      "updateEntry": "Update Entry",
+      "tagsHeading": "Tags — How did you feel?",
+      "activitiesHeading": "Activities — What did you do?",
+      "deleteEntryTitle": "Delete Entry?",
+      "deleteEntryConfirm": "Are you sure you want to delete this entry? This action cannot be undone.",
+      "tableHeaders": {
+        "activity": "Activity",
+        "count": "Count",
+        "mood": "Mood",
+        "energy": "Energy",
+        "focus": "Focus"
+      },
+      "moodLevels": {
+        "veryLow": "Very Low",
+        "low": "Low",
+        "neutral": "Neutral",
+        "good": "Good",
+        "great": "Great"
+      },
+      "energyLevels": {
+        "exhausted": "Exhausted",
+        "low": "Low",
+        "moderate": "Moderate",
+        "energetic": "Energetic",
+        "veryHigh": "Very High"
+      },
+      "focusLevels": {
+        "veryDistracted": "Very Distracted",
+        "distracted": "Distracted",
+        "moderate": "Moderate",
+        "focused": "Focused",
+        "hyperfocused": "Hyper-focused"
+      },
+      "activities": {
+        "exercise": "Exercise",
+        "meditation": "Meditation",
+        "work": "Work/Study",
+        "social": "Social",
+        "nature": "Nature",
+        "reading": "Reading",
+        "gaming": "Gaming",
+        "music": "Music",
+        "creative": "Creative",
+        "sleep": "Good Sleep",
+        "meds": "Medication",
+        "nutrition": "Nutrition"
+      },
+      "tags": {
+        "overwhelmed": "Overwhelmed",
+        "anxious": "Anxious",
+        "creative": "Creative",
+        "productive": "Productive",
+        "calm": "Calm",
+        "frustrated": "Frustrated",
+        "motivated": "Motivated",
+        "tired": "Tired",
+        "hyperfocus": "Hyperfocus",
+        "distracted": "Distracted",
+        "procrastinating": "Procrastinating",
+        "happy": "Happy",
+        "stressed": "Stressed",
+        "excited": "Excited"
+      },
+      "insights": {
+        "needMore": "Add more entries to see patterns and insights",
+        "topStates": "Your most common states are: {tags}",
+        "positiveActivities": "Activities that seem to improve your well-being: {activities}",
+        "lowEnergy": "You appear to have more low-energy days. Consider energy management strategies.",
+        "lowFocus": "Your focus scores tend to be on the lower side. Explore strategies to support your attention.",
+        "consistentTracking": "Consistent tracking will reveal more patterns and insights over time"
+      }
+    },
+    "pixelArt": {
+      "category": "CREATIVE",
+      "title": "Pixel Art Editor",
+      "tools": {
+        "draw": "Draw",
+        "erase": "Erase",
+        "fill": "Fill",
+        "pick": "Pick Color"
+      },
+      "showGrid": "Show grid",
+      "hideGrid": "Hide grid",
+      "undo": "Undo",
+      "redo": "Redo",
+      "clear": "Clear",
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "exportPng": "Export PNG",
+      "palette": "Palette",
+      "customColor": "Custom color",
+      "active": "Active"
+    },
+    "pomodoro": {
+      "category": "UTILITY",
+      "title": "Pomodoro Timer",
+      "description": "Stay focused and productive with timed work sessions and scheduled breaks. Complete four focus rounds for a long break.",
+      "modes": {
+        "focus": "Focus",
+        "shortBreak": "Short Break",
+        "longBreak": "Long Break"
+      },
+      "start": "Start",
+      "pause": "Pause",
+      "reset": "Reset",
+      "skip": "Skip",
+      "stats": {
+        "label": "STATS",
+        "completedSingular": "pomodoro completed",
+        "completedPlural": "pomodoros completed",
+        "currentMode": "Current Mode",
+        "fullCycle": "Full Cycle",
+        "minutesAbbrev": "min"
+      },
+      "settings": {
+        "label": "SETTINGS",
+        "title": "Timer Durations",
+        "rangeHint": "Set duration in minutes (1 – 120)",
+        "focusDuration": "Focus Duration",
+        "shortBreak": "Short Break",
+        "longBreak": "Long Break",
+        "save": "Save",
+        "cancel": "Cancel",
+        "openAria": "Open settings",
+        "focusShort": "Focus",
+        "shortShort": "Short",
+        "longShort": "Long",
+        "longBreakInterval": "Long break every {interval} focus sessions"
+      }
+    },
+    "snake": {
+      "category": "GAME",
+      "title": "Snake",
+      "stats": {
+        "score": "Score",
+        "best": "Best",
+        "speed": "Speed"
+      },
+      "startHint": "Press SPACE or tap to start",
+      "controlsHint": "Arrow keys / WASD to move",
+      "paused": "Paused",
+      "gameOver": "Game Over",
+      "playAgain": "Play Again",
+      "play": "PLAY",
+      "pause": "PAUSE",
+      "footerHint": "SPACE to pause · Arrow keys or WASD to steer"
+    },
+    "taskBreaker": {
+      "category": "ADHD TOOL",
+      "title": "Task Breaker",
+      "description": "Break overwhelming tasks into small, manageable steps. Check them off one by one and watch your progress grow.",
+      "tasksCompleted": "{completed} / {total} tasks completed",
+      "completionRate": "Completion rate: {rate}%",
+      "myTasks": "My Tasks",
+      "newTask": "New Task",
+      "filters": {
+        "all": "all",
+        "active": "active",
+        "completed": "completed"
+      },
+      "noTasks": "No tasks yet.",
+      "createFirstTask": "Create your first task",
+      "completed": "Completed",
+      "addSteps": "+ Add Steps",
+      "delete": "Delete",
+      "progress": "Progress",
+      "noStepsYet": "No steps yet. Break this task into smaller pieces!",
+      "addStepsCta": "Add steps",
+      "selectTaskHint": "Select a task from the list or create a new one to get started.",
+      "createTask": "Create a Task",
+      "tipsHeading": "Tips",
+      "tips": {
+        "smallSteps": "Break tasks into steps you can finish in 5–15 minutes.",
+        "easiestFirst": "Start with the easiest step to build momentum.",
+        "breakDownFurther": "If a step feels too big, break it down further.",
+        "celebrate": "Celebrate every checked box — progress is progress.",
+        "reorder": "Reorder steps so the next action is always on top."
+      },
+      "newTaskModal": {
+        "title": "New Task",
+        "taskTitleLabel": "Task Title",
+        "taskTitlePlaceholder": "e.g. Redesign homepage",
+        "cancel": "Cancel",
+        "create": "Create"
+      },
+      "addStepsModal": {
+        "title": "Add Steps",
+        "single": "Single",
+        "bulk": "Bulk (one per line)",
+        "stepLabel": "Step",
+        "stepPlaceholder": "e.g. Sketch wireframes",
+        "stepsLabel": "Steps",
+        "stepsPlaceholder": "Step one\nStep two\nStep three",
+        "cancel": "Cancel",
+        "add": "Add"
+      },
+      "moveUpAria": "Move up",
+      "moveDownAria": "Move down",
+      "deleteStepAria": "Delete step",
+      "markCompleteAria": "Mark complete",
+      "markIncompleteAria": "Mark incomplete",
+      "moreSteps": "+{count} more…"
+    },
+    "typingTest": {
+      "category": "GAME",
+      "title": "Typing Speed Test",
+      "durationSeconds": "{seconds}s",
+      "keyFx": "Key FX",
+      "keyFxAria": "Toggle keystroke feedback",
+      "startHint": "Start typing to begin...",
+      "wpm": "WPM",
+      "accuracy": "Accuracy",
+      "timeLeft": "Time Left",
+      "charactersTyped": "{count} characters typed",
+      "results": "RESULTS",
+      "wordsPerMinute": "Words per Minute",
+      "characters": "Characters",
+      "newPersonalBest": "NEW PERSONAL BEST!",
+      "firstScore": "FIRST SCORE RECORDED!",
+      "bestScore": "Best: {wpm} WPM",
+      "newGame": "New Game"
+    },
+    "weather": {
+      "category": "UTILITY",
+      "title": "Weather App",
+      "description": "Check current weather conditions across the globe. Save your favorite locations for quick access.",
+      "searchPlaceholder": "Search a city...",
+      "search": "Search",
+      "localTime": "Local time: {time}",
+      "removeFromSaved": "Remove from saved",
+      "saveLocation": "Save location",
+      "humidity": "Humidity",
+      "wind": "Wind",
+      "savedLocations": "Saved Locations",
+      "noSavedLocationsLine1": "No saved locations yet.",
+      "noSavedLocationsLine2": "Star a city to add it here.",
+      "remove": "Remove"
+    },
+    "whiteNoise": {
+      "category": "FOCUS TOOL",
+      "title": "Ambient Sounds",
+      "description": "Blend ambient soundscapes to create your perfect focus environment. Adjust individual channels and find your flow state.",
+      "play": "Play",
+      "stop": "Stop",
+      "playing": "Playing",
+      "stopped": "Stopped",
+      "channelsActiveSingular": "{count} channel active",
+      "channelsActivePlural": "{count} channels active",
+      "timer": "Timer",
+      "timerMinutes": "{minutes}m",
+      "remaining": "{time} remaining",
+      "master": "Master",
+      "masterAria": "Master volume",
+      "presets": "Presets",
+      "presetLabels": {
+        "deepFocus": "Deep Focus",
+        "rainyDay": "Rainy Day",
+        "natureWalk": "Nature Walk",
+        "cozyEvening": "Cozy Evening"
+      },
+      "channels": {
+        "rain": "Rain",
+        "thunder": "Thunder",
+        "ocean": "Ocean Waves",
+        "forest": "Forest",
+        "fire": "Fire Crackling",
+        "wind": "Wind",
+        "birds": "Birds",
+        "coffee": "Coffee Shop"
+      },
+      "channelVolumeAria": "{name} volume",
+      "savedMixes": "Saved Mixes",
+      "saveCurrentMix": "Save Current Mix",
+      "noSavedMixes": "No saved mixes yet. Create your perfect blend and save it for later.",
+      "saveMixModalTitle": "Save Mix",
+      "mixNamePlaceholder": "Mix name...",
+      "cancel": "Cancel",
+      "save": "Save",
+      "deleteMixAria": "Delete {name}"
+    }
+  },
+  "loveTimer": {
+    "loading": "LOADING...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "Countdown",
+    "defaultMessage": "Every second counts",
+    "days": "DAYS",
+    "timeUnits": "HOURS : MINS : SECS",
+    "easterEgg": "You really love clicking! {count} clicks!",
+    "hint": "Press and hold the card to show your love!",
+    "quotes": {
+      "cuddles": "Counting down to our cuddles!",
+      "together": "Soon we'll be together again!",
+      "distance": "Distance is temporary, love is forever!",
+      "closer": "Every second brings us closer!",
+      "hug": "Can't wait to hug you tight!"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "This page doesn't exist.",
+    "backHome": "Back to Home"
+  },
+  "metadata": {
+    "home": {
+      "title": "Tom Bariteau-Peter — UX Designer & Developer",
+      "description": "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Seoul. Crafting immersive digital experiences."
+    },
+    "playground": {
+      "title": "Playground — Tom Bariteau-Peter",
+      "description": "Interactive mini-apps and experiments by Tom Bariteau-Peter."
+    },
+    "loveTimer": {
+      "title": "Love Timer",
+      "description": "A small love timer."
+    }
+  }
+}
