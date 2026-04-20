@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import type { Skill } from "@/types";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -242,25 +243,12 @@ const fadeUp = {
   }),
 };
 
-const categoryMeta: Record<string, { label: string; number: string; description: string }> = {
-  FRONTEND: {
-    label: "Frontend",
-    number: "01",
-    description: "Building responsive, performant, and interactive user interfaces.",
-  },
-  DESIGN: {
-    label: "Design",
-    number: "02",
-    description: "Crafting intuitive experiences and cohesive visual systems.",
-  },
-  BACKEND: {
-    label: "Backend & Tools",
-    number: "03",
-    description: "APIs, databases, infrastructure, and developer tooling.",
-  },
+const categoryOrder = ["FRONTEND", "DESIGN", "BACKEND"] as const;
+const categoryKeyMap: Record<(typeof categoryOrder)[number], "frontend" | "design" | "backend"> = {
+  FRONTEND: "frontend",
+  DESIGN: "design",
+  BACKEND: "backend",
 };
-
-const categoryOrder = ["FRONTEND", "DESIGN", "BACKEND"];
 
 function SkillChip({ skill, index, isInView }: { skill: Skill; index: number; isInView: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -307,6 +295,7 @@ function SkillChip({ skill, index, isInView }: { skill: Skill; index: number; is
 }
 
 export function Skills() {
+  const t = useTranslations("skills");
   const skills = SKILLS;
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
@@ -345,9 +334,9 @@ export function Skills() {
         {/* Header */}
         <motion.div custom={0} variants={fadeUp} className="flex items-center gap-4">
           <span className="font-display text-[0.7rem] text-gold tracking-[0.3em] uppercase opacity-60">
-            02
+            {t("numbering")}
           </span>
-          <SectionLabel>Skills</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
         </motion.div>
 
         <motion.p
@@ -355,13 +344,13 @@ export function Skills() {
           variants={fadeUp}
           className="mt-4 text-[var(--text-dim)] text-sm max-w-md"
         >
-          {totalSkills} technologies and tools I work with daily.
+          {t("summary", { count: totalSkills })}
         </motion.p>
 
         {/* Category Cards */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           {categoryOrder.map((cat, catIdx) => {
-            const meta = categoryMeta[cat];
+            const catKey = categoryKeyMap[cat];
             const catSkills = grouped[cat] ?? [];
 
             return (
@@ -370,14 +359,16 @@ export function Skills() {
                   {/* Category header */}
                   <div className="flex items-baseline gap-3 mb-2">
                     <span className="font-display text-2xl font-bold text-gold opacity-30">
-                      {meta.number}
+                      {t(`categories.${catKey}.number`)}
                     </span>
                     <h3 className="font-display font-bold text-base text-[var(--text-primary)] tracking-wide uppercase">
-                      {meta.label}
+                      {t(`categories.${catKey}.label`)}
                     </h3>
                   </div>
 
-                  <p className="text-[var(--text-dim)] text-xs mb-5">{meta.description}</p>
+                  <p className="text-[var(--text-dim)] text-xs mb-5">
+                    {t(`categories.${catKey}.description`)}
+                  </p>
 
                   {/* Gold accent line */}
                   <div
@@ -403,7 +394,7 @@ export function Skills() {
                   {/* Skill count */}
                   <div className="mt-5 pt-4 border-t border-[var(--border)]">
                     <span className="hud-caption text-[var(--text-dim)]">
-                      {catSkills.length} {catSkills.length === 1 ? "skill" : "skills"}
+                      {t("skillCount", { count: catSkills.length })}
                     </span>
                   </div>
                 </VoidPanel>
@@ -416,9 +407,11 @@ export function Skills() {
         {exploringSkills.length > 0 && (
           <motion.div custom={5} variants={fadeUp} className="mt-14">
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="font-display text-2xl font-bold text-gold opacity-30">04</span>
+              <span className="font-display text-2xl font-bold text-gold opacity-30">
+                {t("exploring.number")}
+              </span>
               <h3 className="font-display font-bold text-base text-[var(--text-primary)] tracking-wide uppercase">
-                Currently Exploring
+                {t("exploring.label")}
               </h3>
             </div>
 
