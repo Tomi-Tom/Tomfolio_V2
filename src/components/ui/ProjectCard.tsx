@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import type { Project } from "@/types";
 
@@ -10,6 +11,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+  const t = useTranslations("projects");
   const projectNumber = String(index + 1).padStart(2, "0");
 
   const Wrapper = project.liveUrl ? "a" : "div";
@@ -56,7 +58,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-gold text-sm font-medium hover:text-white transition-colors"
                 >
-                  View project
+                  {t("viewProject")}
                   <svg
                     width="14"
                     height="14"
@@ -79,7 +81,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-gold text-sm font-medium hover:text-white transition-colors"
                 >
-                  GitHub
+                  {t("github")}
                   <svg
                     width="14"
                     height="14"
@@ -152,7 +154,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                   rel="noopener noreferrer"
                   className="text-gold hover:text-text-primary transition text-sm font-medium"
                 >
-                  Live &rarr;
+                  {t("live")} &rarr;
                 </a>
               )}
               {project.githubUrl && (
@@ -162,7 +164,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                   rel="noopener noreferrer"
                   className="text-gold hover:text-text-primary transition text-sm font-medium"
                 >
-                  GitHub
+                  {t("github")}
                 </a>
               )}
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { ProjectCard } from "@/components/ui/ProjectCard";
@@ -196,10 +197,20 @@ const fadeUp = {
 };
 
 export function Projects() {
-  const projects = PROJECTS;
+  const t = useTranslations("projects");
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
   const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  const projects = useMemo(
+    () =>
+      PROJECTS.map((project) => ({
+        ...project,
+        title: t(`items.${project.id}.title`),
+        description: t(`items.${project.id}.description`),
+      })),
+    [t]
+  );
 
   const allTags = useMemo(() => {
     const tagMap = new Map<string, string>();
@@ -213,14 +224,14 @@ export function Projects() {
 
   const filteredProjects = useMemo(() => {
     if (!activeTag) return projects;
-    return projects.filter((p) => p.tags.some((t) => t.id === activeTag));
+    return projects.filter((p) => p.tags.some((tg) => tg.id === activeTag));
   }, [projects, activeTag]);
 
   return (
     <section id="projects" ref={ref} className="px-8 md:px-16 lg:px-24 py-24">
       <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"}>
         <motion.div custom={0} variants={fadeUp}>
-          <SectionLabel>Projects</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
         </motion.div>
 
         {/* Tag filter bar */}
@@ -233,7 +244,7 @@ export function Projects() {
                 : "border-[var(--border)] text-text-dim hover:text-gold hover:border-[var(--gold-dim)]"
             }`}
           >
-            All
+            {t("filterAll")}
           </button>
           {allTags.map((tag) => (
             <button
