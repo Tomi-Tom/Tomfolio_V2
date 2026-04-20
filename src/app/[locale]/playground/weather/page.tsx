@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -151,6 +152,7 @@ const staggerItem = {
 };
 
 export default function WeatherPage() {
+  const t = useTranslations("playground.weather");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<CityWeather>(MOCK_DATA[0]);
   const [saved, setSaved] = useState<CityWeather[]>([MOCK_DATA[1], MOCK_DATA[2], MOCK_DATA[3]]);
@@ -198,11 +200,10 @@ export default function WeatherPage() {
     >
       {/* Header */}
       <div className="mb-10 text-center">
-        <SectionLabel className="mb-3">UTILITY</SectionLabel>
-        <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-2">Weather App</h2>
+        <SectionLabel className="mb-3">{t("category")}</SectionLabel>
+        <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-2">{t("title")}</h2>
         <p className="text-text-secondary text-sm max-w-md mx-auto">
-          Check current weather conditions across the globe. Save your favorite locations for quick
-          access.
+          {t("description")}
         </p>
       </div>
 
@@ -210,7 +211,7 @@ export default function WeatherPage() {
       <div className="relative max-w-md mx-auto mb-10">
         <div className="flex gap-2">
           <Input
-            placeholder="Search a city..."
+            placeholder={t("searchPlaceholder")}
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -232,7 +233,7 @@ export default function WeatherPage() {
               }
             }}
           >
-            Search
+            {t("search")}
           </Button>
         </div>
 
@@ -296,12 +297,12 @@ export default function WeatherPage() {
                   <span className="inline-block mt-1 px-2 py-0.5 text-[0.65rem] uppercase tracking-widest font-display text-gold/80 border border-gold/20 rounded-sm bg-gold/5">
                     {selected.country}
                   </span>
-                  <p className="text-text-secondary text-xs mt-2">Local time: {selected.time}</p>
+                  <p className="text-text-secondary text-xs mt-2">{t("localTime", { time: selected.time })}</p>
                 </div>
                 <button
                   onClick={toggleSave}
                   className="text-2xl transition-transform hover:scale-110 cursor-pointer"
-                  title={isSaved ? "Remove from saved" : "Save location"}
+                  title={isSaved ? t("removeFromSaved") : t("saveLocation")}
                 >
                   {isSaved ? (
                     <span className="text-gold drop-shadow-[0_0_6px_rgba(212,175,55,0.5)]">
@@ -333,13 +334,13 @@ export default function WeatherPage() {
               <div className="flex gap-4">
                 <VoidPanel hoverable={false} className="flex-1 p-3 bg-gold/5 border-gold/10">
                   <p className="text-[0.6rem] uppercase tracking-widest text-text-secondary mb-1">
-                    Humidity
+                    {t("humidity")}
                   </p>
                   <p className="text-gold font-display text-lg">{selected.humidity}%</p>
                 </VoidPanel>
                 <VoidPanel hoverable={false} className="flex-1 p-3 bg-gold/5 border-gold/10">
                   <p className="text-[0.6rem] uppercase tracking-widest text-text-secondary mb-1">
-                    Wind
+                    {t("wind")}
                   </p>
                   <p className="text-gold font-display text-lg">{selected.wind} km/h</p>
                 </VoidPanel>
@@ -355,7 +356,7 @@ export default function WeatherPage() {
           animate="visible"
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          <SectionLabel className="mb-4">Saved Locations</SectionLabel>
+          <SectionLabel className="mb-4">{t("savedLocations")}</SectionLabel>
 
           <motion.div
             className="space-y-3"
@@ -371,9 +372,9 @@ export default function WeatherPage() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  No saved locations yet.
+                  {t("noSavedLocationsLine1")}
                   <br />
-                  Star a city to add it here.
+                  {t("noSavedLocationsLine2")}
                 </motion.p>
               )}
               {saved.map((city) => (
@@ -409,7 +410,7 @@ export default function WeatherPage() {
                             removeSaved(city.city);
                           }}
                           className="text-text-secondary hover:text-red-400 text-xs transition-colors cursor-pointer"
-                          title="Remove"
+                          title={t("remove")}
                         >
                           &#10005;
                         </button>
