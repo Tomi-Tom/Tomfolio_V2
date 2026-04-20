@@ -1,4 +1,7 @@
+import { useTranslations } from "next-intl";
+
 export function HUDFrame() {
+  const t = useTranslations("hudFrame");
   const cornerStyle = {
     width: 22,
     height: 22,
@@ -6,7 +9,7 @@ export function HUDFrame() {
   };
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40">
+    <div className="pointer-events-none fixed inset-0 z-40" aria-label={t("label")}>
       {/* Top-left */}
       <div
         className="absolute top-4 left-4 border-l-[1.5px] border-t-[1.5px]"

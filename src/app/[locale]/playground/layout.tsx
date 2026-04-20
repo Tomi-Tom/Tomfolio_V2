@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { StatusBar } from "@/components/layout/StatusBar";
 import { HUDFrame } from "@/components/layout/HUDFrame";
 
 export default function PlaygroundLayout({ children }: { children: React.ReactNode }) {
+  const t = useTranslations("playground.intro");
   return (
     <>
       <StatusBar />
@@ -47,7 +49,7 @@ export default function PlaygroundLayout({ children }: { children: React.ReactNo
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
           <span className="font-display text-[0.7rem] font-semibold tracking-[0.15em] uppercase">
-            Back to Playground
+            {t("backToPlayground")}
           </span>
         </Link>
         {children}

@@ -1,26 +1,28 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 export function Footer() {
+  const t = useTranslations("footer");
   return (
     <footer className="bg-[var(--void-deep)] border-t border-[var(--border)] py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <SectionLabel>End</SectionLabel>
+        <SectionLabel>{t("label")}</SectionLabel>
 
         <h2 className="mt-6 text-2xl sm:text-4xl md:text-5xl font-display tracking-tight">
-          <span className="font-light text-[var(--text-primary)]">Let&apos;s </span>
+          <span className="font-light text-[var(--text-primary)]">{t("headingLight")}</span>
           <span className="font-bold text-[var(--text-primary)]">
-            Create<span className="text-[var(--gold)]">.</span>
+            {t("headingBold")}<span className="text-[var(--gold)]">.</span>
           </span>
         </h2>
 
         <p className="mt-4 text-[var(--text-secondary)] max-w-md mx-auto text-sm leading-relaxed">
-          Available for freelance projects, collaborations, and full-time opportunities.
+          {t("tagline")}
         </p>
 
         <div className="mt-8">
           <Link href="#contact" className="btn-gold inline-block">
-            Get in Touch
+            {t("cta")}
           </Link>
         </div>
 
@@ -31,7 +33,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors"
-            aria-label="GitHub"
+            aria-label={t("githubAria")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +50,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--text-dim)] hover:text-[var(--gold)] transition-colors"
-            aria-label="LinkedIn"
+            aria-label={t("linkedinAria")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +75,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="mt-8 hud-caption text-[var(--text-dim)]">&copy; 2024 Tom Bariteau-Peter</p>
+        <p className="mt-8 hud-caption text-[var(--text-dim)]">{t("copyright")}</p>
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageMenu } from "@/components/ui/LanguageMenu";
@@ -8,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 export function StatusBar() {
   const { progress } = useScrollProgress();
+  const t = useTranslations("statusBar");
 
   const bgOpacity = Math.min(progress * 5, 0.95);
   const blurAmount = Math.min(progress * 50, 10);
@@ -29,13 +31,13 @@ export function StatusBar() {
         href="/"
         className="font-display text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-primary)] hover:text-[var(--gold)] transition-colors"
       >
-        TBP.DEV
+        {t("brandShort")}
       </Link>
 
       {/* Center: Availability */}
       <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
         <span className="w-[6px] h-[6px] rounded-full bg-[var(--gold)] gold-pulse" />
-        <span className="hud-caption text-[var(--gold-dim)]">Available for work</span>
+        <span className="hud-caption text-[var(--gold-dim)]">{t("availability")}</span>
       </div>
 
       {/* Right: Theme toggle + Language menu */}

@@ -1,26 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
-const sections = [
-  { label: "Intro", id: "intro" },
-  { label: "About", id: "about" },
-  { label: "Skills", id: "skills" },
-  { label: "Services", id: "services" },
-  { label: "Projects", id: "projects" },
-  { label: "Testimonials", id: "testimonials" },
-  { label: "Playground", id: "playground" },
-  { label: "Contact", id: "contact" },
-];
+const sectionIds = [
+  "intro",
+  "about",
+  "skills",
+  "services",
+  "projects",
+  "testimonials",
+  "playground",
+  "contact",
+] as const;
 
 export function ChapterBar() {
+  const t = useTranslations("chapterBar");
+  const sections = sectionIds.map((id) => ({ id, label: t(id) }));
   const [activeSection, setActiveSection] = useState<string>("intro");
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    sections.forEach(({ id }) => {
+    sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
 
