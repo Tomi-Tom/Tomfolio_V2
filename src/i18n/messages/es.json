@@ -1,4 +1,706 @@
 {
+  "common": {
+    "languageMenu": {
+      "label": "Idioma",
+      "current": "Idioma actual"
+    }
+  },
+  "statusBar": {
+    "brandShort": "TBP.DEV",
+    "availability": "Disponible para proyectos"
+  },
+  "chapterBar": {
+    "intro": "Intro",
+    "about": "Acerca de",
+    "skills": "Habilidades",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "testimonials": "Testimonios",
+    "playground": "Playground",
+    "contact": "Contacto"
+  },
+  "hudFrame": {
+    "label": "Marco HUD"
+  },
+  "footer": {
+    "label": "Fin",
+    "headingLight": "Vamos a",
+    "headingBold": "Crear",
+    "tagline": "Disponible para proyectos freelance, colaboraciones y oportunidades a tiempo completo.",
+    "cta": "Contactar",
+    "githubAria": "GitHub",
+    "linkedinAria": "LinkedIn",
+    "copyright": "© 2024 Tom Bariteau-Peter"
+  },
+  "hero": {
+    "label": "Portfolio",
+    "tagline": "Diseñador UX y Desarrollador",
+    "description": "Creando experiencias digitales inmersivas en la intersección entre la precisión del diseño y el oficio técnico.",
+    "viewWork": "Ver trabajo",
+    "downloadCV": "Descargar CV",
+    "scroll": "Desplazar",
+    "stats": {
+      "technologies": { "label": "Tecnologías", "value": "20+" },
+      "experience": { "label": "Experiencia", "value": "5 años" },
+      "languages": { "label": "Idiomas", "value": "FR·EN" }
+    }
+  },
+  "about": {
+    "numbering": "01",
+    "label": "Acerca de",
+    "quote": "Cerrando la brecha entre lo que se ve bien y lo que funciona bien.",
+    "bio1": "Soy diseñador UX/UI y desarrollador web con base en París, combinando la precisión del diseño con el oficio técnico. Construyo experiencias digitales que cobran vida — desde aplicaciones web interactivas hasta interfaces 3D inmersivas.",
+    "bio2": "Con formación en Epitech y más de 5 años de experiencia en sistemas de diseño, desarrollo front-end e investigación de usuarios, cierro la brecha entre lo que se ve bien y lo que funciona bien.",
+    "currentLocation": "Actualmente con base en París, trabajando en la intersección entre el design thinking y la tecnología web moderna.",
+    "role": "UX / Dev",
+    "stats": {
+      "education": {
+        "label": "Formación",
+        "value": "Epitech París"
+      },
+      "experience": {
+        "label": "Experiencia",
+        "value": "5+ años"
+      },
+      "languages": {
+        "label": "Idiomas",
+        "value": "FR / EN"
+      },
+      "location": {
+        "label": "Ubicación",
+        "value": "París, FR"
+      }
+    }
+  },
+  "skills": {
+    "numbering": "02",
+    "label": "Habilidades",
+    "summary": "{count} tecnologías y herramientas con las que trabajo a diario.",
+    "categories": {
+      "frontend": {
+        "number": "01",
+        "label": "Frontend",
+        "description": "Construcción de interfaces de usuario responsivas, eficientes e interactivas."
+      },
+      "design": {
+        "number": "02",
+        "label": "Diseño",
+        "description": "Creación de experiencias intuitivas y sistemas visuales coherentes."
+      },
+      "backend": {
+        "number": "03",
+        "label": "Backend y herramientas",
+        "description": "APIs, bases de datos, infraestructura y herramientas para desarrolladores."
+      }
+    },
+    "exploring": {
+      "number": "04",
+      "label": "Explorando actualmente"
+    },
+    "skillCount": "{count, plural, one {# habilidad} other {# habilidades}}"
+  },
+  "services": {
+    "label": "Servicios",
+    "items": {
+      "uxDesign": {
+        "title": "Diseño UX / UI",
+        "description": "Interfaces centradas en el usuario, creadas mediante investigación, wireframes y prototipado iterativo. Desde sistemas de diseño hasta mockups pulidos y listos para producción."
+      },
+      "webDev": {
+        "title": "Desarrollo web",
+        "description": "Aplicaciones web eficientes y accesibles, construidas con frameworks modernos — React, Next.js, TypeScript — y arquitectura basada en buenas prácticas."
+      },
+      "threeDInteractive": {
+        "title": "3D e interactivo",
+        "description": "Experiencias inmersivas con Three.js y WebGL. Desde escenas ambientales sutiles hasta visualizaciones 3D interactivas completas."
+      },
+      "consulting": {
+        "title": "Consultoría y auditoría",
+        "description": "Auditorías técnicas, revisiones UX y asesoramiento estratégico para mejorar el rendimiento, la accesibilidad y la experiencia de usuario de su producto existente."
+      }
+    },
+    "learnMore": "Saber más",
+    "pricing": {
+      "label": "Tarifas",
+      "discovery": {
+        "badge": "Recomendado",
+        "caption": "Tarifa de descubrimiento",
+        "amount": "300",
+        "currency": "€",
+        "period": "/ día",
+        "description": "Tarifa preferencial para nuestra primera colaboración. Ideal para un proyecto inicial, una auditoría o una prueba de concepto.",
+        "features": {
+          "first": "Primer proyecto juntos",
+          "commitment": "Compromiso y calidad totales",
+          "noFees": "Sin gastos ocultos"
+        },
+        "cta": "Empezar"
+      },
+      "standard": {
+        "badge": "Estándar",
+        "caption": "Tarifa estándar",
+        "amount": "450",
+        "currency": "€",
+        "period": "/ día",
+        "description": "Tarifa diaria estándar para proyectos en curso. Colaboraciones a largo plazo y desarrollos complejos.",
+        "features": {
+          "ongoing": "Colaboración continua",
+          "support": "Soporte prioritario",
+          "flexible": "Compromiso flexible"
+        },
+        "cta": "Contactarme"
+      }
+    }
+  },
+  "projects": {
+    "label": "Proyectos",
+    "filterAll": "Todos",
+    "viewProject": "Ver proyecto",
+    "github": "GitHub",
+    "live": "En vivo",
+    "items": {
+      "portfolio": {
+        "title": "Portfolio personal — tombp.fr",
+        "description": "Portfolio moderno con engranajes wireframe en Three.js, animaciones al desplazar y estética Void & Gold."
+      },
+      "libertai": {
+        "title": "LibertAI — Plataforma de IA",
+        "description": "Rediseño del sitio corporativo de una empresa de IA — presencia de marca moderna, responsiva y accesible."
+      },
+      "chuckforever": {
+        "title": "Chuck Forever — Calendrier ACN",
+        "description": "Sitio homenaje a Chuck Norris con un sistema de calendario personalizado, cuenta atrás, citas, vídeos y páginas de lore."
+      },
+      "defidecon": {
+        "title": "Défi de Con",
+        "description": "Plataforma de retos diarios con seguimiento de rachas, clasificaciones y panel de administración. Construida con Next.js y Supabase."
+      },
+      "codearena": {
+        "title": "Code Arena",
+        "description": "Plataforma de programación competitiva con retos en varios niveles de dificultad, seguimiento de puntuación, rachas y clasificaciones."
+      },
+      "tomuiplayground": {
+        "title": "Tom UI Playground",
+        "description": "Entorno de desarrollo de UI en el navegador con editor de código Monaco, vista previa en vivo, explorador de archivos y consola."
+      },
+      "pokerandom": {
+        "title": "Pokérandom — Generador de iniciales",
+        "description": "Herramienta de draft de Pokémon iniciales con modo en solitario contra IA, draft local a 2 jugadores, creador de equipos y UI pixel retro inspirada en la Pokédex de DS."
+      },
+      "tomcraft": {
+        "title": "TomCraft",
+        "description": "Sandbox de vóxeles inspirado en Minecraft, construido desde cero. Mundos procedurales infinitos, 9 biomas, más de 20 mobs con IA, crafting y jugabilidad de supervivencia."
+      },
+      "wolfenstom": {
+        "title": "Wolfenstom 3D",
+        "description": "FPS steampunk inspirado en Wolfenstein 3D. Motor de ray-casting en el navegador con mapas procedurales y armas steampunk."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contacto",
+    "heading": "Construyamos algo juntos",
+    "tagline": "Abierto a nuevos proyectos, colaboraciones y conversaciones interesantes.",
+    "form": {
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Juan",
+      "lastName": "Apellido",
+      "lastNamePlaceholder": "Pérez",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "juan@ejemplo.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+34 600 000 000",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuénteme sobre su proyecto...",
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "Mensaje enviado",
+      "description": "Le responderé pronto.",
+      "sendAnother": "Enviar otro mensaje"
+    },
+    "error": {
+      "title": "Algo ha salido mal",
+      "description": "Por favor, inténtelo de nuevo o escríbame directamente por correo electrónico.",
+      "tryAgain": "Reintentar"
+    },
+    "errors": {
+      "firstNameRequired": "El nombre es obligatorio",
+      "lastNameRequired": "El apellido es obligatorio",
+      "emailInvalid": "Introduzca un correo electrónico válido",
+      "messageMinLength": "El mensaje debe tener al menos 10 caracteres"
+    },
+    "info": {
+      "heading": "Información de contacto",
+      "emailLabel": "Correo electrónico",
+      "locationLabel": "Ubicación",
+      "locationValue": "París, Francia",
+      "coordinates": "48.8566° N, 2.3522° E",
+      "statusLabel": "Estado",
+      "statusValue": "Abierto a nuevos proyectos"
+    },
+    "coordinates": {
+      "caption": "Base actual",
+      "lat": "LAT",
+      "lng": "LNG",
+      "latValue": "48.8566°",
+      "lngValue": "2.3522°",
+      "timezone": "PARÍS // CET (UTC+1)"
+    },
+    "socials": {
+      "heading": "Redes sociales",
+      "githubAria": "GitHub",
+      "linkedinAria": "LinkedIn"
+    }
+  },
+  "playground": {
+    "intro": {
+      "numbering": "06",
+      "label": "Playground",
+      "headingLight": "Experimentos",
+      "headingBold": "Interactivos",
+      "description": "Mini-aplicaciones que exploran patrones de UI, lógica de juego y herramientas de productividad — construidas con React, Canvas y Framer Motion.",
+      "backToPlayground": "Volver al Playground",
+      "miniApps": {
+        "lifeGame": {
+          "title": "Juego de la vida",
+          "description": "El autómata celular de Conway — observa la evolución de los patrones",
+          "badge": "Juego"
+        },
+        "memory": {
+          "title": "Juego de memoria",
+          "description": "Reto de emparejamiento de cartas con 3 niveles de dificultad",
+          "badge": "Juego"
+        },
+        "weather": {
+          "title": "App del clima",
+          "description": "Condiciones meteorológicas en vivo en todo el mundo",
+          "badge": "Utilidad"
+        },
+        "pomodoro": {
+          "title": "Temporizador Pomodoro",
+          "description": "Gestión del tiempo de enfoque con progreso circular",
+          "badge": "Utilidad"
+        },
+        "taskBreaker": {
+          "title": "Divisor de tareas",
+          "description": "Divide tareas abrumadoras en pequeños pasos",
+          "badge": "Herramienta TDAH"
+        },
+        "moodTracker": {
+          "title": "Seguimiento de ánimo",
+          "description": "Sigue tu ánimo, energía y enfoque con análisis",
+          "badge": "Herramienta TDAH"
+        },
+        "typingTest": {
+          "title": "Test de velocidad de mecanografía",
+          "description": "Pon a prueba tus PPM con seguimiento de precisión en tiempo real",
+          "badge": "Juego"
+        },
+        "colorPalette": {
+          "title": "Paleta de colores",
+          "description": "Genera paletas armoniosas con 5 modos",
+          "badge": "Herramienta de diseño"
+        },
+        "snake": {
+          "title": "Snake",
+          "description": "Juego arcade clásico con estética dorada",
+          "badge": "Juego"
+        },
+        "whiteNoise": {
+          "title": "Sonidos ambientales",
+          "description": "Mezclador de ruido blanco de 8 canales para enfoque profundo",
+          "badge": "Herramienta de enfoque"
+        },
+        "pixelArt": {
+          "title": "Editor de pixel art",
+          "description": "Dibuja, rellena, deshaz y exporta obras en pixel art",
+          "badge": "Creativo"
+        }
+      }
+    },
+    "colorPalette": {
+      "category": "HERRAMIENTA DE DISEÑO",
+      "title": "Generador de paletas de colores",
+      "modes": {
+        "random": "Aleatoria",
+        "analogous": "Análoga",
+        "complementary": "Complementaria",
+        "triadic": "Triádica",
+        "monochromatic": "Monocromática"
+      },
+      "generate": "Generar",
+      "savePalette": "Guardar paleta",
+      "exportCSS": "Exportar CSS",
+      "spaceHint": "Pulse ESPACIO para generar",
+      "savedPalettes": "Paletas guardadas",
+      "lock": "Bloquear",
+      "unlock": "Desbloquear",
+      "toastCopied": "¡Copiado!",
+      "toastSaved": "¡Paleta guardada!",
+      "toastCssCopied": "¡CSS copiado!"
+    },
+    "lifeGame": {
+      "category": "Juego",
+      "title": "Juego de la vida",
+      "description": "El autómata celular de Conway. Haga clic en las celdas para sembrar vida, luego pulse reproducir y observe cómo emerge la complejidad a partir de reglas simples.",
+      "play": "Reproducir",
+      "pause": "Pausar",
+      "step": "Paso",
+      "reset": "Reiniciar",
+      "soup": "Sopa",
+      "generation": "Generación",
+      "population": "Población",
+      "density": "Densidad",
+      "grid": "Cuadrícula",
+      "speed": "Velocidad",
+      "cells": "celdas"
+    },
+    "memory": {
+      "category": "JUEGO",
+      "title": "Juego de memoria",
+      "description": "Encuentre todos los pares coincidentes en el menor número de turnos posible.",
+      "difficulty": {
+        "easy": "fácil",
+        "medium": "medio",
+        "hard": "difícil"
+      },
+      "turns": "TURNOS",
+      "matches": "PAREJAS",
+      "newGame": "Nueva partida",
+      "playAgain": "Jugar de nuevo",
+      "close": "Cerrar",
+      "win": {
+        "title": "¡Enhorabuena!",
+        "description": "Ha encontrado los {pairs} pares en {turns} turnos."
+      }
+    },
+    "moodTracker": {
+      "category": "HERRAMIENTA TDAH",
+      "title": "Seguimiento de ánimo y energía",
+      "description": "Realice un seguimiento diario de su ánimo, energía y niveles de enfoque para identificar patrones y obtener información que pueda ayudarle a manejar los síntomas del TDAH.",
+      "calendarView": "Calendario",
+      "insightsView": "Análisis",
+      "addEntry": "+ Añadir entrada",
+      "addEntryShort": "Añadir entrada",
+      "noEntriesForDate": "Sin entradas para esta fecha.",
+      "weeklyAverages": "Promedios semanales",
+      "noEntriesThisWeek": "Aún no hay entradas esta semana.",
+      "activityFrequency": "Frecuencia de actividad",
+      "yourAverages": "Sus promedios",
+      "noEntriesYet": "Aún no hay entradas. Añada algunos registros diarios para ver análisis.",
+      "patternsInsights": "Patrones y análisis",
+      "needMoreEntries": "Añada al menos 3 entradas para ver patrones y análisis.",
+      "activityImpact": "Impacto de la actividad",
+      "noActivityImpact": "Aún no hay entradas. Añada algunos registros diarios con actividades para ver su impacto.",
+      "noActivitiesRecorded": "Aún no se han registrado actividades.",
+      "metrics": {
+        "mood": "Ánimo",
+        "energy": "Energía",
+        "focus": "Enfoque",
+        "averageMood": "Ánimo medio",
+        "averageEnergy": "Energía media",
+        "averageFocus": "Enfoque medio"
+      },
+      "rangeLabels": {
+        "low": "Bajo",
+        "neutral": "Neutro",
+        "high": "Alto",
+        "moderate": "Moderado",
+        "distracted": "Distraído",
+        "focused": "Concentrado"
+      },
+      "metricLevel": "Nivel {value}/5",
+      "notes": "Notas",
+      "notesOptional": "Notas (opcional)",
+      "notesPlaceholder": "Pensamientos adicionales sobre su día...",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "newEntry": "Nueva entrada",
+      "editEntry": "Editar entrada",
+      "saveEntry": "Guardar entrada",
+      "updateEntry": "Actualizar entrada",
+      "tagsHeading": "Etiquetas — ¿Cómo se ha sentido?",
+      "activitiesHeading": "Actividades — ¿Qué ha hecho?",
+      "deleteEntryTitle": "¿Eliminar entrada?",
+      "deleteEntryConfirm": "¿Está seguro de que desea eliminar esta entrada? Esta acción no se puede deshacer.",
+      "tableHeaders": {
+        "activity": "Actividad",
+        "count": "Recuento",
+        "mood": "Ánimo",
+        "energy": "Energía",
+        "focus": "Enfoque"
+      },
+      "moodLevels": {
+        "veryLow": "Muy bajo",
+        "low": "Bajo",
+        "neutral": "Neutro",
+        "good": "Bueno",
+        "great": "Excelente"
+      },
+      "energyLevels": {
+        "exhausted": "Agotado",
+        "low": "Baja",
+        "moderate": "Moderada",
+        "energetic": "Enérgico",
+        "veryHigh": "Muy alta"
+      },
+      "focusLevels": {
+        "veryDistracted": "Muy distraído",
+        "distracted": "Distraído",
+        "moderate": "Moderado",
+        "focused": "Concentrado",
+        "hyperfocused": "Hiperconcentrado"
+      },
+      "activities": {
+        "exercise": "Ejercicio",
+        "meditation": "Meditación",
+        "work": "Trabajo/Estudio",
+        "social": "Social",
+        "nature": "Naturaleza",
+        "reading": "Lectura",
+        "gaming": "Videojuegos",
+        "music": "Música",
+        "creative": "Creatividad",
+        "sleep": "Buen sueño",
+        "meds": "Medicación",
+        "nutrition": "Nutrición"
+      },
+      "tags": {
+        "overwhelmed": "Abrumado",
+        "anxious": "Ansioso",
+        "creative": "Creativo",
+        "productive": "Productivo",
+        "calm": "Tranquilo",
+        "frustrated": "Frustrado",
+        "motivated": "Motivado",
+        "tired": "Cansado",
+        "hyperfocus": "Hiperconcentración",
+        "distracted": "Distraído",
+        "procrastinating": "Procrastinando",
+        "happy": "Feliz",
+        "stressed": "Estresado",
+        "excited": "Emocionado"
+      },
+      "insights": {
+        "needMore": "Añada más entradas para ver patrones y análisis",
+        "topStates": "Sus estados más comunes son: {tags}",
+        "positiveActivities": "Actividades que parecen mejorar su bienestar: {activities}",
+        "lowEnergy": "Parece tener más días de baja energía. Considere estrategias de gestión de la energía.",
+        "lowFocus": "Sus puntuaciones de enfoque tienden a ser bajas. Explore estrategias para apoyar su atención.",
+        "consistentTracking": "Un seguimiento constante revelará más patrones y análisis con el tiempo"
+      }
+    },
+    "pixelArt": {
+      "category": "CREATIVO",
+      "title": "Editor de pixel art",
+      "tools": {
+        "draw": "Dibujar",
+        "erase": "Borrar",
+        "fill": "Rellenar",
+        "pick": "Elegir color"
+      },
+      "showGrid": "Mostrar cuadrícula",
+      "hideGrid": "Ocultar cuadrícula",
+      "undo": "Deshacer",
+      "redo": "Rehacer",
+      "clear": "Limpiar",
+      "confirm": "Confirmar",
+      "cancel": "Cancelar",
+      "exportPng": "Exportar PNG",
+      "palette": "Paleta",
+      "customColor": "Color personalizado",
+      "active": "Activo"
+    },
+    "pomodoro": {
+      "category": "UTILIDAD",
+      "title": "Temporizador Pomodoro",
+      "description": "Manténgase concentrado y productivo con sesiones de trabajo cronometradas y descansos programados. Complete cuatro rondas de enfoque para un descanso largo.",
+      "modes": {
+        "focus": "Enfoque",
+        "shortBreak": "Descanso corto",
+        "longBreak": "Descanso largo"
+      },
+      "start": "Iniciar",
+      "pause": "Pausar",
+      "reset": "Reiniciar",
+      "skip": "Saltar",
+      "stats": {
+        "label": "ESTADÍSTICAS",
+        "completed": "{count, plural, one {pomodoro completado} other {pomodoros completados}}",
+        "currentMode": "Modo actual",
+        "fullCycle": "Ciclo completo",
+        "minutesAbbrev": "min"
+      },
+      "settings": {
+        "label": "AJUSTES",
+        "title": "Duraciones del temporizador",
+        "rangeHint": "Establezca la duración en minutos (1 – 120)",
+        "focusDuration": "Duración del enfoque",
+        "shortBreak": "Descanso corto",
+        "longBreak": "Descanso largo",
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "openAria": "Abrir ajustes",
+        "focusShort": "Enfoque",
+        "shortShort": "Corto",
+        "longShort": "Largo",
+        "longBreakInterval": "Descanso largo cada {interval} sesiones de enfoque"
+      }
+    },
+    "snake": {
+      "category": "JUEGO",
+      "title": "Snake",
+      "stats": {
+        "score": "Puntuación",
+        "best": "Récord",
+        "speed": "Velocidad"
+      },
+      "startHint": "Pulse ESPACIO o toque para empezar",
+      "controlsHint": "Flechas / WASD para moverse",
+      "paused": "En pausa",
+      "gameOver": "Fin del juego",
+      "playAgain": "Jugar de nuevo",
+      "play": "JUGAR",
+      "pause": "PAUSA",
+      "footerHint": "ESPACIO para pausar · Flechas o WASD para dirigir"
+    },
+    "taskBreaker": {
+      "category": "HERRAMIENTA TDAH",
+      "title": "Divisor de tareas",
+      "description": "Divida tareas abrumadoras en pasos pequeños y manejables. Márquelos uno por uno y observe cómo crece su progreso.",
+      "tasksCompleted": "{completed} / {total} tareas completadas",
+      "completionRate": "Tasa de finalización: {rate}%",
+      "myTasks": "Mis tareas",
+      "newTask": "Nueva tarea",
+      "filters": {
+        "all": "todas",
+        "active": "activas",
+        "completed": "completadas"
+      },
+      "noTasks": "Aún no hay tareas.",
+      "createFirstTask": "Cree su primera tarea",
+      "completed": "Completadas",
+      "addSteps": "+ Añadir pasos",
+      "delete": "Eliminar",
+      "progress": "Progreso",
+      "noStepsYet": "Aún no hay pasos. ¡Divida esta tarea en partes más pequeñas!",
+      "addStepsCta": "Añadir pasos",
+      "selectTaskHint": "Seleccione una tarea de la lista o cree una nueva para empezar.",
+      "createTask": "Crear una tarea",
+      "tipsHeading": "Consejos",
+      "tips": {
+        "smallSteps": "Divida las tareas en pasos que pueda terminar en 5 a 15 minutos.",
+        "easiestFirst": "Empiece con el paso más sencillo para tomar impulso.",
+        "breakDownFurther": "Si un paso le parece demasiado grande, divídalo aún más.",
+        "celebrate": "Celebre cada casilla marcada — el progreso es progreso.",
+        "reorder": "Reordene los pasos para que la siguiente acción esté siempre arriba."
+      },
+      "newTaskModal": {
+        "title": "Nueva tarea",
+        "taskTitleLabel": "Título de la tarea",
+        "taskTitlePlaceholder": "p. ej. Rediseñar la página de inicio",
+        "cancel": "Cancelar",
+        "create": "Crear"
+      },
+      "addStepsModal": {
+        "title": "Añadir pasos",
+        "single": "Individual",
+        "bulk": "En bloque (uno por línea)",
+        "stepLabel": "Paso",
+        "stepPlaceholder": "p. ej. Esbozar wireframes",
+        "stepsLabel": "Pasos",
+        "stepsPlaceholder": "Paso uno\nPaso dos\nPaso tres",
+        "cancel": "Cancelar",
+        "add": "Añadir"
+      },
+      "moveUpAria": "Subir",
+      "moveDownAria": "Bajar",
+      "deleteStepAria": "Eliminar paso",
+      "markCompleteAria": "Marcar como completado",
+      "markIncompleteAria": "Marcar como incompleto",
+      "moreSteps": "+{count} más…"
+    },
+    "typingTest": {
+      "category": "JUEGO",
+      "title": "Test de velocidad de mecanografía",
+      "durationSeconds": "{seconds}s",
+      "keyFx": "Efectos de tecla",
+      "keyFxAria": "Alternar retroalimentación de pulsación",
+      "startHint": "Empiece a escribir para comenzar...",
+      "wpm": "PPM",
+      "accuracy": "Precisión",
+      "timeLeft": "Tiempo restante",
+      "charactersTyped": "{count} caracteres escritos",
+      "results": "RESULTADOS",
+      "wordsPerMinute": "Palabras por minuto",
+      "characters": "Caracteres",
+      "newPersonalBest": "¡NUEVO RÉCORD PERSONAL!",
+      "firstScore": "¡PRIMERA PUNTUACIÓN REGISTRADA!",
+      "bestScore": "Récord: {wpm} PPM",
+      "newGame": "Nueva partida"
+    },
+    "weather": {
+      "category": "UTILIDAD",
+      "title": "App del clima",
+      "description": "Consulte las condiciones meteorológicas actuales en todo el mundo. Guarde sus ubicaciones favoritas para acceder rápidamente.",
+      "searchPlaceholder": "Buscar una ciudad...",
+      "search": "Buscar",
+      "localTime": "Hora local: {time}",
+      "removeFromSaved": "Eliminar de guardados",
+      "saveLocation": "Guardar ubicación",
+      "humidity": "Humedad",
+      "wind": "Viento",
+      "savedLocations": "Ubicaciones guardadas",
+      "noSavedLocationsLine1": "Aún no hay ubicaciones guardadas.",
+      "noSavedLocationsLine2": "Marque una ciudad con una estrella para añadirla aquí.",
+      "remove": "Eliminar"
+    },
+    "whiteNoise": {
+      "category": "HERRAMIENTA DE ENFOQUE",
+      "title": "Sonidos ambientales",
+      "description": "Mezcle paisajes sonoros ambientales para crear su entorno de enfoque perfecto. Ajuste los canales individuales y encuentre su estado de flujo.",
+      "play": "Reproducir",
+      "stop": "Detener",
+      "playing": "Reproduciendo",
+      "stopped": "Detenido",
+      "channelsActive": "{count, plural, one {# canal activo} other {# canales activos}}",
+      "timer": "Temporizador",
+      "timerMinutes": "{minutes}m",
+      "remaining": "{time} restante",
+      "master": "Maestro",
+      "masterAria": "Volumen maestro",
+      "presets": "Preajustes",
+      "presetLabels": {
+        "deepFocus": "Enfoque profundo",
+        "rainyDay": "Día lluvioso",
+        "natureWalk": "Paseo por la naturaleza",
+        "cozyEvening": "Tarde acogedora"
+      },
+      "channels": {
+        "rain": "Lluvia",
+        "thunder": "Truenos",
+        "ocean": "Olas del océano",
+        "forest": "Bosque",
+        "fire": "Crepitar del fuego",
+        "wind": "Viento",
+        "birds": "Pájaros",
+        "coffee": "Cafetería"
+      },
+      "channelVolumeAria": "Volumen de {name}",
+      "savedMixes": "Mezclas guardadas",
+      "saveCurrentMix": "Guardar mezcla actual",
+      "noSavedMixes": "Aún no hay mezclas guardadas. Cree su mezcla perfecta y guárdela para más tarde.",
+      "saveMixModalTitle": "Guardar mezcla",
+      "mixNamePlaceholder": "Nombre de la mezcla...",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "deleteMixAria": "Eliminar {name}"
+    }
+  },
   "loveTimer": {
     "loading": "CARGANDO...",
     "brand": "TBP.DEV",
@@ -25,6 +727,14 @@
     "home": {
       "title": "Tom Bariteau-Peter — Diseñador UX y Desarrollador",
       "description": "Portfolio de Tom Bariteau-Peter, diseñador UX/UI y desarrollador web con base en París. Creando experiencias digitales inmersivas."
+    },
+    "playground": {
+      "title": "Playground — Tom Bariteau-Peter",
+      "description": "Mini-aplicaciones interactivas y experimentos de Tom Bariteau-Peter."
+    },
+    "loveTimer": {
+      "title": "Love Timer",
+      "description": "Un pequeño temporizador del amor."
     }
   }
 }
