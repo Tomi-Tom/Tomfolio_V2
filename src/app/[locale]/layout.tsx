@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import "../globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { routing, type Locale } from "@/i18n/routing";
 
 export const metadata: Metadata = {
   title: "Tom Bariteau-Peter — UX Designer & Developer",
@@ -24,11 +28,33 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+function isLocale(value: string): value is Locale {
+  return (routing.locales as readonly string[]).includes(value);
+}
+
+export default async function LocaleLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!isLocale(locale)) {
+    notFound();
+  }
+  setRequestLocale(locale);
+
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang={locale} data-theme="dark" suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <NextIntlClientProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </NextIntlClientProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
