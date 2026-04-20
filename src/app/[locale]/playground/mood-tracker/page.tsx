@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -33,60 +34,60 @@ type DateData = {
 /* ------------------------------------------------------------------ */
 
 const activityOptions = [
-  { id: "exercise", label: "Exercise", emoji: "\u{1F3C3}" },
-  { id: "meditation", label: "Meditation", emoji: "\u{1F9D8}" },
-  { id: "work", label: "Work/Study", emoji: "\u{1F4BC}" },
-  { id: "social", label: "Social", emoji: "\u{1F465}" },
-  { id: "nature", label: "Nature", emoji: "\u{1F333}" },
-  { id: "reading", label: "Reading", emoji: "\u{1F4DA}" },
-  { id: "gaming", label: "Gaming", emoji: "\u{1F3AE}" },
-  { id: "music", label: "Music", emoji: "\u{1F3B5}" },
-  { id: "creative", label: "Creative", emoji: "\u{1F3A8}" },
-  { id: "sleep", label: "Good Sleep", emoji: "\u{1F634}" },
-  { id: "meds", label: "Medication", emoji: "\u{1F48A}" },
-  { id: "nutrition", label: "Nutrition", emoji: "\u{1F957}" },
-];
+  { id: "exercise", emoji: "\u{1F3C3}" },
+  { id: "meditation", emoji: "\u{1F9D8}" },
+  { id: "work", emoji: "\u{1F4BC}" },
+  { id: "social", emoji: "\u{1F465}" },
+  { id: "nature", emoji: "\u{1F333}" },
+  { id: "reading", emoji: "\u{1F4DA}" },
+  { id: "gaming", emoji: "\u{1F3AE}" },
+  { id: "music", emoji: "\u{1F3B5}" },
+  { id: "creative", emoji: "\u{1F3A8}" },
+  { id: "sleep", emoji: "\u{1F634}" },
+  { id: "meds", emoji: "\u{1F48A}" },
+  { id: "nutrition", emoji: "\u{1F957}" },
+] as const;
 
 const moodLevels = [
-  { value: 1, label: "Very Low", emoji: "\u{1F622}" },
-  { value: 2, label: "Low", emoji: "\u{1F61F}" },
-  { value: 3, label: "Neutral", emoji: "\u{1F610}" },
-  { value: 4, label: "Good", emoji: "\u{1F642}" },
-  { value: 5, label: "Great", emoji: "\u{1F604}" },
-];
+  { value: 1, key: "veryLow", emoji: "\u{1F622}" },
+  { value: 2, key: "low", emoji: "\u{1F61F}" },
+  { value: 3, key: "neutral", emoji: "\u{1F610}" },
+  { value: 4, key: "good", emoji: "\u{1F642}" },
+  { value: 5, key: "great", emoji: "\u{1F604}" },
+] as const;
 
 const energyLevels = [
-  { value: 1, label: "Exhausted", emoji: "\u{1F50B}" },
-  { value: 2, label: "Low", emoji: "\u{1F50B}\u{1F50B}" },
-  { value: 3, label: "Moderate", emoji: "\u{1F50B}\u{1F50B}\u{1F50B}" },
-  { value: 4, label: "Energetic", emoji: "\u{1F50B}\u{1F50B}\u{1F50B}\u{1F50B}" },
-  { value: 5, label: "Very High", emoji: "\u{1F50B}\u{1F50B}\u{1F50B}\u{1F50B}\u{1F50B}" },
-];
+  { value: 1, key: "exhausted", emoji: "\u{1F50B}" },
+  { value: 2, key: "low", emoji: "\u{1F50B}\u{1F50B}" },
+  { value: 3, key: "moderate", emoji: "\u{1F50B}\u{1F50B}\u{1F50B}" },
+  { value: 4, key: "energetic", emoji: "\u{1F50B}\u{1F50B}\u{1F50B}\u{1F50B}" },
+  { value: 5, key: "veryHigh", emoji: "\u{1F50B}\u{1F50B}\u{1F50B}\u{1F50B}\u{1F50B}" },
+] as const;
 
 const focusLevels = [
-  { value: 1, label: "Very Distracted", emoji: "\u{1F9E0}" },
-  { value: 2, label: "Distracted", emoji: "\u{1F9E0}\u{1F9E0}" },
-  { value: 3, label: "Moderate", emoji: "\u{1F9E0}\u{1F9E0}\u{1F9E0}" },
-  { value: 4, label: "Focused", emoji: "\u{1F9E0}\u{1F9E0}\u{1F9E0}\u{1F9E0}" },
-  { value: 5, label: "Hyper-focused", emoji: "\u{1F9E0}\u{1F9E0}\u{1F9E0}\u{1F9E0}\u{1F9E0}" },
-];
+  { value: 1, key: "veryDistracted", emoji: "\u{1F9E0}" },
+  { value: 2, key: "distracted", emoji: "\u{1F9E0}\u{1F9E0}" },
+  { value: 3, key: "moderate", emoji: "\u{1F9E0}\u{1F9E0}\u{1F9E0}" },
+  { value: 4, key: "focused", emoji: "\u{1F9E0}\u{1F9E0}\u{1F9E0}\u{1F9E0}" },
+  { value: 5, key: "hyperfocused", emoji: "\u{1F9E0}\u{1F9E0}\u{1F9E0}\u{1F9E0}\u{1F9E0}" },
+] as const;
 
 const tagOptions = [
-  "Overwhelmed",
-  "Anxious",
-  "Creative",
-  "Productive",
-  "Calm",
-  "Frustrated",
-  "Motivated",
-  "Tired",
-  "Hyperfocus",
-  "Distracted",
-  "Procrastinating",
-  "Happy",
-  "Stressed",
-  "Excited",
-];
+  "overwhelmed",
+  "anxious",
+  "creative",
+  "productive",
+  "calm",
+  "frustrated",
+  "motivated",
+  "tired",
+  "hyperfocus",
+  "distracted",
+  "procrastinating",
+  "happy",
+  "stressed",
+  "excited",
+] as const;
 
 const ENTRIES_STORAGE_KEY = "adhd-mood-tracker-entries";
 
@@ -108,6 +109,7 @@ const fadeUp = {
 /* ------------------------------------------------------------------ */
 
 export default function MoodTrackerPage() {
+  const t = useTranslations("playground.moodTracker");
   // --------------- state ---------------
   const [entries, setEntries] = useState<MoodEntry[]>([]);
   const [showEntryForm, setShowEntryForm] = useState(false);
@@ -222,7 +224,9 @@ export default function MoodTrackerPage() {
   // --------------- calculations ---------------
   const getLevelInfo = (type: "mood" | "energy" | "focus", value: number) => {
     const levels = type === "mood" ? moodLevels : type === "energy" ? energyLevels : focusLevels;
-    return levels.find((l) => l.value === value) || levels[2];
+    const found = levels.find((l) => l.value === value) || levels[2];
+    const groupKey = type === "mood" ? "moodLevels" : type === "energy" ? "energyLevels" : "focusLevels";
+    return { ...found, label: t(`${groupKey}.${found.key}`) };
   };
 
   const getGoldOpacity = (value: number): string => {
@@ -290,10 +294,11 @@ export default function MoodTrackerPage() {
       .map((id) => {
         const im = impacts[id];
         const act = activityOptions.find((a) => a.id === id);
+        const label = act ? t(`activities.${act.id}`) : id;
         if (im.count === 0)
           return {
             id,
-            label: act?.label || id,
+            label,
             emoji: act?.emoji || "",
             count: 0,
             mood: 0,
@@ -302,7 +307,7 @@ export default function MoodTrackerPage() {
           };
         return {
           id,
-          label: act?.label || id,
+          label,
           emoji: act?.emoji || "",
           count: im.count,
           mood: Math.round((im.mood / im.count) * 100) / 100,
@@ -313,16 +318,22 @@ export default function MoodTrackerPage() {
       .sort((a, b) => b.count - a.count);
   })();
 
+  const translateTag = (tag: string): string => {
+    const isKnown = (tagOptions as readonly string[]).includes(tag);
+    return isKnown ? t(`tags.${tag}`) : tag;
+  };
+
   const getPatternInsights = () => {
-    if (entries.length < 3) return ["Add more entries to see patterns and insights"];
+    if (entries.length < 3) return [t("insights.needMore")];
     const insights: string[] = [];
     const tagCounts: Record<string, number> = {};
-    entries.forEach((e) => e.tags.forEach((t) => (tagCounts[t] = (tagCounts[t] || 0) + 1)));
+    entries.forEach((e) => e.tags.forEach((tg) => (tagCounts[tg] = (tagCounts[tg] || 0) + 1)));
     const topTags = Object.entries(tagCounts)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 2)
-      .map(([t]) => t);
-    if (topTags.length > 0) insights.push(`Your most common states are: ${topTags.join(", ")}`);
+      .map(([tg]) => translateTag(tg));
+    if (topTags.length > 0)
+      insights.push(t("insights.topStates", { tags: topTags.join(", ") }));
     const positiveActs = activityImpacts
       .filter(
         (a) =>
@@ -332,20 +343,15 @@ export default function MoodTrackerPage() {
       .slice(0, 3);
     if (positiveActs.length > 0)
       insights.push(
-        `Activities that seem to improve your well-being: ${positiveActs.map((a) => `${a.emoji} ${a.label}`).join(", ")}`
+        t("insights.positiveActivities", {
+          activities: positiveActs.map((a) => `${a.emoji} ${a.label}`).join(", "),
+        })
       );
     const lowE = entries.filter((e) => e.energy <= 2).length;
     const highE = entries.filter((e) => e.energy >= 4).length;
-    if (lowE > highE && lowE >= 3)
-      insights.push(
-        "You appear to have more low-energy days. Consider energy management strategies."
-      );
-    if (averages.focus < 3)
-      insights.push(
-        "Your focus scores tend to be on the lower side. Explore strategies to support your attention."
-      );
-    if (insights.length < 2)
-      insights.push("Consistent tracking will reveal more patterns and insights over time");
+    if (lowE > highE && lowE >= 3) insights.push(t("insights.lowEnergy"));
+    if (averages.focus < 3) insights.push(t("insights.lowFocus"));
+    if (insights.length < 2) insights.push(t("insights.consistentTracking"));
     return insights;
   };
 
@@ -363,13 +369,12 @@ export default function MoodTrackerPage() {
       >
         {/* ---------- header ---------- */}
         <div className="mb-10 text-center">
-          <SectionLabel className="mb-3">ADHD TOOL</SectionLabel>
+          <SectionLabel className="mb-3">{t("category")}</SectionLabel>
           <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--color-gold)] sm:text-4xl">
-            Mood &amp; Energy Tracker
+            {t("title")}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[var(--color-text-secondary)]">
-            Track your daily mood, energy, and focus levels to identify patterns and gain insights
-            that can help manage ADHD symptoms.
+            {t("description")}
           </p>
 
           {/* view toggle */}
@@ -378,13 +383,13 @@ export default function MoodTrackerPage() {
               variant={currentView === "calendar" ? "gold" : "ghost-gold"}
               onClick={() => setCurrentView("calendar")}
             >
-              Calendar
+              {t("calendarView")}
             </Button>
             <Button
               variant={currentView === "insights" ? "gold" : "ghost-gold"}
               onClick={() => setCurrentView("insights")}
             >
-              Insights
+              {t("insightsView")}
             </Button>
           </div>
         </div>
@@ -458,7 +463,7 @@ export default function MoodTrackerPage() {
                     setShowEntryForm(true);
                   }}
                 >
-                  + Add Entry
+                  {t("addEntry")}
                 </Button>
               </div>
             </motion.div>
@@ -467,7 +472,7 @@ export default function MoodTrackerPage() {
             {selectedDateEntries.length === 0 ? (
               <motion.div custom={2} variants={fadeUp} initial="hidden" animate="visible">
                 <VoidPanel hoverable={false} className="rounded-xl p-8 text-center">
-                  <p className="text-[var(--color-text-secondary)]">No entries for this date.</p>
+                  <p className="text-[var(--color-text-secondary)]">{t("noEntriesForDate")}</p>
                   <Button
                     variant="gold"
                     className="mt-4"
@@ -477,7 +482,7 @@ export default function MoodTrackerPage() {
                       setShowEntryForm(true);
                     }}
                   >
-                    Add Entry
+                    {t("addEntryShort")}
                   </Button>
                 </VoidPanel>
               </motion.div>
@@ -549,7 +554,7 @@ export default function MoodTrackerPage() {
                                       }}
                                     >
                                       <p className="text-xs uppercase tracking-wider text-[var(--color-gold-dim)]">
-                                        {type}
+                                        {t(`metrics.${type}`)}
                                       </p>
                                       <div className="mt-1 flex items-center gap-2">
                                         <span className="text-2xl">
@@ -560,7 +565,7 @@ export default function MoodTrackerPage() {
                                             {getLevelInfo(type, entry[type]).label}
                                           </p>
                                           <p className="text-xs text-[var(--color-text-secondary)]">
-                                            Level {entry[type]}/5
+                                            {t("metricLevel", { value: entry[type] })}
                                           </p>
                                         </div>
                                       </div>
@@ -572,7 +577,7 @@ export default function MoodTrackerPage() {
                                 {entry.notes && (
                                   <div className="mt-4">
                                     <p className="text-xs uppercase tracking-wider text-[var(--color-gold-dim)]">
-                                      Notes
+                                      {t("notes")}
                                     </p>
                                     <p className="mt-1 text-sm text-[var(--color-text-secondary)]">
                                       {entry.notes}
@@ -593,7 +598,7 @@ export default function MoodTrackerPage() {
                                           border: "1px solid var(--color-gold-dim)",
                                         }}
                                       >
-                                        {tag}
+                                        {translateTag(tag)}
                                       </span>
                                     ))}
                                   </div>
@@ -614,7 +619,7 @@ export default function MoodTrackerPage() {
                                             border: "1px solid var(--color-gold-dim)",
                                           }}
                                         >
-                                          {act?.emoji} {act?.label}
+                                          {act?.emoji} {act ? t(`activities.${act.id}`) : aId}
                                         </span>
                                       );
                                     })}
@@ -627,7 +632,7 @@ export default function MoodTrackerPage() {
                                     variant="ghost-gold"
                                     onClick={() => startEditEntry(entry)}
                                   >
-                                    Edit
+                                    {t("edit")}
                                   </Button>
                                   <motion.button
                                     onClick={() => setDeleteConfirmId(entry.id)}
@@ -636,7 +641,7 @@ export default function MoodTrackerPage() {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                   >
-                                    Delete
+                                    {t("delete")}
                                   </motion.button>
                                 </div>
                               </div>
@@ -663,24 +668,24 @@ export default function MoodTrackerPage() {
                 />
                 <div className="p-6">
                   <h3 className="mb-4 text-lg font-bold text-[var(--color-gold)]">
-                    Weekly Averages
+                    {t("weeklyAverages")}
                   </h3>
                   {weekEntries.length === 0 ? (
                     <p className="text-sm text-[var(--color-text-secondary)]">
-                      No entries this week yet.
+                      {t("noEntriesThisWeek")}
                     </p>
                   ) : (
                     <div className="grid grid-cols-3 gap-4 text-center">
                       {(
                         [
-                          { key: "mood" as const, label: "Mood", emoji: "\u{1F642}" },
-                          { key: "energy" as const, label: "Energy", emoji: "\u26A1" },
-                          { key: "focus" as const, label: "Focus", emoji: "\u{1F3AF}" },
+                          { key: "mood" as const, emoji: "\u{1F642}" },
+                          { key: "energy" as const, emoji: "\u26A1" },
+                          { key: "focus" as const, emoji: "\u{1F3AF}" },
                         ] as const
                       ).map((m) => (
                         <div key={m.key}>
                           <p className="text-xs uppercase tracking-wider text-[var(--color-gold-dim)]">
-                            {m.label}
+                            {t(`metrics.${m.key}`)}
                           </p>
                           <p className="mt-1 text-3xl font-bold text-[var(--color-gold)]">
                             {weeklyAverages[m.key].toFixed(1)}
@@ -699,13 +704,13 @@ export default function MoodTrackerPage() {
               <motion.div custom={5} variants={fadeUp} initial="hidden" animate="visible">
                 <VoidPanel hoverable={false} className="rounded-xl p-6">
                   <h3 className="mb-4 text-lg font-bold text-[var(--color-gold)]">
-                    Activity Frequency
+                    {t("activityFrequency")}
                   </h3>
                   <div className="space-y-3">
                     {activityFrequency.map((a) => (
                       <div key={a.id} className="flex items-center gap-3">
                         <span className="w-24 flex-shrink-0 truncate text-sm text-[var(--color-text-secondary)]">
-                          {a.emoji} {a.label}
+                          {a.emoji} {t(`activities.${a.id}`)}
                         </span>
                         <div className="relative h-5 flex-1 overflow-hidden rounded-full bg-[var(--color-void-surface)]">
                           <motion.div
@@ -736,24 +741,24 @@ export default function MoodTrackerPage() {
             {/* averages */}
             <motion.div custom={0} variants={fadeUp} initial="hidden" animate="visible">
               <VoidPanel className="rounded-xl p-6">
-                <h3 className="mb-4 text-xl font-bold text-[var(--color-gold)]">Your Averages</h3>
+                <h3 className="mb-4 text-xl font-bold text-[var(--color-gold)]">{t("yourAverages")}</h3>
                 {entries.length === 0 ? (
                   <p className="text-[var(--color-text-secondary)]">
-                    No entries yet. Add some daily records to see insights.
+                    {t("noEntriesYet")}
                   </p>
                 ) : (
                   <div className="space-y-6">
                     {(
                       [
-                        { key: "mood" as const, lo: "Low", mid: "Neutral", hi: "High" },
-                        { key: "energy" as const, lo: "Low", mid: "Moderate", hi: "High" },
-                        { key: "focus" as const, lo: "Distracted", mid: "Moderate", hi: "Focused" },
+                        { key: "mood" as const, avgKey: "averageMood" as const, lo: "low" as const, mid: "neutral" as const, hi: "high" as const },
+                        { key: "energy" as const, avgKey: "averageEnergy" as const, lo: "low" as const, mid: "moderate" as const, hi: "high" as const },
+                        { key: "focus" as const, avgKey: "averageFocus" as const, lo: "distracted" as const, mid: "moderate" as const, hi: "focused" as const },
                       ] as const
                     ).map((m, i) => (
                       <div key={m.key}>
                         <div className="flex justify-between text-sm">
-                          <span className="capitalize text-[var(--color-text-secondary)]">
-                            Average {m.key}
+                          <span className="text-[var(--color-text-secondary)]">
+                            {t(`metrics.${m.avgKey}`)}
                           </span>
                           <span className="text-[var(--color-gold)]">
                             {averages[m.key].toFixed(1)}/5
@@ -769,9 +774,9 @@ export default function MoodTrackerPage() {
                           />
                         </div>
                         <div className="mt-1 flex justify-between text-[10px] text-[var(--color-text-secondary)]">
-                          <span>{m.lo}</span>
-                          <span>{m.mid}</span>
-                          <span>{m.hi}</span>
+                          <span>{t(`rangeLabels.${m.lo}`)}</span>
+                          <span>{t(`rangeLabels.${m.mid}`)}</span>
+                          <span>{t(`rangeLabels.${m.hi}`)}</span>
                         </div>
                       </div>
                     ))}
@@ -784,12 +789,12 @@ export default function MoodTrackerPage() {
             <motion.div custom={1} variants={fadeUp} initial="hidden" animate="visible">
               <VoidPanel className="rounded-xl p-6">
                 <h3 className="mb-4 text-xl font-bold text-[var(--color-gold)]">
-                  Patterns &amp; Insights
+                  {t("patternsInsights")}
                 </h3>
                 {entries.length < 3 ? (
                   <div className="flex h-40 flex-col items-center justify-center">
                     <p className="mb-4 text-center text-[var(--color-text-secondary)]">
-                      Add at least 3 entries to see patterns and insights.
+                      {t("needMoreEntries")}
                     </p>
                     <Button
                       variant="gold"
@@ -800,7 +805,7 @@ export default function MoodTrackerPage() {
                         setShowEntryForm(true);
                       }}
                     >
-                      Add Entry
+                      {t("addEntryShort")}
                     </Button>
                   </div>
                 ) : (
@@ -831,10 +836,10 @@ export default function MoodTrackerPage() {
               className="md:col-span-2"
             >
               <VoidPanel className="rounded-xl p-6">
-                <h3 className="mb-4 text-xl font-bold text-[var(--color-gold)]">Activity Impact</h3>
+                <h3 className="mb-4 text-xl font-bold text-[var(--color-gold)]">{t("activityImpact")}</h3>
                 {entries.length === 0 ? (
                   <p className="text-[var(--color-text-secondary)]">
-                    No entries yet. Add some daily records with activities to see their impact.
+                    {t("noActivityImpact")}
                   </p>
                 ) : (
                   <div className="overflow-x-auto">
@@ -842,19 +847,19 @@ export default function MoodTrackerPage() {
                       <thead>
                         <tr className="border-b border-[var(--color-border)]">
                           <th className="pb-3 text-left text-sm font-medium text-[var(--color-gold-dim)]">
-                            Activity
+                            {t("tableHeaders.activity")}
                           </th>
                           <th className="pb-3 text-center text-sm font-medium text-[var(--color-gold-dim)]">
-                            Count
+                            {t("tableHeaders.count")}
                           </th>
                           <th className="pb-3 text-center text-sm font-medium text-[var(--color-gold-dim)]">
-                            Mood
+                            {t("tableHeaders.mood")}
                           </th>
                           <th className="pb-3 text-center text-sm font-medium text-[var(--color-gold-dim)]">
-                            Energy
+                            {t("tableHeaders.energy")}
                           </th>
                           <th className="pb-3 text-center text-sm font-medium text-[var(--color-gold-dim)]">
-                            Focus
+                            {t("tableHeaders.focus")}
                           </th>
                         </tr>
                       </thead>
@@ -899,7 +904,7 @@ export default function MoodTrackerPage() {
                               colSpan={5}
                               className="py-8 text-center text-[var(--color-text-secondary)]"
                             >
-                              No activities recorded yet.
+                              {t("noActivitiesRecorded")}
                             </td>
                           </tr>
                         )}
@@ -935,7 +940,7 @@ export default function MoodTrackerPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-2xl font-bold text-[var(--color-gold)]">
-                {editingEntry ? "Edit Entry" : "New Entry"} &mdash;{" "}
+                {editingEntry ? t("editEntry") : t("newEntry")} &mdash;{" "}
                 {new Date(newEntry.date + "T12:00:00").toLocaleDateString()}
               </h2>
               <div className="my-4 h-px bg-[var(--color-border)]" />
@@ -944,18 +949,24 @@ export default function MoodTrackerPage() {
                 {/* ---- mood / energy / focus selectors ---- */}
                 {(
                   [
-                    { key: "mood" as const, label: "Mood", levels: moodLevels },
-                    { key: "energy" as const, label: "Energy", levels: energyLevels },
-                    { key: "focus" as const, label: "Focus", levels: focusLevels },
+                    { key: "mood" as const, levels: moodLevels },
+                    { key: "energy" as const, levels: energyLevels },
+                    { key: "focus" as const, levels: focusLevels },
                   ] as const
                 ).map((metric) => (
                   <div key={metric.key}>
                     <label className="mb-3 block text-sm font-medium uppercase tracking-wider text-[var(--color-gold-dim)]">
-                      {metric.label}
+                      {t(`metrics.${metric.key}`)}
                     </label>
                     <div className="flex justify-between gap-2">
                       {metric.levels.map((level) => {
                         const isActive = newEntry[metric.key] === level.value;
+                        const groupKey =
+                          metric.key === "mood"
+                            ? "moodLevels"
+                            : metric.key === "energy"
+                              ? "energyLevels"
+                              : "focusLevels";
                         return (
                           <motion.button
                             key={level.value}
@@ -982,7 +993,7 @@ export default function MoodTrackerPage() {
                                   : "var(--color-text-secondary)",
                               }}
                             >
-                              {level.label}
+                              {t(`${groupKey}.${level.key}`)}
                             </span>
                           </motion.button>
                         );
@@ -994,7 +1005,7 @@ export default function MoodTrackerPage() {
                 {/* ---- tags ---- */}
                 <div>
                   <label className="mb-3 block text-sm font-medium uppercase tracking-wider text-[var(--color-gold-dim)]">
-                    Tags &mdash; How did you feel?
+                    {t("tagsHeading")}
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {tagOptions.map((tag) => {
@@ -1015,7 +1026,7 @@ export default function MoodTrackerPage() {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          {tag}
+                          {t(`tags.${tag}`)}
                         </motion.button>
                       );
                     })}
@@ -1025,7 +1036,7 @@ export default function MoodTrackerPage() {
                 {/* ---- activities ---- */}
                 <div>
                   <label className="mb-3 block text-sm font-medium uppercase tracking-wider text-[var(--color-gold-dim)]">
-                    Activities &mdash; What did you do?
+                    {t("activitiesHeading")}
                   </label>
                   <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
                     {activityOptions.map((act) => {
@@ -1047,7 +1058,7 @@ export default function MoodTrackerPage() {
                           whileTap={{ scale: 0.97 }}
                         >
                           <span className="text-lg">{act.emoji}</span>
-                          <span>{act.label}</span>
+                          <span>{t(`activities.${act.id}`)}</span>
                         </motion.button>
                       );
                     })}
@@ -1057,12 +1068,12 @@ export default function MoodTrackerPage() {
                 {/* ---- notes ---- */}
                 <div>
                   <label className="mb-2 block text-sm font-medium uppercase tracking-wider text-[var(--color-gold-dim)]">
-                    Notes (optional)
+                    {t("notesOptional")}
                   </label>
                   <textarea
                     value={newEntry.notes}
                     onChange={(e) => setNewEntry((p) => ({ ...p, notes: e.target.value }))}
-                    placeholder="Any additional thoughts about your day..."
+                    placeholder={t("notesPlaceholder")}
                     className="h-24 w-full resize-none rounded-lg border border-[var(--color-border)] bg-[var(--color-void-surface)] p-3 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)] outline-none transition-colors focus:border-[var(--color-gold-dim)]"
                   />
                 </div>
@@ -1070,10 +1081,10 @@ export default function MoodTrackerPage() {
                 {/* ---- form actions ---- */}
                 <div className="flex justify-end gap-4 pt-2">
                   <Button variant="ghost-gold" onClick={() => setShowEntryForm(false)}>
-                    Cancel
+                    {t("cancel")}
                   </Button>
                   <Button variant="gold" onClick={saveEntry}>
-                    {editingEntry ? "Update" : "Save"} Entry
+                    {editingEntry ? t("updateEntry") : t("saveEntry")}
                   </Button>
                 </div>
               </div>
@@ -1103,14 +1114,14 @@ export default function MoodTrackerPage() {
               exit={{ scale: 0.85, y: 20 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <h2 className="mb-2 text-2xl font-bold text-[var(--color-gold)]">Delete Entry?</h2>
+              <h2 className="mb-2 text-2xl font-bold text-[var(--color-gold)]">{t("deleteEntryTitle")}</h2>
               <div className="my-3 h-px bg-[var(--color-border)]" />
               <p className="mb-6 text-sm text-[var(--color-text-secondary)]">
-                Are you sure you want to delete this entry? This action cannot be undone.
+                {t("deleteEntryConfirm")}
               </p>
               <div className="flex justify-end gap-4">
                 <Button variant="ghost-gold" onClick={() => setDeleteConfirmId(null)}>
-                  Cancel
+                  {t("cancel")}
                 </Button>
                 <motion.button
                   onClick={() => deleteEntry(deleteConfirmId)}
@@ -1119,7 +1130,7 @@ export default function MoodTrackerPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Delete
+                  {t("delete")}
                 </motion.button>
               </div>
             </motion.div>
