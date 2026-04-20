@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const LOCALES = ["en", "fr", "es", "de", "zh", "ko"] as const;
+const LOCALES = ["en", "fr", "es", "de", "zh", "ko", "it", "ja"] as const;
 const MESSAGES_DIR = path.join(__dirname, "..", "src", "i18n", "messages");
 
 function flattenKeys(obj: Record<string, unknown>, prefix = ""): string[] {

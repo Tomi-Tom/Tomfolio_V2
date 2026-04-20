@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Noto_Sans_SC, Noto_Sans_KR } from "next/font/google";
+import { Noto_Sans_SC, Noto_Sans_KR, Noto_Sans_JP } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
 import "../globals.css";
@@ -21,6 +21,13 @@ const notoSansKR = Noto_Sans_KR({
   display: "swap",
 });
 
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cjk",
+  display: "swap",
+});
+
 const OG_LOCALE: Record<string, string> = {
   en: "en_US",
   fr: "fr_FR",
@@ -28,6 +35,8 @@ const OG_LOCALE: Record<string, string> = {
   de: "de_DE",
   zh: "zh_CN",
   ko: "ko_KR",
+  it: "it_IT",
+  ja: "ja_JP",
 };
 
 export async function generateMetadata({
@@ -51,6 +60,8 @@ export async function generateMetadata({
         de: "/de",
         zh: "/zh",
         ko: "/ko",
+        it: "/it",
+        ja: "/ja",
         "x-default": "/",
       },
     },
@@ -92,7 +103,13 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   const cjkFontClass =
-    locale === "zh" ? notoSansSC.variable : locale === "ko" ? notoSansKR.variable : "";
+    locale === "zh"
+      ? notoSansSC.variable
+      : locale === "ko"
+      ? notoSansKR.variable
+      : locale === "ja"
+      ? notoSansJP.variable
+      : "";
 
   return (
     <html

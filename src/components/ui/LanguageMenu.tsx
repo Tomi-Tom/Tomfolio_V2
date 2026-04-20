@@ -12,6 +12,8 @@ const LOCALE_META: Record<Locale, { native: string; flag: string; code: string }
   de: { native: "Deutsch", flag: "🇩🇪", code: "DE" },
   zh: { native: "中文", flag: "🇨🇳", code: "ZH" },
   ko: { native: "한국어", flag: "🇰🇷", code: "KO" },
+  it: { native: "Italiano", flag: "🇮🇹", code: "IT" },
+  ja: { native: "日本語", flag: "🇯🇵", code: "JA" },
 };
 
 export function LanguageMenu() {
