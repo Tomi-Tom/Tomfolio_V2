@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { LanguageMenu } from "@/components/ui/LanguageMenu";
 import { cn } from "@/lib/utils";
 
 export function StatusBar() {
@@ -37,8 +38,9 @@ export function StatusBar() {
         <span className="hud-caption text-[var(--gold-dim)]">Available for work</span>
       </div>
 
-      {/* Right: Theme toggle */}
-      <div className="flex items-center gap-2">
+      {/* Right: Theme toggle + Language menu */}
+      <div className="flex items-center gap-1">
+        <LanguageMenu />
         <ThemeToggle />
       </div>
     </header>
