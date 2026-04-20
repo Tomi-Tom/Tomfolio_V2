@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -250,6 +251,7 @@ function floodFill(
 /* ------------------------------------------------------------------ */
 
 export default function PixelArtEditor() {
+  const t = useTranslations("playground.pixelArt");
   const [gridSize, setGridSize] = useState<GridSize>(16);
   const [grid, setGrid] = useState<(string | null)[][]>(() => createEmptyGrid(16));
   const [tool, setTool] = useState<Tool>("draw");
@@ -542,10 +544,10 @@ export default function PixelArtEditor() {
 
   /* ---- tool config ---- */
   const tools: { id: Tool; label: string; icon: React.ReactNode }[] = [
-    { id: "draw", label: "Draw", icon: <PencilIcon /> },
-    { id: "erase", label: "Erase", icon: <EraserIcon /> },
-    { id: "fill", label: "Fill", icon: <FillIcon /> },
-    { id: "pick", label: "Pick Color", icon: <EyedropperIcon /> },
+    { id: "draw", label: t("tools.draw"), icon: <PencilIcon /> },
+    { id: "erase", label: t("tools.erase"), icon: <EraserIcon /> },
+    { id: "fill", label: t("tools.fill"), icon: <FillIcon /> },
+    { id: "pick", label: t("tools.pick"), icon: <EyedropperIcon /> },
   ];
 
   return (
@@ -558,26 +560,26 @@ export default function PixelArtEditor() {
       >
         {/* ---- Header ---- */}
         <header className="mb-8 text-center">
-          <SectionLabel>CREATIVE</SectionLabel>
-          <h2 className="mt-2 font-display text-display text-gold">Pixel Art Editor</h2>
+          <SectionLabel>{t("category")}</SectionLabel>
+          <h2 className="mt-2 font-display text-display text-gold">{t("title")}</h2>
         </header>
 
         {/* ---- Main layout ---- */}
         <div className="flex flex-col items-start gap-6 lg:flex-row lg:justify-center">
           {/* ---- Left toolbar ---- */}
           <VoidPanel hoverable={false} className="flex flex-row gap-2 p-3 lg:flex-col lg:gap-3">
-            {tools.map((t) => (
+            {tools.map((toolItem) => (
               <button
-                key={t.id}
-                title={t.label}
-                onClick={() => setTool(t.id)}
+                key={toolItem.id}
+                title={toolItem.label}
+                onClick={() => setTool(toolItem.id)}
                 className={`flex h-10 w-10 items-center justify-center rounded-md transition-all ${
-                  tool === t.id
+                  tool === toolItem.id
                     ? "bg-gold text-void-deep shadow-[0_0_12px_rgba(212,175,55,0.35)]"
                     : "text-text-secondary hover:text-gold hover:bg-gold/10"
                 }`}
               >
-                {t.icon}
+                {toolItem.icon}
               </button>
             ))}
 
@@ -587,7 +589,7 @@ export default function PixelArtEditor() {
 
             {/* Grid toggle */}
             <button
-              title={showGrid ? "Hide grid" : "Show grid"}
+              title={showGrid ? t("hideGrid") : t("showGrid")}
               onClick={() => setShowGrid((s) => !s)}
               className={`flex h-10 w-10 items-center justify-center rounded-md transition-all ${
                 showGrid
@@ -650,7 +652,7 @@ export default function PixelArtEditor() {
                 onClick={undo}
                 className="gap-1.5 disabled:opacity-30"
               >
-                <UndoIcon /> Undo
+                <UndoIcon /> {t("undo")}
               </Button>
               <Button
                 variant="ghost-gold"
@@ -658,7 +660,7 @@ export default function PixelArtEditor() {
                 onClick={redo}
                 className="gap-1.5 disabled:opacity-30"
               >
-                <RedoIcon /> Redo
+                <RedoIcon /> {t("redo")}
               </Button>
 
               {!confirmClear ? (
@@ -666,7 +668,7 @@ export default function PixelArtEditor() {
                   onClick={() => setConfirmClear(true)}
                   className="font-display text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-red-400 transition-colors hover:text-red-300 px-4 py-2"
                 >
-                  Clear
+                  {t("clear")}
                 </button>
               ) : (
                 <div className="flex items-center gap-2">
@@ -674,19 +676,19 @@ export default function PixelArtEditor() {
                     onClick={clearCanvas}
                     className="font-display text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-red-400 hover:text-red-300 px-3 py-2"
                   >
-                    Confirm
+                    {t("confirm")}
                   </button>
                   <button
                     onClick={() => setConfirmClear(false)}
                     className="font-display text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-text-secondary hover:text-text-primary px-3 py-2"
                   >
-                    Cancel
+                    {t("cancel")}
                   </button>
                 </div>
               )}
 
               <Button variant="gold" onClick={exportPng} className="gap-1.5">
-                <DownloadIcon /> Export PNG
+                <DownloadIcon /> {t("exportPng")}
               </Button>
             </div>
           </div>
@@ -694,7 +696,7 @@ export default function PixelArtEditor() {
           {/* ---- Right panel: palette ---- */}
           <VoidPanel hoverable={false} className="p-4">
             <p className="mb-3 font-display text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-text-secondary">
-              Palette
+              {t("palette")}
             </p>
 
             {/* Color swatches — 4 columns */}
@@ -726,7 +728,7 @@ export default function PixelArtEditor() {
             <div className="mt-4 flex items-center gap-3">
               <label
                 className="relative flex h-8 w-8 cursor-pointer items-center justify-center overflow-hidden rounded-md border border-[var(--border)]"
-                title="Custom color"
+                title={t("customColor")}
               >
                 <input
                   type="color"
@@ -745,7 +747,7 @@ export default function PixelArtEditor() {
             {/* Current color preview */}
             <div className="mt-4">
               <p className="mb-1.5 font-display text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-text-secondary">
-                Active
+                {t("active")}
               </p>
               <div
                 className="h-8 w-full rounded-md border border-[var(--border)] shadow-inner"
