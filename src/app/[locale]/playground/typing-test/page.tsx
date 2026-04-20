@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -91,6 +92,7 @@ function AnimatedNumber({ value, className }: { value: number; className?: strin
 /* ------------------------------------------------------------------ */
 
 export default function TypingTestPage() {
+  const t = useTranslations("playground.typingTest");
   /* state */
   const [duration, setDuration] = useState<Duration>(30);
   const [gameState, setGameState] = useState<GameState>("idle");
@@ -147,8 +149,8 @@ export default function TypingTestPage() {
   /* key pulse effect */
   useEffect(() => {
     if (!pulse) return;
-    const t = setTimeout(() => setPulse(false), 120);
-    return () => clearTimeout(t);
+    const timeout = setTimeout(() => setPulse(false), 120);
+    return () => clearTimeout(timeout);
   }, [pulse]);
 
   /* handlers */
@@ -246,9 +248,9 @@ export default function TypingTestPage() {
       >
         {/* Header */}
         <div className="flex flex-col gap-2">
-          <SectionLabel>GAME</SectionLabel>
+          <SectionLabel>{t("category")}</SectionLabel>
           <h2 className="font-display text-display text-[var(--text-primary)]">
-            Typing Speed Test
+            {t("title")}
           </h2>
         </div>
 
@@ -261,7 +263,7 @@ export default function TypingTestPage() {
               onClick={() => changeDuration(d)}
               className="min-w-[64px]"
             >
-              {d}s
+              {t("durationSeconds", { seconds: d })}
             </Button>
           ))}
 
@@ -271,7 +273,7 @@ export default function TypingTestPage() {
               className={`relative w-10 h-5 rounded-full transition-colors duration-200 ${
                 soundFx ? "bg-[var(--gold)]" : "bg-[var(--border)]"
               }`}
-              aria-label="Toggle keystroke feedback"
+              aria-label={t("keyFxAria")}
             >
               <span
                 className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-[var(--bg-deep)] transition-transform duration-200 ${
@@ -280,7 +282,7 @@ export default function TypingTestPage() {
               />
             </button>
             <span className="text-xs text-[var(--text-secondary)] tracking-wider uppercase font-display">
-              Key FX
+              {t("keyFx")}
             </span>
           </div>
         </div>
@@ -298,7 +300,7 @@ export default function TypingTestPage() {
               animate={{ opacity: 1 }}
               className="absolute inset-0 flex items-center justify-center text-sm text-[var(--text-dim)] font-display tracking-widest uppercase pointer-events-none"
             >
-              Start typing to begin...
+              {t("startHint")}
             </motion.p>
           )}
           {renderText()}
@@ -330,7 +332,7 @@ export default function TypingTestPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <VoidPanel hoverable={false} className="p-4 flex flex-col items-center gap-1">
             <span className="text-xs text-[var(--text-secondary)] font-display tracking-widest uppercase">
-              WPM
+              {t("wpm")}
             </span>
             <span className="text-3xl font-display text-[var(--gold)]">
               <AnimatedNumber value={gameState === "idle" ? 0 : wpm} />
@@ -339,7 +341,7 @@ export default function TypingTestPage() {
 
           <VoidPanel hoverable={false} className="p-4 flex flex-col items-center gap-1">
             <span className="text-xs text-[var(--text-secondary)] font-display tracking-widest uppercase">
-              Accuracy
+              {t("accuracy")}
             </span>
             <span className="text-3xl font-display text-[var(--gold)]">
               <AnimatedNumber value={accuracy} />
@@ -349,7 +351,7 @@ export default function TypingTestPage() {
 
           <VoidPanel hoverable={false} className="p-4 flex flex-col items-center gap-1">
             <span className="text-xs text-[var(--text-secondary)] font-display tracking-widest uppercase">
-              Time Left
+              {t("timeLeft")}
             </span>
             <span className="text-3xl font-display text-[var(--gold)]">
               <AnimatedNumber value={timeLeft} />
@@ -361,7 +363,7 @@ export default function TypingTestPage() {
         {/* Characters typed (secondary stat) */}
         <div className="flex justify-center">
           <span className="text-xs text-[var(--text-dim)] font-display tracking-widest">
-            {totalChars} characters typed
+            {t("charactersTyped", { count: totalChars })}
           </span>
         </div>
       </motion.div>
@@ -391,7 +393,7 @@ export default function TypingTestPage() {
                 hoverable={false}
                 className="p-8 sm:p-12 flex flex-col items-center gap-6 max-w-md w-full"
               >
-                <SectionLabel>RESULTS</SectionLabel>
+                <SectionLabel>{t("results")}</SectionLabel>
 
                 {/* Big WPM */}
                 <div className="flex flex-col items-center gap-1">
@@ -405,7 +407,7 @@ export default function TypingTestPage() {
                     {wpm}
                   </motion.span>
                   <span className="text-sm text-[var(--text-secondary)] font-display tracking-widest uppercase">
-                    Words per Minute
+                    {t("wordsPerMinute")}
                   </span>
                 </div>
 
@@ -416,7 +418,7 @@ export default function TypingTestPage() {
                       {accuracy}%
                     </span>
                     <span className="text-xs text-[var(--text-dim)] tracking-wider uppercase">
-                      Accuracy
+                      {t("accuracy")}
                     </span>
                   </div>
                   <div className="flex flex-col gap-0.5">
@@ -424,7 +426,7 @@ export default function TypingTestPage() {
                       {totalChars}
                     </span>
                     <span className="text-xs text-[var(--text-dim)] tracking-wider uppercase">
-                      Characters
+                      {t("characters")}
                     </span>
                   </div>
                 </div>
@@ -438,22 +440,22 @@ export default function TypingTestPage() {
                       transition={{ delay: 0.4 }}
                       className="text-sm text-[var(--gold)] font-display tracking-wider"
                     >
-                      NEW PERSONAL BEST!
+                      {t("newPersonalBest")}
                     </motion.p>
                   ) : wpm >= bestWpm && bestWpm === 0 ? (
                     <p className="text-sm text-[var(--gold)] font-display tracking-wider">
-                      FIRST SCORE RECORDED!
+                      {t("firstScore")}
                     </p>
                   ) : (
                     <p className="text-sm text-[var(--text-dim)] font-display tracking-wider">
-                      Best: {bestWpm} WPM
+                      {t("bestScore", { wpm: bestWpm })}
                     </p>
                   )}
                 </div>
 
                 {/* New Game */}
                 <Button variant="gold" onClick={() => startGame()} className="mt-2 w-full">
-                  New Game
+                  {t("newGame")}
                 </Button>
               </VoidPanel>
             </motion.div>
