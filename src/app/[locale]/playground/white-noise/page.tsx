@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -12,7 +13,6 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 
 interface Channel {
   id: string;
-  name: string;
   emoji: string;
   volume: number; // 0–100
   /** Base frequency multiplier for the waveform visualizer */
@@ -20,8 +20,8 @@ interface Channel {
 }
 
 interface Preset {
+  /** Stable id matching presetLabels key in en.json */
   name: string;
-  label: string;
   volumes: Record<string, number>;
 }
 
@@ -32,25 +32,23 @@ interface SavedMix {
 }
 
 const INITIAL_CHANNELS: Channel[] = [
-  { id: "rain", name: "Rain", emoji: "\u{1F327}\uFE0F", volume: 0, freq: 1.2 },
-  { id: "thunder", name: "Thunder", emoji: "\u26C8\uFE0F", volume: 0, freq: 0.4 },
-  { id: "ocean", name: "Ocean Waves", emoji: "\u{1F30A}", volume: 0, freq: 0.7 },
-  { id: "forest", name: "Forest", emoji: "\u{1F332}", volume: 0, freq: 1.8 },
-  { id: "fire", name: "Fire Crackling", emoji: "\u{1F525}", volume: 0, freq: 2.4 },
-  { id: "wind", name: "Wind", emoji: "\u{1F4A8}", volume: 0, freq: 0.9 },
-  { id: "birds", name: "Birds", emoji: "\u{1F426}", volume: 0, freq: 3.2 },
-  { id: "coffee", name: "Coffee Shop", emoji: "\u2615", volume: 0, freq: 1.5 },
+  { id: "rain", emoji: "\u{1F327}\uFE0F", volume: 0, freq: 1.2 },
+  { id: "thunder", emoji: "\u26C8\uFE0F", volume: 0, freq: 0.4 },
+  { id: "ocean", emoji: "\u{1F30A}", volume: 0, freq: 0.7 },
+  { id: "forest", emoji: "\u{1F332}", volume: 0, freq: 1.8 },
+  { id: "fire", emoji: "\u{1F525}", volume: 0, freq: 2.4 },
+  { id: "wind", emoji: "\u{1F4A8}", volume: 0, freq: 0.9 },
+  { id: "birds", emoji: "\u{1F426}", volume: 0, freq: 3.2 },
+  { id: "coffee", emoji: "\u2615", volume: 0, freq: 1.5 },
 ];
 
 const PRESETS: Preset[] = [
   {
-    name: "deep-focus",
-    label: "Deep Focus",
+    name: "deepFocus",
     volumes: { rain: 60, thunder: 20, ocean: 0, forest: 0, fire: 0, wind: 0, birds: 0, coffee: 40 },
   },
   {
-    name: "rainy-day",
-    label: "Rainy Day",
+    name: "rainyDay",
     volumes: {
       rain: 80,
       thunder: 45,
@@ -63,13 +61,11 @@ const PRESETS: Preset[] = [
     },
   },
   {
-    name: "nature-walk",
-    label: "Nature Walk",
+    name: "natureWalk",
     volumes: { rain: 0, thunder: 0, ocean: 0, forest: 70, fire: 0, wind: 40, birds: 60, coffee: 0 },
   },
   {
-    name: "cozy-evening",
-    label: "Cozy Evening",
+    name: "cozyEvening",
     volumes: { rain: 40, thunder: 0, ocean: 0, forest: 0, fire: 70, wind: 0, birds: 0, coffee: 50 },
   },
 ];
@@ -537,7 +533,9 @@ function ChannelCard({
   channel: Channel;
   onChange: (id: string, volume: number) => void;
 }) {
+  const t = useTranslations("playground.whiteNoise");
   const active = channel.volume > 0;
+  const name = t(`channels.${channel.id}`);
 
   return (
     <motion.div
@@ -563,7 +561,7 @@ function ChannelCard({
 
           {/* Name */}
           <span className="font-display text-[0.7rem] font-semibold tracking-[0.15em] uppercase text-[var(--text-primary)]">
-            {channel.name}
+            {name}
           </span>
 
           {/* Slider */}
@@ -574,7 +572,7 @@ function ChannelCard({
             value={channel.volume}
             onChange={(e) => onChange(channel.id, parseInt(e.target.value, 10))}
             className="ambient-slider w-full"
-            aria-label={`${channel.name} volume`}
+            aria-label={t("channelVolumeAria", { name })}
           />
 
           {/* Volume percentage */}
@@ -596,6 +594,7 @@ function ChannelCard({
 /* ------------------------------------------------------------------ */
 
 function SaveModal({ onSave, onClose }: { onSave: (name: string) => void; onClose: () => void }) {
+  const t = useTranslations("playground.whiteNoise");
   const [name, setName] = useState("");
 
   return (
@@ -614,11 +613,11 @@ function SaveModal({ onSave, onClose }: { onSave: (name: string) => void; onClos
       >
         <VoidPanel className="p-6" hoverable={false}>
           <h3 className="font-display text-[0.8rem] font-semibold tracking-[0.15em] uppercase text-[var(--text-primary)] mb-4">
-            Save Mix
+            {t("saveMixModalTitle")}
           </h3>
           <input
             type="text"
-            placeholder="Mix name..."
+            placeholder={t("mixNamePlaceholder")}
             value={name}
             onChange={(e) => setName(e.target.value)}
             maxLength={30}
@@ -630,14 +629,14 @@ function SaveModal({ onSave, onClose }: { onSave: (name: string) => void; onClos
           />
           <div className="flex gap-3 justify-end">
             <Button variant="ghost-gold" onClick={onClose}>
-              Cancel
+              {t("cancel")}
             </Button>
             <Button
               variant="gold"
               onClick={() => name.trim() && onSave(name.trim())}
               disabled={!name.trim()}
             >
-              Save
+              {t("save")}
             </Button>
           </div>
         </VoidPanel>
@@ -651,6 +650,7 @@ function SaveModal({ onSave, onClose }: { onSave: (name: string) => void; onClos
 /* ------------------------------------------------------------------ */
 
 export default function WhiteNoisePage() {
+  const t = useTranslations("playground.whiteNoise");
   const [channels, setChannels] = useState<Channel[]>(INITIAL_CHANNELS);
   const [masterVolume, setMasterVolume] = useState(80);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -831,11 +831,10 @@ export default function WhiteNoisePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <SectionLabel>FOCUS TOOL</SectionLabel>
-          <h2 className="text-display mt-2">Ambient Sounds</h2>
+          <SectionLabel>{t("category")}</SectionLabel>
+          <h2 className="text-display mt-2">{t("title")}</h2>
           <p className="text-[var(--text-secondary)] text-sm mt-2 max-w-lg">
-            Blend ambient soundscapes to create your perfect focus environment. Adjust individual
-            channels and find your flow state.
+            {t("description")}
           </p>
         </motion.div>
 
@@ -874,20 +873,20 @@ export default function WhiteNoisePage() {
                 transition={isPlaying ? { repeat: Infinity, duration: 1.5, ease: "easeInOut" } : {}}
               />
               <span className="font-display text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-secondary)]">
-                {isPlaying ? "Playing" : "Stopped"}
+                {isPlaying ? t("playing") : t("stopped")}
               </span>
             </div>
 
             {/* Active channels count */}
             <span className="text-[var(--text-muted)] text-xs font-mono">
-              {activeCount} channel{activeCount !== 1 ? "s" : ""} active
+              {t("channelsActive", { count: activeCount })}
             </span>
           </div>
 
           {/* Timer countdown */}
           {timerMinutes && timerSeconds > 0 && (
             <span className="font-mono text-sm text-gold tabular-nums">
-              {formatTimer(timerSeconds)} remaining
+              {t("remaining", { time: formatTimer(timerSeconds) })}
             </span>
           )}
         </motion.div>
@@ -908,14 +907,14 @@ export default function WhiteNoisePage() {
                       <rect x="6" y="4" width="4" height="16" rx="1" />
                       <rect x="14" y="4" width="4" height="16" rx="1" />
                     </svg>
-                    Stop
+                    {t("stop")}
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                       <polygon points="5,3 19,12 5,21" />
                     </svg>
-                    Play
+                    {t("play")}
                   </span>
                 )}
               </Button>
@@ -923,7 +922,7 @@ export default function WhiteNoisePage() {
               {/* Timer pills */}
               <div className="flex items-center gap-2">
                 <span className="font-display text-[0.6rem] font-semibold tracking-[0.15em] uppercase text-[var(--text-muted)] mr-1">
-                  Timer
+                  {t("timer")}
                 </span>
                 {TIMER_OPTIONS.map((min) => (
                   <button
@@ -935,7 +934,7 @@ export default function WhiteNoisePage() {
                         : "bg-[var(--void-deep)] text-[var(--text-secondary)] border border-[var(--border)] hover:border-gold/30"
                     }`}
                   >
-                    {min}m
+                    {t("timerMinutes", { minutes: min })}
                   </button>
                 ))}
               </div>
@@ -943,7 +942,7 @@ export default function WhiteNoisePage() {
               {/* Master volume */}
               <div className="flex items-center gap-3 flex-1 min-w-[120px] sm:min-w-[180px]">
                 <span className="font-display text-[0.6rem] font-semibold tracking-[0.15em] uppercase text-[var(--text-muted)] whitespace-nowrap">
-                  Master
+                  {t("master")}
                 </span>
                 <input
                   type="range"
@@ -952,7 +951,7 @@ export default function WhiteNoisePage() {
                   value={masterVolume}
                   onChange={(e) => setMasterVolume(parseInt(e.target.value, 10))}
                   className="ambient-master-slider flex-1"
-                  aria-label="Master volume"
+                  aria-label={t("masterAria")}
                 />
                 <span className="font-mono text-xs text-gold tabular-nums w-8 text-right">
                   {masterVolume}%
@@ -970,7 +969,7 @@ export default function WhiteNoisePage() {
           className="space-y-3"
         >
           <span className="font-display text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)]">
-            Presets
+            {t("presets")}
           </span>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {PRESETS.map((preset) => (
@@ -984,7 +983,7 @@ export default function WhiteNoisePage() {
                 }`}
               >
                 <span className="font-display text-[0.65rem] font-semibold tracking-[0.12em] uppercase text-[var(--text-primary)]">
-                  {preset.label}
+                  {t(`presetLabels.${preset.name}`)}
                 </span>
               </button>
             ))}
@@ -1014,21 +1013,21 @@ export default function WhiteNoisePage() {
         >
           <div className="flex items-center justify-between">
             <span className="font-display text-[0.65rem] font-semibold tracking-[0.18em] uppercase text-[var(--text-muted)]">
-              Saved Mixes
+              {t("savedMixes")}
             </span>
             <Button
               variant="ghost-gold"
               onClick={() => setShowSaveModal(true)}
               disabled={activeCount === 0}
             >
-              Save Current Mix
+              {t("saveCurrentMix")}
             </Button>
           </div>
 
           {savedMixes.length === 0 ? (
             <VoidPanel className="p-6 text-center" hoverable={false}>
               <p className="text-[var(--text-muted)] text-sm">
-                No saved mixes yet. Create your perfect blend and save it for later.
+                {t("noSavedMixes")}
               </p>
             </VoidPanel>
           ) : (
@@ -1045,7 +1044,7 @@ export default function WhiteNoisePage() {
                     <button
                       onClick={() => handleDeleteMix(index)}
                       className="text-[var(--text-muted)] hover:text-red-400 transition-colors cursor-pointer p-1"
-                      aria-label={`Delete ${mix.name}`}
+                      aria-label={t("deleteMixAria", { name: mix.name })}
                     >
                       <svg
                         width="14"
@@ -1066,7 +1065,7 @@ export default function WhiteNoisePage() {
                         <span
                           key={ch.id}
                           className="text-xs"
-                          title={`${ch.name}: ${mix.volumes[ch.id]}%`}
+                          title={`${t(`channels.${ch.id}`)}: ${mix.volumes[ch.id]}%`}
                         >
                           {ch.emoji}
                         </span>
