@@ -1,0 +1,740 @@
+{
+  "common": {
+    "languageMenu": {
+      "label": "言語",
+      "current": "現在の言語"
+    }
+  },
+  "statusBar": {
+    "brandShort": "TBP.DEV",
+    "availability": "お仕事募集中"
+  },
+  "chapterBar": {
+    "intro": "イントロ",
+    "about": "プロフィール",
+    "skills": "スキル",
+    "services": "サービス",
+    "projects": "プロジェクト",
+    "testimonials": "推薦の声",
+    "playground": "プレイグラウンド",
+    "contact": "お問い合わせ"
+  },
+  "hudFrame": {
+    "label": "HUDフレーム"
+  },
+  "footer": {
+    "label": "エンド",
+    "headingLight": "さあ、",
+    "headingBold": "創ろう",
+    "tagline": "フリーランス案件、コラボレーション、フルタイムの機会を歓迎します。",
+    "cta": "ご連絡ください",
+    "githubAria": "GitHub",
+    "linkedinAria": "LinkedIn",
+    "copyright": "© 2024 Tom Bariteau-Peter"
+  },
+  "hero": {
+    "label": "ポートフォリオ",
+    "tagline": "UXデザイナー & 開発者",
+    "description": "デザインの精緻さと技術の卓越性が交わる場所で、没入感のあるデジタル体験を創出します。",
+    "viewWork": "作品を見る",
+    "downloadCV": "履歴書をダウンロード",
+    "scroll": "スクロール",
+    "stats": {
+      "technologies": { "label": "テクノロジー", "value": "20+" },
+      "experience": { "label": "経験年数", "value": "5年" },
+      "languages": { "label": "言語", "value": "FR·EN" }
+    }
+  },
+  "about": {
+    "numbering": "01",
+    "label": "プロフィール",
+    "quote": "見た目の良さと機能性の架け橋となります。",
+    "bio1": "パリを拠点とするUX/UIデザイナー兼ウェブ開発者です。デザインの精緻さと技術の確かさを融合し、生命感のあるデジタル体験を構築しています。インタラクティブなウェブアプリから没入型の3Dインターフェースまで対応します。",
+    "bio2": "Epitech出身で、デザインシステム、フロントエンド開発、ユーザーリサーチにおいて5年以上の経験を持ち、見た目の良さと機能性の架け橋となります。",
+    "currentLocation": "現在パリを拠点に、デザイン思考と最新のウェブ技術の交点で活動しています。",
+    "role": "UX / 開発",
+    "stats": {
+      "education": {
+        "label": "学歴",
+        "value": "Epitech Paris"
+      },
+      "experience": {
+        "label": "経験年数",
+        "value": "5年以上"
+      },
+      "languages": {
+        "label": "言語",
+        "value": "FR / EN"
+      },
+      "location": {
+        "label": "所在地",
+        "value": "パリ, FR"
+      }
+    }
+  },
+  "skills": {
+    "numbering": "02",
+    "label": "スキル",
+    "summary": "日常的に使用している{count}個のテクノロジーとツール。",
+    "categories": {
+      "frontend": {
+        "number": "01",
+        "label": "フロントエンド",
+        "description": "レスポンシブで高性能、かつインタラクティブなユーザーインターフェースを構築します。"
+      },
+      "design": {
+        "number": "02",
+        "label": "デザイン",
+        "description": "直感的な体験と一貫性のあるビジュアルシステムを設計します。"
+      },
+      "backend": {
+        "number": "03",
+        "label": "バックエンド & ツール",
+        "description": "API、データベース、インフラ、開発者向けツールを扱います。"
+      }
+    },
+    "exploring": {
+      "number": "04",
+      "label": "現在学習中"
+    },
+    "skillCount": "{count, plural, other {スキル #個}}"
+  },
+  "services": {
+    "label": "サービス",
+    "items": {
+      "uxDesign": {
+        "title": "UX / UIデザイン",
+        "description": "リサーチ、ワイヤーフレーム、反復的なプロトタイピングを通じて、ユーザー中心のインターフェースを設計します。デザインシステムから実装可能な完成度の高いモックアップまで対応します。"
+      },
+      "webDev": {
+        "title": "ウェブ開発",
+        "description": "React、Next.js、TypeScriptなどのモダンなフレームワークとベストプラクティスのアーキテクチャで、高性能でアクセシブルなウェブアプリケーションを構築します。"
+      },
+      "threeDInteractive": {
+        "title": "3D & インタラクティブ",
+        "description": "Three.jsとWebGLによる没入型体験。控えめなアンビエントシーンから本格的なインタラクティブ3Dビジュアライゼーションまで制作します。"
+      },
+      "consulting": {
+        "title": "コンサルティング & 監査",
+        "description": "技術監査、UXレビュー、戦略的アドバイスを通じて、既存プロダクトのパフォーマンス、アクセシビリティ、ユーザー体験を改善します。"
+      }
+    },
+    "learnMore": "詳しく見る",
+    "pricing": {
+      "label": "料金",
+      "discovery": {
+        "badge": "おすすめ",
+        "caption": "ディスカバリーレート",
+        "amount": "300",
+        "currency": "€",
+        "period": "/ 日",
+        "description": "初回コラボレーション向けの優遇料金です。初回プロジェクト、監査、概念実証(PoC)に最適です。",
+        "features": {
+          "first": "初回プロジェクト",
+          "commitment": "全力でのコミットと品質",
+          "noFees": "隠れた費用なし"
+        },
+        "cta": "始める"
+      },
+      "standard": {
+        "badge": "スタンダード",
+        "caption": "スタンダードレート",
+        "amount": "450",
+        "currency": "€",
+        "period": "/ 日",
+        "description": "継続案件向けの標準日額料金です。長期パートナーシップや複雑な構築案件に対応します。",
+        "features": {
+          "ongoing": "継続的なコラボレーション",
+          "support": "優先サポート",
+          "flexible": "柔軟なエンゲージメント"
+        },
+        "cta": "お問い合わせ"
+      }
+    }
+  },
+  "projects": {
+    "label": "プロジェクト",
+    "filterAll": "すべて",
+    "viewProject": "プロジェクトを見る",
+    "github": "GitHub",
+    "live": "ライブ",
+    "items": {
+      "portfolio": {
+        "title": "個人ポートフォリオ — tombp.fr",
+        "description": "Three.jsのワイヤーフレームギア、スクロールアニメーション、Void & Goldの美学を採用したモダンなポートフォリオ。"
+      },
+      "libertai": {
+        "title": "LibertAI — AIプラットフォーム",
+        "description": "AI企業向けのコーポレートサイトリデザイン。モダンなブランド表現、レスポンシブ、アクセシブル。"
+      },
+      "chuckforever": {
+        "title": "Chuck Forever — Calendrier ACN",
+        "description": "Chuck Norrisへのトリビュートサイト。カスタムカレンダーシステム、カウントダウンタイマー、名言、動画、伝承ページを備えます。"
+      },
+      "defidecon": {
+        "title": "Défi de Con",
+        "description": "ストリーク追跡、リーダーボード、管理ダッシュボードを備えた毎日チャレンジプラットフォーム。Next.jsとSupabaseで構築。"
+      },
+      "codearena": {
+        "title": "Code Arena",
+        "description": "複数の難易度ティアにわたるチャレンジ、スコア追跡、ストリーク、リーダーボードを備えた競技型コーディングプラットフォーム。"
+      },
+      "tomuiplayground": {
+        "title": "Tom UI Playground",
+        "description": "Monacoコードエディタ、ライブプレビュー、ファイルエクスプローラ、コンソールを備えたブラウザベースのUI開発環境。"
+      },
+      "pokerandom": {
+        "title": "Pokérandom — スターター生成器",
+        "description": "ポケモンスターターのドラフトツール。ソロ対AIモード、ローカル2人ドラフト、チームビルダー、DSポケデックスにインスパイアされたレトロなピクセルUIを搭載。"
+      },
+      "tomcraft": {
+        "title": "TomCraft",
+        "description": "Minecraftにインスパイアされたボクセルサンドボックスをゼロから構築。無限のプロシージャル世界、9つのバイオーム、AI付き20体以上のモブ、クラフト、サバイバルゲームプレイ。"
+      },
+      "wolfenstom": {
+        "title": "Wolfenstom 3D",
+        "description": "Wolfenstein 3DにインスパイアされたスチームパンクFPS。ブラウザ上のレイキャスティングエンジン、プロシージャルマップ、スチームパンク武器を搭載。"
+      }
+    }
+  },
+  "contact": {
+    "label": "お問い合わせ",
+    "heading": "一緒に何かを創りましょう",
+    "tagline": "新しいプロジェクト、コラボレーション、興味深い対話を歓迎します。",
+    "form": {
+      "firstName": "名",
+      "firstNamePlaceholder": "太郎",
+      "lastName": "姓",
+      "lastNamePlaceholder": "山田",
+      "email": "メールアドレス",
+      "emailPlaceholder": "taro@example.com",
+      "phone": "電話番号",
+      "phonePlaceholder": "+81 90-0000-0000",
+      "message": "メッセージ",
+      "messagePlaceholder": "プロジェクトについてお聞かせください...",
+      "submit": "メッセージを送信",
+      "submitting": "送信中..."
+    },
+    "success": {
+      "title": "メッセージを送信しました",
+      "description": "近日中にご返信いたします。",
+      "sendAnother": "別のメッセージを送る"
+    },
+    "error": {
+      "title": "問題が発生しました",
+      "description": "再度お試しいただくか、メールにて直接ご連絡ください。",
+      "tryAgain": "再試行"
+    },
+    "errors": {
+      "firstNameRequired": "名は必須です",
+      "lastNameRequired": "姓は必須です",
+      "emailInvalid": "有効なメールアドレスを入力してください",
+      "messageMinLength": "メッセージは10文字以上で入力してください"
+    },
+    "info": {
+      "heading": "連絡先情報",
+      "emailLabel": "メールアドレス",
+      "locationLabel": "所在地",
+      "locationValue": "パリ, フランス",
+      "coordinates": "48.8566° N, 2.3522° E",
+      "statusLabel": "ステータス",
+      "statusValue": "新規プロジェクト募集中"
+    },
+    "coordinates": {
+      "caption": "現在の拠点",
+      "lat": "LAT",
+      "lng": "LNG",
+      "latValue": "48.8566°",
+      "lngValue": "2.3522°",
+      "timezone": "PARIS // CET (UTC+1)"
+    },
+    "socials": {
+      "heading": "ソーシャル",
+      "githubAria": "GitHub",
+      "linkedinAria": "LinkedIn"
+    }
+  },
+  "playground": {
+    "intro": {
+      "numbering": "06",
+      "label": "プレイグラウンド",
+      "headingLight": "インタラクティブな",
+      "headingBold": "実験",
+      "description": "UIパターン、ゲームロジック、生産性ツールを探求するミニアプリケーション群。React、Canvas、Framer Motionで構築しています。",
+      "backToPlayground": "プレイグラウンドに戻る",
+      "miniApps": {
+        "lifeGame": {
+          "title": "ライフゲーム",
+          "description": "コンウェイのセルオートマトン — パターンの進化を観察",
+          "badge": "ゲーム"
+        },
+        "memory": {
+          "title": "メモリーゲーム",
+          "description": "3つの難易度レベルのカードマッチングチャレンジ",
+          "badge": "ゲーム"
+        },
+        "weather": {
+          "title": "天気アプリ",
+          "description": "世界中のリアルタイムな天気状況",
+          "badge": "ユーティリティ"
+        },
+        "pomodoro": {
+          "title": "ポモドーロタイマー",
+          "description": "円形プログレスによる集中時間管理",
+          "badge": "ユーティリティ"
+        },
+        "taskBreaker": {
+          "title": "タスク分解",
+          "description": "重く感じるタスクを小さなステップに分割",
+          "badge": "ADHDツール"
+        },
+        "moodTracker": {
+          "title": "気分トラッカー",
+          "description": "気分、エネルギー、集中力を可視化",
+          "badge": "ADHDツール"
+        },
+        "typingTest": {
+          "title": "タイピング速度テスト",
+          "description": "リアルタイム精度追跡でWPMを計測",
+          "badge": "ゲーム"
+        },
+        "colorPalette": {
+          "title": "カラーパレット",
+          "description": "5つのモードで調和の取れたパレットを生成",
+          "badge": "デザインツール"
+        },
+        "snake": {
+          "title": "スネーク",
+          "description": "ゴールドの美学が際立つクラシックアーケードゲーム",
+          "badge": "ゲーム"
+        },
+        "whiteNoise": {
+          "title": "アンビエントサウンド",
+          "description": "深い集中のための8チャンネルホワイトノイズミキサー",
+          "badge": "集中ツール"
+        },
+        "pixelArt": {
+          "title": "ピクセルアートエディタ",
+          "description": "描画、塗りつぶし、取り消し、ピクセル作品の書き出し",
+          "badge": "クリエイティブ"
+        }
+      }
+    },
+    "colorPalette": {
+      "category": "デザインツール",
+      "title": "カラーパレットジェネレーター",
+      "modes": {
+        "random": "ランダム",
+        "analogous": "類似色",
+        "complementary": "補色",
+        "triadic": "トライアド",
+        "monochromatic": "モノクロマチック"
+      },
+      "generate": "生成",
+      "savePalette": "パレットを保存",
+      "exportCSS": "CSSをエクスポート",
+      "spaceHint": "SPACEキーを押して生成",
+      "savedPalettes": "保存されたパレット",
+      "lock": "ロック",
+      "unlock": "ロック解除",
+      "toastCopied": "コピーしました!",
+      "toastSaved": "パレットを保存しました!",
+      "toastCssCopied": "CSSをコピーしました!"
+    },
+    "lifeGame": {
+      "category": "ゲーム",
+      "title": "ライフゲーム",
+      "description": "コンウェイのセルオートマトン。セルをクリックして生命を播き、再生ボタンを押すと、シンプルなルールから複雑性が現れる様子を観察できます。",
+      "play": "再生",
+      "pause": "一時停止",
+      "step": "ステップ",
+      "reset": "リセット",
+      "soup": "スープ",
+      "generation": "世代",
+      "population": "個体数",
+      "density": "密度",
+      "grid": "グリッド",
+      "speed": "速度",
+      "cells": "セル"
+    },
+    "memory": {
+      "category": "ゲーム",
+      "title": "メモリーゲーム",
+      "description": "できるだけ少ないターン数ですべてのペアを見つけましょう。",
+      "difficulty": {
+        "easy": "イージー",
+        "medium": "ミディアム",
+        "hard": "ハード"
+      },
+      "turns": "ターン数",
+      "matches": "マッチ数",
+      "newGame": "新しいゲーム",
+      "playAgain": "もう一度プレイ",
+      "close": "閉じる",
+      "win": {
+        "title": "おめでとうございます!",
+        "description": "{turns}ターンで{pairs}ペアすべてを見つけました。"
+      }
+    },
+    "moodTracker": {
+      "category": "ADHDツール",
+      "title": "気分 & エネルギートラッカー",
+      "description": "毎日の気分、エネルギー、集中力レベルを記録し、パターンを把握してADHDの症状管理に役立つ洞察を得ましょう。",
+      "calendarView": "カレンダー",
+      "insightsView": "インサイト",
+      "addEntry": "+ 記録を追加",
+      "addEntryShort": "記録を追加",
+      "noEntriesForDate": "この日の記録はありません。",
+      "weeklyAverages": "週間平均",
+      "noEntriesThisWeek": "今週はまだ記録がありません。",
+      "activityFrequency": "アクティビティ頻度",
+      "yourAverages": "あなたの平均値",
+      "noEntriesYet": "まだ記録がありません。インサイトを表示するには、毎日の記録を追加してください。",
+      "patternsInsights": "パターン & インサイト",
+      "needMoreEntries": "パターンとインサイトを表示するには、最低3件の記録を追加してください。",
+      "activityImpact": "アクティビティの影響",
+      "noActivityImpact": "まだ記録がありません。アクティビティ付きの毎日の記録を追加し、その影響を確認してください。",
+      "noActivitiesRecorded": "まだアクティビティが記録されていません。",
+      "metrics": {
+        "mood": "気分",
+        "energy": "エネルギー",
+        "focus": "集中力",
+        "averageMood": "平均気分",
+        "averageEnergy": "平均エネルギー",
+        "averageFocus": "平均集中力"
+      },
+      "rangeLabels": {
+        "low": "低",
+        "neutral": "普通",
+        "high": "高",
+        "moderate": "中程度",
+        "distracted": "散漫",
+        "focused": "集中"
+      },
+      "metricLevel": "レベル {value}/5",
+      "notes": "メモ",
+      "notesOptional": "メモ(任意)",
+      "notesPlaceholder": "今日についての追加の考えを書いてください...",
+      "edit": "編集",
+      "delete": "削除",
+      "cancel": "キャンセル",
+      "save": "保存",
+      "newEntry": "新規記録",
+      "editEntry": "記録を編集",
+      "saveEntry": "記録を保存",
+      "updateEntry": "記録を更新",
+      "tagsHeading": "タグ — どう感じましたか?",
+      "activitiesHeading": "アクティビティ — 何をしましたか?",
+      "deleteEntryTitle": "記録を削除しますか?",
+      "deleteEntryConfirm": "この記録を削除してもよろしいですか? この操作は取り消せません。",
+      "tableHeaders": {
+        "activity": "アクティビティ",
+        "count": "回数",
+        "mood": "気分",
+        "energy": "エネルギー",
+        "focus": "集中力"
+      },
+      "moodLevels": {
+        "veryLow": "非常に低い",
+        "low": "低い",
+        "neutral": "普通",
+        "good": "良い",
+        "great": "とても良い"
+      },
+      "energyLevels": {
+        "exhausted": "疲労困憊",
+        "low": "低い",
+        "moderate": "中程度",
+        "energetic": "活力的",
+        "veryHigh": "非常に高い"
+      },
+      "focusLevels": {
+        "veryDistracted": "非常に散漫",
+        "distracted": "散漫",
+        "moderate": "中程度",
+        "focused": "集中",
+        "hyperfocused": "過集中"
+      },
+      "activities": {
+        "exercise": "運動",
+        "meditation": "瞑想",
+        "work": "仕事/勉強",
+        "social": "社交",
+        "nature": "自然",
+        "reading": "読書",
+        "gaming": "ゲーム",
+        "music": "音楽",
+        "creative": "クリエイティブ",
+        "sleep": "良質な睡眠",
+        "meds": "服薬",
+        "nutrition": "栄養"
+      },
+      "tags": {
+        "overwhelmed": "圧倒された",
+        "anxious": "不安",
+        "creative": "創造的",
+        "productive": "生産的",
+        "calm": "穏やか",
+        "frustrated": "苛立ち",
+        "motivated": "意欲的",
+        "tired": "疲れた",
+        "hyperfocus": "過集中",
+        "distracted": "散漫",
+        "procrastinating": "先延ばし",
+        "happy": "幸せ",
+        "stressed": "ストレス",
+        "excited": "興奮"
+      },
+      "insights": {
+        "needMore": "パターンとインサイトを表示するには、より多くの記録を追加してください",
+        "topStates": "あなたの最も多い状態は次のとおりです: {tags}",
+        "positiveActivities": "あなたの調子を改善すると思われるアクティビティ: {activities}",
+        "lowEnergy": "エネルギーの低い日が多いようです。エネルギー管理戦略の検討をおすすめします。",
+        "lowFocus": "集中力スコアが低めの傾向にあります。注意力を支える戦略を探してみてください。",
+        "consistentTracking": "継続的な記録により、時間とともにより多くのパターンとインサイトが明らかになります"
+      }
+    },
+    "pixelArt": {
+      "category": "クリエイティブ",
+      "title": "ピクセルアートエディタ",
+      "tools": {
+        "draw": "描画",
+        "erase": "消去",
+        "fill": "塗りつぶし",
+        "pick": "色を選択"
+      },
+      "showGrid": "グリッドを表示",
+      "hideGrid": "グリッドを非表示",
+      "undo": "取り消し",
+      "redo": "やり直し",
+      "clear": "クリア",
+      "confirm": "確定",
+      "cancel": "キャンセル",
+      "exportPng": "PNGをエクスポート",
+      "palette": "パレット",
+      "customColor": "カスタムカラー",
+      "active": "アクティブ"
+    },
+    "pomodoro": {
+      "category": "ユーティリティ",
+      "title": "ポモドーロタイマー",
+      "description": "時間制の作業セッションと予定された休憩で集中力と生産性を維持します。4回の集中ラウンドを完了すると長い休憩が取れます。",
+      "modes": {
+        "focus": "集中",
+        "shortBreak": "短い休憩",
+        "longBreak": "長い休憩"
+      },
+      "start": "開始",
+      "pause": "一時停止",
+      "reset": "リセット",
+      "skip": "スキップ",
+      "stats": {
+        "label": "統計",
+        "completed": "{count, plural, other {ポモドーロ完了}}",
+        "currentMode": "現在のモード",
+        "fullCycle": "フルサイクル",
+        "minutesAbbrev": "分"
+      },
+      "settings": {
+        "label": "設定",
+        "title": "タイマーの長さ",
+        "rangeHint": "分単位で設定(1 – 120)",
+        "focusDuration": "集中時間",
+        "shortBreak": "短い休憩",
+        "longBreak": "長い休憩",
+        "save": "保存",
+        "cancel": "キャンセル",
+        "openAria": "設定を開く",
+        "focusShort": "集中",
+        "shortShort": "短",
+        "longShort": "長",
+        "longBreakInterval": "{interval}回の集中セッションごとに長い休憩"
+      }
+    },
+    "snake": {
+      "category": "ゲーム",
+      "title": "スネーク",
+      "stats": {
+        "score": "スコア",
+        "best": "ベスト",
+        "speed": "速度"
+      },
+      "startHint": "SPACEキーを押すかタップして開始",
+      "controlsHint": "矢印キー / WASDで移動",
+      "paused": "一時停止中",
+      "gameOver": "ゲームオーバー",
+      "playAgain": "もう一度プレイ",
+      "play": "再生",
+      "pause": "一時停止",
+      "footerHint": "SPACEで一時停止 · 矢印キーまたはWASDで操作"
+    },
+    "taskBreaker": {
+      "category": "ADHDツール",
+      "title": "タスク分解",
+      "description": "重く感じるタスクを小さく管理しやすいステップに分解します。一つずつチェックを入れて、進捗の積み重ねを実感しましょう。",
+      "tasksCompleted": "{completed} / {total} タスク完了",
+      "completionRate": "完了率: {rate}%",
+      "myTasks": "マイタスク",
+      "newTask": "新しいタスク",
+      "filters": {
+        "all": "すべて",
+        "active": "進行中",
+        "completed": "完了"
+      },
+      "noTasks": "まだタスクがありません。",
+      "createFirstTask": "最初のタスクを作成",
+      "completed": "完了",
+      "addSteps": "+ ステップを追加",
+      "delete": "削除",
+      "progress": "進捗",
+      "noStepsYet": "まだステップがありません。このタスクを小さく分割しましょう!",
+      "addStepsCta": "ステップを追加",
+      "selectTaskHint": "リストからタスクを選ぶか、新しいタスクを作成して始めましょう。",
+      "createTask": "タスクを作成",
+      "tipsHeading": "ヒント",
+      "tips": {
+        "smallSteps": "5〜15分で終わるサイズのステップに分割しましょう。",
+        "easiestFirst": "勢いをつけるため、最も簡単なステップから始めましょう。",
+        "breakDownFurther": "ステップが大きすぎると感じたら、さらに分割しましょう。",
+        "celebrate": "チェックを入れるたびに喜びましょう — 進捗は進捗です。",
+        "reorder": "次にやるべきステップが常に一番上になるよう並び替えましょう。"
+      },
+      "newTaskModal": {
+        "title": "新しいタスク",
+        "taskTitleLabel": "タスクのタイトル",
+        "taskTitlePlaceholder": "例: ホームページのリデザイン",
+        "cancel": "キャンセル",
+        "create": "作成"
+      },
+      "addStepsModal": {
+        "title": "ステップを追加",
+        "single": "単一",
+        "bulk": "一括(1行に1つ)",
+        "stepLabel": "ステップ",
+        "stepPlaceholder": "例: ワイヤーフレームをスケッチ",
+        "stepsLabel": "ステップ",
+        "stepsPlaceholder": "ステップ1\nステップ2\nステップ3",
+        "cancel": "キャンセル",
+        "add": "追加"
+      },
+      "moveUpAria": "上へ移動",
+      "moveDownAria": "下へ移動",
+      "deleteStepAria": "ステップを削除",
+      "markCompleteAria": "完了にする",
+      "markIncompleteAria": "未完了にする",
+      "moreSteps": "+{count}件さらに…"
+    },
+    "typingTest": {
+      "category": "ゲーム",
+      "title": "タイピング速度テスト",
+      "durationSeconds": "{seconds}秒",
+      "keyFx": "キー効果音",
+      "keyFxAria": "キーストロークフィードバックの切り替え",
+      "startHint": "入力を始めてスタート...",
+      "wpm": "WPM",
+      "accuracy": "正確性",
+      "timeLeft": "残り時間",
+      "charactersTyped": "{count}文字入力",
+      "results": "結果",
+      "wordsPerMinute": "1分あたりの単語数",
+      "characters": "文字数",
+      "newPersonalBest": "自己ベスト更新!",
+      "firstScore": "初スコア記録!",
+      "bestScore": "ベスト: {wpm} WPM",
+      "newGame": "新しいゲーム"
+    },
+    "weather": {
+      "category": "ユーティリティ",
+      "title": "天気アプリ",
+      "description": "世界中の現在の天気状況を確認できます。お気に入りの場所を保存して、すばやくアクセスしましょう。",
+      "searchPlaceholder": "都市を検索...",
+      "search": "検索",
+      "localTime": "現地時間: {time}",
+      "removeFromSaved": "保存から削除",
+      "saveLocation": "場所を保存",
+      "humidity": "湿度",
+      "wind": "風",
+      "savedLocations": "保存された場所",
+      "noSavedLocationsLine1": "保存された場所はまだありません。",
+      "noSavedLocationsLine2": "都市にスターを付けてここに追加しましょう。",
+      "remove": "削除"
+    },
+    "whiteNoise": {
+      "category": "集中ツール",
+      "title": "アンビエントサウンド",
+      "description": "アンビエントなサウンドスケープをブレンドして、最適な集中環境を作りましょう。各チャンネルを調整して、フロー状態を見つけてください。",
+      "play": "再生",
+      "stop": "停止",
+      "playing": "再生中",
+      "stopped": "停止中",
+      "channelsActive": "{count, plural, other {チャンネル #個アクティブ}}",
+      "timer": "タイマー",
+      "timerMinutes": "{minutes}分",
+      "remaining": "残り{time}",
+      "master": "マスター",
+      "masterAria": "マスター音量",
+      "presets": "プリセット",
+      "presetLabels": {
+        "deepFocus": "ディープフォーカス",
+        "rainyDay": "雨の日",
+        "natureWalk": "自然散歩",
+        "cozyEvening": "心地よい夜"
+      },
+      "channels": {
+        "rain": "雨",
+        "thunder": "雷",
+        "ocean": "波の音",
+        "forest": "森",
+        "fire": "焚き火",
+        "wind": "風",
+        "birds": "鳥のさえずり",
+        "coffee": "コーヒーショップ"
+      },
+      "channelVolumeAria": "{name}の音量",
+      "savedMixes": "保存されたミックス",
+      "saveCurrentMix": "現在のミックスを保存",
+      "noSavedMixes": "保存されたミックスはまだありません。理想のブレンドを作成して保存しましょう。",
+      "saveMixModalTitle": "ミックスを保存",
+      "mixNamePlaceholder": "ミックス名...",
+      "cancel": "キャンセル",
+      "save": "保存",
+      "deleteMixAria": "{name}を削除"
+    }
+  },
+  "loveTimer": {
+    "loading": "読み込み中...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "カウントダウン",
+    "defaultMessage": "一秒一秒が大切",
+    "days": "日",
+    "timeUnits": "時間 : 分 : 秒",
+    "easterEgg": "本当にクリックが好きですね! {count}回クリック!",
+    "hint": "カードを長押しして愛を伝えよう!",
+    "quotes": {
+      "cuddles": "ハグまでカウントダウン!",
+      "together": "もうすぐまた一緒になれる!",
+      "distance": "距離は一時的、愛は永遠!",
+      "closer": "一秒一秒、近づいている!",
+      "hug": "強く抱きしめたくてたまらない!"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "このページは存在しません。",
+    "backHome": "ホームに戻る"
+  },
+  "metadata": {
+    "home": {
+      "title": "Tom Bariteau-Peter — UXデザイナー & 開発者",
+      "description": "パリを拠点とするUX/UIデザイナー兼ウェブ開発者、Tom Bariteau-Peterのポートフォリオ。没入感のあるデジタル体験を制作します。"
+    },
+    "playground": {
+      "title": "プレイグラウンド — Tom Bariteau-Peter",
+      "description": "Tom Bariteau-Peterによるインタラクティブなミニアプリと実験。"
+    },
+    "loveTimer": {
+      "title": "ラブタイマー",
+      "description": "小さなラブタイマー。"
+    }
+  }
+}
