@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -20,85 +21,64 @@ const fadeUp = {
 
 const miniApps = [
   {
-    title: "Game of Life",
-    desc: "Conway's cellular automaton — watch patterns evolve",
-    badge: "Game",
+    key: "lifeGame",
     href: "/playground/life-game",
     image: "/assets/GameOfLife.png",
   },
   {
-    title: "Memory Game",
-    desc: "Card-matching challenge with 3 difficulty levels",
-    badge: "Game",
+    key: "memory",
     href: "/playground/memory",
     image: "/assets/MemoryGame.png",
   },
   {
-    title: "Weather App",
-    desc: "Live weather conditions around the world",
-    badge: "Utility",
+    key: "weather",
     href: "/playground/weather",
     image: "/assets/WeatherApp.png",
   },
   {
-    title: "Pomodoro Timer",
-    desc: "Focus time management with circular progress",
-    badge: "Utility",
+    key: "pomodoro",
     href: "/playground/pomodoro",
     image: "/assets/PomodoroTimer.png",
   },
   {
-    title: "Task Breaker",
-    desc: "Break overwhelming tasks into small steps",
-    badge: "ADHD Tool",
+    key: "taskBreaker",
     href: "/playground/task-breaker",
     image: "/assets/TaskBreaker.png",
   },
   {
-    title: "Mood Tracker",
-    desc: "Track mood, energy & focus with insights",
-    badge: "ADHD Tool",
+    key: "moodTracker",
     href: "/playground/mood-tracker",
     image: "/assets/MoodTracker.png",
   },
   {
-    title: "Typing Speed Test",
-    desc: "Test your WPM with real-time accuracy tracking",
-    badge: "Game",
+    key: "typingTest",
     href: "/playground/typing-test",
     image: "/assets/TypingTest.png",
   },
   {
-    title: "Color Palette",
-    desc: "Generate harmonious palettes with 5 modes",
-    badge: "Design Tool",
+    key: "colorPalette",
     href: "/playground/color-palette",
     image: "/assets/ColorPalette.png",
   },
   {
-    title: "Snake",
-    desc: "Classic arcade game with gold aesthetics",
-    badge: "Game",
+    key: "snake",
     href: "/playground/snake",
     image: "/assets/Snake.png",
   },
   {
-    title: "Ambient Sounds",
-    desc: "8-channel white noise mixer for deep focus",
-    badge: "Focus Tool",
+    key: "whiteNoise",
     href: "/playground/white-noise",
     image: "/assets/AmbientSounds.png",
   },
   {
-    title: "Pixel Art Editor",
-    desc: "Draw, fill, undo & export pixel artwork",
-    badge: "Creative",
+    key: "pixelArt",
     href: "/playground/pixel-art",
     image: "/assets/PixelArt.png",
   },
-];
+] as const;
 
 export function Playground() {
+  const t = useTranslations("playground.intro");
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-20px" });
 
@@ -112,70 +92,77 @@ export function Playground() {
         animate={inView ? "visible" : "hidden"}
         className="mb-12"
       >
-        <SectionLabel>06 — Playground</SectionLabel>
+        <SectionLabel>
+          {t("numbering")} — {t("label")}
+        </SectionLabel>
         <h2 className="font-display text-h2 mt-4 mb-4">
-          <span className="font-light">Interactive</span>{" "}
-          <span className="font-bold">Experiments</span>
+          <span className="font-light">{t("headingLight")}</span>{" "}
+          <span className="font-bold">{t("headingBold")}</span>
         </h2>
         <p className="text-sm text-[var(--text-secondary)] max-w-lg leading-relaxed">
-          Mini-applications exploring UI patterns, game logic, and productivity tools — built with
-          React, Canvas, and Framer Motion.
+          {t("description")}
         </p>
       </motion.div>
 
       {/* Grid of cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {miniApps.map((app, i) => (
-          <motion.div
-            key={app.title}
-            custom={i + 1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <Link href={app.href} className="group block">
-              <div className="void-panel overflow-hidden transition-all duration-300 group-hover:border-[var(--border-active)]">
-                {/* Image preview */}
-                <div className="relative aspect-video overflow-hidden bg-[var(--void-deep)]">
-                  <img
-                    src={app.image}
-                    alt={app.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--void-surface)] via-transparent to-transparent opacity-60" />
-                  <span className="absolute top-3 left-3 inline-block font-display text-[0.55rem] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-[var(--border)] text-[var(--gold)]">
-                    {app.badge}
-                  </span>
-                </div>
+        {miniApps.map((app, i) => {
+          const title = t(`miniApps.${app.key}.title`);
+          const description = t(`miniApps.${app.key}.description`);
+          const badge = t(`miniApps.${app.key}.badge`);
 
-                {/* Content */}
-                <div className="p-5">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-display text-[1rem] font-semibold text-[var(--text-primary)] group-hover:text-[var(--gold)] transition-colors">
-                      {app.title}
-                    </h3>
-                    <motion.svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-[var(--text-dim)] group-hover:text-[var(--gold)] transition-colors"
-                    >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </motion.svg>
+          return (
+            <motion.div
+              key={app.key}
+              custom={i + 1}
+              variants={fadeUp}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              <Link href={app.href} className="group block">
+                <div className="void-panel overflow-hidden transition-all duration-300 group-hover:border-[var(--border-active)]">
+                  {/* Image preview */}
+                  <div className="relative aspect-video overflow-hidden bg-[var(--void-deep)]">
+                    <img
+                      src={app.image}
+                      alt={title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--void-surface)] via-transparent to-transparent opacity-60" />
+                    <span className="absolute top-3 left-3 inline-block font-display text-[0.55rem] font-semibold tracking-[0.12em] uppercase px-2.5 py-1 bg-black/60 backdrop-blur-sm border border-[var(--border)] text-[var(--gold)]">
+                      {badge}
+                    </span>
                   </div>
-                  <p className="text-[0.8rem] text-[var(--text-secondary)] leading-relaxed">
-                    {app.desc}
-                  </p>
+
+                  {/* Content */}
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-display text-[1rem] font-semibold text-[var(--text-primary)] group-hover:text-[var(--gold)] transition-colors">
+                        {title}
+                      </h3>
+                      <motion.svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-[var(--text-dim)] group-hover:text-[var(--gold)] transition-colors"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </motion.svg>
+                    </div>
+                    <p className="text-[0.8rem] text-[var(--text-secondary)] leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+              </Link>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
