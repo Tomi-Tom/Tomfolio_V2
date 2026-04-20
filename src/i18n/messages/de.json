@@ -1,4 +1,706 @@
 {
+  "common": {
+    "languageMenu": {
+      "label": "Sprache",
+      "current": "Aktuelle Sprache"
+    }
+  },
+  "statusBar": {
+    "brandShort": "TBP.DEV",
+    "availability": "Verfügbar für Projekte"
+  },
+  "chapterBar": {
+    "intro": "Intro",
+    "about": "Über mich",
+    "skills": "Fähigkeiten",
+    "services": "Leistungen",
+    "projects": "Projekte",
+    "testimonials": "Stimmen",
+    "playground": "Playground",
+    "contact": "Kontakt"
+  },
+  "hudFrame": {
+    "label": "HUD-Rahmen"
+  },
+  "footer": {
+    "label": "Ende",
+    "headingLight": "Lass uns",
+    "headingBold": "Erschaffen",
+    "tagline": "Verfügbar für freiberufliche Projekte, Kooperationen und Festanstellungen.",
+    "cta": "Kontakt aufnehmen",
+    "githubAria": "GitHub",
+    "linkedinAria": "LinkedIn",
+    "copyright": "© 2024 Tom Bariteau-Peter"
+  },
+  "hero": {
+    "label": "Portfolio",
+    "tagline": "UX-Designer & Entwickler",
+    "description": "Immersive digitale Erlebnisse an der Schnittstelle von Designpräzision und technischem Handwerk.",
+    "viewWork": "Arbeiten ansehen",
+    "downloadCV": "Lebenslauf",
+    "scroll": "Scrollen",
+    "stats": {
+      "technologies": { "label": "Technologien", "value": "20+" },
+      "experience": { "label": "Erfahrung", "value": "5J" },
+      "languages": { "label": "Sprachen", "value": "FR·EN" }
+    }
+  },
+  "about": {
+    "numbering": "01",
+    "label": "Über mich",
+    "quote": "Die Brücke zwischen schön und funktional.",
+    "bio1": "Ich bin UX/UI-Designer und Webentwickler in Paris und verbinde Designpräzision mit technischem Handwerk. Ich entwickle digitale Erlebnisse, die lebendig wirken — von interaktiven Web-Apps bis zu immersiven 3D-Oberflächen.",
+    "bio2": "Mit einer Ausbildung an der Epitech und über 5 Jahren Erfahrung in Designsystemen, Frontend-Entwicklung und Nutzerforschung schlage ich die Brücke zwischen schön und funktional.",
+    "currentLocation": "Derzeit in Paris ansässig, an der Schnittstelle von Designdenken und moderner Webtechnologie.",
+    "role": "UX / Dev",
+    "stats": {
+      "education": {
+        "label": "Ausbildung",
+        "value": "Epitech Paris"
+      },
+      "experience": {
+        "label": "Erfahrung",
+        "value": "5+ Jahre"
+      },
+      "languages": {
+        "label": "Sprachen",
+        "value": "FR / EN"
+      },
+      "location": {
+        "label": "Standort",
+        "value": "Paris, FR"
+      }
+    }
+  },
+  "skills": {
+    "numbering": "02",
+    "label": "Fähigkeiten",
+    "summary": "{count} Technologien und Werkzeuge im täglichen Einsatz.",
+    "categories": {
+      "frontend": {
+        "number": "01",
+        "label": "Frontend",
+        "description": "Responsive, performante und interaktive Oberflächen entwickeln."
+      },
+      "design": {
+        "number": "02",
+        "label": "Design",
+        "description": "Intuitive Erlebnisse und stimmige visuelle Systeme gestalten."
+      },
+      "backend": {
+        "number": "03",
+        "label": "Backend & Tools",
+        "description": "APIs, Datenbanken, Infrastruktur und Entwicklerwerkzeuge."
+      }
+    },
+    "exploring": {
+      "number": "04",
+      "label": "Aktuell im Fokus"
+    },
+    "skillCount": "{count, plural, one {# Fähigkeit} other {# Fähigkeiten}}"
+  },
+  "services": {
+    "label": "Leistungen",
+    "items": {
+      "uxDesign": {
+        "title": "UX / UI Design",
+        "description": "Nutzerzentrierte Oberflächen durch Recherche, Wireframing und iteratives Prototyping. Vom Designsystem bis zum produktionsreifen Mockup."
+      },
+      "webDev": {
+        "title": "Webentwicklung",
+        "description": "Performante, barrierefreie Webanwendungen mit modernen Frameworks — React, Next.js, TypeScript — und bewährter Architektur."
+      },
+      "threeDInteractive": {
+        "title": "3D & Interaktiv",
+        "description": "Immersive Erlebnisse mit Three.js und WebGL. Von dezenten Ambientszenen bis zu vollständig interaktiven 3D-Visualisierungen."
+      },
+      "consulting": {
+        "title": "Beratung & Audit",
+        "description": "Technische Audits, UX-Reviews und strategische Beratung zur Verbesserung von Performance, Barrierefreiheit und Nutzererlebnis Ihres Produkts."
+      }
+    },
+    "learnMore": "Mehr erfahren",
+    "pricing": {
+      "label": "Konditionen",
+      "discovery": {
+        "badge": "Empfohlen",
+        "caption": "Einstiegssatz",
+        "amount": "300",
+        "currency": "€",
+        "period": "/ Tag",
+        "description": "Vorzugspreis für unsere erste Zusammenarbeit. Ideal für ein Erstprojekt, Audit oder Proof of Concept.",
+        "features": {
+          "first": "Erstes gemeinsames Projekt",
+          "commitment": "Volles Engagement & Qualität",
+          "noFees": "Keine versteckten Kosten"
+        },
+        "cta": "Loslegen"
+      },
+      "standard": {
+        "badge": "Standard",
+        "caption": "Standardsatz",
+        "amount": "450",
+        "currency": "€",
+        "period": "/ Tag",
+        "description": "Standardtagessatz für laufende Projekte. Langfristige Partnerschaften und komplexe Entwicklungen.",
+        "features": {
+          "ongoing": "Laufende Zusammenarbeit",
+          "support": "Priorisierter Support",
+          "flexible": "Flexibler Einsatz"
+        },
+        "cta": "Kontakt"
+      }
+    }
+  },
+  "projects": {
+    "label": "Projekte",
+    "filterAll": "Alle",
+    "viewProject": "Projekt ansehen",
+    "github": "GitHub",
+    "live": "Live",
+    "items": {
+      "portfolio": {
+        "title": "Persönliches Portfolio — tombp.fr",
+        "description": "Modernes Portfolio mit Three.js-Drahtgittern, Scroll-Animationen und Void-&-Gold-Ästhetik."
+      },
+      "libertai": {
+        "title": "LibertAI — KI-Plattform",
+        "description": "Redesign der Unternehmenswebsite eines KI-Anbieters — moderne Markenpräsenz, responsiv, barrierefrei."
+      },
+      "chuckforever": {
+        "title": "Chuck Forever — Calendrier ACN",
+        "description": "Tribute-Site für Chuck Norris mit eigenem Kalendersystem, Countdown, Zitaten, Videos und Lore-Seiten."
+      },
+      "defidecon": {
+        "title": "Défi de Con",
+        "description": "Plattform für tägliche Challenges mit Streak-Tracking, Bestenlisten und Admin-Dashboard. Mit Next.js und Supabase entwickelt."
+      },
+      "codearena": {
+        "title": "Code Arena",
+        "description": "Plattform für kompetitives Programmieren mit Challenges in mehreren Schwierigkeitsstufen, Score-Tracking, Streaks und Bestenlisten."
+      },
+      "tomuiplayground": {
+        "title": "Tom UI Playground",
+        "description": "Browser-basierte UI-Entwicklungsumgebung mit Monaco-Editor, Live-Vorschau, Datei-Explorer und Konsole."
+      },
+      "pokerandom": {
+        "title": "Pokérandom — Starter-Generator",
+        "description": "Pokémon-Starter-Draft-Tool mit Solo-vs-KI-Modus, lokalem 2-Spieler-Draft, Team-Builder und Retro-Pixel-UI im Stil des DS-Pokédex."
+      },
+      "tomcraft": {
+        "title": "TomCraft",
+        "description": "Minecraft-inspirierte Voxel-Sandbox, von Grund auf entwickelt. Unendliche prozedurale Welten, 9 Biome, 20+ Mobs mit KI, Crafting und Survival-Gameplay."
+      },
+      "wolfenstom": {
+        "title": "Wolfenstom 3D",
+        "description": "Steampunk-FPS inspiriert von Wolfenstein 3D. Ray-Casting-Engine im Browser mit prozeduralen Karten und Steampunk-Waffen."
+      }
+    }
+  },
+  "contact": {
+    "label": "Kontakt",
+    "heading": "Lassen Sie uns etwas bauen",
+    "tagline": "Offen für neue Projekte, Kooperationen und spannende Gespräche.",
+    "form": {
+      "firstName": "Vorname",
+      "firstNamePlaceholder": "Max",
+      "lastName": "Nachname",
+      "lastNamePlaceholder": "Mustermann",
+      "email": "E-Mail",
+      "emailPlaceholder": "max@beispiel.de",
+      "phone": "Telefon",
+      "phonePlaceholder": "+49 30 0000000",
+      "message": "Nachricht",
+      "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt...",
+      "submit": "Nachricht senden",
+      "submitting": "Wird gesendet..."
+    },
+    "success": {
+      "title": "Nachricht gesendet",
+      "description": "Ich melde mich in Kürze bei Ihnen.",
+      "sendAnother": "Weitere Nachricht senden"
+    },
+    "error": {
+      "title": "Etwas ist schiefgelaufen",
+      "description": "Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt per E-Mail.",
+      "tryAgain": "Erneut versuchen"
+    },
+    "errors": {
+      "firstNameRequired": "Vorname ist erforderlich",
+      "lastNameRequired": "Nachname ist erforderlich",
+      "emailInvalid": "Bitte gültige E-Mail eingeben",
+      "messageMinLength": "Nachricht muss mindestens 10 Zeichen lang sein"
+    },
+    "info": {
+      "heading": "Kontaktdaten",
+      "emailLabel": "E-Mail",
+      "locationLabel": "Standort",
+      "locationValue": "Paris, Frankreich",
+      "coordinates": "48.8566° N, 2.3522° E",
+      "statusLabel": "Status",
+      "statusValue": "Offen für neue Projekte"
+    },
+    "coordinates": {
+      "caption": "Aktueller Standort",
+      "lat": "LAT",
+      "lng": "LNG",
+      "latValue": "48.8566°",
+      "lngValue": "2.3522°",
+      "timezone": "PARIS // MEZ (UTC+1)"
+    },
+    "socials": {
+      "heading": "Soziale Netzwerke",
+      "githubAria": "GitHub",
+      "linkedinAria": "LinkedIn"
+    }
+  },
+  "playground": {
+    "intro": {
+      "numbering": "06",
+      "label": "Playground",
+      "headingLight": "Interaktive",
+      "headingBold": "Experimente",
+      "description": "Mini-Apps zur Erkundung von UI-Mustern, Spiellogik und Produktivitätswerkzeugen — entwickelt mit React, Canvas und Framer Motion.",
+      "backToPlayground": "Zurück zum Playground",
+      "miniApps": {
+        "lifeGame": {
+          "title": "Spiel des Lebens",
+          "description": "Conways zellulärer Automat — Muster entwickeln sich",
+          "badge": "Spiel"
+        },
+        "memory": {
+          "title": "Memory",
+          "description": "Karten-Paarungs-Challenge mit 3 Schwierigkeitsstufen",
+          "badge": "Spiel"
+        },
+        "weather": {
+          "title": "Wetter-App",
+          "description": "Aktuelle Wetterlage weltweit",
+          "badge": "Utility"
+        },
+        "pomodoro": {
+          "title": "Pomodoro-Timer",
+          "description": "Fokuszeit-Management mit kreisförmigem Fortschritt",
+          "badge": "Utility"
+        },
+        "taskBreaker": {
+          "title": "Aufgabenzerleger",
+          "description": "Überfordernde Aufgaben in kleine Schritte zerlegen",
+          "badge": "ADHS-Werkzeug"
+        },
+        "moodTracker": {
+          "title": "Stimmungstracker",
+          "description": "Stimmung, Energie & Fokus mit Erkenntnissen verfolgen",
+          "badge": "ADHS-Werkzeug"
+        },
+        "typingTest": {
+          "title": "Tipptest",
+          "description": "WPM testen mit Echtzeit-Genauigkeitsmessung",
+          "badge": "Spiel"
+        },
+        "colorPalette": {
+          "title": "Farbpalette",
+          "description": "Harmonische Paletten in 5 Modi generieren",
+          "badge": "Design-Werkzeug"
+        },
+        "snake": {
+          "title": "Snake",
+          "description": "Klassisches Arcade-Spiel in Gold-Ästhetik",
+          "badge": "Spiel"
+        },
+        "whiteNoise": {
+          "title": "Ambient-Sounds",
+          "description": "8-Kanal-Mixer für weißes Rauschen zur tiefen Konzentration",
+          "badge": "Fokus-Werkzeug"
+        },
+        "pixelArt": {
+          "title": "Pixel-Art-Editor",
+          "description": "Pixelkunst zeichnen, füllen, rückgängig machen & exportieren",
+          "badge": "Kreativ"
+        }
+      }
+    },
+    "colorPalette": {
+      "category": "DESIGN-WERKZEUG",
+      "title": "Farbpaletten-Generator",
+      "modes": {
+        "random": "Zufällig",
+        "analogous": "Analog",
+        "complementary": "Komplementär",
+        "triadic": "Triadisch",
+        "monochromatic": "Monochrom"
+      },
+      "generate": "Generieren",
+      "savePalette": "Palette speichern",
+      "exportCSS": "CSS exportieren",
+      "spaceHint": "LEERTASTE drücken zum Generieren",
+      "savedPalettes": "Gespeicherte Paletten",
+      "lock": "Sperren",
+      "unlock": "Entsperren",
+      "toastCopied": "Kopiert!",
+      "toastSaved": "Palette gespeichert!",
+      "toastCssCopied": "CSS kopiert!"
+    },
+    "lifeGame": {
+      "category": "Spiel",
+      "title": "Spiel des Lebens",
+      "description": "Conways zellulärer Automat. Zellen anklicken, um Leben zu säen, dann Play drücken und beobachten, wie aus einfachen Regeln Komplexität entsteht.",
+      "play": "Start",
+      "pause": "Pause",
+      "step": "Schritt",
+      "reset": "Zurücksetzen",
+      "soup": "Suppe",
+      "generation": "Generation",
+      "population": "Population",
+      "density": "Dichte",
+      "grid": "Raster",
+      "speed": "Geschwindigkeit",
+      "cells": "Zellen"
+    },
+    "memory": {
+      "category": "SPIEL",
+      "title": "Memory",
+      "description": "Finde alle passenden Paare in möglichst wenigen Zügen.",
+      "difficulty": {
+        "easy": "leicht",
+        "medium": "mittel",
+        "hard": "schwer"
+      },
+      "turns": "ZÜGE",
+      "matches": "PAARE",
+      "newGame": "Neues Spiel",
+      "playAgain": "Nochmal spielen",
+      "close": "Schließen",
+      "win": {
+        "title": "Glückwunsch!",
+        "description": "Sie haben alle {pairs} Paare in {turns} Zügen gefunden."
+      }
+    },
+    "moodTracker": {
+      "category": "ADHS-WERKZEUG",
+      "title": "Stimmungs- & Energietracker",
+      "description": "Verfolgen Sie täglich Stimmung, Energie und Fokus, um Muster zu erkennen und Erkenntnisse zu gewinnen, die beim Umgang mit ADHS-Symptomen helfen.",
+      "calendarView": "Kalender",
+      "insightsView": "Erkenntnisse",
+      "addEntry": "+ Eintrag",
+      "addEntryShort": "Eintrag",
+      "noEntriesForDate": "Keine Einträge für dieses Datum.",
+      "weeklyAverages": "Wochendurchschnitt",
+      "noEntriesThisWeek": "Diese Woche noch keine Einträge.",
+      "activityFrequency": "Aktivitätshäufigkeit",
+      "yourAverages": "Ihre Durchschnitte",
+      "noEntriesYet": "Noch keine Einträge. Fügen Sie Tageseinträge hinzu, um Erkenntnisse zu sehen.",
+      "patternsInsights": "Muster & Erkenntnisse",
+      "needMoreEntries": "Mindestens 3 Einträge für Muster und Erkenntnisse hinzufügen.",
+      "activityImpact": "Auswirkung von Aktivitäten",
+      "noActivityImpact": "Noch keine Einträge. Fügen Sie Tageseinträge mit Aktivitäten hinzu, um deren Wirkung zu sehen.",
+      "noActivitiesRecorded": "Noch keine Aktivitäten erfasst.",
+      "metrics": {
+        "mood": "Stimmung",
+        "energy": "Energie",
+        "focus": "Fokus",
+        "averageMood": "Durchschnittliche Stimmung",
+        "averageEnergy": "Durchschnittliche Energie",
+        "averageFocus": "Durchschnittlicher Fokus"
+      },
+      "rangeLabels": {
+        "low": "Niedrig",
+        "neutral": "Neutral",
+        "high": "Hoch",
+        "moderate": "Mittel",
+        "distracted": "Abgelenkt",
+        "focused": "Fokussiert"
+      },
+      "metricLevel": "Stufe {value}/5",
+      "notes": "Notizen",
+      "notesOptional": "Notizen (optional)",
+      "notesPlaceholder": "Weitere Gedanken zum Tag...",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "newEntry": "Neuer Eintrag",
+      "editEntry": "Eintrag bearbeiten",
+      "saveEntry": "Eintrag speichern",
+      "updateEntry": "Eintrag aktualisieren",
+      "tagsHeading": "Tags — Wie haben Sie sich gefühlt?",
+      "activitiesHeading": "Aktivitäten — Was haben Sie gemacht?",
+      "deleteEntryTitle": "Eintrag löschen?",
+      "deleteEntryConfirm": "Möchten Sie diesen Eintrag wirklich löschen? Dies kann nicht rückgängig gemacht werden.",
+      "tableHeaders": {
+        "activity": "Aktivität",
+        "count": "Anzahl",
+        "mood": "Stimmung",
+        "energy": "Energie",
+        "focus": "Fokus"
+      },
+      "moodLevels": {
+        "veryLow": "Sehr niedrig",
+        "low": "Niedrig",
+        "neutral": "Neutral",
+        "good": "Gut",
+        "great": "Super"
+      },
+      "energyLevels": {
+        "exhausted": "Erschöpft",
+        "low": "Niedrig",
+        "moderate": "Mittel",
+        "energetic": "Energiegeladen",
+        "veryHigh": "Sehr hoch"
+      },
+      "focusLevels": {
+        "veryDistracted": "Sehr abgelenkt",
+        "distracted": "Abgelenkt",
+        "moderate": "Mittel",
+        "focused": "Fokussiert",
+        "hyperfocused": "Hyperfokussiert"
+      },
+      "activities": {
+        "exercise": "Sport",
+        "meditation": "Meditation",
+        "work": "Arbeit/Lernen",
+        "social": "Soziales",
+        "nature": "Natur",
+        "reading": "Lesen",
+        "gaming": "Gaming",
+        "music": "Musik",
+        "creative": "Kreativ",
+        "sleep": "Guter Schlaf",
+        "meds": "Medikamente",
+        "nutrition": "Ernährung"
+      },
+      "tags": {
+        "overwhelmed": "Überfordert",
+        "anxious": "Ängstlich",
+        "creative": "Kreativ",
+        "productive": "Produktiv",
+        "calm": "Ruhig",
+        "frustrated": "Frustriert",
+        "motivated": "Motiviert",
+        "tired": "Müde",
+        "hyperfocus": "Hyperfokus",
+        "distracted": "Abgelenkt",
+        "procrastinating": "Aufschiebend",
+        "happy": "Glücklich",
+        "stressed": "Gestresst",
+        "excited": "Begeistert"
+      },
+      "insights": {
+        "needMore": "Mehr Einträge hinzufügen, um Muster und Erkenntnisse zu sehen",
+        "topStates": "Ihre häufigsten Zustände sind: {tags}",
+        "positiveActivities": "Aktivitäten, die Ihr Wohlbefinden steigern: {activities}",
+        "lowEnergy": "Sie haben offenbar mehr energiearme Tage. Erwägen Sie Strategien zum Energiemanagement.",
+        "lowFocus": "Ihre Fokuswerte tendieren eher niedrig. Erkunden Sie Strategien zur Aufmerksamkeit.",
+        "consistentTracking": "Konsequentes Tracking offenbart mit der Zeit weitere Muster und Erkenntnisse"
+      }
+    },
+    "pixelArt": {
+      "category": "KREATIV",
+      "title": "Pixel-Art-Editor",
+      "tools": {
+        "draw": "Zeichnen",
+        "erase": "Radieren",
+        "fill": "Füllen",
+        "pick": "Farbe wählen"
+      },
+      "showGrid": "Raster zeigen",
+      "hideGrid": "Raster ausblenden",
+      "undo": "Rückgängig",
+      "redo": "Wiederherstellen",
+      "clear": "Leeren",
+      "confirm": "Bestätigen",
+      "cancel": "Abbrechen",
+      "exportPng": "PNG exportieren",
+      "palette": "Palette",
+      "customColor": "Eigene Farbe",
+      "active": "Aktiv"
+    },
+    "pomodoro": {
+      "category": "UTILITY",
+      "title": "Pomodoro-Timer",
+      "description": "Bleiben Sie fokussiert und produktiv mit getakteten Arbeitsphasen und geplanten Pausen. Vier Fokus-Runden für eine lange Pause.",
+      "modes": {
+        "focus": "Fokus",
+        "shortBreak": "Kurze Pause",
+        "longBreak": "Lange Pause"
+      },
+      "start": "Start",
+      "pause": "Pause",
+      "reset": "Zurücksetzen",
+      "skip": "Überspringen",
+      "stats": {
+        "label": "STATISTIK",
+        "completed": "{count, plural, one {Pomodoro abgeschlossen} other {Pomodoros abgeschlossen}}",
+        "currentMode": "Aktueller Modus",
+        "fullCycle": "Voller Zyklus",
+        "minutesAbbrev": "Min."
+      },
+      "settings": {
+        "label": "EINSTELLUNGEN",
+        "title": "Timer-Dauer",
+        "rangeHint": "Dauer in Minuten festlegen (1 – 120)",
+        "focusDuration": "Fokus-Dauer",
+        "shortBreak": "Kurze Pause",
+        "longBreak": "Lange Pause",
+        "save": "Speichern",
+        "cancel": "Abbrechen",
+        "openAria": "Einstellungen öffnen",
+        "focusShort": "Fokus",
+        "shortShort": "Kurz",
+        "longShort": "Lang",
+        "longBreakInterval": "Lange Pause alle {interval} Fokus-Sitzungen"
+      }
+    },
+    "snake": {
+      "category": "SPIEL",
+      "title": "Snake",
+      "stats": {
+        "score": "Punkte",
+        "best": "Best",
+        "speed": "Tempo"
+      },
+      "startHint": "LEERTASTE drücken oder tippen zum Start",
+      "controlsHint": "Pfeiltasten / WASD zum Steuern",
+      "paused": "Pausiert",
+      "gameOver": "Game Over",
+      "playAgain": "Nochmal spielen",
+      "play": "START",
+      "pause": "PAUSE",
+      "footerHint": "LEERTASTE pausiert · Pfeiltasten oder WASD steuern"
+    },
+    "taskBreaker": {
+      "category": "ADHS-WERKZEUG",
+      "title": "Aufgabenzerleger",
+      "description": "Überfordernde Aufgaben in kleine, machbare Schritte zerlegen. Schritt für Schritt abhaken und Fortschritt sehen.",
+      "tasksCompleted": "{completed} / {total} Aufgaben erledigt",
+      "completionRate": "Abschlussrate: {rate}%",
+      "myTasks": "Meine Aufgaben",
+      "newTask": "Neue Aufgabe",
+      "filters": {
+        "all": "alle",
+        "active": "aktiv",
+        "completed": "erledigt"
+      },
+      "noTasks": "Noch keine Aufgaben.",
+      "createFirstTask": "Erste Aufgabe erstellen",
+      "completed": "Erledigt",
+      "addSteps": "+ Schritte",
+      "delete": "Löschen",
+      "progress": "Fortschritt",
+      "noStepsYet": "Noch keine Schritte. Zerlegen Sie diese Aufgabe in kleinere Teile!",
+      "addStepsCta": "Schritte hinzufügen",
+      "selectTaskHint": "Wählen Sie eine Aufgabe aus der Liste oder erstellen Sie eine neue.",
+      "createTask": "Aufgabe erstellen",
+      "tipsHeading": "Tipps",
+      "tips": {
+        "smallSteps": "Aufgaben in Schritte von 5–15 Minuten zerlegen.",
+        "easiestFirst": "Mit dem einfachsten Schritt beginnen, um Schwung zu bekommen.",
+        "breakDownFurther": "Wirkt ein Schritt zu groß, weiter zerlegen.",
+        "celebrate": "Jedes Häkchen feiern — Fortschritt bleibt Fortschritt.",
+        "reorder": "Schritte so ordnen, dass die nächste Aktion oben steht."
+      },
+      "newTaskModal": {
+        "title": "Neue Aufgabe",
+        "taskTitleLabel": "Aufgabentitel",
+        "taskTitlePlaceholder": "z. B. Startseite neu gestalten",
+        "cancel": "Abbrechen",
+        "create": "Erstellen"
+      },
+      "addStepsModal": {
+        "title": "Schritte hinzufügen",
+        "single": "Einzeln",
+        "bulk": "Sammel (einer pro Zeile)",
+        "stepLabel": "Schritt",
+        "stepPlaceholder": "z. B. Wireframes skizzieren",
+        "stepsLabel": "Schritte",
+        "stepsPlaceholder": "Schritt eins\nSchritt zwei\nSchritt drei",
+        "cancel": "Abbrechen",
+        "add": "Hinzufügen"
+      },
+      "moveUpAria": "Nach oben",
+      "moveDownAria": "Nach unten",
+      "deleteStepAria": "Schritt löschen",
+      "markCompleteAria": "Als erledigt markieren",
+      "markIncompleteAria": "Als offen markieren",
+      "moreSteps": "+{count} weitere…"
+    },
+    "typingTest": {
+      "category": "SPIEL",
+      "title": "Tipptest",
+      "durationSeconds": "{seconds}s",
+      "keyFx": "Tasten-FX",
+      "keyFxAria": "Tastendruck-Feedback umschalten",
+      "startHint": "Mit Tippen beginnen...",
+      "wpm": "WPM",
+      "accuracy": "Genauigkeit",
+      "timeLeft": "Restzeit",
+      "charactersTyped": "{count} Zeichen getippt",
+      "results": "ERGEBNISSE",
+      "wordsPerMinute": "Wörter pro Minute",
+      "characters": "Zeichen",
+      "newPersonalBest": "NEUE BESTLEISTUNG!",
+      "firstScore": "ERSTER WERT ERFASST!",
+      "bestScore": "Best: {wpm} WPM",
+      "newGame": "Neues Spiel"
+    },
+    "weather": {
+      "category": "UTILITY",
+      "title": "Wetter-App",
+      "description": "Aktuelle Wetterlage weltweit prüfen. Lieblingsorte für schnellen Zugriff speichern.",
+      "searchPlaceholder": "Stadt suchen...",
+      "search": "Suchen",
+      "localTime": "Ortszeit: {time}",
+      "removeFromSaved": "Aus Favoriten entfernen",
+      "saveLocation": "Ort speichern",
+      "humidity": "Luftfeuchtigkeit",
+      "wind": "Wind",
+      "savedLocations": "Gespeicherte Orte",
+      "noSavedLocationsLine1": "Noch keine gespeicherten Orte.",
+      "noSavedLocationsLine2": "Markieren Sie eine Stadt mit einem Stern.",
+      "remove": "Entfernen"
+    },
+    "whiteNoise": {
+      "category": "FOKUS-WERKZEUG",
+      "title": "Ambient-Sounds",
+      "description": "Klanglandschaften mischen für die perfekte Fokus-Umgebung. Einzelne Kanäle anpassen und in den Flow finden.",
+      "play": "Start",
+      "stop": "Stopp",
+      "playing": "Läuft",
+      "stopped": "Gestoppt",
+      "channelsActive": "{count, plural, one {# Kanal aktiv} other {# Kanäle aktiv}}",
+      "timer": "Timer",
+      "timerMinutes": "{minutes}m",
+      "remaining": "{time} verbleibend",
+      "master": "Master",
+      "masterAria": "Master-Lautstärke",
+      "presets": "Presets",
+      "presetLabels": {
+        "deepFocus": "Tiefer Fokus",
+        "rainyDay": "Regentag",
+        "natureWalk": "Naturspaziergang",
+        "cozyEvening": "Gemütlicher Abend"
+      },
+      "channels": {
+        "rain": "Regen",
+        "thunder": "Donner",
+        "ocean": "Meereswellen",
+        "forest": "Wald",
+        "fire": "Knisterndes Feuer",
+        "wind": "Wind",
+        "birds": "Vögel",
+        "coffee": "Café"
+      },
+      "channelVolumeAria": "Lautstärke {name}",
+      "savedMixes": "Gespeicherte Mixe",
+      "saveCurrentMix": "Aktuellen Mix speichern",
+      "noSavedMixes": "Noch keine gespeicherten Mixe. Erstellen Sie Ihre perfekte Mischung und speichern Sie sie.",
+      "saveMixModalTitle": "Mix speichern",
+      "mixNamePlaceholder": "Mix-Name...",
+      "cancel": "Abbrechen",
+      "save": "Speichern",
+      "deleteMixAria": "{name} löschen"
+    }
+  },
   "loveTimer": {
     "loading": "WIRD GELADEN...",
     "brand": "TBP.DEV",
@@ -25,6 +727,14 @@
     "home": {
       "title": "Tom Bariteau-Peter — UX-Designer & Entwickler",
       "description": "Portfolio von Tom Bariteau-Peter, UX/UI-Designer und Webentwickler mit Sitz in Paris. Entwicklung immersiver digitaler Erlebnisse."
+    },
+    "playground": {
+      "title": "Playground — Tom Bariteau-Peter",
+      "description": "Interaktive Mini-Apps und Experimente von Tom Bariteau-Peter."
+    },
+    "loveTimer": {
+      "title": "Love Timer",
+      "description": "Ein kleiner Liebes-Timer."
     }
   }
 }
