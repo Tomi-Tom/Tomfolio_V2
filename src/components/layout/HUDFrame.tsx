@@ -9,7 +9,11 @@ export function HUDFrame() {
   };
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40" aria-label={t("label")}>
+    <div
+      role="img"
+      aria-label={t("label")}
+      className="pointer-events-none fixed inset-0 z-40"
+    >
       {/* Top-left */}
       <div
         className="absolute top-4 left-4 border-l-[1.5px] border-t-[1.5px]"

@@ -10,7 +10,7 @@ export function Footer() {
         <SectionLabel>{t("label")}</SectionLabel>
 
         <h2 className="mt-6 text-2xl sm:text-4xl md:text-5xl font-display tracking-tight">
-          <span className="font-light text-[var(--text-primary)]">{t("headingLight")}</span>
+          <span className="font-light text-[var(--text-primary)]">{t("headingLight")}</span>{" "}
           <span className="font-bold text-[var(--text-primary)]">
             {t("headingBold")}<span className="text-[var(--gold)]">.</span>
           </span>
