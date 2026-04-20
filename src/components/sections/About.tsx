@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { VoidPanel } from "@/components/ui/VoidPanel";
@@ -18,86 +19,73 @@ const fadeUp = {
   }),
 };
 
-const stats = [
-  {
-    value: "Epitech Paris",
-    label: "Education",
-    icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" />
-      </svg>
-    ),
-  },
-  {
-    value: "5+ Years",
-    label: "Experience",
-    icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-  },
-  {
-    value: "FR / EN",
-    label: "Languages",
-    icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-      </svg>
-    ),
-  },
-  {
-    value: "Paris, FR",
-    label: "Location",
-    icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-        <circle cx="12" cy="10" r="3" />
-      </svg>
-    ),
-  },
-];
+const statKeys = ["education", "experience", "languages", "location"] as const;
+
+const statIcons: Record<(typeof statKeys)[number], JSX.Element> = {
+  education: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+      <path d="M6 12v5c0 1.1 2.7 3 6 3s6-1.9 6-3v-5" />
+    </svg>
+  ),
+  experience: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  ),
+  languages: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+    </svg>
+  ),
+  location: (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  ),
+};
 
 export function About() {
+  const t = useTranslations("about");
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
 
@@ -121,9 +109,9 @@ export function About() {
         {/* Section Label + Numbering */}
         <motion.div custom={0} variants={fadeUp} className="flex items-center gap-4">
           <span className="font-display text-[0.7rem] text-gold tracking-[0.3em] uppercase opacity-60">
-            01
+            {t("numbering")}
           </span>
-          <SectionLabel>About</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
         </motion.div>
 
         {/* Quote tagline */}
@@ -132,7 +120,7 @@ export function About() {
           variants={fadeUp}
           className="mt-6 font-display text-lg md:text-xl text-text-secondary font-light italic tracking-wide"
         >
-          &ldquo;Bridging the gap between what looks right and what works right.&rdquo;
+          &ldquo;{t("quote")}&rdquo;
         </motion.p>
 
         {/* Gold accent line */}
@@ -161,7 +149,7 @@ export function About() {
             {/* Floating label */}
             <div className="absolute -bottom-2 -right-2 bg-[var(--void-deep)] border border-[var(--gold-dim)] px-3 py-1">
               <span className="font-display text-[0.6rem] uppercase tracking-[0.2em] text-gold">
-                UX / Dev
+                {t("role")}
               </span>
             </div>
           </motion.div>
@@ -173,9 +161,7 @@ export function About() {
               variants={fadeUp}
               className="text-text-secondary leading-[1.8] text-[0.95rem]"
             >
-              I&apos;m a UX/UI designer and web developer based in Paris, combining design precision
-              with technical craft. I build digital experiences that feel alive — from interactive
-              web apps to immersive 3D interfaces.
+              {t("bio1")}
             </motion.p>
 
             <motion.p
@@ -183,9 +169,7 @@ export function About() {
               variants={fadeUp}
               className="text-text-secondary leading-[1.8] text-[0.95rem]"
             >
-              With a background at Epitech and 5+ years of experience across design systems,
-              front-end development, and user research, I bridge the gap between what looks right
-              and what works right.
+              {t("bio2")}
             </motion.p>
 
             <motion.p
@@ -193,8 +177,7 @@ export function About() {
               variants={fadeUp}
               className="text-text-dim text-sm leading-relaxed border-l-2 border-[var(--gold-dim)] pl-4 italic"
             >
-              Currently based in Paris, working at the intersection of design thinking and modern
-              web technology.
+              {t("currentLocation")}
             </motion.p>
           </div>
         </div>
@@ -205,12 +188,14 @@ export function About() {
           variants={fadeUp}
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
-          {stats.map((stat) => (
-            <VoidPanel key={stat.label} hoverable className="p-5 flex flex-col gap-3">
-              <span className="text-gold opacity-60">{stat.icon}</span>
-              <p className="font-display font-bold text-base text-text-primary">{stat.value}</p>
+          {statKeys.map((key) => (
+            <VoidPanel key={key} hoverable className="p-5 flex flex-col gap-3">
+              <span className="text-gold opacity-60">{statIcons[key]}</span>
+              <p className="font-display font-bold text-base text-text-primary">
+                {t(`stats.${key}.value`)}
+              </p>
               <p className="text-[0.65rem] uppercase tracking-[0.2em] text-text-dim">
-                {stat.label}
+                {t(`stats.${key}.label`)}
               </p>
             </VoidPanel>
           ))}
