@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -136,6 +137,7 @@ function MemoryCard({
 /* ------------------------------------------------------------------ */
 
 export default function MemoryGamePage() {
+  const t = useTranslations("playground.memory");
   const [difficulty, setDifficulty] = useState<Difficulty>("easy");
   const [cards, setCards] = useState<Card[]>([]);
   const [flippedIds, setFlippedIds] = useState<number[]>([]);
@@ -223,12 +225,12 @@ export default function MemoryGamePage() {
       <div className="mx-auto max-w-3xl space-y-10">
         {/* Header */}
         <div className="text-center space-y-3">
-          <SectionLabel>GAME</SectionLabel>
+          <SectionLabel>{t("category")}</SectionLabel>
           <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-primary)]">
-            Memory Game
+            {t("title")}
           </h2>
           <p className="text-[var(--text-secondary)] text-sm max-w-md mx-auto">
-            Find all matching pairs in as few turns as possible.
+            {t("description")}
           </p>
         </div>
 
@@ -241,7 +243,7 @@ export default function MemoryGamePage() {
               onClick={() => setDifficulty(d)}
               className="capitalize"
             >
-              {d}
+              {t(`difficulty.${d}`)}
             </Button>
           ))}
         </div>
@@ -250,13 +252,13 @@ export default function MemoryGamePage() {
         <VoidPanel hoverable={false} className="flex justify-center gap-12 py-5">
           <div className="text-center">
             <p className="text-[var(--gold)] font-display text-2xl">{turns}</p>
-            <SectionLabel className="mt-1">TURNS</SectionLabel>
+            <SectionLabel className="mt-1">{t("turns")}</SectionLabel>
           </div>
           <div className="text-center">
             <p className="text-[var(--gold)] font-display text-2xl">
               {matches}/{PAIR_COUNTS[difficulty]}
             </p>
-            <SectionLabel className="mt-1">MATCHES</SectionLabel>
+            <SectionLabel className="mt-1">{t("matches")}</SectionLabel>
           </div>
         </VoidPanel>
 
@@ -277,7 +279,7 @@ export default function MemoryGamePage() {
         {/* New game button */}
         <div className="flex justify-center">
           <Button variant="ghost-gold" onClick={resetGame}>
-            New Game
+            {t("newGame")}
           </Button>
         </div>
       </div>
@@ -304,18 +306,20 @@ export default function MemoryGamePage() {
                 {/* Gold gradient accent bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent" />
 
-                <h3 className="font-display text-2xl text-[var(--gold)]">Congratulations!</h3>
+                <h3 className="font-display text-2xl text-[var(--gold)]">{t("win.title")}</h3>
                 <p className="text-[var(--text-secondary)] text-sm">
-                  You found all {PAIR_COUNTS[difficulty]} pairs in{" "}
-                  <span className="text-[var(--gold)] font-semibold">{turns}</span> turns.
+                  {t("win.description", {
+                    pairs: PAIR_COUNTS[difficulty],
+                    turns,
+                  })}
                 </p>
 
                 <div className="flex justify-center gap-3 pt-2">
                   <Button variant="gold" onClick={resetGame}>
-                    Play Again
+                    {t("playAgain")}
                   </Button>
                   <Button variant="ghost-gold" onClick={() => setWon(false)}>
-                    Close
+                    {t("close")}
                   </Button>
                 </div>
               </VoidPanel>
