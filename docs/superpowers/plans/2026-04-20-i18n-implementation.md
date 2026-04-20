@@ -271,7 +271,7 @@ Visit:
 - `http://localhost:3000/` → main portfolio renders (English, no visual change)
 - `http://localhost:3000/playground/snake` → snake game renders
 - `http://localhost:3000/love-timer` → love timer renders
-- `http://localhost:3000/fr/` → renders in English (no FR translations yet) but URL stays `/fr/`
+- `http://localhost:3000/fr/` → URL stays `/fr/`. **Note:** `next-intl` v3 throws in dev when keys are missing. Since `fr.json` doesn't exist yet, `/fr/` will error in dev until Task 15 fills it in. To unblock dev smoke checks earlier, you can temporarily duplicate `en.json` content into the other locale files (or set `getMessageFallback` in `request.ts` to return the key string). Either way is acceptable; the production build is unaffected because no component yet calls `useTranslations`.
 - `http://localhost:3000/jp/` → 404 (unsupported locale)
 
 Stop the dev server.
@@ -575,13 +575,14 @@ git commit -m "feat(i18n): populate en.json with complete UI string tree"
 
 ---
 
-## Task 7: Wire EN translations into layout chrome (StatusBar, ChapterBar, Footer, HUDFrame)
+## Task 7: Wire EN translations into layout chrome (StatusBar, ChapterBar, Footer, HUDFrame, Playground layout)
 
 **Files:**
 - Modify: `src/components/layout/StatusBar.tsx`
 - Modify: `src/components/layout/ChapterBar.tsx`
 - Modify: `src/components/layout/Footer.tsx`
 - Modify: `src/components/layout/HUDFrame.tsx`
+- Modify: `src/app/[locale]/playground/layout.tsx` (contains the hardcoded "Back to Playground" link — translate via `useTranslations("playground.intro")` using key `backToPlayground`; add the key to `en.json` if missing)
 
 For each file:
 
