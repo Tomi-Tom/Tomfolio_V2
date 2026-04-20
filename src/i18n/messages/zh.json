@@ -40,9 +40,18 @@
     "downloadCV": "下载简历",
     "scroll": "滚动",
     "stats": {
-      "technologies": { "label": "技术", "value": "20+" },
-      "experience": { "label": "经验", "value": "5 年" },
-      "languages": { "label": "语言", "value": "FR·EN" }
+      "technologies": {
+        "label": "技术",
+        "value": "20+"
+      },
+      "experience": {
+        "label": "经验",
+        "value": "5 年"
+      },
+      "languages": {
+        "label": "语言",
+        "value": "FR·EN"
+      }
     }
   },
   "about": {
@@ -702,31 +711,31 @@
     }
   },
   "loveTimer": {
-    "loading": "LOADING...",
+    "loading": "正在加载...",
     "brand": "TBP.DEV",
-    "defaultTitle": "Countdown",
-    "defaultMessage": "Every second counts",
-    "days": "DAYS",
-    "timeUnits": "HOURS : MINS : SECS",
-    "easterEgg": "You really love clicking! {count} clicks!",
-    "hint": "Press and hold the card to show your love!",
+    "defaultTitle": "倒计时",
+    "defaultMessage": "每一秒都很重要",
+    "days": "天",
+    "timeUnits": "小时 : 分钟 : 秒",
+    "easterEgg": "你真的很喜欢点击！{count} 次点击！",
+    "hint": "按住卡片以显示你的爱！",
     "quotes": {
-      "cuddles": "Counting down to our cuddles!",
-      "together": "Soon we'll be together again!",
-      "distance": "Distance is temporary, love is forever!",
-      "closer": "Every second brings us closer!",
-      "hug": "Can't wait to hug you tight!"
+      "cuddles": "倒计时到我们的拥抱！",
+      "together": "很快我们就会重聚！",
+      "distance": "距离是短暂的，爱是永恒的！",
+      "closer": "每一秒都让我们更接近！",
+      "hug": "等不及要紧紧拥抱你了！"
     }
   },
   "notFound": {
     "code": "404",
-    "message": "This page doesn't exist.",
-    "backHome": "Back to Home"
+    "message": "此页面不存在。",
+    "backHome": "返回主页"
   },
   "metadata": {
     "home": {
-      "title": "Tom Bariteau-Peter — UX Designer & Developer",
-      "description": "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Paris. Crafting immersive digital experiences."
+      "title": "Tom Bariteau-Peter — 用户体验设计师与开发者",
+      "description": "Tom Bariteau-Peter 的作品集，巴黎的 UX/UI 设计师与网页开发者。打造沉浸式数字体验。"
     },
     "playground": {
       "title": "实验场 — Tom Bariteau-Peter",
