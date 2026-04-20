@@ -40,11 +40,9 @@
     "downloadCV": "Download CV",
     "scroll": "Scroll",
     "stats": {
-      "technologies": "Technologies",
-      "experience": "Experience",
-      "languages": "Languages",
-      "experienceValue": "5yr",
-      "languagesValue": "FR·EN"
+      "technologies": { "label": "Technologies", "value": "20+" },
+      "experience": { "label": "Experience", "value": "5yr" },
+      "languages": { "label": "Languages", "value": "FR·EN" }
     }
   },
   "about": {
@@ -99,8 +97,7 @@
       "number": "04",
       "label": "Currently Exploring"
     },
-    "skillCount": "{count} skill",
-    "skillCountPlural": "{count} skills"
+    "skillCount": "{count, plural, one {# skill} other {# skills}}"
   },
   "services": {
     "label": "Services",
@@ -259,7 +256,8 @@
   },
   "playground": {
     "intro": {
-      "label": "06 — Playground",
+      "numbering": "06",
+      "label": "Playground",
       "headingLight": "Interactive",
       "headingBold": "Experiments",
       "description": "Mini-applications exploring UI patterns, game logic, and productivity tools — built with React, Canvas, and Framer Motion.",
@@ -532,8 +530,7 @@
       "skip": "Skip",
       "stats": {
         "label": "STATS",
-        "completedSingular": "pomodoro completed",
-        "completedPlural": "pomodoros completed",
+        "completed": "{count, plural, one {pomodoro completed} other {pomodoros completed}}",
         "currentMode": "Current Mode",
         "fullCycle": "Full Cycle",
         "minutesAbbrev": "min"
@@ -670,8 +667,7 @@
       "stop": "Stop",
       "playing": "Playing",
       "stopped": "Stopped",
-      "channelsActiveSingular": "{count} channel active",
-      "channelsActivePlural": "{count} channels active",
+      "channelsActive": "{count, plural, one {# channel active} other {# channels active}}",
       "timer": "Timer",
       "timerMinutes": "{minutes}m",
       "remaining": "{time} remaining",
@@ -730,7 +726,7 @@
   "metadata": {
     "home": {
       "title": "Tom Bariteau-Peter — UX Designer & Developer",
-      "description": "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Seoul. Crafting immersive digital experiences."
+      "description": "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Paris. Crafting immersive digital experiences."
     },
     "playground": {
       "title": "Playground — Tom Bariteau-Peter",
