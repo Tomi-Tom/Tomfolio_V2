@@ -20,5 +20,11 @@
     "code": "404",
     "message": "이 페이지는 존재하지 않습니다.",
     "backHome": "홈으로 돌아가기"
+  },
+  "metadata": {
+    "home": {
+      "title": "Tom Bariteau-Peter — UX 디자이너 & 개발자",
+      "description": "파리를 기반으로 활동하는 UX/UI 디자이너 겸 웹 개발자 Tom Bariteau-Peter의 포트폴리오. 몰입형 디지털 경험을 만듭니다."
+    }
   }
 }

@@ -1,32 +1,57 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import "../globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { routing, type Locale } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  title: "Tom Bariteau-Peter — UX Designer & Developer",
-  description:
-    "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Seoul. Crafting immersive digital experiences.",
-  icons: {
-    icon: { url: "/favicon.svg", type: "image/svg+xml" },
-  },
-  openGraph: {
-    title: "Tom Bariteau-Peter — UX Designer & Developer",
-    description:
-      "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Seoul.",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tom Bariteau-Peter — UX Designer & Developer",
-    description:
-      "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Seoul.",
-  },
+const OG_LOCALE: Record<string, string> = {
+  en: "en_US",
+  fr: "fr_FR",
+  es: "es_ES",
+  de: "de_DE",
+  zh: "zh_CN",
+  ko: "ko_KR",
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata.home" });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" } },
+    alternates: {
+      canonical: locale === "en" ? "/" : `/${locale}`,
+      languages: {
+        en: "/",
+        fr: "/fr",
+        es: "/es",
+        de: "/de",
+        zh: "/zh",
+        ko: "/ko",
+        "x-default": "/",
+      },
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      type: "website",
+      locale: OG_LOCALE[locale] ?? "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

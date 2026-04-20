@@ -20,5 +20,11 @@
     "code": "404",
     "message": "此页面不存在。",
     "backHome": "返回主页"
+  },
+  "metadata": {
+    "home": {
+      "title": "Tom Bariteau-Peter — 用户体验设计师与开发者",
+      "description": "Tom Bariteau-Peter 的作品集，巴黎的 UX/UI 设计师与网页开发者。打造沉浸式数字体验。"
+    }
   }
 }

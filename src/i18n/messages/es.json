@@ -20,5 +20,11 @@
     "code": "404",
     "message": "Esta página no existe.",
     "backHome": "Volver al inicio"
+  },
+  "metadata": {
+    "home": {
+      "title": "Tom Bariteau-Peter — Diseñador UX y Desarrollador",
+      "description": "Portfolio de Tom Bariteau-Peter, diseñador UX/UI y desarrollador web con base en París. Creando experiencias digitales inmersivas."
+    }
   }
 }
