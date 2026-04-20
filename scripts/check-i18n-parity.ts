@@ -26,8 +26,8 @@ for (const locale of LOCALES) {
   const data = JSON.parse(fs.readFileSync(path.join(MESSAGES_DIR, `${locale}.json`), "utf8"));
   const keys = new Set(flattenKeys(data));
 
-  const missing = [...enKeys].filter((k) => !keys.has(k));
-  const extra = [...keys].filter((k) => !enKeys.has(k));
+  const missing = Array.from(enKeys).filter((k) => !keys.has(k));
+  const extra = Array.from(keys).filter((k) => !enKeys.has(k));
 
   if (missing.length || extra.length) {
     hasError = true;
