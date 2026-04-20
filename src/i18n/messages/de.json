@@ -1,1 +1,24 @@
-{}
+{
+  "loveTimer": {
+    "loading": "WIRD GELADEN...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "Countdown",
+    "defaultMessage": "Jede Sekunde zählt",
+    "days": "TAGE",
+    "timeUnits": "STUNDEN : MINUTEN : SEKUNDEN",
+    "easterEgg": "Du liebst wirklich zu klicken! {count} Klicks!",
+    "hint": "Drücke und halte die Karte gedrückt, um deine Liebe zu zeigen!",
+    "quotes": {
+      "cuddles": "Countdown zu unseren Umarmungen!",
+      "together": "Bald sind wir wieder zusammen!",
+      "distance": "Entfernung ist vorübergehend, Liebe ist ewig!",
+      "closer": "Jede Sekunde bringt uns näher!",
+      "hug": "Ich kann es kaum erwarten, dich fest zu umarmen!"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "Diese Seite existiert nicht.",
+    "backHome": "Zurück zur Startseite"
+  }
+}

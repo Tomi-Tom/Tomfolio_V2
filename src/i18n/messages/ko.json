@@ -1,1 +1,24 @@
-{}
+{
+  "loveTimer": {
+    "loading": "로딩 중...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "카운트다운",
+    "defaultMessage": "모든 순간이 소중합니다",
+    "days": "일",
+    "timeUnits": "시간 : 분 : 초",
+    "easterEgg": "정말 클릭을 좋아하네요! {count}번 클릭!",
+    "hint": "카드를 누르고 있어서 당신의 사랑을 보여주세요!",
+    "quotes": {
+      "cuddles": "우리의 포옹까지 카운트다운!",
+      "together": "곧 다시 함께할 거예요!",
+      "distance": "거리는 일시적이지만 사랑은 영원합니다!",
+      "closer": "매 순간이 우리를 더 가깝게 합니다!",
+      "hug": "당신을 꼭 안아주고 싶어요!"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "이 페이지는 존재하지 않습니다.",
+    "backHome": "홈으로 돌아가기"
+  }
+}

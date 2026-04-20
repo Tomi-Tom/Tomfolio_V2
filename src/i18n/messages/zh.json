@@ -1,1 +1,24 @@
-{}
+{
+  "loveTimer": {
+    "loading": "正在加载...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "倒计时",
+    "defaultMessage": "每一秒都很重要",
+    "days": "天",
+    "timeUnits": "小时 : 分钟 : 秒",
+    "easterEgg": "你真的很喜欢点击！{count} 次点击！",
+    "hint": "按住卡片以显示你的爱！",
+    "quotes": {
+      "cuddles": "倒计时到我们的拥抱！",
+      "together": "很快我们就会重聚！",
+      "distance": "距离是短暂的，爱是永恒的！",
+      "closer": "每一秒都让我们更接近！",
+      "hug": "等不及要紧紧拥抱你了！"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "此页面不存在。",
+    "backHome": "返回主页"
+  }
+}

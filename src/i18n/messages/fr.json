@@ -1,1 +1,24 @@
-{}
+{
+  "loveTimer": {
+    "loading": "CHARGEMENT...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "Compte à rebours",
+    "defaultMessage": "Chaque seconde compte",
+    "days": "JOURS",
+    "timeUnits": "HEURES : MINUTES : SECONDES",
+    "easterEgg": "Tu aimes vraiment cliquer ! {count} clics !",
+    "hint": "Appuie et maintiens la carte pour montrer ton amour !",
+    "quotes": {
+      "cuddles": "Compte à rebours pour nos câlins !",
+      "together": "Bientôt nous serons ensemble à nouveau !",
+      "distance": "La distance est temporaire, l'amour est éternel !",
+      "closer": "Chaque seconde nous rapproche !",
+      "hug": "J'ai hâte de te serrer dans mes bras !"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "Cette page n'existe pas.",
+    "backHome": "Retour à l'accueil"
+  }
+}

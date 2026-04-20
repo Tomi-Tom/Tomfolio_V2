@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import Link from "next/link";
@@ -40,15 +41,8 @@ type Particle = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  Love quotes                                                       */
+/*  Love quotes (will be dynamically loaded via translation hook)     */
 /* ------------------------------------------------------------------ */
-const LOVE_QUOTES = [
-  "Counting down to our cuddles!",
-  "Soon we'll be together again!",
-  "Distance is temporary, love is forever!",
-  "Every second brings us closer!",
-  "Can't wait to hug you tight!",
-];
 
 /* ------------------------------------------------------------------ */
 /*  Time formatting                                                   */
@@ -72,6 +66,9 @@ function formatTime(ms: number) {
 /*  Main inner component (needs useSearchParams -> wrapped in Suspense)*/
 /* ------------------------------------------------------------------ */
 function LoveTimerContent() {
+  /* ---- Translation setup ---- */
+  const t = useTranslations("loveTimer");
+
   /* ---- Read config from search params ---- */
   const searchParams = useSearchParams();
 
@@ -85,8 +82,8 @@ function LoveTimerContent() {
     return new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
   })();
 
-  const title = searchParams.get("title") || "Countdown";
-  const subtitle = searchParams.get("message") || "Every second counts";
+  const title = searchParams.get("title") || t("defaultTitle");
+  const subtitle = searchParams.get("message") || t("defaultMessage");
 
   /* ---- State ---- */
   const [timeLeft, setTimeLeft] = useState(() => targetDate.getTime() - Date.now());
@@ -193,10 +190,11 @@ function LoveTimerContent() {
 
   /* ---- Derived values ---- */
   const timer = formatTime(timeLeft);
+  const quoteKeys = ["cuddles", "together", "distance", "closer", "hug"] as const;
   const currentQuote =
-    subtitle !== "Every second counts"
+    subtitle !== t("defaultMessage")
       ? subtitle
-      : LOVE_QUOTES[Math.abs(timer.days) % LOVE_QUOTES.length];
+      : t(`quotes.${quoteKeys[Math.abs(timer.days) % quoteKeys.length]}`);
 
   const formattedTarget = targetDate.toLocaleDateString("en-US", {
     year: "numeric",
@@ -234,7 +232,7 @@ function LoveTimerContent() {
           href="/"
           className="font-display text-sm tracking-[0.3em] text-gold transition-opacity hover:opacity-80"
         >
-          TBP.DEV
+          {t("brand")}
         </Link>
       </header>
 
@@ -362,7 +360,7 @@ function LoveTimerContent() {
                       {timer.days}
                     </motion.div>
                     <span className="hud-caption text-xs uppercase tracking-[0.25em] text-text-secondary">
-                      DAYS
+                      {t("days")}
                     </span>
                   </div>
 
@@ -380,7 +378,7 @@ function LoveTimerContent() {
                       {timer.timeString}
                     </motion.div>
                     <span className="hud-caption text-xs uppercase tracking-[0.25em] text-text-secondary">
-                      HOURS : MINS : SECS
+                      {t("timeUnits")}
                     </span>
                   </div>
                 </div>
@@ -416,7 +414,7 @@ function LoveTimerContent() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}
             >
-              You really love clicking! {clickCount} clicks!
+              {t("easterEgg", { count: clickCount })}
             </motion.p>
           )}
         </AnimatePresence>
@@ -428,7 +426,7 @@ function LoveTimerContent() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.5 }}
         >
-          Press and hold the card to show your love!
+          {t("hint")}
         </motion.p>
       </div>
 
@@ -469,11 +467,13 @@ function LoveTimerContent() {
 /*  Page export with Suspense boundary for useSearchParams             */
 /* ------------------------------------------------------------------ */
 export default function LoveTimerPage() {
+  const t = useTranslations("loveTimer");
+
   return (
     <Suspense
       fallback={
         <div className="flex min-h-screen items-center justify-center bg-void-deep">
-          <span className="hud-caption animate-pulse text-gold tracking-[0.3em]">LOADING...</span>
+          <span className="hud-caption animate-pulse text-gold tracking-[0.3em]">{t("loading")}</span>
         </div>
       }
     >

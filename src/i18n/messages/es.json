@@ -1,1 +1,24 @@
-{}
+{
+  "loveTimer": {
+    "loading": "CARGANDO...",
+    "brand": "TBP.DEV",
+    "defaultTitle": "Cuenta atrás",
+    "defaultMessage": "Cada segundo cuenta",
+    "days": "DÍAS",
+    "timeUnits": "HORAS : MINUTOS : SEGUNDOS",
+    "easterEgg": "¡Realmente te encanta hacer clic! ¡{count} clics!",
+    "hint": "¡Presiona y mantén la tarjeta para mostrar tu amor!",
+    "quotes": {
+      "cuddles": "¡Cuenta atrás para nuestros abrazos!",
+      "together": "¡Pronto estaremos juntos de nuevo!",
+      "distance": "¡La distancia es temporal, el amor es para siempre!",
+      "closer": "¡Cada segundo nos acerca más!",
+      "hug": "¡No puedo esperar a abrazarte fuerte!"
+    }
+  },
+  "notFound": {
+    "code": "404",
+    "message": "Esta página no existe.",
+    "backHome": "Volver al inicio"
+  }
+}
