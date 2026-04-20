@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -332,6 +333,13 @@ function saveHistory(history: Palette[]) {
 // ---------------------------------------------------------------------------
 
 const MODES: HarmonyMode[] = ["Random", "Analogous", "Complementary", "Triadic", "Monochromatic"];
+const MODE_KEYS: Record<HarmonyMode, string> = {
+  Random: "random",
+  Analogous: "analogous",
+  Complementary: "complementary",
+  Triadic: "triadic",
+  Monochromatic: "monochromatic",
+};
 
 const stripVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -343,6 +351,7 @@ const stripVariants = {
 };
 
 export default function ColorPalettePage() {
+  const t = useTranslations("playground.colorPalette");
   const [mode, setMode] = useState<HarmonyMode>("Random");
   const [palette, setPalette] = useState<Palette>(() =>
     generatePalette("Random", Array(5).fill(null))
@@ -369,9 +378,9 @@ export default function ColorPalettePage() {
 
   const copyText = useCallback(
     (text: string) => {
-      navigator.clipboard.writeText(text).then(() => showToast("Copied!"));
+      navigator.clipboard.writeText(text).then(() => showToast(t("toastCopied")));
     },
-    [showToast]
+    [showToast, t]
   );
 
   const generate = useCallback(() => {
@@ -384,8 +393,8 @@ export default function ColorPalettePage() {
     const next = [palette, ...history].slice(0, 5);
     setHistory(next);
     saveHistory(next);
-    showToast("Palette saved!");
-  }, [palette, history, showToast]);
+    showToast(t("toastSaved"));
+  }, [palette, history, showToast, t]);
 
   const restorePalette = useCallback((p: Palette) => {
     setPalette(p.map((c) => ({ ...c, locked: false })));
@@ -402,8 +411,8 @@ export default function ColorPalettePage() {
       return `  --palette-${i + 1}: ${hex};`;
     });
     const css = `:root {\n${lines.join("\n")}\n}`;
-    navigator.clipboard.writeText(css).then(() => showToast("CSS copied!"));
-  }, [palette, showToast]);
+    navigator.clipboard.writeText(css).then(() => showToast(t("toastCssCopied")));
+  }, [palette, showToast, t]);
 
   // Spacebar shortcut
   useEffect(() => {
@@ -430,9 +439,9 @@ export default function ColorPalettePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <SectionLabel>DESIGN TOOL</SectionLabel>
+          <SectionLabel>{t("category")}</SectionLabel>
           <h2 className="mt-3 text-display text-3xl sm:text-4xl font-display text-text-primary">
-            Color Palette Generator
+            {t("title")}
           </h2>
         </motion.div>
 
@@ -457,7 +466,7 @@ export default function ColorPalettePage() {
                 }
               `}
             >
-              {m}
+              {t(`modes.${MODE_KEYS[m]}`)}
             </button>
           ))}
         </motion.div>
@@ -502,7 +511,7 @@ export default function ColorPalettePage() {
                             : "text-white/40 hover:text-white/80 bg-black/20 opacity-0 group-hover:opacity-100"
                         }
                       `}
-                      title={color.locked ? "Unlock" : "Lock"}
+                      title={color.locked ? t("unlock") : t("lock")}
                     >
                       <LockIcon locked={color.locked} />
                     </button>
@@ -534,19 +543,19 @@ export default function ColorPalettePage() {
           transition={{ delay: 0.4 }}
         >
           <Button variant="gold" className="px-8 py-3 text-sm" onClick={generate}>
-            Generate
+            {t("generate")}
           </Button>
           <Button variant="ghost-gold" onClick={savePalette}>
-            Save Palette
+            {t("savePalette")}
           </Button>
           <Button variant="ghost-gold" onClick={exportCSS}>
-            Export CSS
+            {t("exportCSS")}
           </Button>
         </motion.div>
 
         {/* Keyboard hint */}
         <p className="text-center text-text-secondary text-[0.65rem] uppercase tracking-[0.2em] font-display mb-10 opacity-50">
-          Press SPACE to generate
+          {t("spaceHint")}
         </p>
 
         {/* Toast */}
@@ -576,7 +585,7 @@ export default function ColorPalettePage() {
             transition={{ delay: 0.5 }}
           >
             <h3 className="text-text-secondary font-display text-xs uppercase tracking-[0.2em] mb-3">
-              Saved Palettes
+              {t("savedPalettes")}
             </h3>
             <div className="flex flex-col gap-2">
               {history.map((saved, hi) => (
