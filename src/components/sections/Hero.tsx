@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -22,6 +23,7 @@ const fadeUp = {
 // chevronBounce is applied directly via animate prop, not variants
 
 export function Hero() {
+  const t = useTranslations("hero");
   const statsRef = useRef(null);
   const statsInView = useInView(statsRef, { once: true });
   const techCount = useCountUp(20, 2000, statsInView);
@@ -35,7 +37,7 @@ export function Hero() {
 
       <motion.div initial="hidden" animate="visible" className="relative max-w-5xl">
         <motion.div custom={0} variants={fadeUp}>
-          <SectionLabel>Portfolio</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
         </motion.div>
 
         {/* Name — oversized, with gold shimmer on the dot */}
@@ -79,7 +81,7 @@ export function Hero() {
           variants={fadeUp}
           className="mt-8 text-h3 font-display text-text-secondary font-light tracking-wide"
         >
-          UX Designer &amp; Developer
+          {t("tagline")}
         </motion.p>
 
         {/* Decorative gold line */}
@@ -98,8 +100,7 @@ export function Hero() {
           variants={fadeUp}
           className="mt-6 text-text-secondary max-w-xl text-base leading-relaxed"
         >
-          Crafting immersive digital experiences at the intersection of design precision and
-          technical craft.
+          {t("description")}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -115,7 +116,7 @@ export function Hero() {
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            View Work
+            {t("viewWork")}
           </Button>
           <a
             href="/assets/CV_TOM BARITEAU-PETER_EN.pdf"
@@ -123,7 +124,7 @@ export function Hero() {
             rel="noopener noreferrer"
             className="btn-ghost-gold"
           >
-            Download CV &rarr;
+            {t("downloadCV")} &rarr;
           </a>
         </motion.div>
 
@@ -138,7 +139,7 @@ export function Hero() {
           <div className="pr-8">
             <p className="font-display font-bold text-2xl text-gold tabular-nums">{techCount}+</p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
-              Technologies
+              {t("stats.technologies.label")}
             </p>
           </div>
 
@@ -147,9 +148,9 @@ export function Hero() {
 
           {/* Stat: Experience */}
           <div className="px-8">
-            <p className="font-display font-bold text-2xl text-text-primary">5yr</p>
+            <p className="font-display font-bold text-2xl text-text-primary">{t("stats.experience.value")}</p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
-              Experience
+              {t("stats.experience.label")}
             </p>
           </div>
 
@@ -158,9 +159,9 @@ export function Hero() {
 
           {/* Stat: Languages */}
           <div className="pl-8">
-            <p className="font-display font-bold text-2xl text-text-primary">FR&middot;EN</p>
+            <p className="font-display font-bold text-2xl text-text-primary">{t("stats.languages.value")}</p>
             <p className="hud-caption text-text-dim mt-1 uppercase tracking-widest text-[0.65rem]">
-              Languages
+              {t("stats.languages.label")}
             </p>
           </div>
         </motion.div>
@@ -174,7 +175,7 @@ export function Hero() {
         transition={{ delay: 1, duration: 0.5 }}
       >
         <span className="text-[0.6rem] uppercase tracking-[0.25em] text-text-dim font-display">
-          Scroll
+          {t("scroll")}
         </span>
         <motion.svg
           width="20"
