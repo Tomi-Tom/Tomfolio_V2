@@ -1,47 +1,22 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { motion, useInView } from "framer-motion";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
-interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-}
+const serviceItemKeys = ["uxDesign", "webDev", "threeDInteractive", "consulting"] as const;
 
-const services: Service[] = [
-  {
-    id: "ux-design",
-    title: "UX / UI Design",
-    description:
-      "User-centred interfaces crafted through research, wireframing, and iterative prototyping. From design systems to polished, production-ready mockups.",
-    icon: "🎨",
-  },
-  {
-    id: "web-dev",
-    title: "Web Development",
-    description:
-      "Performant, accessible web applications built with modern frameworks — React, Next.js, TypeScript — and best-practice architecture.",
-    icon: "⚡",
-  },
-  {
-    id: "3d-interactive",
-    title: "3D & Interactive",
-    description:
-      "Immersive experiences with Three.js and WebGL. From subtle ambient scenes to full interactive 3D visualisations.",
-    icon: "🌐",
-  },
-  {
-    id: "consulting",
-    title: "Consulting & Audit",
-    description:
-      "Technical audits, UX reviews, and strategic advice to improve your existing product's performance, accessibility, and user experience.",
-    icon: "🔍",
-  },
-];
+const serviceIcons: Record<(typeof serviceItemKeys)[number], string> = {
+  uxDesign: "🎨",
+  webDev: "⚡",
+  threeDInteractive: "🌐",
+  consulting: "🔍",
+};
+
+const discoveryFeatureKeys = ["first", "commitment", "noFees"] as const;
+const standardFeatureKeys = ["ongoing", "support", "flexible"] as const;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -57,6 +32,7 @@ const fadeUp = {
 };
 
 export function Services() {
+  const t = useTranslations("services");
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-20px" });
 
@@ -64,12 +40,12 @@ export function Services() {
     <section ref={ref} className="px-8 md:px-16 lg:px-24 py-24">
       <motion.div initial="hidden" animate={isInView ? "visible" : "hidden"}>
         <motion.div custom={0} variants={fadeUp}>
-          <SectionLabel>Services</SectionLabel>
+          <SectionLabel>{t("label")}</SectionLabel>
         </motion.div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, i) => (
-            <motion.div key={service.id} custom={i + 1} variants={fadeUp}>
+          {serviceItemKeys.map((key, i) => (
+            <motion.div key={key} custom={i + 1} variants={fadeUp}>
               <VoidPanel className="p-0 h-full overflow-hidden group">
                 {/* Gold gradient top border */}
                 <div className="h-1 w-full bg-gradient-to-r from-[var(--gold-dim)] via-[var(--gold)] to-[var(--gold-dim)]" />
@@ -77,14 +53,14 @@ export function Services() {
                 <div className="p-8">
                   {/* Icon circle */}
                   <div className="w-14 h-14 rounded-full border-2 border-[var(--gold-dim)] flex items-center justify-center text-2xl mb-6 group-hover:border-[var(--gold)] transition-colors duration-300 bg-[rgba(212,175,55,0.05)]">
-                    {service.icon}
+                    {serviceIcons[key]}
                   </div>
 
                   <h3 className="font-display font-semibold text-lg text-text-primary tracking-wide">
-                    {service.title}
+                    {t(`items.${key}.title`)}
                   </h3>
                   <p className="mt-3 text-text-secondary text-sm leading-relaxed">
-                    {service.description}
+                    {t(`items.${key}.description`)}
                   </p>
                   <a
                     href="#contact"
@@ -94,7 +70,7 @@ export function Services() {
                       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    Learn more
+                    {t("learnMore")}
                     <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">
                       &rarr;
                     </span>
@@ -106,8 +82,8 @@ export function Services() {
         </div>
 
         {/* --- Pricing --- */}
-        <motion.div custom={services.length + 2} variants={fadeUp} className="mt-20">
-          <SectionLabel>Pricing</SectionLabel>
+        <motion.div custom={serviceItemKeys.length + 2} variants={fadeUp} className="mt-20">
+          <SectionLabel>{t("pricing.label")}</SectionLabel>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* First engagement — Recommended */}
             <VoidPanel
@@ -121,13 +97,13 @@ export function Services() {
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
-                  Recommended
+                  {t("pricing.discovery.badge")}
                 </div>
               </div>
 
               <div className="p-10 pt-8">
                 <p className="hud-caption text-[var(--text-dim)] mb-6 tracking-[0.2em]">
-                  Discovery Rate
+                  {t("pricing.discovery.caption")}
                 </p>
                 <div className="flex items-baseline gap-3">
                   <span
@@ -136,29 +112,30 @@ export function Services() {
                       textShadow: "0 0 30px rgba(212,175,55,0.4), 0 0 60px rgba(212,175,55,0.15)",
                     }}
                   >
-                    300
+                    {t("pricing.discovery.amount")}
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-display text-xl text-[var(--gold)]">&euro;</span>
-                    <span className="hud-caption text-[var(--text-dim)]">/ day</span>
+                    <span className="font-display text-xl text-[var(--gold)]">
+                      {t("pricing.discovery.currency")}
+                    </span>
+                    <span className="hud-caption text-[var(--text-dim)]">
+                      {t("pricing.discovery.period")}
+                    </span>
                   </div>
                 </div>
                 <p className="mt-6 text-sm text-[var(--text-secondary)] leading-relaxed">
-                  Preferential rate for our first collaboration. Ideal for an initial project,
-                  audit, or proof of concept.
+                  {t("pricing.discovery.description")}
                 </p>
                 <ul className="mt-6 space-y-3">
-                  {["First project together", "Full commitment & quality", "No hidden fees"].map(
-                    (item) => (
-                      <li
-                        key={item}
-                        className="flex items-center gap-3 text-sm text-[var(--text-secondary)]"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 shadow-[0_0_6px_rgba(212,175,55,0.5)]" />
-                        {item}
-                      </li>
-                    )
-                  )}
+                  {discoveryFeatureKeys.map((featureKey) => (
+                    <li
+                      key={featureKey}
+                      className="flex items-center gap-3 text-sm text-[var(--text-secondary)]"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0 shadow-[0_0_6px_rgba(212,175,55,0.5)]" />
+                      {t(`pricing.discovery.features.${featureKey}`)}
+                    </li>
+                  ))}
                 </ul>
                 <a
                   href="#contact"
@@ -168,7 +145,7 @@ export function Services() {
                     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Get started
+                  {t("pricing.discovery.cta")}
                 </a>
               </div>
             </VoidPanel>
@@ -179,13 +156,13 @@ export function Services() {
 
               <div className="absolute top-3 right-0">
                 <div className="px-4 py-1.5 bg-[var(--void-elevated)] text-[var(--text-dim)] font-display text-[0.65rem] font-semibold tracking-[0.15em] uppercase rounded-l-full border border-r-0 border-[var(--border)]">
-                  Standard
+                  {t("pricing.standard.badge")}
                 </div>
               </div>
 
               <div className="p-10 pt-8">
                 <p className="hud-caption text-[var(--text-dim)] mb-6 tracking-[0.2em]">
-                  Standard Rate
+                  {t("pricing.standard.caption")}
                 </p>
                 <div className="flex items-baseline gap-3">
                   <span
@@ -194,29 +171,30 @@ export function Services() {
                       textShadow: "0 0 20px rgba(212,175,55,0.2)",
                     }}
                   >
-                    450
+                    {t("pricing.standard.amount")}
                   </span>
                   <div className="flex flex-col">
-                    <span className="font-display text-xl text-[var(--gold-dim)]">&euro;</span>
-                    <span className="hud-caption text-[var(--text-dim)]">/ day</span>
+                    <span className="font-display text-xl text-[var(--gold-dim)]">
+                      {t("pricing.standard.currency")}
+                    </span>
+                    <span className="hud-caption text-[var(--text-dim)]">
+                      {t("pricing.standard.period")}
+                    </span>
                   </div>
                 </div>
                 <p className="mt-6 text-sm text-[var(--text-secondary)] leading-relaxed">
-                  Standard daily rate for ongoing projects. Long-term partnerships and complex
-                  builds.
+                  {t("pricing.standard.description")}
                 </p>
                 <ul className="mt-6 space-y-3">
-                  {["Ongoing collaboration", "Priority support", "Flexible engagement"].map(
-                    (item) => (
-                      <li
-                        key={item}
-                        className="flex items-center gap-3 text-sm text-[var(--text-secondary)]"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-dim)] shrink-0" />
-                        {item}
-                      </li>
-                    )
-                  )}
+                  {standardFeatureKeys.map((featureKey) => (
+                    <li
+                      key={featureKey}
+                      className="flex items-center gap-3 text-sm text-[var(--text-secondary)]"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-dim)] shrink-0" />
+                      {t(`pricing.standard.features.${featureKey}`)}
+                    </li>
+                  ))}
                 </ul>
                 <a
                   href="#contact"
@@ -226,7 +204,7 @@ export function Services() {
                     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                   }}
                 >
-                  Contact me
+                  {t("pricing.standard.cta")}
                 </a>
               </div>
             </VoidPanel>
