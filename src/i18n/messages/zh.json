@@ -1,30 +1,740 @@
 {
+  "common": {
+    "languageMenu": {
+      "label": "语言",
+      "current": "当前语言"
+    }
+  },
+  "statusBar": {
+    "brandShort": "TBP.DEV",
+    "availability": "接受合作"
+  },
+  "chapterBar": {
+    "intro": "简介",
+    "about": "关于",
+    "skills": "技能",
+    "services": "服务",
+    "projects": "项目",
+    "testimonials": "推荐",
+    "playground": "实验场",
+    "contact": "联系"
+  },
+  "hudFrame": {
+    "label": "HUD 框架"
+  },
+  "footer": {
+    "label": "结束",
+    "headingLight": "让我们",
+    "headingBold": "共创",
+    "tagline": "可承接自由职业项目、合作机会与全职岗位。",
+    "cta": "联系我",
+    "githubAria": "GitHub",
+    "linkedinAria": "LinkedIn",
+    "copyright": "© 2024 Tom Bariteau-Peter"
+  },
+  "hero": {
+    "label": "作品集",
+    "tagline": "用户体验设计师与开发者",
+    "description": "于设计精度与技术工艺的交汇之处，打造沉浸式数字体验。",
+    "viewWork": "查看作品",
+    "downloadCV": "下载简历",
+    "scroll": "滚动",
+    "stats": {
+      "technologies": { "label": "技术", "value": "20+" },
+      "experience": { "label": "经验", "value": "5 年" },
+      "languages": { "label": "语言", "value": "FR·EN" }
+    }
+  },
+  "about": {
+    "numbering": "01",
+    "label": "关于",
+    "quote": "在美感与实用之间架起桥梁。",
+    "bio1": "我是常驻巴黎的 UX/UI 设计师与网页开发者，将设计精度与技术工艺相结合。从交互式网页应用到沉浸式 3D 界面，我打造充满生命力的数字体验。",
+    "bio2": "拥有 Epitech 教育背景及五年以上设计系统、前端开发与用户研究经验，我致力于在美感与实用之间架起桥梁。",
+    "currentLocation": "目前常驻巴黎，致力于设计思维与现代网页技术的交汇。",
+    "role": "UX / 开发",
+    "stats": {
+      "education": {
+        "label": "教育",
+        "value": "Epitech Paris"
+      },
+      "experience": {
+        "label": "经验",
+        "value": "5+ 年"
+      },
+      "languages": {
+        "label": "语言",
+        "value": "FR / EN"
+      },
+      "location": {
+        "label": "所在地",
+        "value": "巴黎，法国"
+      }
+    }
+  },
+  "skills": {
+    "numbering": "02",
+    "label": "技能",
+    "summary": "我日常使用的 {count} 项技术与工具。",
+    "categories": {
+      "frontend": {
+        "number": "01",
+        "label": "前端",
+        "description": "构建响应式、高性能与交互式的用户界面。"
+      },
+      "design": {
+        "number": "02",
+        "label": "设计",
+        "description": "打造直观体验与一致的视觉系统。"
+      },
+      "backend": {
+        "number": "03",
+        "label": "后端与工具",
+        "description": "API、数据库、基础设施与开发者工具链。"
+      }
+    },
+    "exploring": {
+      "number": "04",
+      "label": "正在探索"
+    },
+    "skillCount": "{count, plural, other {# 项技能}}"
+  },
+  "services": {
+    "label": "服务",
+    "items": {
+      "uxDesign": {
+        "title": "UX / UI 设计",
+        "description": "通过研究、线框图与迭代原型，打造以用户为中心的界面。从设计系统到精致的可上线视觉稿。"
+      },
+      "webDev": {
+        "title": "网页开发",
+        "description": "采用现代框架（React、Next.js、TypeScript）与最佳实践架构，构建高性能且无障碍的网页应用。"
+      },
+      "threeDInteractive": {
+        "title": "3D 与交互",
+        "description": "基于 Three.js 与 WebGL 的沉浸式体验。从微妙的氛围场景到完整的交互式 3D 可视化。"
+      },
+      "consulting": {
+        "title": "咨询与审计",
+        "description": "提供技术审计、UX 评审与战略建议，提升现有产品的性能、无障碍性与用户体验。"
+      }
+    },
+    "learnMore": "了解更多",
+    "pricing": {
+      "label": "定价",
+      "discovery": {
+        "badge": "推荐",
+        "caption": "首次合作价",
+        "amount": "300",
+        "currency": "€",
+        "period": "/ 天",
+        "description": "首次合作的优惠价格。适合首个项目、审计或概念验证。",
+        "features": {
+          "first": "首次合作项目",
+          "commitment": "全力投入与品质保证",
+          "noFees": "无隐藏费用"
+        },
+        "cta": "开始合作"
+      },
+      "standard": {
+        "badge": "标准",
+        "caption": "标准日费",
+        "amount": "450",
+        "currency": "€",
+        "period": "/ 天",
+        "description": "适用于持续项目的标准日费。涵盖长期合作与复杂构建。",
+        "features": {
+          "ongoing": "持续合作",
+          "support": "优先支持",
+          "flexible": "灵活合作模式"
+        },
+        "cta": "联系我"
+      }
+    }
+  },
+  "projects": {
+    "label": "项目",
+    "filterAll": "全部",
+    "viewProject": "查看项目",
+    "github": "GitHub",
+    "live": "在线",
+    "items": {
+      "portfolio": {
+        "title": "个人作品集 — tombp.fr",
+        "description": "采用 Three.js 线框齿轮、滚动动画与 Void & Gold 美学的现代作品集。"
+      },
+      "libertai": {
+        "title": "LibertAI — AI 平台",
+        "description": "为一家 AI 公司重新设计的企业网站——现代品牌形象，响应式且无障碍。"
+      },
+      "chuckforever": {
+        "title": "Chuck Forever — Calendrier ACN",
+        "description": "向 Chuck Norris 致敬的网站，配有定制日历系统、倒计时、语录、视频与传说页面。"
+      },
+      "defidecon": {
+        "title": "Défi de Con",
+        "description": "每日挑战平台，含连胜追踪、排行榜与管理后台。基于 Next.js 与 Supabase 构建。"
+      },
+      "codearena": {
+        "title": "Code Arena",
+        "description": "竞技编程平台，包含多难度等级挑战、得分追踪、连胜与排行榜。"
+      },
+      "tomuiplayground": {
+        "title": "Tom UI Playground",
+        "description": "基于浏览器的 UI 开发环境，配备 Monaco 代码编辑器、实时预览、文件浏览器与控制台。"
+      },
+      "pokerandom": {
+        "title": "Pokérandom — Starter Generator",
+        "description": "Pokémon 初始精灵抽选工具，支持单人对战 AI、本地双人抽选、队伍构建，配有受 DS 图鉴启发的复古像素 UI。"
+      },
+      "tomcraft": {
+        "title": "TomCraft",
+        "description": "受 Minecraft 启发、从零打造的体素沙盒。无限程序生成世界、9 种生物群系、20 余种带 AI 的生物、合成与生存玩法。"
+      },
+      "wolfenstom": {
+        "title": "Wolfenstom 3D",
+        "description": "受 Wolfenstein 3D 启发的蒸汽朋克 FPS。浏览器内的光线投射引擎，配有程序生成地图与蒸汽朋克武器。"
+      }
+    }
+  },
+  "contact": {
+    "label": "联系",
+    "heading": "让我们共建",
+    "tagline": "欢迎新项目、合作与有趣的交流。",
+    "form": {
+      "firstName": "名",
+      "firstNamePlaceholder": "John",
+      "lastName": "姓",
+      "lastNamePlaceholder": "Doe",
+      "email": "邮箱",
+      "emailPlaceholder": "john@example.com",
+      "phone": "电话",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "message": "留言",
+      "messagePlaceholder": "请告诉我您的项目……",
+      "submit": "发送留言",
+      "submitting": "发送中……"
+    },
+    "success": {
+      "title": "留言已发送",
+      "description": "我会尽快回复您。",
+      "sendAnother": "再发送一条留言"
+    },
+    "error": {
+      "title": "出错了",
+      "description": "请重试或直接通过邮件联系。",
+      "tryAgain": "重试"
+    },
+    "errors": {
+      "firstNameRequired": "请填写名",
+      "lastNameRequired": "请填写姓",
+      "emailInvalid": "请输入有效的邮箱地址",
+      "messageMinLength": "留言至少需 10 个字符"
+    },
+    "info": {
+      "heading": "联系信息",
+      "emailLabel": "邮箱",
+      "locationLabel": "所在地",
+      "locationValue": "法国，巴黎",
+      "coordinates": "48.8566° N, 2.3522° E",
+      "statusLabel": "状态",
+      "statusValue": "接受新项目"
+    },
+    "coordinates": {
+      "caption": "当前位置",
+      "lat": "纬度",
+      "lng": "经度",
+      "latValue": "48.8566°",
+      "lngValue": "2.3522°",
+      "timezone": "PARIS // CET (UTC+1)"
+    },
+    "socials": {
+      "heading": "社交媒体",
+      "githubAria": "GitHub",
+      "linkedinAria": "LinkedIn"
+    }
+  },
+  "playground": {
+    "intro": {
+      "numbering": "06",
+      "label": "实验场",
+      "headingLight": "交互式",
+      "headingBold": "实验",
+      "description": "探索 UI 模式、游戏逻辑与生产力工具的迷你应用——基于 React、Canvas 与 Framer Motion 构建。",
+      "backToPlayground": "返回实验场",
+      "miniApps": {
+        "lifeGame": {
+          "title": "生命游戏",
+          "description": "Conway 元胞自动机——观察图案如何演化",
+          "badge": "游戏"
+        },
+        "memory": {
+          "title": "记忆游戏",
+          "description": "三种难度的卡牌配对挑战",
+          "badge": "游戏"
+        },
+        "weather": {
+          "title": "天气应用",
+          "description": "查看世界各地的实时天气",
+          "badge": "实用工具"
+        },
+        "pomodoro": {
+          "title": "番茄钟",
+          "description": "搭配圆形进度条的专注时间管理",
+          "badge": "实用工具"
+        },
+        "taskBreaker": {
+          "title": "任务分解",
+          "description": "将棘手任务分解为细小步骤",
+          "badge": "ADHD 工具"
+        },
+        "moodTracker": {
+          "title": "情绪追踪",
+          "description": "追踪情绪、精力与专注度，获取洞察",
+          "badge": "ADHD 工具"
+        },
+        "typingTest": {
+          "title": "打字速度测试",
+          "description": "实时追踪准确率，测试您的 WPM",
+          "badge": "游戏"
+        },
+        "colorPalette": {
+          "title": "调色板",
+          "description": "通过五种模式生成和谐的配色",
+          "badge": "设计工具"
+        },
+        "snake": {
+          "title": "贪吃蛇",
+          "description": "金色美学的经典街机游戏",
+          "badge": "游戏"
+        },
+        "whiteNoise": {
+          "title": "环境音效",
+          "description": "8 通道白噪声混音器，助您深度专注",
+          "badge": "专注工具"
+        },
+        "pixelArt": {
+          "title": "像素画编辑器",
+          "description": "绘制、填充、撤销并导出像素画",
+          "badge": "创意"
+        }
+      }
+    },
+    "colorPalette": {
+      "category": "设计工具",
+      "title": "调色板生成器",
+      "modes": {
+        "random": "随机",
+        "analogous": "类比色",
+        "complementary": "互补色",
+        "triadic": "三色",
+        "monochromatic": "单色"
+      },
+      "generate": "生成",
+      "savePalette": "保存调色板",
+      "exportCSS": "导出 CSS",
+      "spaceHint": "按空格键生成",
+      "savedPalettes": "已保存的调色板",
+      "lock": "锁定",
+      "unlock": "解锁",
+      "toastCopied": "已复制！",
+      "toastSaved": "调色板已保存！",
+      "toastCssCopied": "CSS 已复制！"
+    },
+    "lifeGame": {
+      "category": "游戏",
+      "title": "生命游戏",
+      "description": "Conway 元胞自动机。点击格子播下生命之种，按下播放键，观察简单规则如何演化出复杂图案。",
+      "play": "播放",
+      "pause": "暂停",
+      "step": "单步",
+      "reset": "重置",
+      "soup": "随机填充",
+      "generation": "代数",
+      "population": "种群",
+      "density": "密度",
+      "grid": "网格",
+      "speed": "速度",
+      "cells": "细胞"
+    },
+    "memory": {
+      "category": "游戏",
+      "title": "记忆游戏",
+      "description": "用尽可能少的回合数找出所有匹配的卡牌对。",
+      "difficulty": {
+        "easy": "简单",
+        "medium": "中等",
+        "hard": "困难"
+      },
+      "turns": "回合",
+      "matches": "匹配",
+      "newGame": "新游戏",
+      "playAgain": "再玩一次",
+      "close": "关闭",
+      "win": {
+        "title": "恭喜！",
+        "description": "您用 {turns} 回合找到了全部 {pairs} 对卡牌。"
+      }
+    },
+    "moodTracker": {
+      "category": "ADHD 工具",
+      "title": "情绪与精力追踪",
+      "description": "追踪每日情绪、精力与专注水平，识别规律并获取洞察，有助于管理 ADHD 症状。",
+      "calendarView": "日历",
+      "insightsView": "洞察",
+      "addEntry": "+ 添加记录",
+      "addEntryShort": "添加记录",
+      "noEntriesForDate": "此日期暂无记录。",
+      "weeklyAverages": "本周平均",
+      "noEntriesThisWeek": "本周尚无记录。",
+      "activityFrequency": "活动频率",
+      "yourAverages": "您的平均",
+      "noEntriesYet": "尚无记录。请添加每日记录以查看洞察。",
+      "patternsInsights": "规律与洞察",
+      "needMoreEntries": "至少添加 3 条记录方可查看规律与洞察。",
+      "activityImpact": "活动影响",
+      "noActivityImpact": "尚无记录。请添加包含活动的每日记录以查看其影响。",
+      "noActivitiesRecorded": "尚未记录任何活动。",
+      "metrics": {
+        "mood": "情绪",
+        "energy": "精力",
+        "focus": "专注",
+        "averageMood": "平均情绪",
+        "averageEnergy": "平均精力",
+        "averageFocus": "平均专注"
+      },
+      "rangeLabels": {
+        "low": "低",
+        "neutral": "中性",
+        "high": "高",
+        "moderate": "中等",
+        "distracted": "分心",
+        "focused": "专注"
+      },
+      "metricLevel": "等级 {value}/5",
+      "notes": "备注",
+      "notesOptional": "备注（可选）",
+      "notesPlaceholder": "关于今天的其他想法……",
+      "edit": "编辑",
+      "delete": "删除",
+      "cancel": "取消",
+      "save": "保存",
+      "newEntry": "新记录",
+      "editEntry": "编辑记录",
+      "saveEntry": "保存记录",
+      "updateEntry": "更新记录",
+      "tagsHeading": "标签——您今天的感受？",
+      "activitiesHeading": "活动——您做了什么？",
+      "deleteEntryTitle": "删除记录？",
+      "deleteEntryConfirm": "确定要删除此记录吗？此操作无法撤销。",
+      "tableHeaders": {
+        "activity": "活动",
+        "count": "次数",
+        "mood": "情绪",
+        "energy": "精力",
+        "focus": "专注"
+      },
+      "moodLevels": {
+        "veryLow": "非常低",
+        "low": "低",
+        "neutral": "中性",
+        "good": "良好",
+        "great": "极佳"
+      },
+      "energyLevels": {
+        "exhausted": "精疲力竭",
+        "low": "低",
+        "moderate": "中等",
+        "energetic": "充沛",
+        "veryHigh": "非常高"
+      },
+      "focusLevels": {
+        "veryDistracted": "非常分心",
+        "distracted": "分心",
+        "moderate": "中等",
+        "focused": "专注",
+        "hyperfocused": "超专注"
+      },
+      "activities": {
+        "exercise": "运动",
+        "meditation": "冥想",
+        "work": "工作 / 学习",
+        "social": "社交",
+        "nature": "自然",
+        "reading": "阅读",
+        "gaming": "游戏",
+        "music": "音乐",
+        "creative": "创作",
+        "sleep": "良好睡眠",
+        "meds": "药物",
+        "nutrition": "营养"
+      },
+      "tags": {
+        "overwhelmed": "不堪重负",
+        "anxious": "焦虑",
+        "creative": "富有创意",
+        "productive": "高效",
+        "calm": "平静",
+        "frustrated": "沮丧",
+        "motivated": "充满动力",
+        "tired": "疲惫",
+        "hyperfocus": "超专注",
+        "distracted": "分心",
+        "procrastinating": "拖延",
+        "happy": "开心",
+        "stressed": "压力大",
+        "excited": "兴奋"
+      },
+      "insights": {
+        "needMore": "请添加更多记录以查看规律与洞察",
+        "topStates": "您最常见的状态是：{tags}",
+        "positiveActivities": "似乎能改善您状态的活动：{activities}",
+        "lowEnergy": "您似乎低能量的日子较多。建议尝试精力管理策略。",
+        "lowFocus": "您的专注度评分偏低。可探索一些有助于注意力的策略。",
+        "consistentTracking": "持续追踪将随着时间揭示更多规律与洞察"
+      }
+    },
+    "pixelArt": {
+      "category": "创意",
+      "title": "像素画编辑器",
+      "tools": {
+        "draw": "绘制",
+        "erase": "擦除",
+        "fill": "填充",
+        "pick": "取色"
+      },
+      "showGrid": "显示网格",
+      "hideGrid": "隐藏网格",
+      "undo": "撤销",
+      "redo": "重做",
+      "clear": "清空",
+      "confirm": "确认",
+      "cancel": "取消",
+      "exportPng": "导出 PNG",
+      "palette": "调色板",
+      "customColor": "自定义颜色",
+      "active": "当前"
+    },
+    "pomodoro": {
+      "category": "实用工具",
+      "title": "番茄钟",
+      "description": "通过定时工作与计划休息，保持专注与高效。完成四轮专注后获得长休息。",
+      "modes": {
+        "focus": "专注",
+        "shortBreak": "短休息",
+        "longBreak": "长休息"
+      },
+      "start": "开始",
+      "pause": "暂停",
+      "reset": "重置",
+      "skip": "跳过",
+      "stats": {
+        "label": "统计",
+        "completed": "{count, plural, other {个番茄钟已完成}}",
+        "currentMode": "当前模式",
+        "fullCycle": "完整循环",
+        "minutesAbbrev": "分"
+      },
+      "settings": {
+        "label": "设置",
+        "title": "计时时长",
+        "rangeHint": "设置时长（分钟，1 – 120）",
+        "focusDuration": "专注时长",
+        "shortBreak": "短休息",
+        "longBreak": "长休息",
+        "save": "保存",
+        "cancel": "取消",
+        "openAria": "打开设置",
+        "focusShort": "专注",
+        "shortShort": "短",
+        "longShort": "长",
+        "longBreakInterval": "每 {interval} 个专注阶段后长休息"
+      }
+    },
+    "snake": {
+      "category": "游戏",
+      "title": "贪吃蛇",
+      "stats": {
+        "score": "得分",
+        "best": "最佳",
+        "speed": "速度"
+      },
+      "startHint": "按空格键或点击以开始",
+      "controlsHint": "方向键 / WASD 控制方向",
+      "paused": "已暂停",
+      "gameOver": "游戏结束",
+      "playAgain": "再玩一次",
+      "play": "开始",
+      "pause": "暂停",
+      "footerHint": "空格键暂停 · 方向键或 WASD 控制方向"
+    },
+    "taskBreaker": {
+      "category": "ADHD 工具",
+      "title": "任务分解",
+      "description": "将棘手任务拆解为可管理的细小步骤。逐个勾选完成，见证进度成长。",
+      "tasksCompleted": "已完成 {completed} / {total} 项任务",
+      "completionRate": "完成率：{rate}%",
+      "myTasks": "我的任务",
+      "newTask": "新任务",
+      "filters": {
+        "all": "全部",
+        "active": "进行中",
+        "completed": "已完成"
+      },
+      "noTasks": "暂无任务。",
+      "createFirstTask": "创建您的第一个任务",
+      "completed": "已完成",
+      "addSteps": "+ 添加步骤",
+      "delete": "删除",
+      "progress": "进度",
+      "noStepsYet": "暂无步骤。请将此任务拆解为更小的部分！",
+      "addStepsCta": "添加步骤",
+      "selectTaskHint": "请从列表中选择任务，或创建新任务以开始。",
+      "createTask": "创建任务",
+      "tipsHeading": "提示",
+      "tips": {
+        "smallSteps": "将任务拆分为可在 5 – 15 分钟内完成的步骤。",
+        "easiestFirst": "从最简单的步骤开始，建立动力。",
+        "breakDownFurther": "若某一步骤仍显庞大，请进一步拆解。",
+        "celebrate": "每勾选一项都值得庆祝——进步即是进步。",
+        "reorder": "调整步骤顺序，让下一个行动始终位于顶端。"
+      },
+      "newTaskModal": {
+        "title": "新任务",
+        "taskTitleLabel": "任务标题",
+        "taskTitlePlaceholder": "例如：重新设计主页",
+        "cancel": "取消",
+        "create": "创建"
+      },
+      "addStepsModal": {
+        "title": "添加步骤",
+        "single": "单条",
+        "bulk": "批量（每行一条）",
+        "stepLabel": "步骤",
+        "stepPlaceholder": "例如：绘制线框图",
+        "stepsLabel": "步骤",
+        "stepsPlaceholder": "步骤一\n步骤二\n步骤三",
+        "cancel": "取消",
+        "add": "添加"
+      },
+      "moveUpAria": "上移",
+      "moveDownAria": "下移",
+      "deleteStepAria": "删除步骤",
+      "markCompleteAria": "标记完成",
+      "markIncompleteAria": "标记未完成",
+      "moreSteps": "+{count} 项更多……"
+    },
+    "typingTest": {
+      "category": "游戏",
+      "title": "打字速度测试",
+      "durationSeconds": "{seconds} 秒",
+      "keyFx": "按键音效",
+      "keyFxAria": "切换按键反馈",
+      "startHint": "开始打字以启动……",
+      "wpm": "WPM",
+      "accuracy": "准确率",
+      "timeLeft": "剩余时间",
+      "charactersTyped": "已输入 {count} 个字符",
+      "results": "结果",
+      "wordsPerMinute": "每分钟字数",
+      "characters": "字符",
+      "newPersonalBest": "刷新个人最佳！",
+      "firstScore": "首次成绩已记录！",
+      "bestScore": "最佳：{wpm} WPM",
+      "newGame": "新游戏"
+    },
+    "weather": {
+      "category": "实用工具",
+      "title": "天气应用",
+      "description": "查看全球各地的当前天气状况。收藏常用城市以便快速访问。",
+      "searchPlaceholder": "搜索城市……",
+      "search": "搜索",
+      "localTime": "当地时间：{time}",
+      "removeFromSaved": "从收藏中移除",
+      "saveLocation": "收藏位置",
+      "humidity": "湿度",
+      "wind": "风速",
+      "savedLocations": "已收藏位置",
+      "noSavedLocationsLine1": "尚未收藏任何位置。",
+      "noSavedLocationsLine2": "为城市加星即可添加至此。",
+      "remove": "移除"
+    },
+    "whiteNoise": {
+      "category": "专注工具",
+      "title": "环境音效",
+      "description": "混合环境音景，打造专属的专注环境。调节各通道音量，进入心流状态。",
+      "play": "播放",
+      "stop": "停止",
+      "playing": "播放中",
+      "stopped": "已停止",
+      "channelsActive": "{count, plural, other {# 个通道运行中}}",
+      "timer": "计时器",
+      "timerMinutes": "{minutes} 分钟",
+      "remaining": "剩余 {time}",
+      "master": "总音量",
+      "masterAria": "主音量",
+      "presets": "预设",
+      "presetLabels": {
+        "deepFocus": "深度专注",
+        "rainyDay": "雨天",
+        "natureWalk": "自然漫步",
+        "cozyEvening": "温馨夜晚"
+      },
+      "channels": {
+        "rain": "雨声",
+        "thunder": "雷声",
+        "ocean": "海浪",
+        "forest": "森林",
+        "fire": "篝火噼啪",
+        "wind": "风声",
+        "birds": "鸟鸣",
+        "coffee": "咖啡馆"
+      },
+      "channelVolumeAria": "{name} 音量",
+      "savedMixes": "已保存的混音",
+      "saveCurrentMix": "保存当前混音",
+      "noSavedMixes": "尚无保存的混音。打造您的完美组合并保存以备后用。",
+      "saveMixModalTitle": "保存混音",
+      "mixNamePlaceholder": "混音名称……",
+      "cancel": "取消",
+      "save": "保存",
+      "deleteMixAria": "删除 {name}"
+    }
+  },
   "loveTimer": {
-    "loading": "正在加载...",
+    "loading": "LOADING...",
     "brand": "TBP.DEV",
-    "defaultTitle": "倒计时",
-    "defaultMessage": "每一秒都很重要",
-    "days": "天",
-    "timeUnits": "小时 : 分钟 : 秒",
-    "easterEgg": "你真的很喜欢点击！{count} 次点击！",
-    "hint": "按住卡片以显示你的爱！",
+    "defaultTitle": "Countdown",
+    "defaultMessage": "Every second counts",
+    "days": "DAYS",
+    "timeUnits": "HOURS : MINS : SECS",
+    "easterEgg": "You really love clicking! {count} clicks!",
+    "hint": "Press and hold the card to show your love!",
     "quotes": {
-      "cuddles": "倒计时到我们的拥抱！",
-      "together": "很快我们就会重聚！",
-      "distance": "距离是短暂的，爱是永恒的！",
-      "closer": "每一秒都让我们更接近！",
-      "hug": "等不及要紧紧拥抱你了！"
+      "cuddles": "Counting down to our cuddles!",
+      "together": "Soon we'll be together again!",
+      "distance": "Distance is temporary, love is forever!",
+      "closer": "Every second brings us closer!",
+      "hug": "Can't wait to hug you tight!"
     }
   },
   "notFound": {
     "code": "404",
-    "message": "此页面不存在。",
-    "backHome": "返回主页"
+    "message": "This page doesn't exist.",
+    "backHome": "Back to Home"
   },
   "metadata": {
     "home": {
-      "title": "Tom Bariteau-Peter — 用户体验设计师与开发者",
-      "description": "Tom Bariteau-Peter 的作品集，巴黎的 UX/UI 设计师与网页开发者。打造沉浸式数字体验。"
+      "title": "Tom Bariteau-Peter — UX Designer & Developer",
+      "description": "Portfolio of Tom Bariteau-Peter, UX/UI designer and web developer based in Paris. Crafting immersive digital experiences."
+    },
+    "playground": {
+      "title": "实验场 — Tom Bariteau-Peter",
+      "description": "Tom Bariteau-Peter 的交互式迷你应用与实验。"
+    },
+    "loveTimer": {
+      "title": "Love Timer",
+      "description": "A small love timer."
     }
   }
 }
