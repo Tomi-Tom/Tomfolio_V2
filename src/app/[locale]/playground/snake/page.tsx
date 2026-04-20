@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -36,6 +37,7 @@ function randomFood(snake: Pos[]): Pos {
 
 /* ───────── component ───────── */
 export default function SnakePage() {
+  const t = useTranslations("playground.snake");
   /* refs */
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const lastTickRef = useRef<number>(0);
@@ -153,14 +155,14 @@ export default function SnakePage() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const onStart = (e: TouchEvent) => {
-      const t = e.touches[0];
-      touchStartRef.current = { x: t.clientX, y: t.clientY };
+      const touch = e.touches[0];
+      touchStartRef.current = { x: touch.clientX, y: touch.clientY };
     };
     const onEnd = (e: TouchEvent) => {
       if (!touchStartRef.current) return;
-      const t = e.changedTouches[0];
-      const dx = t.clientX - touchStartRef.current.x;
-      const dy = t.clientY - touchStartRef.current.y;
+      const touch = e.changedTouches[0];
+      const dx = touch.clientX - touchStartRef.current.x;
+      const dy = touch.clientY - touchStartRef.current.y;
       const absDx = Math.abs(dx);
       const absDy = Math.abs(dy);
       if (Math.max(absDx, absDy) < 20) {
@@ -289,7 +291,7 @@ export default function SnakePage() {
       // snake body
       const snake = snakeRef.current;
       snake.forEach((seg, i) => {
-        const t = i / Math.max(snake.length - 1, 1);
+        const ratio = i / Math.max(snake.length - 1, 1);
         const r = c * 0.42;
         const x = seg.x * c + (c - r * 2) / 2;
         const y = seg.y * c + (c - r * 2) / 2;
@@ -300,7 +302,7 @@ export default function SnakePage() {
           grad.addColorStop(0, GOLD_BRIGHT);
           grad.addColorStop(1, GOLD);
         } else {
-          const mix = 1 - t * 0.5;
+          const mix = 1 - ratio * 0.5;
           const hexLerp = (a: number, b: number) => Math.round(a + (b - a) * mix);
           const rr = hexLerp(160, 212),
             gg = hexLerp(133, 175),
@@ -416,20 +418,20 @@ export default function SnakePage() {
     >
       {/* header */}
       <div className="text-center space-y-2">
-        <SectionLabel>GAME</SectionLabel>
-        <h2 className="text-display font-display text-3xl md:text-4xl text-gold">Snake</h2>
+        <SectionLabel>{t("category")}</SectionLabel>
+        <h2 className="text-display font-display text-3xl md:text-4xl text-gold">{t("title")}</h2>
       </div>
 
       {/* stats */}
       <div className="flex gap-3">
         {[
-          { label: "Score", value: score },
-          { label: "Best", value: best },
-          { label: "Speed", value: speed },
+          { key: "score" as const, value: score },
+          { key: "best" as const, value: best },
+          { key: "speed" as const, value: speed },
         ].map((s) => (
-          <VoidPanel key={s.label} hoverable={false} className="px-4 py-2 text-center min-w-[80px]">
+          <VoidPanel key={s.key} hoverable={false} className="px-4 py-2 text-center min-w-[80px]">
             <p className="text-[0.6rem] uppercase tracking-[0.18em] text-text-secondary font-display">
-              {s.label}
+              {t(`stats.${s.key}`)}
             </p>
             <p className="text-gold text-lg font-display font-bold">{s.value}</p>
           </VoidPanel>
@@ -456,8 +458,8 @@ export default function SnakePage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <p className="text-gold font-display text-lg mb-2">Press SPACE or tap to start</p>
-            <p className="text-text-secondary text-xs font-display">Arrow keys / WASD to move</p>
+            <p className="text-gold font-display text-lg mb-2">{t("startHint")}</p>
+            <p className="text-text-secondary text-xs font-display">{t("controlsHint")}</p>
           </motion.div>
         )}
 
@@ -468,7 +470,7 @@ export default function SnakePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <p className="text-gold font-display text-2xl">Paused</p>
+            <p className="text-gold font-display text-2xl">{t("paused")}</p>
           </motion.div>
         )}
 
@@ -480,23 +482,23 @@ export default function SnakePage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
           >
-            <p className="text-gold font-display text-2xl">Game Over</p>
+            <p className="text-gold font-display text-2xl">{t("gameOver")}</p>
             <div className="flex gap-6 text-center">
               <div>
                 <p className="text-text-secondary text-xs uppercase tracking-widest font-display">
-                  Score
+                  {t("stats.score")}
                 </p>
                 <p className="text-gold text-3xl font-display font-bold">{score}</p>
               </div>
               <div>
                 <p className="text-text-secondary text-xs uppercase tracking-widest font-display">
-                  Best
+                  {t("stats.best")}
                 </p>
                 <p className="text-gold text-3xl font-display font-bold">{best}</p>
               </div>
             </div>
             <Button variant="gold" onClick={startGame}>
-              Play Again
+              {t("playAgain")}
             </Button>
           </motion.div>
         )}
@@ -512,7 +514,7 @@ export default function SnakePage() {
             className="w-14 h-14 text-[0.6rem] p-0 font-display"
             onClick={togglePause}
           >
-            {gameState === "paused" ? "PLAY" : "PAUSE"}
+            {gameState === "paused" ? t("play") : t("pause")}
           </Button>
           <DirButton dir="RIGHT" label="\u25B6" />
         </div>
@@ -521,7 +523,7 @@ export default function SnakePage() {
 
       {/* footer hint */}
       <p className="text-text-secondary text-xs font-display tracking-wide">
-        SPACE to pause &middot; Arrow keys or WASD to steer
+        {t("footerHint")}
       </p>
     </motion.main>
   );
