@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -23,12 +24,6 @@ const DEFAULT_SETTINGS: Settings = {
   focus: 25,
   shortBreak: 5,
   longBreak: 15,
-};
-
-const MODE_LABELS: Record<TimerMode, string> = {
-  focus: "Focus",
-  shortBreak: "Short Break",
-  longBreak: "Long Break",
 };
 
 const LONG_BREAK_INTERVAL = 4;
@@ -62,6 +57,7 @@ function SettingsModal({
   onSave: (s: Settings) => void;
   onClose: () => void;
 }) {
+  const t = useTranslations("playground.pomodoro");
   const [draft, setDraft] = useState<Settings>({ ...settings });
 
   const update = (key: keyof Settings, value: string) => {
@@ -91,18 +87,18 @@ function SettingsModal({
       >
         <VoidPanel hoverable={false} className="p-8 space-y-6">
           <div>
-            <SectionLabel>SETTINGS</SectionLabel>
+            <SectionLabel>{t("settings.label")}</SectionLabel>
             <h3 className="text-xl font-display font-bold text-text-primary mt-2">
-              Timer Durations
+              {t("settings.title")}
             </h3>
             <p className="text-text-secondary text-sm mt-1">
-              Set duration in minutes (1 &ndash; 120)
+              {t("settings.rangeHint")}
             </p>
           </div>
 
           <div className="space-y-4">
             <Input
-              label="Focus Duration"
+              label={t("settings.focusDuration")}
               type="number"
               min={1}
               max={120}
@@ -110,7 +106,7 @@ function SettingsModal({
               onChange={(e) => update("focus", e.target.value)}
             />
             <Input
-              label="Short Break"
+              label={t("settings.shortBreak")}
               type="number"
               min={1}
               max={120}
@@ -118,7 +114,7 @@ function SettingsModal({
               onChange={(e) => update("shortBreak", e.target.value)}
             />
             <Input
-              label="Long Break"
+              label={t("settings.longBreak")}
               type="number"
               min={1}
               max={120}
@@ -136,10 +132,10 @@ function SettingsModal({
                 onClose();
               }}
             >
-              Save
+              {t("settings.save")}
             </Button>
             <Button variant="ghost-gold" className="flex-1" onClick={onClose}>
-              Cancel
+              {t("settings.cancel")}
             </Button>
           </div>
         </VoidPanel>
@@ -175,6 +171,7 @@ function GearIcon() {
 /* ------------------------------------------------------------------ */
 
 export default function PomodoroPage() {
+  const t = useTranslations("playground.pomodoro");
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   const [mode, setMode] = useState<TimerMode>("focus");
   const [timeLeft, setTimeLeft] = useState(getDurationSeconds("focus", DEFAULT_SETTINGS));
@@ -289,11 +286,10 @@ export default function PomodoroPage() {
       <motion.div {...fadeUp} className="space-y-10">
         {/* Header */}
         <div>
-          <SectionLabel>UTILITY</SectionLabel>
-          <h2 className="text-display mt-3">Pomodoro Timer</h2>
+          <SectionLabel>{t("category")}</SectionLabel>
+          <h2 className="text-display mt-3">{t("title")}</h2>
           <p className="text-text-secondary mt-2 max-w-xl">
-            Stay focused and productive with timed work sessions and scheduled breaks. Complete four
-            focus rounds for a long break.
+            {t("description")}
           </p>
         </div>
 
@@ -305,7 +301,7 @@ export default function PomodoroPage() {
               variant={mode === m ? "gold" : "ghost-gold"}
               onClick={() => handleModeSelect(m)}
             >
-              {MODE_LABELS[m]}
+              {t(`modes.${m}`)}
             </Button>
           ))}
         </div>
@@ -371,7 +367,7 @@ export default function PomodoroPage() {
               </span>
               {/* Mode label */}
               <span className="text-text-secondary text-sm mt-2 font-display tracking-wider uppercase">
-                {MODE_LABELS[mode]}
+                {t(`modes.${mode}`)}
               </span>
             </div>
           </motion.div>
@@ -380,13 +376,13 @@ export default function PomodoroPage() {
         {/* Controls */}
         <div className="flex justify-center gap-3">
           <Button variant="gold" onClick={handleStartPause}>
-            {isRunning ? "Pause" : "Start"}
+            {isRunning ? t("pause") : t("start")}
           </Button>
           <Button variant="ghost-gold" onClick={handleReset}>
-            Reset
+            {t("reset")}
           </Button>
           <Button variant="ghost-gold" onClick={handleSkip}>
-            Skip
+            {t("skip")}
           </Button>
         </div>
 
@@ -394,28 +390,28 @@ export default function PomodoroPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Stats */}
           <VoidPanel hoverable={false} className="p-6 space-y-4">
-            <SectionLabel>STATS</SectionLabel>
+            <SectionLabel>{t("stats.label")}</SectionLabel>
 
             <div className="flex items-baseline gap-3 mt-3">
               <span className="text-5xl font-bold font-display text-gold">
                 {completedPomodoros}
               </span>
               <span className="text-text-secondary text-sm">
-                pomodoro{completedPomodoros !== 1 ? "s" : ""} completed
+                {t("stats.completed", { count: completedPomodoros })}
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">Current Mode</p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">{t("stats.currentMode")}</p>
                 <p className="text-text-primary font-display font-semibold mt-1">
-                  {MODE_LABELS[mode]}
+                  {t(`modes.${mode}`)}
                 </p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">Full Cycle</p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">{t("stats.fullCycle")}</p>
                 <p className="text-text-primary font-display font-semibold mt-1">
-                  ~{totalEstimateMin} min
+                  ~{totalEstimateMin} {t("stats.minutesAbbrev")}
                 </p>
               </div>
             </div>
@@ -424,11 +420,11 @@ export default function PomodoroPage() {
           {/* Settings Preview */}
           <VoidPanel hoverable={false} className="p-6 space-y-4">
             <div className="flex items-center justify-between">
-              <SectionLabel>SETTINGS</SectionLabel>
+              <SectionLabel>{t("settings.label")}</SectionLabel>
               <button
                 onClick={() => setShowSettings(true)}
                 className="text-text-secondary hover:text-gold transition-colors cursor-pointer"
-                aria-label="Open settings"
+                aria-label={t("settings.openAria")}
               >
                 <GearIcon />
               </button>
@@ -436,17 +432,17 @@ export default function PomodoroPage() {
 
             <div className="grid grid-cols-3 gap-4 mt-3">
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">Focus</p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">{t("settings.focusShort")}</p>
                 <p className="text-gold font-display font-bold text-lg mt-1">{settings.focus}m</p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">Short</p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">{t("settings.shortShort")}</p>
                 <p className="text-gold font-display font-bold text-lg mt-1">
                   {settings.shortBreak}m
                 </p>
               </div>
               <div>
-                <p className="text-text-secondary text-xs uppercase tracking-wider">Long</p>
+                <p className="text-text-secondary text-xs uppercase tracking-wider">{t("settings.longShort")}</p>
                 <p className="text-gold font-display font-bold text-lg mt-1">
                   {settings.longBreak}m
                 </p>
@@ -454,7 +450,7 @@ export default function PomodoroPage() {
             </div>
 
             <p className="text-text-secondary text-xs pt-1">
-              Long break every {LONG_BREAK_INTERVAL} focus sessions
+              {t("settings.longBreakInterval", { interval: LONG_BREAK_INTERVAL })}
             </p>
           </VoidPanel>
         </div>
