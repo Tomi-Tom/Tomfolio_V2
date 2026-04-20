@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { VoidPanel } from "@/components/ui/VoidPanel";
 import { Button } from "@/components/ui/Button";
 
@@ -105,6 +106,7 @@ const fadeUp = {
    COMPONENT
    ══════════════════════════════════════════════════════════ */
 export default function LifeGamePage() {
+  const t = useTranslations("playground.lifeGame");
   const theme = useTheme();
   const deadColor = theme === "light" ? DEAD_LIGHT : DEAD_DARK;
 
@@ -273,11 +275,10 @@ export default function LifeGamePage() {
     >
       {/* Header */}
       <header className="flex flex-col gap-3">
-        <span className="section-label">Game</span>
-        <h2 className="font-display text-h2 text-[var(--text-primary)]">Game of Life</h2>
+        <span className="section-label">{t("category")}</span>
+        <h2 className="font-display text-h2 text-[var(--text-primary)]">{t("title")}</h2>
         <p className="text-[var(--text-secondary)] max-w-xl leading-relaxed">
-          Conway&apos;s cellular automaton. Click cells to seed life, then press play and watch
-          complexity emerge from simple rules.
+          {t("description")}
         </p>
       </header>
 
@@ -316,7 +317,7 @@ export default function LifeGamePage() {
 
             {/* Generation */}
             <div className="flex flex-col gap-1">
-              <span className="section-label">Generation</span>
+              <span className="section-label">{t("generation")}</span>
               <span className="font-display text-[2rem] font-bold leading-none text-gold">
                 {generation}
               </span>
@@ -324,7 +325,7 @@ export default function LifeGamePage() {
 
             {/* Population */}
             <div className="flex flex-col gap-1">
-              <span className="section-label">Population</span>
+              <span className="section-label">{t("population")}</span>
               <span className="font-display text-[2rem] font-bold leading-none text-gold">
                 {pop}
               </span>
@@ -332,7 +333,7 @@ export default function LifeGamePage() {
 
             {/* Density */}
             <div className="flex flex-col gap-1">
-              <span className="section-label">Density</span>
+              <span className="section-label">{t("density")}</span>
               <span className="font-display text-[2rem] font-bold leading-none text-gold">
                 {density}%
               </span>
@@ -340,9 +341,9 @@ export default function LifeGamePage() {
 
             {/* Grid info */}
             <div className="flex flex-col gap-1 pt-3 border-t border-[var(--border)]">
-              <span className="section-label">Grid</span>
+              <span className="section-label">{t("grid")}</span>
               <span className="font-display text-sm text-[var(--text-secondary)]">
-                {gridSize} &times; {gridSize} ({totalCells} cells)
+                {gridSize} &times; {gridSize} ({totalCells} {t("cells")})
               </span>
             </div>
           </VoidPanel>
@@ -355,16 +356,16 @@ export default function LifeGamePage() {
           {/* Playback */}
           <div className="flex items-center gap-2">
             <Button variant="gold" onClick={handlePlayPause}>
-              {running ? "Pause" : "Play"}
+              {running ? t("pause") : t("play")}
             </Button>
             <Button variant="ghost-gold" onClick={handleStep} disabled={running}>
-              Step
+              {t("step")}
             </Button>
             <Button variant="ghost-gold" onClick={handleReset}>
-              Reset
+              {t("reset")}
             </Button>
             <Button variant="ghost-gold" onClick={handleSoup}>
-              Soup
+              {t("soup")}
             </Button>
           </div>
 
@@ -373,7 +374,7 @@ export default function LifeGamePage() {
 
           {/* Grid size */}
           <div className="flex items-center gap-2">
-            <span className="section-label whitespace-nowrap">Grid</span>
+            <span className="section-label whitespace-nowrap">{t("grid")}</span>
             <Button
               variant="ghost-gold"
               className="!px-3 !py-1"
@@ -400,7 +401,7 @@ export default function LifeGamePage() {
 
           {/* Speed */}
           <div className="flex items-center gap-2">
-            <span className="section-label whitespace-nowrap">Speed</span>
+            <span className="section-label whitespace-nowrap">{t("speed")}</span>
             <Button
               variant="ghost-gold"
               className="!px-3 !py-1"
